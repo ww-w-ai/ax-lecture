@@ -1,0 +1,17 @@
+# OS
+.DS_Store
+
+# 바이너리·원본 발표자료는 공개 레포에 두지 않음 (별도 관리)
+*.pdf
+*.key
+*.pptx
+*.docx
+*.hwp
+*.hwpx
+*.mp4
+*.mov
+*.zip
+
+# 내부 전용 (실수 커밋 방지)
+*설계서*
+*CONFIDENTIAL*
