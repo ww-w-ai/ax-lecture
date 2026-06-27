@@ -15,8 +15,8 @@ licensed under MIT; see `LICENSE`) — is licensed under
   indicate if changes were made.
 
 ## Suggested attribution
-> "AX Lecture" by DubDubDub Corp. (ww-w.ai), based on a lecture given at KAIST —
-> licensed under CC BY 4.0.
+> "AX Lecture" by DubDubDub Corp. (ww-w.ai), prepared for an invited guest lecture
+> at KAIST — licensed under CC BY 4.0.
 
 ## Full text
 - Legal code: https://creativecommons.org/licenses/by/4.0/legalcode
