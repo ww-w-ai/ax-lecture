@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>P19 — 그 입력이 담기는 그릇 = 콘텍스트 윈도우</title>
+<link rel="stylesheet" href="slides.css">
+</head>
+<body>
+<div class="fit">
+  <section class="slide light" id="P19">
+                <style>
+                  /* ── 페이지 고유 CSS (마스터 표준 override) ── */
+                  #P19 .s-title{ font-size:60px; line-height:1.200; }
+                  #P19 .s-body{ width:840px; top:320px; }
+                  #P19 .s-illust{ right:120px; top:150px; width:680px; }   /* final/P19 콘텍스트 윈도우 도식 일러스트 */
+                </style>
+            
+                <h1 class="s-title" style="inset: 120px auto auto 120px;"><span style="font-size: 62px;"><span style="font-size: 64px;"><span style="font-size: 66px;"><span style="font-size: 68px;"><span style="font-size: 70px;"><span style="font-size: 72px;"><span style="font-size: 74px;"><span style="font-size: 76px;"><span style="font-size: 78px;"><span style="font-size: 80px;">입력이 담기는 그릇 = 콘텍스트 윈도우</span></span></span></span></span></span></span></span></span></span></h1>
+            
+                <img class="s-illust" src="assets/P19-illust.png" alt="" style="inset: 256px auto auto 1182px; width: 618px; height: auto;">
+            
+                <div class="s-body" style="inset: 319px auto auto 120px; width: 981px;">
+                  <div class="s-bullet">
+                    <span class="dot"></span>
+                    <span class="btxt"><span style="font-weight: bold;"><span class="hl">콘텍스트 윈도우</span></span> : 언어 모델이 <span class="acc" style=""><span style="color: rgb(0, 0, 0); font-weight: normal;">한 번에 볼 수 있는</span><span style="color: rgb(0, 0, 0); font-weight: 400;"><br></span></span><span class="acc" style="color: rgb(230, 0, 18);">입력의 최대 크기</span> (예: 100만 토큰)<br></span>
+                  </div>
+                  <div class="s-bullet">
+                    <span class="dot"></span>
+                    <span class="btxt"><span style="font-weight: bold;">콘텍스트</span> :&nbsp;<span class="acc2">3개 표면 </span>(system · tools · messages) 을 모두 합쳐서 저장</span></div>
+                  <div class="s-bullet">
+                    <span class="dot"></span>
+                    <span class="btxt"><span class="hl">안정 정보<span style="font-weight: normal;">(앞)</span> → 동적 정보<span style="font-weight: normal;">(뒤)</span>&nbsp;</span><span style="background-color: rgb(255, 225, 90); font-weight: 600;">→ 메시지</span><span style="background-color: rgb(255, 225, 90);">(점점 쌓임)<br></span>순으로 저장한다.</span>
+                  </div>
+                </div>
+            
+                <div class="s-footer">
+                  <span>주식회사 덥덥덥 · ww-w.ai</span>
+                  <span class="s-pagenum">19</span>
+                </div>
+              </section>
+</div>
+</body>
+</html>

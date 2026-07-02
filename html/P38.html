@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>P38 — 7-Layer dataFlow QA</title>
+<link rel="stylesheet" href="slides.css">
+</head>
+<body>
+<div class="fit">
+  <!-- P38 [신규·도식] 7-Layer dataFlow QA (S1 게이트, 기능 간 통합 흐름). 순수 HTML. -->
+  <section class="slide light" id="P38">
+    <style>
+      #P38 .s-title{ font-size:64px; }
+      #P38 .s-subtitle{ top:216px; font-size:40px; color:var(--muted); font-weight:600; }
+
+      /* 고정 위치 — flow + 장점 섹션을 콘텐츠 영역에 균형 배치 */
+      #P38 .flow{ position:absolute; left:120px; top:356px; width:1680px;
+        display:flex; align-items:center; justify-content:space-between; }
+      #P38 .node{ flex:none; width:196px; display:flex; flex-direction:column; align-items:center; gap:10px;
+        padding:22px 10px; border-radius:16px; background:#fff; border:1px solid var(--rule); }
+      #P38 .node.end{ background:var(--c1-soft); border-color:var(--c1); }
+      #P38 .node .n{ width:38px; height:38px; border-radius:50%; background:var(--c2); color:#fff;
+        display:flex; align-items:center; justify-content:center; font-size:22px; font-weight:800; }
+      #P38 .node.end .n{ background:var(--c1); }
+      #P38 .node .ic{ width:70px; height:70px; object-fit:contain; margin:2px 0; }
+      #P38 .node .lb{ font-size:25px; font-weight:700; color:var(--text); }
+      #P38 .node .en{ font-size:16px; color:var(--muted); font-weight:600; letter-spacing:.02em; }
+      #P38 .arw{ flex:none; font-size:34px; font-weight:800; color:var(--c1); }
+
+      /* 7-Layer QA 장점 3섹션 */
+      #P38 .adv{ position:absolute; left:120px; top:629px; width:1680px; display:flex; gap:24px; }
+      #P38 .acard{ flex:1; padding:24px 28px; border-radius:14px; background:#F6F6F4;
+        border-left:4px solid var(--c1); }
+      #P38 .acard .h{ font-size:25px; font-weight:800; color:var(--c1); margin-bottom:8px; }
+      #P38 .acard .b{ font-size:22px; color:var(--secondary); font-weight:500; line-height:1.45; }
+
+      #P38 .keymsg .msg{ font-size:29px; font-weight:600; color:var(--text); line-height:1.35; }
+      #P38 .keymsg .msg b{ color:var(--c1); }
+    </style>
+
+    <h1 class="s-title">Sprint 개념 ③ — 7-Layer dataFlow QA</h1>
+    <div class="s-subtitle">기능 간 데이터가 새지 않는가 — 눌러서 DB 저장, 다시 화면까지 전 구간을 훑는다</div>
+
+    <div class="flow">
+      <div class="node end"><span class="n">1</span><img class="ic" src="assets/P38-ic1.png" alt=""><span class="lb">화면</span><span class="en">UI</span></div>
+      <span class="arw">→</span>
+      <div class="node"><span class="n">2</span><img class="ic" src="assets/P38-ic2.png" alt=""><span class="lb">클라이언트</span><span class="en">Client</span></div>
+      <span class="arw">→</span>
+      <div class="node"><span class="n">3</span><img class="ic" src="assets/P38-ic3.png" alt=""><span class="lb">API</span><span class="en">Server</span></div>
+      <span class="arw">→</span>
+      <div class="node"><span class="n">4</span><img class="ic" src="assets/P38-ic4.png" alt=""><span class="lb">검증</span><span class="en">Validation</span></div>
+      <span class="arw">→</span>
+      <div class="node"><span class="n">5</span><img class="ic" src="assets/P38-ic5.png" alt=""><span class="lb">DB</span><span class="en">저장</span></div>
+      <span class="arw">→</span>
+      <div class="node"><span class="n">6</span><img class="ic" src="assets/P38-ic6.png" alt=""><span class="lb">응답</span><span class="en">Response</span></div>
+      <span class="arw">→</span>
+      <div class="node end"><span class="n">7</span><img class="ic" src="assets/P38-ic7.png" alt=""><span class="lb">화면</span><span class="en">UI</span></div>
+    </div>
+
+    <div class="adv">
+      <div class="acard"><div class="h">통합 QA</div><div class="b">부분적으로는 실행되는데 이어지면 깨지는 결함을 전체 flow를 순회하며 파악</div></div>
+      <div class="acard"><div class="h">어디서 샜는지</div><div class="b">체계적으로 7개 구간을 정의하고 어느 단계에서 무결성이 깨졌는지 위치를 특정 → 빠른 수정</div></div>
+      <div class="acard"><div class="h">자동 검증</div><div class="b">사람이 관여하지 않고 매 스프린트, 정해진 전 구간을 자동으로 훑는다 — 수동 QA 스크립트 불필요</div></div>
+    </div>
+
+    <div class="keymsg">
+      <span class="tag">MESSAGE</span>
+      <span class="msg">부분적으로는 실행 되는데 실제 이어서 실행하면 깨진다 — 그걸 막는 <b>통합 흐름 검증</b>. 목표는 100% 완성!</span>
+    </div>
+
+    <div class="s-footer">
+      <span>주식회사 덥덥덥 · ww-w.ai</span>
+      <span class="s-pagenum">38</span>
+    </div>
+  </section>
+</div>
+</body>
+</html>

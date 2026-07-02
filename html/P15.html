@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>P15 — 같은 질문에도 답이 매번 다른 이유</title>
+<link rel="stylesheet" href="slides.css">
+</head>
+<body>
+<div class="fit">
+  <section class="slide light" id="P15">
+    <style>
+      /* ── 페이지 고유 CSS ── */
+      #P15 .s-body{ width:940px; }
+      #P15 .s-illust{ left:1187px; right:auto; top:333px; width:613px; }   /* final/P15 우측 도식 (Input→Probability→3출력) — 라이브 편집 위치 */
+
+      /* 옵션 3종 카드 (좌측 절반 — 우측엔 일러스트) */
+      #P15 .opt-card{ position:absolute; left:120px; top:620px; width:940px;
+        border:2px solid var(--c1); border-radius:20px; overflow:hidden; background:#fff; }
+      #P15 .opt-head{ background:var(--c1); color:#fff; font-size:28px; font-weight:700;
+        text-align:center; padding:16px 0; letter-spacing:.01em; }
+      #P15 .opt-cols{ display:flex; }
+      #P15 .opt-col{ flex:1; padding:24px 22px; }
+      #P15 .opt-col + .opt-col{ border-left:1px solid var(--rule); }
+      #P15 .opt-name{ display:flex; align-items:center; gap:11px; font-size:26px; font-weight:800;
+        margin-bottom:13px; }
+      #P15 .opt-1 .opt-name{ color:var(--c1); }
+      #P15 .opt-2 .opt-name{ color:var(--c2); }
+      #P15 .opt-3 .opt-name{ color:var(--c3-deep); }
+      #P15 .opt-badge{ width:38px; height:38px; border-radius:10px; flex:none; color:#fff;
+        display:flex; align-items:center; justify-content:center; font-size:22px; font-weight:800; }
+      #P15 .opt-1 .opt-badge{ background:var(--c1); }
+      #P15 .opt-2 .opt-badge{ background:var(--c2); }
+      #P15 .opt-3 .opt-badge{ background:var(--c3); }
+      #P15 .opt-desc{ font-size:22px; line-height:1.4; color:var(--secondary); }
+    </style>
+
+    <h1 class="s-title">같은 질문에도 답이 매번 다른 이유</h1>
+
+    <img class="s-illust" src="assets/P15-illust.png" alt="">
+
+    <div class="s-body">
+      <div class="s-bullet">
+        <span class="dot"></span>
+        <span class="btxt">⑤단계에서 <span class="acc">확률로 뽑기</span> 때문. 1등 토큰만 고르는 게 아니라 분포에서 <span class="hl">샘플링</span> → 매번 미세하게 달라진다.</span>
+      </div>
+      <div class="s-bullet">
+        <span class="dot"></span>
+        <span class="btxt">이걸 <span class="acc">운영자(호출자)가 API 옵션으로 조정</span>할 수 있다.</span>
+      </div>
+    </div>
+
+    <div class="opt-card">
+      <div class="opt-head">운영자 / 호출자가 지정하는 옵션 3종</div>
+      <div class="opt-cols">
+        <div class="opt-col opt-1">
+          <div class="opt-name"><span class="opt-badge">T</span>Temperature</div>
+          <div class="opt-desc">확률 분포를 좁게/넓게 만드는 ‘나누기 값’</div>
+        </div>
+        <div class="opt-col opt-2">
+          <div class="opt-name"><span class="opt-badge">↻</span>반복 페널티</div>
+          <div class="opt-desc">이미 나온 토큰의 점수를 깎아 같은 말 되풀이를 억제</div>
+        </div>
+        <div class="opt-col opt-3">
+          <div class="opt-name"><span class="opt-badge">±</span>logit bias</div>
+          <div class="opt-desc">특정 토큰에 가점·감점, 또는 아예 탈락(−∞)시켜 강제 제어</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="s-footer">
+      <span>주식회사 덥덥덥 · ww-w.ai</span>
+      <span class="s-pagenum">15</span>
+    </div>
+  </section>
+</div>
+</body>
+</html>

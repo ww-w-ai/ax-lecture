@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>P26 — claude-code-token-saver</title>
+<link rel="stylesheet" href="slides.css">
+</head>
+<body>
+<div class="fit">
+  <section class="slide light" id="P26">
+    <style>
+      /* ── 페이지 고유 (마스터 표준 override) ── */
+      #P26 .s-title{ font-size:68px; line-height:1.18; }
+      #P26 .s-bullet{ font-size:39px; }   /* 불릿 크기 축소 — 줄간격은 .btxt unitless(1.444)라 자동 비례 */
+      #P26 .s-sub-red{ position:absolute; left:120px; top:236px;
+        color:var(--c1); font-weight:700; font-size:40px; letter-spacing:-0.01em; }
+      #P26 .s-body{ top:352px; width:900px; gap:38px; }
+      #P26 .s-box{ position:absolute; left:120px; top:852px; width:898px;
+        border:2px solid var(--c1); border-radius:16px; background:var(--c1-soft);
+        display:flex; align-items:center; padding:22px 34px; }
+      #P26 .s-box .lbl{ color:var(--c1); font-weight:700; font-size:22px; margin-right:18px; flex:none; }
+      #P26 .s-box .url{ color:var(--text); font-weight:600; font-size:25px; white-space:nowrap;
+        font-family:'SFMono-Regular',ui-monospace,Menlo,monospace; letter-spacing:-0.02em; }
+      /* 우측 대시보드 스크린샷 — flat(카드효과 없음, 다크 패널 2개만; 흰 카드·그림자는 이미지에서 투명화 제거) */
+      #P26 .p26-shot{ position:absolute; left:1074px; top:243px; width:726px; height:auto; }
+    </style>
+
+    <h1 class="s-title">claude-code-token-saver</h1>
+    <div class="s-sub-red">토큰 낭비 자동 감지 → 비용 최대 45% 절감</div>
+
+    <img class="p26-shot" src="assets/P26-shot.png" alt="Claude Code Usage Report 대시보드 — 통계 카드·도넛 차트·/continue statusline">
+
+
+    <div class="s-body">
+      <div class="s-bullet">
+        <span class="dot"></span>
+        <span class="btxt"><span class="acc">Token Guardian</span> — 1시간 캐시 만료를 감지해 비싼<br>재전송을 <span class="hl">자동 차단</span>.</span>
+      </div>
+      <div class="s-bullet">
+        <span class="dot"></span>
+        <span class="btxt"><span class="acc">/continue</span> — LLM 호출, 토큰 사용 없이 이전 세션<br>맥락을 <span class="hl">무료 복원</span> (트랜스크립트 .jsonl 기반).</span>
+      </div>
+      <div class="s-bullet">
+        <span class="dot"></span>
+        <span class="btxt"><span class="acc">/usage-view + /setup-statusline</span><br>— 토큰이 어디서 새는지 실시간 시각화.</span>
+      </div>
+    </div>
+
+    <div class="s-box">
+      <span class="lbl">OPEN SOURCE</span>
+      <span class="url">github.com/ww-w-ai/claude-code-token-saver</span>
+    </div>
+
+    <div class="s-footer">
+      <span>주식회사 덥덥덥 · ww-w.ai</span>
+      <span class="s-pagenum">26</span>
+    </div>
+  </section>
+</div>
+</body>
+</html>

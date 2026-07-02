@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>P34 — matchRate 7축 채점</title>
+<link rel="stylesheet" href="slides.css">
+</head>
+<body>
+<div class="fit">
+  <!-- P34 [신규·도식] matchRate 7축 가중 채점. 순수 HTML(이미지 생성 없음). 좌=정량 3 / 우=정성 3 / 하=Runtime 1 + KEY. 표시번호는 build-deck 배열 위치(=35), 파일명은 P34(재번호 보류). -->
+  <section class="slide light" id="P34">
+    <style>
+      #P34 .s-title{ font-size:64px; }
+      #P34 .s-subtitle{ top:216px; font-size:40px; color:var(--muted); font-weight:600; }
+
+      #P34 .col{ position:absolute; top:320px; width:812px; }
+      #P34 .col.left{ left:120px; }
+      #P34 .col.right{ left:988px; }
+      #P34 .col-h{ font-size:26px; font-weight:800; letter-spacing:-0.01em; margin:0 0 18px;
+        display:flex; align-items:center; gap:12px; }
+      #P34 .col.left .col-h{ color:var(--c2); }
+      #P34 .col.right .col-h{ color:var(--c1); }
+      #P34 .col-h .sub{ font-size:20px; font-weight:600; color:var(--muted); }
+      #P34 .dot{ width:14px; height:14px; border-radius:50%; flex:none; }
+      #P34 .col.left .dot{ background:var(--c2); }
+      #P34 .col.right .dot{ background:var(--c1); }
+
+      #P34 .card{ display:flex; align-items:center; gap:22px; padding:15px 24px; margin-bottom:16px;
+        border-radius:14px; background:#fff; border:1px solid var(--rule); }
+      #P34 .card.emph{ background:var(--c1-soft); border-color:var(--c1); }
+      #P34 .w{ flex:none; width:100px; font-size:40px; font-weight:800; letter-spacing:-0.02em;
+        text-align:right; color:var(--c1); }
+      #P34 .col.left .w{ color:var(--c2); }
+      #P34 .card .body{ display:flex; flex-direction:column; }
+      #P34 .card .en{ font-size:27px; font-weight:700; color:var(--text); letter-spacing:-0.01em; }
+      #P34 .card .kr{ font-size:20px; color:var(--secondary); margin-top:1px; }
+      #P34 .tagmax{ margin-left:auto; flex:none; background:var(--c1); color:#fff;
+        font-size:18px; font-weight:700; padding:6px 12px; border-radius:8px; }
+
+      #P34 .rt{ position:absolute; left:120px; top:685px; width:1680px; }
+      #P34 .rt .col-h{ color:var(--c3-deep); }
+      #P34 .rt .dot{ background:var(--c3); }
+      #P34 .rt .rtcard{ background:var(--c3-soft); border-color:var(--c3); }
+      #P34 .rt .rtcard .w{ color:var(--c3-deep); }
+      #P34 .cond{ margin-left:auto; flex:none; font-size:19px; color:var(--muted); font-weight:600; }
+
+      #P34 .keymsg .msg{ font-size:30px; font-weight:600; color:var(--text); }
+      #P34 .keymsg .msg b{ color:var(--c1); }
+    </style>
+
+    <h1 class="s-title">matchRate를 ‘7개 축’으로 채점한다</h1>
+    <div class="s-subtitle">완성도를 7개 축으로 점검 — 왜 bkit으로 만들면 결과가 좋은가?</div>
+
+    <div class="col left">
+      <div class="col-h"><span class="dot"></span>정량 <span class="sub">· 존재하는가 (기계 판독)</span></div>
+      <div class="card"><div class="w">10%</div><div class="body"><span class="en">Structural</span><span class="kr">구조·파일 존재</span></div></div>
+      <div class="card"><div class="w">15%</div><div class="body"><span class="en">Functional</span><span class="kr">기능 존재</span></div></div>
+      <div class="card"><div class="w">15%</div><div class="body"><span class="en">Contract</span><span class="kr">설계 API ↔ 서버 ↔ 클라이언트 일치</span></div></div>
+    </div>
+
+    <div class="col right">
+      <div class="col-h"><span class="dot"></span>정성 <span class="sub">· 제대로 됐는가 (코드 정독)</span></div>
+      <div class="card emph"><div class="w">20%</div><div class="body"><span class="en">Intent</span><span class="kr">설계 의도 달성</span></div><span class="tagmax">최대 가중</span></div>
+      <div class="card"><div class="w">15%</div><div class="body"><span class="en">Behavioral</span><span class="kr">에러·경계 처리</span></div></div>
+      <div class="card"><div class="w">10%</div><div class="body"><span class="en">UX</span><span class="kr">로딩·빈·에러 상태</span></div></div>
+    </div>
+
+    <div class="rt">
+      <div class="col-h"><span class="dot"></span>실제 테스트 <span class="sub">· 돌려봤는가</span></div>
+      <div class="card rtcard"><div class="w">15%</div><div class="body"><span class="en">Runtime</span><span class="kr">실제 돌려본 결과</span></div><span class="cond">Claude in Chrome, Playwright 등 환경 제공 시</span></div>
+    </div>
+
+    <div class="keymsg">
+      <span class="tag">MESSAGE</span>
+      <span class="msg">7개 축으로 꼼꼼히 리뷰 → <span style="color:var(--c1)">90점 달성까지 자동으로</span> 코드 작성·수정</span>
+    </div>
+
+    <div class="s-footer">
+      <span>주식회사 덥덥덥 · ww-w.ai</span>
+      <span class="s-pagenum">34</span>
+    </div>
+  </section>
+</div>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>P52 — 실습: bkit 시작하기 (Quick Start)</title>
+<link rel="stylesheet" href="slides.css">
+</head>
+<body>
+<div class="fit">
+  <section class="slide light" id="P52">
+    <style>
+      /* ── 페이지 고유 (마스터 표준 override) ── */
+      #P52 .badge{ position:absolute; left:120px; top:96px;
+        display:inline-flex; align-items:center; gap:12px;
+        background:var(--c1); color:#fff; font-weight:800; font-size:30px;
+        padding:12px 28px; border-radius:999px; letter-spacing:.01em; }
+      #P52 .s-title{ top:168px; font-size:64px; }
+      #P52 .s-sub-red{ position:absolute; left:120px; top:250px;
+        color:var(--muted); font-weight:600; font-size:30px; letter-spacing:-0.01em; }
+
+      /* 터미널 카드 */
+      #P52 .term{ position:absolute; left:120px; top:316px; width:1680px;
+        background:#1C1C1E; border-radius:18px; overflow:hidden;
+        box-shadow:0 18px 50px rgba(0,0,0,0.22); }
+      #P52 .term .bar{ height:48px; background:#2A2A2C; display:flex; align-items:center; gap:11px;
+        padding:0 24px; }
+      #P52 .term .bar i{ width:14px; height:14px; border-radius:50%; display:block; }
+      #P52 .term .bar .r{ background:#FF5F57; } #P52 .term .bar .y{ background:#FEBC2E; } #P52 .term .bar .g{ background:#28C840; }
+      #P52 .term .bar span{ margin-left:16px; color:#9A9A9E; font-size:21px; font-weight:600;
+        font-family:'SFMono-Regular',ui-monospace,Menlo,monospace; }
+      #P52 .term .body{ padding:24px 40px 26px;
+        font-family:'SFMono-Regular',ui-monospace,Menlo,monospace; font-size:26px; line-height:1.5; }
+      #P52 .term .cm{ color:#7C7C82; }                 /* 주석 */
+      #P52 .term .pr{ color:#28C840; font-weight:700; }/* $ 프롬프트 */
+      #P52 .term .cmd{ color:#F2F2F4; }                /* 명령/인자 */
+      #P52 .term .acc{ color:#FF8A5C; font-weight:700; }/* 슬래시 명령·강조 */
+      #P52 .term .sp{ display:block; height:9px; }     /* 스텝 간격 */
+
+      /* 하단 런타임 권장 박스 */
+      #P52 .rt{ position:absolute; left:120px; top:902px; width:1680px;
+        border:2px solid var(--c1); border-radius:14px; background:var(--c1-soft);
+        display:flex; align-items:center; gap:20px; padding:16px 30px; }
+      #P52 .rt .lbl{ color:var(--c1); font-weight:800; font-size:23px; flex:none; letter-spacing:.02em; }
+      #P52 .rt .txt{ color:var(--text); font-weight:600; font-size:25px; }
+      #P52 .rt .txt b{ color:var(--c1); }
+    </style>
+
+    <div class="badge">🔧 실습</div>
+    <h1 class="s-title">bkit 시작하기 — Quick Start</h1>
+    <div class="s-sub-red">설치 → 첫 실행(단일 기능) → 여러 기능 릴리스, 명령 몇 줄로.</div>
+
+    <div class="term">
+      <div class="bar"><i class="r"></i><i class="y"></i><i class="g"></i><span>zsh — bkit quick start</span></div>
+      <div class="body"><span class="cm"># 1. 설치 (한 번만)</span><br>
+<span class="pr">$</span> <span class="cmd">claude plugin install </span><span class="acc">bkit</span>
+<span class="sp"></span><span class="cm"># 2. 병렬 팀 실행 활성화 (선택 · 권장)</span><br>
+<span class="pr">$</span> <span class="cmd">export CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1</span>
+<span class="sp"></span><span class="cm"># 3. 첫 실행 — 단일 기능</span><br>
+<span class="pr">$</span> <span class="acc">/pdca pm</span> <span class="cmd">my-feature</span>&nbsp;&nbsp;&nbsp;<span class="cm"># 원하는 걸 설명 → 나머지는 bkit이</span>
+<span class="sp"></span><span class="cm"># 4. 여러 기능 릴리스가 준비되면</span><br>
+<span class="pr">$</span> <span class="acc">/sprint master-plan</span> <span class="cmd">my-release --name "Q2 Launch" --features auth, billing, reports</span><br>
+<span class="cm">&nbsp;&nbsp;# (플랜을 승인)</span><br>
+<span class="pr">$</span> <span class="acc">/sprint start</span> <span class="cmd">my-release-s1</span></div>
+    </div>
+
+    <div class="rt">
+      <span class="lbl">권장 런타임</span>
+      <span class="txt">Claude Code <b>v2.1.150</b>(보수적·안정) 또는 <b>v2.1.159</b>(균형 · 112연속 호환). 최소 <b>v2.1.78</b>.</span>
+    </div>
+
+    <div class="s-footer">
+      <span>주식회사 덥덥덥 · ww-w.ai</span>
+      <span class="s-pagenum">52</span>
+    </div>
+  </section>
+</div>
+</body>
+</html>

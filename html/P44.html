@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>P44 — 본격 개발 전, 최적의 프레임워크를 설정한다</title>
+<link rel="stylesheet" href="slides.css">
+</head>
+<body>
+<div class="fit">
+  <section class="slide light" id="P44">
+    <style>
+      #P44 .s-title{ font-size:66px; }
+
+      /* ── 2-컬럼 비교 카드 (grid로 두 컬럼 행 높이 정렬) ── */
+      #P44 .p40-card{ position:absolute; left:120px; top:236px; width:1680px;
+        display:grid; grid-template-columns:1fr 1fr; grid-auto-rows:min-content;
+        border:1px solid var(--rule); border-radius:22px; overflow:hidden; background:#fff; }
+      #P44 .p40-card > *:nth-child(even){ border-left:1px solid var(--rule); }
+      #P44 .p40-card > *:nth-child(n+3){ border-top:1px solid var(--rule); }
+
+      #P44 .p40-head{ display:flex; align-items:center; justify-content:center; gap:18px;
+        height:92px; font-size:40px; font-weight:800; letter-spacing:-0.01em; }
+      #P44 .p40-head .s-ic{ width:42px; height:42px; }
+      #P44 .p40-head.mobile{ background:#E2F0F1; color:#0E7C86; }
+      #P44 .p40-head.desktop{ background:var(--c3-soft); color:var(--c3-deep); }
+
+      #P44 .p40-row{ display:flex; align-items:center; gap:30px; padding:30px 44px; min-height:172px; }
+      #P44 .p40-logo{ width:96px; height:96px; object-fit:contain; flex:none; }
+      #P44 .p40-txt{ flex:1 1 auto; min-width:0; }
+      #P44 .p40-name{ font-size:46px; font-weight:800; color:var(--text); letter-spacing:-0.01em; line-height:1.1; }
+      #P44 .p40-desc{ font-size:29px; color:var(--secondary); margin-top:12px; line-height:1.3; }
+
+      /* ── Tier 배지 ── */
+      #P44 .badge{ flex:none; margin-left:auto; border-radius:15px; padding:16px 30px;
+        text-align:center; line-height:1.18; }
+      #P44 .badge1{ background:var(--c1); color:#fff; }
+      #P44 .badge1 .t{ font-size:31px; font-weight:800; display:flex; align-items:center; justify-content:center; gap:9px; }
+      #P44 .badge1 .s{ font-size:27px; font-weight:700; margin-top:4px; }
+      #P44 .badge2{ border:2px solid var(--rule); background:#FAFAF8; }
+      #P44 .badge2 .t{ font-size:31px; font-weight:800; color:var(--text); }
+      #P44 .badge2 .s{ font-size:27px; color:var(--muted); margin-top:4px; }
+
+      /* ── 환경설정 → PDCA 진입 행 ── */
+      #P44 .p40-flow{ position:absolute; left:120px; top:692px; width:1680px;
+        display:flex; align-items:stretch; }
+      #P44 .p40-pill{ border:2px solid var(--c1); border-radius:20px; background:#fff;
+        display:flex; align-items:center; gap:26px; padding:0 38px; }
+      #P44 .p40-pill.left{ width:704px; }
+      #P44 .p40-pill.right{ flex:1; justify-content:center; }
+      #P44 .p40-pill .s-ic{ width:48px; height:48px; color:var(--c1); flex:none; }
+      #P44 .p40-flabel{ font-size:36px; font-weight:800; color:var(--text); letter-spacing:-0.01em; }
+      #P44 .p40-fsub{ font-size:27px; color:var(--secondary); margin-top:4px; }
+      #P44 .p40-rlabel{ font-size:40px; font-weight:800; color:var(--text); letter-spacing:-0.01em; }
+      #P44 .p40-arrow{ width:176px; display:flex; align-items:center; justify-content:center; color:var(--c3); }
+      #P44 .p40-arrow svg{ width:104px; height:64px; }
+
+      /* ── 하단 bkend.ai 밴드 ── */
+      #P44 .p40-band{ position:absolute; left:120px; top:836px; width:1680px; height:96px;
+        background:#F4F4F1; border-radius:18px;
+        display:flex; align-items:center; justify-content:center; gap:22px; }
+      #P44 .p40-band .s-ic{ width:46px; height:46px; color:var(--c1); flex:none; }
+      #P44 .p40-band .txt{ font-size:35px; font-weight:600; color:var(--text); letter-spacing:-0.005em; }
+      #P44 .p40-band .acc{ color:var(--c1); font-weight:800; }
+    </style>
+
+    <h1 class="s-title">본격 개발 전, 최적의 프레임워크를 설정한다</h1>
+
+    <div class="p40-card">
+      <!-- 헤더 -->
+      <div class="p40-head mobile">
+        <svg class="s-ic" viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+        mobile-app
+      </div>
+      <div class="p40-head desktop">
+        <svg class="s-ic" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        desktop-app
+      </div>
+
+      <!-- 좌1: Expo (Tier1) -->
+      <div class="p40-row">
+        <img class="p40-logo" src="assets/P44-expo.png" alt="Expo 로고">
+        <div class="p40-txt">
+          <div class="p40-name">Expo</div>
+          <div class="p40-desc">크로스 플랫폼, 빠른 개발</div>
+        </div>
+        <div class="badge badge1">
+          <div class="t"><span>★</span>Tier 1</div>
+          <div class="s">최우선 추천</div>
+        </div>
+      </div>
+
+      <!-- 우1: Tauri -->
+      <div class="p40-row">
+        <img class="p40-logo" src="assets/P44-tauri.png" alt="Tauri 로고">
+        <div class="p40-txt">
+          <div class="p40-name">Tauri</div>
+          <div class="p40-desc">3MB, Rust 기반 초경량</div>
+        </div>
+      </div>
+
+      <!-- 좌2: Flutter (Tier2) -->
+      <div class="p40-row">
+        <img class="p40-logo" src="assets/P44-flutter.png" alt="Flutter 로고">
+        <div class="p40-txt">
+          <div class="p40-name">Flutter</div>
+          <div class="p40-desc">성능 우수, 유연한 UI</div>
+        </div>
+        <div class="badge badge2">
+          <div class="t">Tier 2</div>
+          <div class="s">대안</div>
+        </div>
+      </div>
+
+      <!-- 우2: Electron -->
+      <div class="p40-row">
+        <img class="p40-logo" src="assets/P44-electron.png" alt="Electron 로고">
+        <div class="p40-txt">
+          <div class="p40-name">Electron</div>
+          <div class="p40-desc">성숙하고 방대한 생태계</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="p40-flow">
+      <div class="p40-pill left">
+        <svg class="s-ic" viewBox="0 0 24 24"><line x1="21" y1="4" x2="14" y2="4"/><line x1="10" y1="4" x2="3" y2="4"/><line x1="21" y1="12" x2="12" y2="12"/><line x1="8" y1="12" x2="3" y2="12"/><line x1="21" y1="20" x2="16" y2="20"/><line x1="12" y1="20" x2="3" y2="20"/><line x1="14" y1="2" x2="14" y2="6"/><line x1="8" y1="10" x2="8" y2="14"/><line x1="16" y1="18" x2="16" y2="22"/></svg>
+        <div>
+          <div class="p40-flabel">환경 설정</div>
+          <div class="p40-fsub">/starter · /dynamic · /enterprise 레벨 선택</div>
+        </div>
+      </div>
+      <div class="p40-arrow">
+        <svg viewBox="0 0 52 32"><path fill="currentColor" d="M2 11h26V3l22 13-22 13v-8H2z"/></svg>
+      </div>
+      <div class="p40-pill right">
+        <svg class="s-ic" viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></svg>
+        <span class="p40-rlabel">PDCA 사이클 진입</span>
+      </div>
+    </div>
+
+    <div class="p40-band">
+      <svg class="s-ic" viewBox="0 0 24 24"><path d="M12 13v8"/><path d="m8 17 4-4 4 4"/><path d="M20 16.58A5 5 0 0 0 18 7h-1.26A8 8 0 1 0 4 15.25"/></svg>
+      <span class="txt"><span class="acc">dynamic = bkend.ai</span> — BaaS 5종으로 로그인 · DB · 스토리지 즉시</span>
+    </div>
+
+    <div class="s-footer">
+      <span>주식회사 덥덥덥 · ww-w.ai</span>
+      <span class="s-pagenum">44</span>
+    </div>
+  </section>
+</div>
+</body>
+</html>

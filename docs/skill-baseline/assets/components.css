@@ -1,0 +1,135 @@
+/* ───────────────────────────────────────────────────────────
+   슬라이드 컴포넌트 (토큰 + .s-* 클래스만) — 전역 리셋/`.fit`/`.slide` 없음.
+   reveal.js(presentation.html)와 standalone(Pxx.html, slides.css 경유) 둘 다 사용.
+   ※ 전역 `*{}` 리셋을 두지 않는다 — reveal의 레이아웃 측정과 충돌(스케일 깨짐).
+   토큰 출처 = 슬라이드-디자인-시스템.md (SSOT). 일러스트는 이미지(코랄 유지).
+   ─────────────────────────────────────────────────────────── */
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@latest/dist/web/static/pretendard.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@600;700&display=swap');
+
+:root{
+  /* 배경·텍스트 */
+  --bg:#FFFFFF;            /* 순백 배경 */
+  --text:#000000;         /* 본문·제목 = 순수 검정(원색) */
+  --secondary:#3A3A3A;
+  --muted:#6E6D72;        /* 푸터·메타 */
+  /* ── 원색 3색 트라이어드 (코랄→빨강 / 틸→파랑 / 앰버→골드) ── */
+  --c1:#E60012; --c1-deep:#C10010; --c1-soft:#FCE3E6;   /* PRIMARY  빨강 */
+  --c2:#0B5FD9; --c2-deep:#0A4DB0; --c2-soft:#E3ECFB;   /* SECONDARY 파랑 */
+  --c3:#E8920A; --c3-deep:#9C6200; --c3-soft:#FBEBCF;   /* TERTIARY  골드(앰버) */
+  /* 별칭 */
+  --accent:var(--c1); --accent2:var(--c2); --accent3:var(--c3);
+  --highlight:#FFE15A;    /* 강조 형광 배경 = 노랑(원색 톤) */
+  --footer:#8B8A8E; --rule:#E2E1DD;
+  --sans:'Pretendard','Apple SD Gothic Neo','Noto Sans KR',sans-serif;
+  --serif:'Noto Serif KR',serif;
+}
+
+/* 슬라이드 내부 콘텐츠만 border-box (reveal 내부 측정 요소는 건드리지 않음) */
+.slide *, .reveal .slides section *{box-sizing:border-box;}
+
+/* ── 모드별 색 토큰 (레이아웃 골격은 3모드 공통, 색만 모드별 — 디자인시스템 §0) ──
+   기본(:root) = 라이트. .slide.dark / .slide.photo 는 색만 override. */
+.slide.dark{ --bg:#141417; --text:#F4F4F1; --secondary:#C8C8C4; --muted:#8C8C89; --footer:#8C8C89; --rule:#2A2A2E; }
+.slide.photo{ --text:#F4F4F1; --secondary:#E8E8E4; }
+
+/* ── 이미지 그림자 → PDF 회색 박스 렌더 문제(범용 수정) ──
+   box-shadow가 page.pdf(인쇄) 경로에서 이미지 뒤 회색 박스처럼 렌더됨. 인쇄/PDF에서만 제거 →
+   화면 디자인은 그대로 유지, PDF만 깔끔. (소개서 덱 작업 중 발견한 범용 이슈.) */
+@media print { .slide img{ box-shadow:none !important; } }
+
+/* ════════ 마스터(디자인시스템 템플릿) — 표준 위치/크기는 여기서 소유. 페이지는 내용만. ════════ */
+
+/* 제목: 표준 위치(x:120, y:120) + 크기(76/88). 긴 제목만 페이지에서 font-size 인라인 override. */
+.s-title{position:absolute;left:120px;top:120px;font-size:84px;line-height:97px;
+  font-weight:700;letter-spacing:-0.01em;color:var(--text);margin:0;}
+.s-eyebrow{position:absolute;color:var(--accent);font-weight:600;font-size:30px;letter-spacing:.01em;}
+.s-subtitle{position:absolute;left:120px;color:var(--secondary);font-weight:500;line-height:1.4;}
+
+/* 본문 컨테이너: 표준 시작(x:120, y:300) + 불릿 간 간격(gap). flow 배치 → 불릿마다 절대좌표 안 박음.
+   width는 일러스트 폭에 따라 페이지에서 override 가능. */
+.s-body{position:absolute;left:120px;top:300px;width:1100px;display:flex;flex-direction:column;gap:34px;}
+
+/* 불릿 (원색 dot + 본문 36px) — dot은 여러 줄이어도 첫 줄 세로 중앙(폰트 비례 자동: 0.722em - 9px). */
+.s-bullet{display:flex;gap:24px;align-items:flex-start;font-size:43px;}
+.s-bullet>.dot{width:18px;height:18px;border-radius:50%;background:var(--accent);flex:none;margin-top:calc(0.722em - 9px);}
+.s-bullet>.btxt{font-weight:400;line-height:1.444;}
+
+/* 서브 불릿 그룹: 본문 하위 보조 줄(body.sm 30px), 들여쓰기 + 자체 간격 */
+.s-subs{display:flex;flex-direction:column;gap:16px;margin-top:2px;padding-left:48px;}
+/* 부연 1줄용: 위 불릿에 붙여 한 문단처럼 (.s-subs 기본=2줄+ 36px / .s-subs1=12px). HTML: class="s-subs s-subs1" */
+.s-subs1{margin-top:-22px;}
+.s-sub{display:flex;gap:18px;color:var(--secondary);line-height:1.4;font-size:36px;}
+.s-sub>.dash{color:var(--muted);flex:none;}
+
+/* ── 인라인 강조 ── */
+.hl{background:var(--highlight);padding:1px 8px;border-radius:5px;font-weight:600;color:var(--text);box-decoration-break:clone;}
+.acc{color:var(--accent);font-weight:700;}
+.acc2{color:var(--accent2);font-weight:700;}
+.strike{color:var(--muted);text-decoration:line-through;}
+
+/* ── 풀블리드 배경 이미지 (standalone Pxx.html용; reveal은 data-background-image 사용) ── */
+.s-bg{position:absolute;inset:0;width:1920px;height:1080px;object-fit:cover;display:block;}
+
+/* ── 텍스트 덮어쓰기 오버레이 (완성본 오타 수정용) ── */
+.s-cover{position:absolute;}            /* 배경색 박스 (가리개) */
+.s-overtext{position:absolute;}         /* 덮어쓸 텍스트 */
+
+/* ── 핵심 질문 박스 (강조 아웃라인 + ? 뱃지) — 마스터 컴포넌트 ── */
+.s-qbox{position:absolute;height:148px;border:2px solid var(--c1);border-radius:18px;background:var(--bg);
+  display:flex;align-items:center;gap:32px;padding:0 44px;}
+.s-qbox-badge{width:80px;height:80px;border-radius:50%;background:var(--c1);color:#fff;flex:none;
+  display:flex;align-items:center;justify-content:center;font-size:46px;font-weight:800;}
+.s-qbox-body{border-left:3px solid var(--c1);padding-left:28px;}
+.s-qbox-eyebrow{color:var(--c1);font-weight:700;font-size:24px;letter-spacing:.02em;margin-bottom:8px;}
+.s-qbox-text{color:var(--text);font-weight:700;font-size:42px;line-height:1.15;}
+
+/* ── 일러스트 (ChatGPT 생성 crop) — 텍스트 위로 ── */
+.s-illust{position:absolute;z-index:5;}
+
+/* ── 아이콘 (Lucide, 인라인 SVG) — 색=currentColor 상속, 크기=폰트 1em 기준 ── */
+.s-ic{width:1em;height:1em;display:inline-block;vertical-align:middle;flex:none;
+  stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
+
+/* ── 푸터 (좌하단 회사명 / 우하단 페이지번호) — 디자인시스템 §7: 구분선 y:976, 텍스트 baseline ~y:1020 ── */
+.s-footer{position:absolute;left:120px;right:120px;top:976px;
+  display:flex;justify-content:space-between;align-items:center;
+  color:var(--footer);font-size:22px;font-weight:500;letter-spacing:.02em;
+  border-top:1px solid var(--rule);padding-top:16px;}
+.s-pagenum{font-size:22px;letter-spacing:.04em;}
+
+/* ── 칩 / 배지 ── */
+.chip{display:inline-flex;align-items:center;padding:7px 20px;border-radius:999px;
+  font-weight:600;font-size:24px;line-height:1;letter-spacing:.01em;}
+.chip--key{background:var(--c1);color:#fff;}
+.chip--sec{border:2px solid var(--c2);color:var(--c2);}
+.chip--ter{border:2px solid var(--c3);color:var(--c3-deep);}
+.chip--neutral{border:2px solid var(--rule);color:var(--secondary);}
+
+/* ── 버튼 ── */
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 28px;border-radius:12px;
+  font-weight:600;font-size:26px;}
+.btn--primary{background:var(--c1);color:#fff;}
+.btn--ghost{border:2px solid var(--c1);color:var(--c1);background:#fff;}
+.btn--text{color:var(--text);}
+
+/* ── 박스 / 카드 ── */
+.box{border-radius:16px;padding:26px 32px;}
+.box--plain{background:#fff;border:1px solid var(--rule);}
+.box--emph{background:var(--c1-soft);border:1px solid var(--c1);}
+.box--quote{background:#F6F6F4;border-left:5px solid var(--c1);}
+
+/* ── KEY MESSAGE 띠 ── */
+.keymsg{display:flex;align-items:center;gap:22px;background:var(--c1-soft);
+  border-radius:16px;padding:24px 30px;}
+.keymsg .tag{background:var(--c1);color:#fff;font-weight:700;font-size:22px;
+  padding:8px 16px;border-radius:8px;letter-spacing:.04em;flex:none;}
+
+/* ── 구분선 ── */
+.rule{height:1px;background:var(--rule);border:0;}
+.rule--dashed{border-top:2px dashed var(--rule);background:none;height:0;}
+
+/* ── 카테고리 색 유틸 ── */
+.cat1{color:var(--c1);} .cat2{color:var(--c2);} .cat3{color:var(--c3-deep);}
+.bg-cat1{background:var(--c1);} .bg-cat2{background:var(--c2);} .bg-cat3{background:var(--c3);}
+.soft-cat1{background:var(--c1-soft);} .soft-cat2{background:var(--c2-soft);} .soft-cat3{background:var(--c3-soft);}

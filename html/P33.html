@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>P33 — PDCA란? bkit이 개발에 적용한 핵심 엔진</title>
+<link rel="stylesheet" href="slides.css">
+</head>
+<body>
+<div class="fit">
+  <!-- P33 [도식] 좌: 텍스트(HTML) / 우: PDCA 순환 링 다이어그램(generated/P33.png crop) -->
+  <section class="slide light" id="P33">
+    <style>
+      #P33 .s-title{ font-size:64px; line-height:1.179; }
+      #P33 .s-body{ width:840px; top:262px; gap:30px; }
+      #P33 .s-bullet{ font-size:40px; }
+      #P33 .s-sub{ font-size:33px; }
+      /* 우측 PDCA 링 다이어그램 (이미지) — 조금 축소 */
+      #P33 .ring{ position:absolute; left:1024px; top:234px; width:776px; height:auto; }
+      /* MESSAGE 띠 — 위치는 마스터 .keymsg(하단 밴드 통일) */
+      #P33 .keymsg .msg{ font-size:31px; font-weight:600; color:var(--text); line-height:1.32; }
+      #P33 .keymsg .msg .acc{ color:var(--c1); }
+    </style>
+
+    <h1 class="s-title">PDCA란? — bkit이 개발에 적용한 핵심 엔진</h1>
+
+    <img class="ring" src="assets/P33-diagram.png" alt="PDCA 순환 링: Plan/Design → Do 구현 → Check 검증 → Act 반영, 각 단계에 /pdca 명령 매핑, Check는 Match Rate 90% 기준">
+
+    <div class="s-body">
+      <div class="s-bullet"><span class="dot"></span><span class="btxt"><span class="acc">PDCA = Plan → Do → Check → Act</span></span></div>
+      <div class="s-subs s-subs1"><div class="s-sub"><span class="dash">—</span><span>제조업 품질관리의 반복 사이클</span></div></div>
+
+      <div class="s-bullet"><span class="dot"></span><span class="btxt">bkit은 이를 <span class="acc">개발 절차 그 자체로</span> 적용</span></div>
+
+      <div class="s-bullet"><span class="dot"></span><span class="btxt">왜 핵심인가: 감(感)으로 시키면 결과가 매번 다르지만, <span class="hl">공정으로 쪼개면 매번 같은 품질</span>(반복 가능)이 나온다</span></div>
+    </div>
+
+    <div class="keymsg">
+      <span class="tag">MESSAGE</span>
+      <span class="msg">Match Rate <span class="acc">90%</span> 미달이면 <span class="acc">자동으로 개선 사이클 반복</span> → 모든 기능의 일관 품질 보장</span>
+    </div>
+
+    <div class="s-footer">
+      <span>주식회사 덥덥덥 · ww-w.ai</span>
+      <span class="s-pagenum">33</span>
+    </div>
+  </section>
+</div>
+</body>
+</html>

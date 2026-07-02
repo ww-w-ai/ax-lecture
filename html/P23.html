@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>P23 — 새 세션 = 새 프리랜서가 온다</title>
+<link rel="stylesheet" href="slides.css">
+</head>
+<body>
+<div class="fit">
+  <section class="slide light" id="P23">
+          <style>
+            /* ── 페이지 고유 CSS ── */
+            #P23 .s-body{ width:900px; top:246px; gap:18px; }
+            #P23 .s-bullet{ font-size:33px; }
+      
+            /* 우측 온보딩 일러스트 (final/P23.png에서 추출) */
+            #P23 .s-illust{ right:56px; top:206px; width:784px; height:auto; }
+      
+            /* 3 항목 (① 매뉴얼 / ② 툴 / ③ 히스토리) — 좌측 절반에 컴팩트 행으로 */
+            #P23 .p-cards{ position:absolute; left:120px; top:478px; width:900px;
+              display:flex; flex-direction:column; gap:16px; }
+            #P23 .p-card{ display:flex; align-items:flex-start; gap:22px; width:864px;
+              border-radius:16px; padding:18px 26px; background:#fff; border:1px solid var(--rule); }
+            #P23 .p-card.empty{ border:2px dashed var(--c1); background:var(--c1-soft); }
+            #P23 .p-num{ flex:none; width:46px; height:46px; border-radius:50%; background:var(--c1); color:#fff;
+              font-size:24px; font-weight:800; display:flex; align-items:center; justify-content:center; }
+            #P23 .p-cbody{ flex:1; }
+            #P23 .p-ct{ font-size:31px; font-weight:700; color:var(--text); }
+            #P23 .p-ct .p-cs{ font-size:22px; font-weight:500; color:var(--muted); margin-left:12px; }
+            #P23 .p-cd{ font-size:27px; color:var(--secondary); line-height:1.4; margin-top:8px; }
+            #P23 .p-note{ font-size:27px; font-weight:700; color:var(--c1); line-height:1.35; margin-top:8px; }
+      
+            #P23 .p-foot{ position:absolute; left:120px; top:862px; width:900px; font-size:31px; font-weight:600; color:var(--text); line-height:1.4; }
+            #P23 .p-foot .arrow{ color:var(--c1); font-weight:800; }
+          </style>
+      
+          <h1 class="s-title">새 세션 = 새 프리랜서가 온다</h1>
+      
+          <img class="s-illust" src="assets/P23-illust.png" alt="새 세션에 매뉴얼·도구 박스를 건네받는 온보딩 장면, 우측에 stateless 히스토리 박스" style="inset: 261px auto auto 1084px; width: 716px; height: auto;">
+      
+          <div class="s-body" style="inset: 261px auto auto 120px; width: 925px;">
+            <div class="s-bullet">
+              <span class="dot"></span>
+              <span class="btxt">세션을 새로 열면 = <span class="acc">아무것도 모르는 새 프리랜서가 출근</span>한 것. <br>이전 창의 기억은 어디에도 없다 <span class="hl">(Stateless)</span>.</span>
+            </div>
+            <div class="s-bullet">
+              <span class="dot"></span>
+              <span class="btxt">일을 시키려면 <span class="acc">3가지</span>를 다시 쥐여줘야 한다 — 매뉴얼 · 툴 · 히스토리<br></span>
+            </div>
+          </div>
+      
+          <div class="p-cards" style="inset: 465px auto auto 120px;">
+            <div class="p-card">
+              <div class="p-num">①</div>
+              <div class="p-cbody">
+                <div class="p-ct">매뉴얼·가이드<span class="p-cs">일하는 규칙</span></div>
+                <div class="p-cd">시스템 프롬프트 · CLAUDE.md · rules</div>
+              </div>
+            </div>
+            <div class="p-card">
+              <div class="p-num">②</div>
+              <div class="p-cbody">
+                <div class="p-ct">툴<span class="p-cs">쓸 도구</span></div>
+                <div class="p-cd">에이전트 · 스킬 · MCP</div>
+              </div>
+            </div>
+            <div class="p-card empty">
+              <div class="p-num">③</div>
+              <div class="p-cbody">
+                <div class="p-ct">히스토리<span class="p-cs">과거 맥락 · 대화·결정</span></div>
+                <div class="p-note">자동으로 안 따라온다 — 직접 가져와야 함</div>
+              </div>
+            </div>
+          </div>
+      
+          <div class="p-foot" style="inset: 895px auto auto 120px;">①②는 쥐여주면 끝. 그럼 ③ 히스토리는 어떻게 가져오지? <span class="arrow">→ 다음 페이지</span></div>
+      
+          <div class="s-footer">
+            <span>주식회사 덥덥덥 · ww-w.ai</span>
+            <span class="s-pagenum">23</span>
+          </div>
+        </section>
+</div>
+</body>
+</html>

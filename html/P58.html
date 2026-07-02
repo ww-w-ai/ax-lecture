@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>P58 — tene ② 지도로 이해</title>
+<link rel="stylesheet" href="slides.css">
+</head>
+<body>
+<div class="fit">
+  <section class="slide light" id="P58">
+    <style>
+      #P58 .s-title{ font-size:64px; line-height:1.233; }
+      #P58 .grid{ position:absolute; left:120px; top:286px; width:1680px;
+        display:grid; grid-template-columns:1fr 1fr; grid-template-rows:1fr 1fr;
+        column-gap:48px; row-gap:30px; }
+      #P58 .cell{ display:flex; gap:28px; align-items:flex-start; }
+      #P58 .cell .thumb{ width:360px; height:229px; flex:none; border-radius:12px;
+        border:1px solid var(--rule); box-shadow:0 10px 30px rgba(0,0,0,.11);
+        object-fit:cover; object-position:top center; background:#fff; }
+      #P58 .cell .meta{ padding-top:4px; }
+      #P58 .cell .label{ display:inline-flex; align-items:center; padding:7px 18px;
+        border-radius:999px; font-weight:700; font-size:25px; line-height:1; color:#fff; margin-bottom:14px; }
+      #P58 .lab1{ background:var(--c1); } #P58 .lab2{ background:var(--c2); }
+      #P58 .lab3{ background:var(--c3); } #P58 .lab4{ background:#1F9E6B; }
+      #P58 .cell .desc{ font-size:30px; line-height:1.36; color:var(--secondary); }
+    </style>
+
+    <h1 class="s-title">tene ②: 코드 한 줄 안 읽고 '지도'로 이해</h1>
+
+    <div class="grid">
+      <div class="cell">
+        <img class="thumb" src="../generated/_screenshots/tene-002.png" alt="CodeMap">
+        <div class="meta">
+          <span class="label lab1">CodeMap</span>
+          <div class="desc">화면→기능→데이터 흐름을 <strong style="color:var(--text);">마인드맵</strong>처럼 펼침. 점을 누르면 엮인 길이 빛난다.</div>
+        </div>
+      </div>
+      <div class="cell">
+        <img class="thumb" src="../generated/_screenshots/tene-003.png" alt="Interface">
+        <div class="meta">
+          <span class="label lab2">Interface</span>
+          <div class="desc">화면 구조를 <strong style="color:var(--text);">트리</strong>로. 기획서·IA를 코드에서 자동 추출한 셈.</div>
+        </div>
+      </div>
+      <div class="cell">
+        <img class="thumb" src="../generated/_screenshots/tene-004.png" alt="API">
+        <div class="meta">
+          <span class="label lab3">API</span>
+          <div class="desc">'개발자만 알던 API'를 쉬운 말로 + <strong style="color:var(--text);">신뢰도 표기</strong>로 AI의 거짓말 차단.</div>
+        </div>
+      </div>
+      <div class="cell">
+        <img class="thumb" src="../generated/_screenshots/tene-005.png" alt="Data">
+        <div class="meta">
+          <span class="label lab4">Data</span>
+          <div class="desc"><strong style="color:var(--text);">ERD</strong> 데이터 창고 지도 + 실제 저장값 안전 미리보기.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="s-footer">
+      <span>주식회사 덥덥덥 · ww-w.ai</span>
+      <span class="s-pagenum">58</span>
+    </div>
+  </section>
+</div>
+</body>
+</html>

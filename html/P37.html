@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>P37 — Sprint 개념 ②: PRD 5부 구조</title>
+<link rel="stylesheet" href="slides.css">
+</head>
+<body>
+<div class="fit">
+  <!-- P37 [신규·도식] 좌=PRD 5부 카드 / 우=실제 저장되는 .md 예시. 순수 HTML. -->
+  <section class="slide light" id="P37">
+    <style>
+      #P37 .s-title{ font-size:64px; }
+      #P37 .s-subtitle{ top:216px; font-size:40px; color:var(--muted); font-weight:600; }
+
+      /* 좌: 5개 카드 */
+      #P37 .cards{ position:absolute; left:120px; top:320px; width:790px;
+        display:flex; flex-direction:column; gap:13px; }
+      #P37 .pcard{ display:flex; align-items:center; gap:20px; padding:14px 22px;
+        border-radius:12px; background:#fff; border:1px solid var(--rule); }
+      #P37 .pcard.core{ background:var(--c2-soft); border-color:var(--c2); }
+      #P37 .num{ flex:none; width:46px; height:46px; border-radius:50%; background:var(--c2); color:#fff;
+        display:flex; align-items:center; justify-content:center; font-size:26px; font-weight:800; }
+      #P37 .ttl .en{ font-size:25px; font-weight:700; color:var(--text); letter-spacing:-0.01em; }
+      #P37 .ttl .kr{ font-size:19px; color:var(--secondary); margin-top:1px; }
+      #P37 .ttl .kr .sm{ color:var(--muted); font-weight:500; }
+
+      /* 우: .md 문서 뷰 */
+      #P37 .doc{ position:absolute; left:952px; top:320px; width:848px; height:524px;
+        background:#F7F7F5; border:1px solid var(--rule); border-radius:12px; overflow:hidden;
+        box-shadow:0 4px 18px rgba(0,0,0,.05); }
+      #P37 .doc .bar{ background:#ECEBE7; padding:11px 20px; border-bottom:1px solid var(--rule);
+        font-family:ui-monospace,'SF Mono',monospace; font-size:17px; font-weight:600; color:var(--secondary);
+        display:flex; align-items:center; gap:10px; }
+      #P37 .doc .bar .dot{ width:12px; height:12px; border-radius:50%; background:var(--c2); }
+      #P37 .doc .body{ padding:18px 24px; font-family:ui-monospace,'SF Mono','D2Coding',monospace;
+        font-size:19px; line-height:1.5; color:var(--secondary); white-space:pre-wrap; }
+      #P37 .doc .h1{ font-weight:800; color:var(--text); }
+      #P37 .doc .h2{ font-weight:700; color:var(--c2-deep); }
+      #P37 .doc .h3{ font-weight:600; color:var(--muted); }
+
+      #P37 .keymsg .msg{ font-size:29px; font-weight:600; color:var(--text); }
+      #P37 .keymsg .msg b{ color:var(--c1); }
+    </style>
+
+    <h1 class="s-title">Sprint 개념 ② — PRD: 코드 짜기 전 못박는 5가지</h1>
+    <div class="s-subtitle">제품 요구사항 문서 = 무엇을 만들지 + 왜·누구를 위해·어떻게 팔지</div>
+
+    <div class="cards">
+      <div class="pcard"><div class="num">1</div><div class="ttl"><div class="en">Opportunity Discovery</div><div class="kr">기회 발굴 <span class="sm">· 문제·기회 트리·가정·실험</span></div></div></div>
+      <div class="pcard"><div class="num">2</div><div class="ttl"><div class="en">Value Proposition &amp; Strategy</div><div class="kr">가치·전략 <span class="sm">· JTBD·Lean Canvas·SWOT</span></div></div></div>
+      <div class="pcard"><div class="num">3</div><div class="ttl"><div class="en">Market Research</div><div class="kr">시장 조사 <span class="sm">· 페르소나·경쟁·시장규모</span></div></div></div>
+      <div class="pcard"><div class="num">4</div><div class="ttl"><div class="en">Go-To-Market</div><div class="kr">시장 진입 <span class="sm">· Beachhead·GTM·ICP</span></div></div></div>
+      <div class="pcard"><div class="num">5</div><div class="ttl"><div class="en">Product Requirements</div><div class="kr">제품 요구사항 <span class="sm">· 배경·목표(OKR)·유저스토리</span></div></div></div>
+    </div>
+
+    <div class="doc">
+      <div class="bar"><span class="dot"></span>docs/00-pm/login.prd.md</div>
+      <div class="body"><span class="h1"># login · Product Requirements</span>
+
+<span class="h2">## 1. Opportunity Discovery</span>
+<span class="h3">### 1.1 Desired Outcome</span>
+가입자가 막힘 없이 재방문한다
+<span class="h3">### 1.5 Assumptions &amp; Risk</span>
+- (H) 소셜 로그인 선호 → 실험 필요
+
+<span class="h2">## 2. Value Proposition &amp; Strategy</span>
+<span class="h3">### 2.1 JTBD</span>
+[상황] 재방문  [동기] 빨리 입장
+[결과] 3초 내 인증 완료
+
+<span class="h2">## 3. Market Research</span>
+<span class="h3">### 3.1 Personas</span>
+1인 커머스 셀러 / 재구매 고객
+
+<span class="h2">## 4. Go-To-Market</span>
+<span class="h3">### 4.1 Beachhead</span>
+1인 커머스 셀러
+
+<span class="h2">## 5. Product Requirements</span>
+<span class="h3">### 5.3 Objectives &amp; Key Results</span>
+O    마찰 없는 인증
+KR1  성공률 99% · 평균 3.0초</div>
+    </div>
+
+    <div class="keymsg">
+      <span class="tag">MESSAGE</span>
+      <span class="msg">무엇을 만들지 이전에 — <b>왜·누구를 위해·어떻게 팔지</b>까지 못박는다</span>
+    </div>
+
+    <div class="s-footer">
+      <span>주식회사 덥덥덥 · ww-w.ai</span>
+      <span class="s-pagenum">37</span>
+    </div>
+  </section>
+</div>
+</body>
+</html>

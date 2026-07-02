@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>P18 — AI는 상태를 기억하지 않는다 (stateless)</title>
+<link rel="stylesheet" href="slides.css">
+</head>
+<body>
+<div class="fit">
+  <section class="slide light" id="P18">
+          <style>
+            /* ── 페이지 고유 CSS (마스터 표준 override) ── */
+            #P18 .s-title{ width:840px; }   /* 일러스트와 겹치지 않게 좌측에서 2줄 줄바꿈 */
+            #P18 .s-body{ width:760px; top:380px; }
+            #P18 .s-illust{ right:90px; top:175px; width:760px; }   /* final/P18 우측 도식 일러스트 */
+          </style>
+      
+          <h1 class="s-title" style="inset: 120px auto auto 120px; width: 1400px;">AI는 상태를 기억하지 않는다. (Stateless)</h1>
+      
+          <img class="s-illust" src="assets/P18-illust.png" alt="" style="inset: 303px auto auto 1105px; width: 695px; height: auto;">
+      
+          <div class="s-body" style="inset: 303px auto auto 120px; width: 929px;">
+            <div class="s-bullet">
+              <span class="dot"></span>
+              <span class="btxt">랭기지 모델은 <span class="acc">기억이 없다.<br></span>→ 오직 거대한&nbsp;<span class="hl">토큰 뭉치를 입력</span>받아 그 순간의<br>확률로 동작할 뿐.</span>
+            </div>
+            <div class="s-bullet">
+              <span class="dot"></span>
+              <span class="btxt">대화를 이어가려면?<br><span class="acc"><span style="color: rgb(0, 0, 0); font-weight: 400;">→&nbsp;</span><span style="color: rgb(0, 0, 0); font-weight: normal;">매 턴마다 맥락을 계속 입력해줘야 한다.</span></span></span>
+            </div>
+            <div class="s-bullet">
+              <span class="dot"></span>
+              <span class="btxt">어떻게?<br>→ 보통 <span class="hl">지난 모든 대화를 그대로 다시 입력</span>한다.<br><span style="color:var(--muted);">(입력이 계속 커짐)</span></span>
+            </div>
+          </div>
+      
+          <div class="s-footer">
+            <span>주식회사 덥덥덥 · ww-w.ai</span>
+            <span class="s-pagenum">18</span>
+          </div>
+        </section>
+</div>
+</body>
+</html>

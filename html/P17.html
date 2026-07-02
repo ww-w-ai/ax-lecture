@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>P17 — 답을 더 잘 뽑는 법: 확률을 유도한다</title>
+<link rel="stylesheet" href="slides.css">
+</head>
+<body>
+<div class="fit">
+  <section class="slide light" id="P17">
+                <style>
+                  /* ── 페이지 고유 CSS ── */
+                  #P17 .s-title{ line-height:0.952; }
+                  #P17 .s-title .l2{ color:var(--c1); }
+                  #P17 .lead{ position:absolute; left:120px; top:316px; font-size:36px; line-height:1.4; color:var(--text); }
+                  #P17 .s-illust{ right:75px; top:150px; width:720px; }   /* final/P17 역할 부여 일러스트 (의사·변호사·마케터) */
+            
+                  #P17 .m-list{ position:absolute; left:120px; top:404px; width:910px;
+                    display:flex; flex-direction:column; gap:16px; }
+                  #P17 .m-card{ display:flex; align-items:stretch; gap:24px;
+                    border:1px solid var(--rule); border-radius:18px; padding:20px 28px; background:#fff; }
+                  #P17 .m-tile{ width:66px; border-radius:13px; flex:none;
+                    display:flex; align-items:center; justify-content:center; color:#fff; font-size:32px; font-weight:800; }
+                  #P17 .m-1 .m-tile{ background:var(--c1); }
+                  #P17 .m-2 .m-tile{ background:var(--c2); }
+                  #P17 .m-3 .m-tile{ background:var(--c3); }
+                  #P17 .m-body{ display:flex; flex-direction:column; justify-content:center; gap:5px; }
+                  #P17 .m-name{ font-size:30px; font-weight:800; color:var(--text); }
+                  #P17 .m-desc{ font-size:26px; line-height:1.36; color:var(--secondary); }
+            
+                  #P17 .so-note{ position:absolute; left:120px; top:902px; display:flex; align-items:center; gap:18px;
+                    font-size:28px; font-weight:600; color:var(--text); }
+                  #P17 .so-check{ width:40px; height:40px; border-radius:50%; background:var(--c1); color:#fff;
+                    display:flex; align-items:center; justify-content:center; font-size:24px; font-weight:800; flex:none; }
+                </style>
+            
+                <h1 class="s-title" style="inset: 120px auto auto 120px; width: 1165px;">답을 더 잘 뽑는 법:&nbsp;<span class="l2">확률을 유도한다</span></h1>
+            
+                <div class="lead" style="inset: 300px auto auto 120px; width: 909px; display: block; text-align: left;"><span style="font-size: 42px;">좋은 프롬프트 = 확률 분포를 <span class="hl">정답 쪽으로 좁히는 일</span>.</span></div>
+            
+                <img class="s-illust" src="assets/P17-illust.png" alt="" style="inset: 300px auto auto 1138px; width: 674px; height: auto;">
+            
+                <div class="m-list" style="inset: 393px auto auto 120px;">
+                  <div class="m-card m-1">
+                    <div class="m-tile"><svg class="s-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 18V5"></path><path d="M15 13a4.17 4.17 0 0 1-3-4 4.17 4.17 0 0 1-3 4"></path><path d="M17.598 6.5A3 3 0 1 0 12 5a3 3 0 1 0-5.598 1.5"></path><path d="M17.997 5.125a4 4 0 0 1 2.526 5.77"></path><path d="M18 18a4 4 0 0 0 2-7.464"></path><path d="M19.967 17.483A4 4 0 1 1 12 18a4 4 0 1 1-7.967-.517"></path><path d="M6 18a4 4 0 0 1-2-7.464"></path><path d="M6.003 5.125a4 4 0 0 0-2.526 5.77"></path></svg></div>
+                    <div class="m-body">
+                      <div class="m-name">도메인 지식 주입</div>
+                      <div class="m-desc">그 분야 토큰이 뽑힐 확률이 높아진다.</div>
+                    </div>
+                  </div>
+                  <div class="m-card m-2">
+                    <div class="m-tile"><svg class="s-ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="5"></circle><path d="M20 21a8 8 0 0 0-16 0"></path></svg></div>
+                    <div class="m-body">
+                      <div class="m-name">역할(Role) 부여</div>
+                      <div class="m-desc">“너는 20년차 보안 전문가”라고 지정하면 전문가 분포로 조건화된다.</div>
+                    </div>
+                  </div>
+                  <div class="m-card m-3">
+                    <div class="m-tile"><svg class="s-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"></path><path d="M14 2v5a1 1 0 0 0 1 1h5"></path><path d="M10 9H8"></path><path d="M16 13H8"></path><path d="M16 17H8"></path></svg></div>
+                    <div class="m-body">
+                      <div class="m-name">전문 용어 사용</div>
+                      <div class="m-desc">출력이 그 분야 전문가의 말투·표현(레지스터)을 따라온다.</div>
+                    </div>
+                  </div>
+                </div>
+            
+                <div class="so-note" style="inset: 888px auto auto 120px;">
+                  <span class="so-check"><svg class="s-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span>
+                  <span>출력 형식까지 강제 = <span class="acc">structured output</span></span>
+                </div>
+            
+                <div class="s-footer">
+                  <span>주식회사 덥덥덥 · ww-w.ai</span>
+                  <span class="s-pagenum">17</span>
+                </div>
+              </section>
+</div>
+</body>
+</html>

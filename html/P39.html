@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>P39 — Sprint 단계 × Trust L0~L4</title>
+<link rel="stylesheet" href="slides.css">
+</head>
+<body>
+<div class="fit">
+  <!-- P39 [신규·도식] Sprint 8단계 × Trust L0~L4 자동 진행 범위(SPRINT_AUTORUN_SCOPE). 순수 HTML. -->
+  <section class="slide light" id="P39">
+    <style>
+      #P39 .s-title{ font-size:64px; }
+      #P39 .s-subtitle{ top:216px; font-size:40px; color:var(--muted); font-weight:600; }
+
+      /* === 완전 HTML 차트 (선/점/점선/바 모두 CSS) === */
+      /* 축선 + 눈금점 (plot: x 340~1560, w 1220) */
+      #P39 .axis{ position:absolute; left:340px; top:403px; width:1220px; height:2px; background:#CBC9C4; }
+      #P39 .dot{ position:absolute; top:397px; width:13px; height:13px; border-radius:50%;
+        background:#8C8A86; transform:translateX(-50%); }
+      /* 축 라벨 (눈금점 x에 센터) */
+      #P39 .axl{ position:absolute; top:354px; transform:translateX(-50%);
+        font-size:22px; font-weight:800; color:var(--secondary); white-space:nowrap; }
+      /* 좌 Trust 레벨 (바 행 y에 센터) */
+      #P39 .lv{ position:absolute; left:120px; transform:translateY(-50%);
+        font-size:27px; font-weight:800; color:var(--text); white-space:nowrap; }
+      #P39 .lv .k{ color:var(--muted); font-weight:700; font-size:22px; }
+      #P39 .lv.base{ color:#E85C34; }
+      /* 우 캡션 (바 행 y에 센터·우정렬) */
+      #P39 .cap{ position:absolute; right:120px; transform:translateY(-50%); text-align:right;
+        font-size:24px; font-weight:700; color:var(--secondary); white-space:nowrap; }
+      #P39 .cap.base{ color:#E85C34; }
+      /* 자동 진행 바 + knob + 사람승인 점선 (바 시작 x=340) */
+      #P39 .dash{ position:absolute; height:0; border-top:3px dotted #B4B2AD; transform:translateY(-50%); z-index:1; }
+      #P39 .bar{ position:absolute; left:340px; height:14px; border-radius:7px;
+        background:#E85C34; transform:translateY(-50%); z-index:2; }
+      #P39 .knob{ position:absolute; width:24px; height:24px; border-radius:50%;
+        background:#E85C34; transform:translate(-50%,-50%); box-shadow:0 1px 4px rgba(0,0,0,.14); z-index:3; }
+      /* 범례 */
+      #P39 .legend{ position:absolute; left:340px; top:773px; display:flex; gap:36px; align-items:center;
+        font-size:21px; font-weight:600; color:var(--secondary); }
+      #P39 .legend .sw{ display:inline-block; width:36px; height:12px; border-radius:6px;
+        background:#E85C34; vertical-align:middle; margin-right:9px; }
+      #P39 .legend .dotline{ display:inline-block; margin-right:9px; vertical-align:middle; line-height:0; }
+
+      #P39 .keymsg .msg{ font-size:29px; font-weight:600; color:var(--text); line-height:1.35; }
+      #P39 .keymsg .msg b{ color:var(--c1); }
+    </style>
+
+    <h1 class="s-title">Sprint 개념 ④ — Sprint 단계 × Trust</h1>
+    <div class="s-subtitle">어디까지 사람 없이? 무인 범위를 다이얼로 정한다</div>
+
+    <!-- 축선 + 눈금점 (8 ticks: PRD448 Plan604 Design760 Do916 Iterate1072 QA1228 Report1384 Archived1540) -->
+    <div class="axis"></div>
+    <div class="dot" style="left:448px"></div><div class="dot" style="left:604px"></div>
+    <div class="dot" style="left:760px"></div><div class="dot" style="left:916px"></div>
+    <div class="dot" style="left:1072px"></div><div class="dot" style="left:1228px"></div>
+    <div class="dot" style="left:1384px"></div><div class="dot" style="left:1540px"></div>
+
+    <!-- 축 라벨 (눈금점 x에 센터) -->
+    <div class="axl" style="left:448px">PRD</div>
+    <div class="axl" style="left:604px">Plan</div>
+    <div class="axl" style="left:760px">Design</div>
+    <div class="axl" style="left:916px">Do</div>
+    <div class="axl" style="left:1072px">Iterate</div>
+    <div class="axl" style="left:1228px">QA</div>
+    <div class="axl" style="left:1384px">Report</div>
+    <div class="axl" style="left:1540px">Archived</div>
+
+    <!-- 좌 Trust 레벨 (바 행 y: L0 434 · L1 508 · L2 582 · L3 656 · L4 730) -->
+    <div class="lv" style="top:461px">L0 <span class="k">· Manual</span></div>
+    <div class="lv" style="top:524px">L1 <span class="k">· Guided</span></div>
+    <div class="lv base" style="top:587px">L2 <span class="k">· Semi (기본)</span></div>
+    <div class="lv" style="top:650px">L3 <span class="k">· Auto</span></div>
+    <div class="lv" style="top:713px">L4 <span class="k">· Full</span></div>
+
+    <!-- 우 범위 캡션 -->
+    <div class="cap" style="top:461px">전부 사람 승인</div>
+    <div class="cap" style="top:524px">PRD까지</div>
+    <div class="cap base" style="top:587px">Design까지</div>
+    <div class="cap" style="top:650px">Report까지</div>
+    <div class="cap" style="top:713px">끝까지 무인</div>
+
+    <!-- 자동 진행 바 + knob + 사람승인 점선 (plot 340~1560) -->
+    <div class="dash" style="left:340px; top:461px; width:1220px"></div>
+    <div class="bar" style="top:524px; width:108px"></div><div class="knob" style="left:448px; top:524px"></div><div class="dash" style="left:448px; top:524px; width:1112px"></div>
+    <div class="bar" style="top:587px; width:420px"></div><div class="knob" style="left:760px; top:587px"></div><div class="dash" style="left:760px; top:587px; width:800px"></div>
+    <div class="bar" style="top:650px; width:1044px"></div><div class="knob" style="left:1384px; top:650px"></div><div class="dash" style="left:1384px; top:650px; width:176px"></div>
+    <div class="bar" style="top:713px; width:1200px"></div><div class="knob" style="left:1540px; top:713px"></div>
+
+    <div class="legend">
+      <span><span class="sw"></span>자동 진행 구간</span>
+      <span><span class="dotline"><svg width="42" height="8" viewBox="0 0 42 8"><line x1="3" y1="4" x2="39" y2="4" stroke="#8C8A86" stroke-width="4" stroke-dasharray="3 7" stroke-linecap="round"/></svg></span>사람 승인</span>
+    </div>
+
+    <div class="keymsg">
+      <span class="tag">MESSAGE</span>
+      <span class="msg">L2가 기본 안전값 — 성과 쌓이면 L3·L4로. <b>무인 범위를 넓혀도 품질 검증은 그대로 작동.</b></span>
+    </div>
+
+    <div class="s-footer">
+      <span>주식회사 덥덥덥 · ww-w.ai</span>
+      <span class="s-pagenum">39</span>
+    </div>
+  </section>
+</div>
+</body>
+</html>

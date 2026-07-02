@@ -1,0 +1,23 @@
+/* ───────────────────────────────────────────────────────────
+   standalone 단일 슬라이드(Pxx.html) + 캡처(shot-html.js)용 스타일.
+   컴포넌트(토큰·.s-*)는 components.css가 소유 → 여기선 전역 리셋 + .fit/.slide 스케일만.
+   ※ reveal.js(presentation.html)는 이 파일이 아니라 components.css만 링크한다
+     (전역 `*` 리셋이 reveal 측정과 충돌하므로).
+   ─────────────────────────────────────────────────────────── */
+@import url('components.css');
+
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:#2A2A2E;}
+.deck{display:flex;flex-direction:column;align-items:center;gap:28px;padding:28px;}
+
+/* ── 표시 모드: 슬라이드(1920×1080 고정)를 viewport에 맞춰 축소 ──
+   .slide 자체는 항상 1920×1080(캡처·export 원본). transform scale은 표시에만 적용. */
+.fit{position:fixed;inset:0;display:grid;place-items:center;background:#2A2A2E;overflow:hidden;}
+.fit>.slide{transform:scale(calc(min(100vw / 1920, 100vh / 1080)));transform-origin:center;}
+
+/* ── 슬라이드 컨테이너 ── */
+.slide{
+  width:1920px;height:1080px;flex:none;position:relative;overflow:hidden;
+  background:var(--bg);color:var(--text);font-family:var(--sans);
+  box-shadow:0 8px 40px rgba(0,0,0,.4);
+}

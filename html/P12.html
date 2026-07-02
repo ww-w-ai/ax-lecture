@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>P12 — 토큰이란?</title>
+<link rel="stylesheet" href="slides.css">
+</head>
+<body>
+<div class="fit">
+  <section class="slide light" id="P12">
+                <style>
+                  /* ── 페이지 고유 CSS (마스터 표준 override) ── */
+                  #P12 .s-body{ width:780px; }
+                  #P12 .keymsg{ justify-content:center; }   /* 내부 센터 (위치는 마스터 하단 밴드 통일) */
+                  #P12 .keymsg .tag{ font-size:20px; }
+                  #P12 .keymsg .ktxt{ font-size:30px; font-weight:700; line-height:1.32; color:var(--text); }
+            
+                  /* 토큰 칩 비주얼 (우측 존) */
+                  #P12 .tok-wrap{ position:absolute; right:104px; top:300px; width:752px;
+                    display:flex; flex-direction:column; gap:54px; }
+                  #P12 .tok-head{ display:flex; align-items:baseline; gap:18px; margin-bottom:24px; }
+                  #P12 .tok-sent{ font-size:34px; font-weight:700; color:var(--text); }
+                  #P12 .tok-count{ font-size:26px; font-weight:800; }
+                  #P12 .tok-count.eng{ color:var(--c2); }
+                  #P12 .tok-count.kor{ color:var(--c1); }
+                  #P12 .tok-row{ display:flex; flex-wrap:wrap; gap:14px; }
+                  #P12 .chip-k{ display:inline-flex; align-items:center; justify-content:center;
+                    min-width:60px; height:60px; padding:0 18px; border-radius:14px;
+                    font-size:30px; font-weight:600; }
+                  #P12 .g-eng .chip-k{ background:#F3F0E8; border:2px solid #D7D1C4; color:var(--text); }
+                  #P12 .g-kor .chip-k{ background:var(--c1-soft); border:2px solid var(--c1); color:var(--c1-deep); }
+                </style>
+            
+                <h1 class="s-title">토큰이란? (AI가 글을 읽고 쓰는 단위)</h1>
+            
+                <div class="s-body" style="inset: 300px auto auto 119px; width: 904px;">
+                  <div class="s-bullet">
+                    <span class="dot"></span>
+                    <span class="btxt">토큰 = AI가 글을 다루는 <span class="acc">최소 조각.<br></span>글자도 단어도 아닌, <span class="hl">자주 등장하는 글자 덩어리</span>.</span>
+                  </div>
+                  <div class="s-bullet">
+                    <span class="dot"></span>
+                    <span class="btxt">언어·문법·의미가 아니라 <span class="acc">빈도</span>로 쪼갠다.</span>
+                  </div>
+                  <div class="s-subs s-subs1">
+                    <div class="s-sub"><span class="dash">–</span><span>글자는 너무 잘아 비효율, 단어는 개수가 무한 → 절충안</span></div>
+                  </div>
+                  <div class="s-bullet">
+                    <span class="dot"></span>
+                    <span class="btxt"><span class="acc2">영어</span>는 흔한 단어가 통째로 1토큰,<br><span class="acc">한글</span>은 대부분 글자 수준으로 잘게 쪼개진다.<br></span>
+                  </div>
+                </div>
+            
+                <div class="keymsg">
+                  <span class="tag">팁</span>
+                  <span class="ktxt">영어는 [1 단어 = 1~2 토큰] 인 경우가 많기에, 토큰도 덜 쓰고 의미를 더 잘 파악하기도 합니다.</span>
+                </div>
+            
+                <div class="tok-wrap" style="inset: 300px auto auto 1156px; width: 644px;">
+                  <div class="tok-group g-eng">
+                    <div class="tok-head">
+                      <span class="tok-sent">This is KAIST.</span>
+                      <span class="tok-count eng">영어 5토큰</span>
+                    </div>
+                    <div class="tok-row">
+                      <span class="chip-k">This</span>
+                      <span class="chip-k">is</span>
+                      <span class="chip-k">KA</span>
+                      <span class="chip-k">IST</span>
+                      <span class="chip-k">.</span>
+                    </div>
+                  </div>
+                  <div class="tok-group g-kor">
+                    <div class="tok-head">
+                      <span class="tok-sent">여기는 카이스트입니다.</span>
+                      <span class="tok-count kor">한글 7토큰</span>
+                    </div>
+                    <div class="tok-row">
+                      <span class="chip-k">여</span>
+                      <span class="chip-k">기는</span>
+                      <span class="chip-k">카</span>
+                      <span class="chip-k">이</span>
+                      <span class="chip-k">스트</span>
+                      <span class="chip-k">입니다</span>
+                      <span class="chip-k">.</span>
+                    </div>
+                  </div>
+                </div>
+            
+                <div class="s-footer">
+                  <span>주식회사 덥덥덥 · ww-w.ai</span>
+                  <span class="s-pagenum">12</span>
+                </div>
+              </section>
+</div>
+</body>
+</html>

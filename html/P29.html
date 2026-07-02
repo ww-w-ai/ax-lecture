@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>P29 — 실습: 내 세션에게 직접 물어보기</title>
+<link rel="stylesheet" href="slides.css">
+</head>
+<body>
+<div class="fit">
+  <section class="slide light" id="P29">
+    <style>
+      /* ── 페이지 고유 (마스터 표준 override) ── */
+      #P29 .badge{ position:absolute; left:120px; top:96px;
+        display:inline-flex; align-items:center; gap:12px;
+        background:var(--c1); color:#fff; font-weight:800; font-size:30px;
+        padding:12px 28px; border-radius:999px; letter-spacing:.01em; }
+      #P29 .s-title{ top:168px; font-size:66px; }
+
+      #P29 .qa{ position:absolute; left:120px; top:300px; width:1680px;
+        display:flex; flex-direction:column; gap:22px; }
+      #P29 .row{ display:grid; grid-template-columns:58px 1fr; column-gap:26px; align-items:center; }
+      #P29 .ord{ width:52px; height:52px; border-radius:50%; background:var(--c1); color:#fff;
+        font-weight:800; font-size:28px; display:flex; align-items:center; justify-content:center; }
+      /* 대화 입력창 모양 — P24 채팅 UI와 통일 (둥근 입력바 + 좌 ＋ / 우 주황 전송) */
+      #P29 .q{ display:flex; align-items:center; gap:20px;
+        background:#FAF8F5; border:2px solid #E7E3DC; border-radius:999px; padding:14px 22px; }
+      #P29 .q .qt{ flex:1; color:var(--text); font-weight:500; font-size:28px; line-height:1.34; }
+      #P29 .q::before{ content:"+"; flex:none; width:44px; height:44px; border-radius:50%;
+        background:#EDEAE3; color:#666; font-size:30px; font-weight:400;
+        display:flex; align-items:center; justify-content:center; line-height:1; padding-bottom:3px; }
+      #P29 .q::after{ content:"➤"; flex:none; width:48px; height:48px; border-radius:50%;
+        background:#E8845C; color:#fff; font-size:21px;
+        display:flex; align-items:center; justify-content:center; }
+    </style>
+
+    <div class="badge"><svg class="s-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.106-3.105c.32-.322.863-.22.983.218a6 6 0 0 1-8.259 7.057l-7.91 7.91a1 1 0 0 1-2.999-3l7.91-7.91a6 6 0 0 1 7.057-8.259c.438.12.54.662.219.984z"/></svg>실습</div>
+    <h1 class="s-title">내 세션에게 직접 물어보기</h1>
+
+    <div class="qa">
+      <div class="row">
+        <div class="ord">1</div>
+        <div class="q"><span class="qt">트랜스크립트가 뭐야? 현재 세션의 트랜스크립트는 어디에 저장되어 있어?</span></div>
+      </div>
+      <div class="row">
+        <div class="ord">2</div>
+        <div class="q"><span class="qt">LLM에 보내는 system / user / assistant 세 종류 메시지에 대해 설명해줘.</span></div>
+      </div>
+      <div class="row">
+        <div class="ord">3</div>
+        <div class="q"><span class="qt">system-reminder 라는 태그가 있다던데, 이건 시스템 프롬프트와 어떻게 달라?</span></div>
+      </div>
+      <div class="row">
+        <div class="ord">4</div>
+        <div class="q"><span class="qt">프롬프트의 앞 부분이 캐시가 된다는데 이유가 뭐야? 플러그인·스킬·에이전트 정보는 어떻게 들어가?</span></div>
+      </div>
+      <div class="row">
+        <div class="ord">5</div>
+        <div class="q"><span class="qt">세션 크기가 90만 토큰이면 매 호출마다 90만 토큰이 다 전송돼? 특히 멀티턴·TOOL 콜링이 일어날 때마다?</span></div>
+      </div>
+      <div class="row">
+        <div class="ord">6</div>
+        <div class="q"><span class="qt">claude-code-token-saver 소스를 분석해 효과·원리를 리포트로 정리해줘.</span></div>
+      </div>
+    </div>
+
+    <div class="s-footer">
+      <span>주식회사 덥덥덥 · ww-w.ai</span>
+      <span class="s-pagenum">29</span>
+    </div>
+  </section>
+</div>
+</body>
+</html>

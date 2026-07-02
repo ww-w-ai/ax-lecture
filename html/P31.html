@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>P31</title>
+<link rel="stylesheet" href="slides.css">
+</head>
+<body>
+<div class="fit">
+  <!-- P31 [2부 도입] 하네스 진화 타임라인 — 4분할 풀블리드(사진) + 텍스트 오버레이 -->
+  <section class="slide photo" id="P31">
+    <style>
+      /* 4분할 풀블리드 위 텍스트 오버레이 — P05 느낌(이미지 위주), 하단 라벨로 타임라인 */
+      #P31 .s-bg{position:absolute;inset:0;width:1920px;height:1080px;object-fit:cover;}
+      #P31 .topgrad{position:absolute;left:0;top:0;width:1920px;height:200px;
+        background:linear-gradient(to bottom,rgba(0,0,0,.55),rgba(0,0,0,0));z-index:2;}
+      #P31 .botgrad{position:absolute;left:0;bottom:0;width:1920px;height:360px;
+        background:linear-gradient(to top,rgba(0,0,0,.82),rgba(0,0,0,.45) 45%,rgba(0,0,0,0));z-index:2;}
+      #P31 .eyebrow{position:absolute;left:64px;top:54px;z-index:4;
+        color:#fff;font-weight:700;font-size:30px;letter-spacing:.01em;
+        font-family:var(--sans);text-shadow:0 2px 10px rgba(0,0,0,.5);}
+      #P31 .eyebrow b{color:var(--c1);}
+      /* 패널 라벨: 4등분(각 480px) 하단 중앙 */
+      #P31 .lab{position:absolute;bottom:96px;width:460px;z-index:4;text-align:center;
+        font-family:var(--sans);text-shadow:0 2px 12px rgba(0,0,0,.6);}
+      #P31 .lab .yr{display:inline-block;background:rgba(255,255,255,.14);border:1.5px solid rgba(255,255,255,.5);
+        color:#fff;font-weight:700;font-size:25px;letter-spacing:.02em;padding:6px 18px;border-radius:999px;margin-bottom:18px;}
+      #P31 .lab .cc{color:#fff;font-weight:800;font-size:42px;line-height:1.18;letter-spacing:-0.01em;}
+      #P31 .lab .cc small{display:block;font-size:27px;font-weight:600;color:#EDEDEA;letter-spacing:.01em;margin-top:4px;}
+      /* '지금' 강조 패널(state) */
+      #P31 .lab.now .yr{background:var(--c1);border-color:var(--c1);}
+      #P31 .lab.now .cc{color:#fff;}
+      #P31 .nowtag{display:inline-block;background:var(--c1);color:#fff;font-weight:800;font-size:20px;
+        letter-spacing:.06em;padding:4px 12px;border-radius:7px;margin-bottom:14px;box-shadow:0 2px 10px rgba(230,0,18,.5);}
+      /* 패널 사이 화살표 */
+      #P31 .arr{position:absolute;bottom:150px;z-index:4;color:#fff;font-size:40px;font-weight:300;
+        opacity:.92;text-shadow:0 2px 10px rgba(0,0,0,.7);}
+    </style>
+
+    <img class="s-bg" src="../final/P31-bg.png" alt="">
+    <div class="topgrad"></div>
+    <div class="botgrad"></div>
+
+    <!-- 패널1: 2025 프롬프트 엔지니어링 (center x=240 → left=10) -->
+    <div class="lab" style="left:10px;">
+      <span class="yr">2025</span>
+      <div class="cc">프롬프트<br>엔지니어링</div>
+    </div>
+    <!-- 패널2: 2026 Q1 콘텍스트 엔지니어링 (center x=720 → left=490) -->
+    <div class="lab" style="left:490px;">
+      <span class="yr">2026 · 1분기</span>
+      <div class="cc">콘텍스트<br>엔지니어링</div>
+    </div>
+    <!-- 패널3: 2026 Q2 하네스(멀티턴) (center x=1200 → left=970) -->
+    <div class="lab" style="left:970px;">
+      <span class="yr">2026 · 2분기</span>
+      <div class="cc">하네스<small>멀티턴 제어</small></div>
+    </div>
+    <!-- 패널4: 2026 Q3 하네스(state) — 지금 (center x=1680 → left=1450) -->
+    <div class="lab now" style="left:1450px;">
+      <span class="nowtag">지금</span><br>
+      <span class="yr">2026 · 3분기</span>
+      <div class="cc">하네스<small>자율주행, 상태&nbsp;관리</small></div>
+    </div>
+
+    <!-- 화살표 (패널 경계 x=480,960,1440) -->
+    <div class="arr" style="left:462px;">›</div>
+    <div class="arr" style="left:942px;">›</div>
+    <div class="arr" style="left:1422px;">›</div>
+  </section>
+</div>
+</body>
+</html>

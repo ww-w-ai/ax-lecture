@@ -15,3 +15,18 @@
 # 내부 전용 (실수 커밋 방지)
 *설계서*
 *CONFIDENTIAL*
+html/.baseline/
+
+# 파생/일시 산출물 (소스 아님 — 재생성 가능)
+# (주석은 반드시 독립 라인 — gitignore는 인라인 주석 미지원)
+out/
+.bkit/
+# shot-html.js 렌더·축소본·deck-goto 캡처 (전역)
+*-render.png
+*-render-sm.png
+*-sm.png
+_deck-view*.png
+# 구 대체 빌드 / 재생성 전 백업 / 원본 백업 (전역)
+deck-2.html
+*.v1*.png
+*.orig.png

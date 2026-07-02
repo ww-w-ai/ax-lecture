@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>P40 — Sprint 개념 ⑤: 자율주행을 받치는 측정 & 안전벨트</title>
+<link rel="stylesheet" href="slides.css">
+</head>
+<body>
+<div class="fit">
+  <!-- P40 [도식] 하이브리드: 제목·좌우 헤더·resume 펄·KEY MESSAGE·푸터 = HTML / 게이지 3카드(좌)·iterate 루프+3한계 칩(우) = 이미지 crop. -->
+  <section class="slide light" id="P40">
+    <style>
+      #P40 .s-title{ font-size:54px; line-height:1.18; }
+
+      /* 좌우 섹션 헤더 (HTML) */
+      #P40 .sec-h{ position:absolute; top:250px; font-size:30px; font-weight:800; letter-spacing:-0.01em; color:#E85C34; }
+      #P40 .sec-h.left{ left:120px; }
+      #P40 .sec-h.right{ left:955px; }
+
+      /* 일러스트 crop (축소 배치) */
+      #P40 .limg{ position:absolute; left:120px; top:312px; width:660px; height:auto; }
+      #P40 .rimg{ position:absolute; left:955px; top:322px; width:630px; height:auto; }
+
+      /* 3한계 → 상태보존/resume 연결 화살표 + 펄 (HTML — baked resume 깨짐 대체) */
+      #P40 .r-arrow{ position:absolute; left:1255px; top:668px; transform:translateX(-50%);
+        font-size:30px; font-weight:800; color:#C9C7C2; line-height:1; }
+      #P40 .resume{ position:absolute; left:955px; top:702px; width:630px; box-sizing:border-box;
+        display:flex; align-items:center; justify-content:center; gap:12px; padding:16px 22px;
+        border-radius:14px; background:#EAF3F2; border:1px solid #1F6E78; }
+      #P40 .resume .t{ font-size:24px; font-weight:700; color:var(--text); }
+      #P40 .resume .t code{ font-family:ui-monospace,'SF Mono',monospace; color:#1F6E78; font-weight:800; }
+
+      #P40 .keymsg .msg{ font-size:30px; font-weight:600; color:var(--text); line-height:1.3; }
+      #P40 .keymsg .msg .acc{ color:#E85C34; }
+    </style>
+
+    <h1 class="s-title">Sprint 개념 ⑤ — 자율주행을 받치는 측정 &amp; 안전벨트</h1>
+
+    <div class="sec-h left">성공지표 3개 기준</div>
+    <img class="limg" src="assets/P40-left.png" alt="성공지표 3축 게이지 카드: ① matchRate 설계↔구현 정합(기능별) 90%·자동 ② S1·7-Layer dataFlow QA 기능 간 통합 흐름 100%·자동(Sprint 신규) ③ 제품·성과 지표 PRD에서 정의한 항목 평가(PRD 신규)">
+
+    <div class="sec-h right">성공지표 달성까지 자동 반복 → 멈춤은 3한계</div>
+    <img class="rimg" src="assets/P40-right.png" alt="자동 반복(iterate) — 성공지표 달성이 목표. 반복을 멈추는 3한계: iterate 5회 소진 · 예산 1M 초과 · 타임아웃 4h.">
+    <div class="r-arrow">↓</div>
+    <div class="resume"><span class="t">한계 도달 → 상태 보존 → <code>/sprint resume</code></span></div>
+
+    <div class="keymsg">
+      <span class="tag">MESSAGE</span>
+      <span class="msg">성공지표를 향해 스스로 반복하고, 멈춤 한계가 있어야 <span class="acc">“자리를 비워도”</span> 안전하다.</span>
+    </div>
+
+    <div class="s-footer">
+      <span>주식회사 덥덥덥 · ww-w.ai</span>
+      <span class="s-pagenum">40</span>
+    </div>
+  </section>
+</div>
+</body>
+</html>

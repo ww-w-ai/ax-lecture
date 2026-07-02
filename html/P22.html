@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>P22 — 토큰은 종류별로 값이 다르다</title>
+<link rel="stylesheet" href="slides.css">
+</head>
+<body>
+<div class="fit">
+  <section class="slide light" id="P22">
+          <style>
+            /* ── 페이지 고유 CSS (마스터 표준 override) ── */
+            #P22 .s-title{ font-size:58px; line-height:1.241; }
+            #P22 .p-eyebrow{ position:absolute; left:120px; top:300px; color:var(--c1); font-weight:700; font-size:28px; letter-spacing:.01em; }
+      
+            #P22 .p-table{ position:absolute; left:120px; top:352px; width:740px; border-collapse:collapse; }
+            #P22 .s-illust{ left:880px; top:352px; width:1005px; }   /* final/P22 토큰 코인 스택 일러스트 */
+            #P22 .p-table th, #P22 .p-table td{ text-align:left; padding:20px 16px; border-bottom:1px solid var(--rule); }
+            #P22 .p-table thead th{ font-size:27px; font-weight:700; border-bottom:2px solid var(--text); }
+            #P22 .p-table .c-type{ width:45%; font-size:31px; font-weight:600; white-space:nowrap; }
+            #P22 .p-table .c-mult{ width:30%; font-size:30px; color:var(--c2); font-weight:600; white-space:nowrap; }
+            #P22 .p-table .c-price{ width:25%; font-size:32px; color:var(--c3-deep); font-weight:800; }
+            #P22 .p-table thead .c-mult{ color:var(--c2); }
+            #P22 .p-table thead .c-price{ color:var(--c3-deep); }
+            #P22 .p-table thead .c-type{ color:var(--text); }
+            #P22 .p-table tr.row-cheap td{ background:var(--c1-soft); }
+            #P22 .p-table tr.row-cheap .c-type,
+            #P22 .p-table tr.row-cheap .c-mult{ color:var(--c1-deep); font-weight:800; }
+            #P22 .p-table tr.row-cheap .c-price{ color:var(--c1); }
+            #P22 .p-table tr:last-child td{ border-bottom:none; }
+            #P22 .p-sub{ font-size:24px; color:var(--muted); }
+          </style>
+      
+          <h1 class="s-title" style="inset: 120px auto auto 120px; width: 1524px;"><span style="font-size: 68px;"><span style="font-size: 78px;"><span style="font-size: 84px;">토큰은 종류별로 값이 다르다&nbsp;</span></span></span><span style="font-size: 54px; font-weight: normal;">(API 비용 · Opus 4.8 기준)</span></h1>
+      
+          <div class="p-eyebrow">1M 토큰당</div>
+      
+          <img class="s-illust" src="assets/P22-illust.png" alt="" style="inset: 352px auto auto 880px; width: 939px; height: auto;">
+      
+          <table class="p-table" style="inset: 352px auto auto 120px;">
+            <thead>
+              <tr><th class="c-type">종류</th><th class="c-mult">배수</th><th class="c-price">가격</th></tr>
+            </thead>
+            <tbody>
+              <tr><td class="c-type">input</td><td class="c-mult">×1</td><td class="c-price">$5</td></tr>
+              <tr><td class="c-type">output <span class="p-sub">(생성)</span></td><td class="c-mult">×5</td><td class="c-price">$25</td></tr>
+              <tr><td class="c-type">cache write <span class="p-sub">(5분)</span></td><td class="c-mult">×1.25</td><td class="c-price">$6.25</td></tr>
+              <tr><td class="c-type">cache write <span class="p-sub">(1시간)</span></td><td class="c-mult">×2</td><td class="c-price">$10</td></tr>
+              <tr class="row-cheap"><td class="c-type">cache read</td><td class="c-mult">×0.1 (1/10)</td><td class="c-price">$0.50</td></tr>
+              <tr><td class="c-type">thinking <span class="p-sub">(= output 과금)</span></td><td class="c-mult">×5</td><td class="c-price">$25</td></tr>
+            </tbody>
+          </table>
+      
+          <div class="s-footer">
+            <span>주식회사 덥덥덥 · ww-w.ai</span>
+            <span class="s-pagenum">22</span>
+          </div>
+        </section>
+</div>
+</body>
+</html>

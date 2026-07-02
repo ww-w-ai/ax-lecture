@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>P35 — PDCA 실제 사례: "로그인 기능 만들어줘" 한 마디로</title>
+<link rel="stylesheet" href="slides.css">
+</head>
+<body>
+<div class="fit">
+  <!-- P35 [도식] 제목·하단 결론=HTML / 가운데 말풍선+4단계 카드=이미지(generated/P35.png crop) -->
+  <section class="slide light" id="P35">
+    <style>
+      #P35 .s-title{ font-size:64px; line-height:1.179; }
+      /* 가운데 도식 이미지 (말풍선 + P/D/C/A 4카드) */
+      #P35 .flow{ position:absolute; left:225px; top:249px; width:1469px; height:auto; }
+      /* 하단 결론 MESSAGE 띠 — 위치는 마스터 .keymsg(하단 밴드 통일) */
+      #P35 .keymsg .msg{ font-size:30px; font-weight:600; color:var(--text); line-height:1.3; }
+      #P35 .keymsg .msg .acc{ color:var(--c1); }
+      #P35 .keymsg .msg .q{ color:var(--c1); }
+    </style>
+
+    <h1 class="s-title">PDCA 실제 사례 — “로그인 기능 만들어줘” 한 마디로</h1>
+
+    <img class="flow" src="assets/P35-diagram.png" alt="자연어 요청 '로그인 기능 만들어줘' → P Plan/Design(login.design.md) → D Do 구현(Hooks 자동발화) → C Check 검증(gap-detector Match Rate 87%) → A Act 반영(≥90% 리포트 / <70% 자동 수복)">
+
+    <div class="keymsg">
+      <span class="tag">MESSAGE</span>
+      <span class="msg"><span class="q">「로그인 만들어줘」</span> 한 마디가 <span class="acc">기획 → 구현 → 검증 → 반영</span> 완결 사이클로 자동 전개 → <span class="acc">비개발자를 개발자처럼.</span></span>
+    </div>
+
+    <div class="s-footer">
+      <span>주식회사 덥덥덥 · ww-w.ai</span>
+      <span class="s-pagenum">35</span>
+    </div>
+  </section>
+</div>
+</body>
+</html>

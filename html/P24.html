@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>P24 — 맥락을 이어가는 노하우</title>
+<link rel="stylesheet" href="slides.css">
+</head>
+<body>
+<div class="fit">
+  <section class="slide light" id="P24">
+    <style>
+      /* ── 페이지 고유 CSS ── */
+      #P24 .p-cards{ position:absolute; left:120px; top:296px; width:1680px;
+        display:flex; flex-direction:column; gap:40px; }
+      #P24 .p-card{ background:#F6F6F4; border-left:6px solid var(--c1); border-radius:14px;
+        padding:30px 40px; display:flex; align-items:center; gap:30px; }
+      #P24 .p-ava{ flex:none; width:104px; height:104px; border-radius:50%; object-fit:cover;
+        box-shadow:0 2px 10px rgba(0,0,0,.06); }
+      #P24 .p-main{ flex:1; min-width:0; }
+      #P24 .p-head{ display:flex; align-items:center; gap:18px; margin-bottom:18px; }
+      #P24 .p-num{ width:50px; height:50px; border-radius:50%; background:var(--c1); color:#fff;
+        font-size:26px; font-weight:800; display:flex; align-items:center; justify-content:center; flex:none; }
+      #P24 .p-t{ font-size:36px; font-weight:700; color:var(--text); }
+      #P24 .p-label{ font-size:23px; color:var(--muted); font-weight:600; margin-left:auto; }
+      #P24 .p-quote{ font-size:30px; line-height:1.5; color:var(--secondary);
+        font-family:var(--serif); }
+      #P24 .p-shot{ flex:none; height:auto; border-radius:12px; }
+      #P24 .p-shot1{ width:268px; }
+      #P24 .p-shot2{ width:320px; }
+    </style>
+
+    <h1 class="s-title">맥락을 이어가는 노하우</h1>
+
+    <div class="p-cards">
+      <div class="p-card">
+        <img class="p-ava" src="assets/P24-ava1.png" alt="">
+        <div class="p-main">
+          <div class="p-head">
+            <div class="p-num">①</div>
+            <div class="p-t">요약 · 박제</div>
+            <div class="p-label">중요한 결론을 문서로 → 새 세션 입력에</div>
+          </div>
+          <div class="p-quote">“새 세션에서 이어서 시작할거야. 이번 세션에서의 맥락을 잃지 않게 대화의 과정과 결론, 추가적으로 더 논의해야 할 것들, 다음 세션에서 해야 할 일 등을 <span class="hl">문서로 남기고</span>, 또한 다음 세션에 <span class="hl">복붙만 하면 해당 문서와 함께 맥락을 놓치지 않고 이어갈 수 있는 프롬프트</span> 만들어줘.”</div>
+        </div>
+        <img class="p-shot p-shot1" src="assets/P24-shot1.png" alt="대화 요약을 문서로 남기는 채팅 화면">
+      </div>
+      <div class="p-card">
+        <img class="p-ava" src="assets/P24-ava2.png" alt="">
+        <div class="p-main">
+          <div class="p-head">
+            <div class="p-num">②</div>
+            <div class="p-t">트랜스크립트 복원</div>
+            <div class="p-label">지난 대화 기록(.jsonl)에서 핵심을 다시 불러오기</div>
+          </div>
+          <div class="p-quote">“현재 프로젝트의 <span class="hl">지난 세션 트랜스크립트</span>에서 ‘~~’ 와 관련된 내용을 찾아보고 기억 복원해.”</div>
+        </div>
+        <img class="p-shot p-shot2" src="assets/P24-shot2.png" alt="conversation.jsonl 을 검색하는 화면">
+      </div>
+    </div>
+
+    <div class="s-footer">
+      <span>주식회사 덥덥덥 · ww-w.ai</span>
+      <span class="s-pagenum">24</span>
+    </div>
+  </section>
+</div>
+</body>
+</html>
