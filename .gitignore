@@ -29,4 +29,10 @@ _deck-view*.png
 # 구 대체 빌드 / 재생성 전 백업 / 원본 백업 (전역)
 deck-2.html
 *.v1*.png
+*_v1.png
 *.orig.png
+# 파이썬 캐시 / 로그 / 일시 캡처
+__pycache__/
+*.log
+_cur.html
+_deck-live.png
