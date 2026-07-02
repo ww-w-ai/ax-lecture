@@ -49,6 +49,12 @@
   /* 텍스트 직접 편집(더블클릭) */
   .slide > *[contenteditable="true"]{outline:2px solid #0B5FD9!important;cursor:text!important;}
   body.text-editing .slide > *{cursor:default;}
+  /* 페이지 이동 모드 — 축소 필름스트립(앞/뒷장 노출) + 옮기는 슬라이드 강조 */
+  #viewport{transition:transform .3s cubic-bezier(.45,0,.2,1);}
+  body.moving #viewport{overflow:visible;}
+  body.moving #track{transition:transform .28s cubic-bezier(.45,0,.2,1);}
+  body.moving #track>.slide{opacity:.5;outline:2px solid rgba(0,0,0,.14);outline-offset:-2px;}
+  body.moving #track>.slide.cur{opacity:1;outline:6px solid #0B5FD9;outline-offset:-6px;box-shadow:0 24px 80px rgba(0,0,0,.55);}
   #edit-hud{position:fixed;top:10px;left:50%;transform:translateX(-50%);display:none;
     background:rgba(0,0,0,.82);color:#fff;padding:8px 16px;border-radius:8px;font-size:14px;z-index:50;white-space:nowrap;}
   #rz-handle{position:fixed;width:16px;height:16px;background:#E60012;border:2px solid #fff;border-radius:50%;
@@ -100,10 +106,10 @@
     <div id="track">
 
       <!-- 이미지 ../final/P01.png -->
-      <section class="slide"><img class="s-bg" src="../final/P01.png" alt=""></section>
+      <section data-idx="0" class="slide"><img class="s-bg" src="../final/P01.png" alt=""></section>
 
       <!-- P02.html -->
-      <section class="slide" id="P02">
+      <section data-idx="1" class="slide" id="P02">
           <img class="s-bg" src="../final/P02.png" alt="">
           <!-- 부제 라인 전체를 배경색으로 가린 뒤 정확한 텍스트로 덮어씀 (오타 '시대료'→'시대로') -->
           <div class="s-cover" style="left:100px; top:882px; width:820px; height:64px; background:#0C0C0D;"></div>
@@ -112,10 +118,10 @@
         </section>
 
       <!-- 이미지 ../final/P03.png -->
-      <section class="slide"><img class="s-bg" src="../final/P03.png" alt=""></section>
+      <section data-idx="2" class="slide"><img class="s-bg" src="../final/P03.png" alt=""></section>
 
       <!-- P04.html -->
-      <section class="slide light" id="P04">
+      <section data-idx="3" class="slide light" id="P04">
           <style>
             /* ── 페이지 고유 CSS (마스터 표준 override) ── */
             #P04 .s-illust{ left:1231px; top:122px; width:568px; }   /* 일러스트 위치/크기 (편집 반영) */
@@ -159,13 +165,13 @@
         </section>
 
       <!-- P05 (애니메이션: 전부 컬러 → [→] 좌측 흑백 + 라벨 크로스페이드) -->
-      <section class="slide">
+      <section data-idx="4" class="slide">
         <img class="s-bg" src="../final/P05.png" alt="">
         <img class="s-bg frag" src="../final/P5_5.png" alt="">
       </section>
 
       <!-- P06.html -->
-      <section class="slide light" id="P06">
+      <section data-idx="5" class="slide light" id="P06">
                 <style>
                   /* ── 페이지 고유 CSS (마스터 표준 override) ── */
                   #P06 .s-illust{ left:1099px; top:302px; width:700px; }   /* 일러스트 위치/크기 (편집 반영) */
@@ -207,10 +213,10 @@
               </section>
 
       <!-- 이미지 ../final/P07.png -->
-      <section class="slide"><img class="s-bg" src="../final/P07.png" alt=""></section>
+      <section data-idx="6" class="slide"><img class="s-bg" src="../final/P07.png" alt=""></section>
 
       <!-- P08.html -->
-      <section class="slide light" id="P08">
+      <section data-idx="7" class="slide light" id="P08">
                 <style>
                   /* ── 페이지 고유 CSS (마스터 표준 override) ── */
                   #P08 .s-illust{ right:110px; top:250px; width:700px; }   /* 일러스트 위치/크기 */
@@ -242,10 +248,10 @@
               </section>
 
       <!-- 이미지 ../final/P09.png -->
-      <section class="slide"><img class="s-bg" src="../final/P09.png" alt=""></section>
+      <section data-idx="8" class="slide"><img class="s-bg" src="../final/P09.png" alt=""></section>
 
       <!-- P10.html -->
-      <section class="slide light" id="P10">
+      <section data-idx="9" class="slide light" id="P10">
                 <style>
                   /* ── 페이지 고유 CSS (텍스트 중심 — 3 레버 카드가 메인 비주얼) ── */
                   #P10 .s-body{ top:282px; width:960px; }
@@ -312,10 +318,10 @@
               </section>
 
       <!-- 이미지 ../final/P11.png -->
-      <section class="slide"><img class="s-bg" src="../final/P11.png" alt=""></section>
+      <section data-idx="10" class="slide"><img class="s-bg" src="../final/P11.png" alt=""></section>
 
       <!-- P12.html -->
-      <section class="slide light" id="P12">
+      <section data-idx="11" class="slide light" id="P12">
                       <style>
                         /* ── 페이지 고유 CSS (마스터 표준 override) ── */
                         #P12 .s-body{ width:780px; }
@@ -402,7 +408,7 @@
                     </section>
 
       <!-- P13.html -->
-      <section class="slide light" id="P13">
+      <section data-idx="12" class="slide light" id="P13">
                 <style>
                   /* ── 페이지 고유 CSS (마스터 표준 override) ── */
                   #P13 .s-subtitle{ top:232px; font-size:34px; width:1640px; }
@@ -422,7 +428,7 @@
               </section>
 
       <!-- P14.html -->
-      <section class="slide light" id="P14">
+      <section data-idx="13" class="slide light" id="P14">
                 <style>
                   /* ── 페이지 고유 CSS (마스터 표준 override) ── */
                   #P14 .s-subtitle{ top:232px; font-size:32px; width:1680px; }
@@ -442,7 +448,7 @@
               </section>
 
       <!-- P15.html -->
-      <section class="slide light" id="P15">
+      <section data-idx="14" class="slide light" id="P15">
           <style>
             /* ── 페이지 고유 CSS ── */
             #P15 .s-body{ width:940px; }
@@ -509,7 +515,7 @@
         </section>
 
       <!-- P16.html -->
-      <section class="slide light" id="P16">
+      <section data-idx="15" class="slide light" id="P16">
                 <style>
                   /* ── 페이지 고유 CSS ── */
                   #P16 .s-illust{ right:90px; top:360px; width:600px; }   /* final/P16 전체 일러스트 (말풍선 '정답:3,456,789' + 로봇 + 노트북 + 경고) */
@@ -542,7 +548,7 @@
               </section>
 
       <!-- P17.html -->
-      <section class="slide light" id="P17">
+      <section data-idx="16" class="slide light" id="P17">
                       <style>
                         /* ── 페이지 고유 CSS ── */
                         #P17 .s-title{ line-height:0.952; }
@@ -611,7 +617,7 @@
                     </section>
 
       <!-- P18.html -->
-      <section class="slide light" id="P18">
+      <section data-idx="17" class="slide light" id="P18">
                 <style>
                   /* ── 페이지 고유 CSS (마스터 표준 override) ── */
                   #P18 .s-title{ width:840px; }   /* 일러스트와 겹치지 않게 좌측에서 2줄 줄바꿈 */
@@ -645,7 +651,7 @@
               </section>
 
       <!-- P19.html -->
-      <section class="slide light" id="P19">
+      <section data-idx="18" class="slide light" id="P19">
                       <style>
                         /* ── 페이지 고유 CSS (마스터 표준 override) ── */
                         #P19 .s-title{ font-size:60px; line-height:1.200; }
@@ -678,7 +684,7 @@
                     </section>
 
       <!-- P20.html -->
-      <section class="slide light" id="P20">
+      <section data-idx="19" class="slide light" id="P20">
                 <style>
                   /* ── 페이지 고유 CSS (마스터 표준 override) ── */
                   #P20 .s-body{ width:780px; }
@@ -752,7 +758,7 @@
               </section>
 
       <!-- P21.html -->
-      <section class="slide light" id="P21">
+      <section data-idx="20" class="slide light" id="P21">
                 <style>
                   /* ── 페이지 고유 CSS (마스터 표준 override) ── */
                   /* 왼쪽 Q&A */
@@ -840,7 +846,7 @@
               </section>
 
       <!-- P22.html -->
-      <section class="slide light" id="P22">
+      <section data-idx="21" class="slide light" id="P22">
                 <style>
                   /* ── 페이지 고유 CSS (마스터 표준 override) ── */
                   #P22 .s-title{ font-size:58px; line-height:1.241; }
@@ -891,7 +897,7 @@
               </section>
 
       <!-- P23.html -->
-      <section class="slide light" id="P23">
+      <section data-idx="22" class="slide light" id="P23">
                 <style>
                   /* ── 페이지 고유 CSS ── */
                   #P23 .s-body{ width:900px; top:246px; gap:18px; }
@@ -966,7 +972,7 @@
               </section>
 
       <!-- P24.html -->
-      <section class="slide light" id="P24">
+      <section data-idx="23" class="slide light" id="P24">
           <style>
             /* ── 페이지 고유 CSS ── */
             #P24 .p-cards{ position:absolute; left:120px; top:296px; width:1680px;
@@ -1024,7 +1030,7 @@
         </section>
 
       <!-- P25.html -->
-      <section class="slide light" id="P25">
+      <section data-idx="24" class="slide light" id="P25">
           <style>
             /* ── 페이지 고유 CSS — 실전 체크리스트 ── */
             #P25 .p-list{ position:absolute; left:120px; top:300px; width:1022px;
@@ -1081,7 +1087,7 @@
         </section>
 
       <!-- P26.html -->
-      <section class="slide light" id="P26">
+      <section data-idx="25" class="slide light" id="P26">
           <style>
             /* ── 페이지 고유 (마스터 표준 override) ── */
             #P26 .s-title{ font-size:68px; line-height:1.18; }
@@ -1132,7 +1138,7 @@
         </section>
 
       <!-- P27.html -->
-      <section class="slide light" id="P27">
+      <section data-idx="26" class="slide light" id="P27">
           <style>
             /* ── 페이지 고유 (마스터 표준 override) ── */
             #P27 .cards{ position:absolute; left:120px; top:300px; width:1680px;
@@ -1176,10 +1182,10 @@
         </section>
 
       <!-- 이미지 ../final/P28.png -->
-      <section class="slide"><img class="s-bg" src="../final/P28.png" alt=""></section>
+      <section data-idx="27" class="slide"><img class="s-bg" src="../final/P28.png" alt=""></section>
 
       <!-- P29.html -->
-      <section class="slide light" id="P29">
+      <section data-idx="28" class="slide light" id="P29">
           <style>
             /* ── 페이지 고유 (마스터 표준 override) ── */
             #P29 .badge{ position:absolute; left:120px; top:96px;
@@ -1242,7 +1248,7 @@
         </section>
 
       <!-- P30.html -->
-      <section class="slide photo" id="P30">
+      <section data-idx="29" class="slide photo" id="P30">
           <style>
             #P30 .s-bg{ position:absolute; inset:0; width:1920px; height:1080px; object-fit:cover; }
             #P30 .p30-sub{ position:absolute; left:128px; top:788px; z-index:3;
@@ -1256,7 +1262,7 @@
         </section>
 
       <!-- P31.html -->
-      <section class="slide photo" id="P31">
+      <section data-idx="30" class="slide photo" id="P31">
           <style>
             /* 4분할 풀블리드 위 텍스트 오버레이 — P05 느낌(이미지 위주), 하단 라벨로 타임라인 */
             #P31 .s-bg{position:absolute;inset:0;width:1920px;height:1080px;object-fit:cover;}
@@ -1318,7 +1324,7 @@
         </section>
 
       <!-- P32.html -->
-      <section class="slide light" id="P32">
+      <section data-idx="31" class="slide light" id="P32">
           <style>
             #P32 .s-title{ font-size:64px; line-height:1.233; }
             #P32 .s-body{ width:796px; top:320px; gap:30px; }
@@ -1366,8 +1372,101 @@
           </div>
         </section>
 
+      <!-- P33-arch.html -->
+      <section data-idx="32" class="slide light" id="P33A">
+          <style>
+            #P33A .s-title{ font-size:64px; line-height:1.18; }
+            #P33A .s-subtitle{ top:216px; font-size:40px; color:var(--muted); font-weight:600; }
+      
+            /* 좌: 4개 축 (HTML crisp) */
+            #P33A .axes{ position:absolute; left:118px; top:358px; width:933px;
+              display:flex; flex-direction:column; gap:28px; }
+            #P33A .ax{ position:relative; padding-left:34px; }
+            #P33A .ax::before{ content:""; position:absolute; left:0; top:15px; width:16px; height:16px;
+              border-radius:50%; background:var(--c1); }
+            #P33A .ax .nm{ font-size:37px; font-weight:800; color:var(--c1); letter-spacing:-0.01em; line-height:1.15; }
+            #P33A .ax .ds{ font-size:31px; font-weight:500; color:var(--text); margin-top:7px; line-height:1.34; }
+            #P33A .ax .ds code{ font-family:ui-monospace,'SF Mono',monospace; font-weight:700; color:var(--c2); }
+      
+            /* 우: METHODOLOGY 일러스트 (기어+도장+4 위성카드) */
+            #P33A .methodology{ position:absolute; left:1146px; top:300px; width:653px; height:auto; }
+      
+            /* 하단 MESSAGE — 표준 keymsg (타 페이지 동일) */
+            #P33A .keymsg .msg{ font-size:32px; font-weight:600; color:var(--text); line-height:1.3; }
+            #P33A .keymsg .msg .acc{ color:var(--c1); }
+          </style>
+      
+          <h1 class="s-title">bkit 시스템 아키텍쳐</h1>
+          <div class="s-subtitle">좋은 개발론을 AI의 성능이 아니라 — 시스템 층위에서 강제한다</div>
+      
+          <div class="axes">
+            <div class="ax">
+              <div class="nm">Context Engineering</div>
+              <div class="ds">SW 개발에 최적화된 스킬·에이전트 + rule로서 제어하는 <b>21종 훅 시스템</b>.</div>
+            </div>
+            <div class="ax">
+              <div class="nm">Docs = Code (설계 우선)</div>
+              <div class="ds">PRD·설계는 장식이 아니라 구속력 있는 계약. <code>gap-detector</code>가 matchRate ≥90%로 강제.</div>
+            </div>
+            <div class="ax">
+              <div class="nm">Convention-first</div>
+              <div class="ds">구현 전에 코딩 규칙부터 못박는다.</div>
+            </div>
+          </div>
+      
+          <img class="methodology" src="assets/P33-methodology.png" alt="METHODOLOGY 도장·기어 — 시스템이 강제한다. 4개 축: Context Engineering(훅·스킬·에이전트) / Docs=Code(gap-detector matchRate≥90%) / Convention-first / 품질 게이트 M1~M10(+Sprint S1~S4)+Trust 다이얼">
+      
+          <div class="keymsg">
+            <span class="tag">MESSAGE</span>
+            <span class="msg">검증된 개발 방법론을 AI의 성능이 아니라 <span class="acc">시스템이 강제</span>한다 — 그래서 자율주행이 안전하다.</span>
+          </div>
+      
+          <div class="s-footer">
+            <span>주식회사 덥덥덥 · ww-w.ai</span>
+            <span class="s-pagenum">33</span>
+          </div>
+        </section>
+
+      <!-- P43.html -->
+      <section data-idx="33" class="slide light" id="P43">
+          <style>
+            #P43 .s-title{ font-size:64px; line-height:1.18; }
+            #P43 .col-h{ position:absolute; font-weight:700; font-size:44px; line-height:1.1; letter-spacing:-0.01em; }
+            #P43 .col-sub{ position:absolute; color:var(--secondary); font-weight:500; font-size:29px; line-height:1.4; }
+            /* 좌: 레벨 선택 (파랑) */
+            #P43 .h-left{ left:120px; top:296px; color:var(--c2); }
+            #P43 .sub-left{ left:120px; top:364px; width:790px; }
+            #P43 .img-left{ position:absolute; left:130px; top:540px; width:790px; height:auto; }
+            /* 우: 모델 라우팅 (빨강) */
+            #P43 .h-right{ left:980px; top:296px; color:var(--c1); }
+            #P43 .sub-right{ left:980px; top:364px; width:800px; }
+            #P43 .img-right{ position:absolute; left:1068px; top:438px; width:645px; height:auto; }
+          </style>
+      
+          <h1 class="s-title">오버엔지니어링 피하기 — 레벨 + 모델 라우팅</h1>
+      
+          <div class="col-h h-left">1. 레벨 선택</div>
+          <div class="col-sub sub-left">프로젝트 규모와 목표에 맞는 적절한 레벨을 선택하세요.</div>
+          <img class="img-left" src="assets/P43-left.png" alt="레벨: starter(정적 HTML/CSS/JS) → dynamic(풀스택·BaaS·백엔드/DB) → enterprise(MSA·K8s·마이크로서비스)">
+      
+          <div class="col-h h-right">2. 모델 라우팅</div>
+          <div class="col-sub sub-right">업무의 성격에 맞게 적절한 모델을 배치하세요.</div>
+          <img class="img-right" src="assets/P43-right.png" alt="모델 라우팅: Opus(설계·복잡추론) / Sonnet(구현·반복) / Haiku(잡일), 비용 높음 ↔ 속도 빠름 게이지">
+      
+          <div class="s-footer">
+            <span>주식회사 덥덥덥 · ww-w.ai</span>
+            <span class="s-pagenum">34</span>
+          </div>
+        </section>
+
+      <!-- 이미지 ../generated/P49.png -->
+      <section data-idx="34" class="slide"><img class="s-bg" src="../generated/P49.png" alt=""></section>
+
+      <!-- 이미지 ../generated/P51.png -->
+      <section data-idx="35" class="slide"><img class="s-bg" src="../generated/P51.png" alt=""></section>
+
       <!-- P33.html -->
-      <section class="slide light" id="P33">
+      <section data-idx="36" class="slide light" id="P33">
           <style>
             #P33 .s-title{ font-size:64px; line-height:1.179; }
             #P33 .s-body{ width:840px; top:262px; gap:30px; }
@@ -1400,12 +1499,12 @@
       
           <div class="s-footer">
             <span>주식회사 덥덥덥 · ww-w.ai</span>
-            <span class="s-pagenum">33</span>
+            <span class="s-pagenum">37</span>
           </div>
         </section>
 
       <!-- P34.html -->
-      <section class="slide light" id="P34">
+      <section data-idx="37" class="slide light" id="P34">
           <style>
             #P34 .s-title{ font-size:64px; }
             #P34 .s-subtitle{ top:216px; font-size:40px; color:var(--muted); font-weight:600; }
@@ -1474,12 +1573,21 @@
       
           <div class="s-footer">
             <span>주식회사 덥덥덥 · ww-w.ai</span>
-            <span class="s-pagenum">34</span>
+            <span class="s-pagenum">38</span>
           </div>
         </section>
 
+      <!-- 이미지 ../generated/P48.png -->
+      <section data-idx="38" class="slide"><img class="s-bg" src="../generated/P48.png" alt=""></section>
+
+      <!-- 이미지 ../generated/P45.png -->
+      <section data-idx="39" class="slide"><img class="s-bg" src="../generated/P45.png" alt=""></section>
+
+      <!-- 이미지 ../generated/P46.png -->
+      <section data-idx="40" class="slide"><img class="s-bg" src="../generated/P46.png" alt=""></section>
+
       <!-- P35.html -->
-      <section class="slide light" id="P35">
+      <section data-idx="41" class="slide light" id="P35">
           <style>
             #P35 .s-title{ font-size:64px; line-height:1.179; }
             /* 가운데 도식 이미지 (말풍선 + P/D/C/A 4카드) */
@@ -1501,12 +1609,15 @@
       
           <div class="s-footer">
             <span>주식회사 덥덥덥 · ww-w.ai</span>
-            <span class="s-pagenum">35</span>
+            <span class="s-pagenum">42</span>
           </div>
         </section>
 
+      <!-- 이미지 ../generated/P47.png -->
+      <section data-idx="42" class="slide"><img class="s-bg" src="../generated/P47.png" alt=""></section>
+
       <!-- P36.html -->
-      <section class="slide light" id="P36">
+      <section data-idx="43" class="slide light" id="P36">
                       <style>
                         #P36 .s-title{ font-size:64px; line-height:1.18; }
                         #P36 .s-body{ top:300px; width:760px; gap:44px; }
@@ -1539,12 +1650,12 @@
                   
                       <div class="s-footer">
                         <span>주식회사 덥덥덥 · ww-w.ai</span>
-                        <span class="s-pagenum">36</span>
+                        <span class="s-pagenum">44</span>
                       </div>
                     </section>
 
       <!-- P37.html -->
-      <section class="slide light" id="P37">
+      <section data-idx="44" class="slide light" id="P37">
           <style>
             #P37 .s-title{ font-size:64px; }
             #P37 .s-subtitle{ top:216px; font-size:40px; color:var(--muted); font-weight:600; }
@@ -1626,12 +1737,12 @@
       
           <div class="s-footer">
             <span>주식회사 덥덥덥 · ww-w.ai</span>
-            <span class="s-pagenum">37</span>
+            <span class="s-pagenum">45</span>
           </div>
         </section>
 
       <!-- P38.html -->
-      <section class="slide light" id="P38">
+      <section data-idx="45" class="slide light" id="P38">
           <style>
             #P38 .s-title{ font-size:64px; }
             #P38 .s-subtitle{ top:216px; font-size:40px; color:var(--muted); font-weight:600; }
@@ -1693,12 +1804,12 @@
       
           <div class="s-footer">
             <span>주식회사 덥덥덥 · ww-w.ai</span>
-            <span class="s-pagenum">38</span>
+            <span class="s-pagenum">46</span>
           </div>
         </section>
 
       <!-- P39.html -->
-      <section class="slide light" id="P39">
+      <section data-idx="46" class="slide light" id="P39">
           <style>
             #P39 .s-title{ font-size:64px; }
             #P39 .s-subtitle{ top:216px; font-size:40px; color:var(--muted); font-weight:600; }
@@ -1790,28 +1901,28 @@
       
           <div class="s-footer">
             <span>주식회사 덥덥덥 · ww-w.ai</span>
-            <span class="s-pagenum">39</span>
+            <span class="s-pagenum">47</span>
           </div>
         </section>
 
       <!-- P40.html -->
-      <section class="slide light" id="P40">
+      <section data-idx="47" class="slide light" id="P40">
           <style>
-            #P40 .s-title{ font-size:54px; line-height:1.18; }
+            #P40 .s-title{ font-size:64px; line-height:1.18; }
       
-            /* 좌우 섹션 헤더 (HTML) */
-            #P40 .sec-h{ position:absolute; top:250px; font-size:30px; font-weight:800; letter-spacing:-0.01em; color:#E85C34; }
-            #P40 .sec-h.left{ left:120px; }
-            #P40 .sec-h.right{ left:955px; }
+            /* 좌우 섹션 헤더 (HTML) — 각 이미지 중앙에 정렬 */
+            #P40 .sec-h{ position:absolute; top:250px; font-size:36px; font-weight:800; letter-spacing:-0.01em; color:#E60012; transform:translateX(-50%); white-space:nowrap; text-align:center; }
+            #P40 .sec-h.left{ left:396px; }
+            #P40 .sec-h.right{ left:1377px; }
       
-            /* 일러스트 crop (축소 배치) */
-            #P40 .limg{ position:absolute; left:120px; top:312px; width:660px; height:auto; }
-            #P40 .rimg{ position:absolute; left:955px; top:322px; width:630px; height:auto; }
+            /* 일러스트 crop (축소 배치) — 두 블록을 슬라이드 좌우 대칭 중앙 정렬(양쪽 여백 228px) */
+            #P40 .limg{ position:absolute; left:228px; top:312px; width:660px; height:auto; }
+            #P40 .rimg{ position:absolute; left:1062px; top:327px; width:630px; height:auto; }
       
             /* 3한계 → 상태보존/resume 연결 화살표 + 펄 (HTML — baked resume 깨짐 대체) */
-            #P40 .r-arrow{ position:absolute; left:1255px; top:668px; transform:translateX(-50%);
+            #P40 .r-arrow{ position:absolute; left:1377px; top:678px; transform:translateX(-50%);
               font-size:30px; font-weight:800; color:#C9C7C2; line-height:1; }
-            #P40 .resume{ position:absolute; left:955px; top:702px; width:630px; box-sizing:border-box;
+            #P40 .resume{ position:absolute; left:1062px; top:724px; width:630px; box-sizing:border-box;
               display:flex; align-items:center; justify-content:center; gap:12px; padding:16px 22px;
               border-radius:14px; background:#EAF3F2; border:1px solid #1F6E78; }
             #P40 .resume .t{ font-size:24px; font-weight:700; color:var(--text); }
@@ -1826,7 +1937,7 @@
           <div class="sec-h left">성공지표 3개 기준</div>
           <img class="limg" src="assets/P40-left.png" alt="성공지표 3축 게이지 카드: ① matchRate 설계↔구현 정합(기능별) 90%·자동 ② S1·7-Layer dataFlow QA 기능 간 통합 흐름 100%·자동(Sprint 신규) ③ 제품·성과 지표 PRD에서 정의한 항목 평가(PRD 신규)">
       
-          <div class="sec-h right">성공지표 달성까지 자동 반복 → 멈춤은 3한계</div>
+          <div class="sec-h right">성공지표 달성까지 자동 반복 → 3개의 안전장치</div>
           <img class="rimg" src="assets/P40-right.png" alt="자동 반복(iterate) — 성공지표 달성이 목표. 반복을 멈추는 3한계: iterate 5회 소진 · 예산 1M 초과 · 타임아웃 4h.">
           <div class="r-arrow">↓</div>
           <div class="resume"><span class="t">한계 도달 → 상태 보존 → <code>/sprint resume</code></span></div>
@@ -1838,24 +1949,76 @@
       
           <div class="s-footer">
             <span>주식회사 덥덥덥 · ww-w.ai</span>
-            <span class="s-pagenum">40</span>
+            <span class="s-pagenum">48</span>
           </div>
         </section>
 
       <!-- P41.html -->
-      <section class="slide light" id="P41">
+      <section data-idx="48" class="slide light" id="P41">
           <style>
-            #P41 .s-title{ font-size:50px; line-height:1.18; }
-            /* 중앙 도식 (한 장, 제목~키메시지 밴드 사이 존에 가로 중앙) */
-            #P41 .s-illust{ left:270px; top:240px; width:1380px; height:auto; }
+            #P41 .s-title{ font-size:64px; line-height:1.18; }
+      
+            /* 좌상단: 요약 명령 터미널 (긴 원문은 우측) */
+            #P41 .cmd-term{ position:absolute; left:129px; top:290px; width:779px; box-sizing:border-box;
+              border-radius:14px; overflow:hidden; background:#23252B; box-shadow:0 8px 22px rgba(0,0,0,.15); }
+            #P41 .cmd-term .cbar{ display:flex; align-items:center; gap:8px; padding:11px 16px; background:#2E3038; }
+            #P41 .cmd-term .cbar .dot{ width:11px; height:11px; border-radius:50%; }
+            #P41 .cmd-term .cbar .r{ background:#FF5F57; } #P41 .cmd-term .cbar .y{ background:#FEBC2E; } #P41 .cmd-term .cbar .g{ background:#28C840; }
+            #P41 .cmd-term .cbar .tt{ margin-left:6px; color:#9BA0A8; font-size:17px; font-weight:600; }
+            #P41 .cmd-term .cbody{ padding:16px 20px; font-family:ui-monospace,'SF Mono',Menlo,monospace; font-size:23px; line-height:1.5; color:#E6E7EA; }
+            #P41 .cmd-term .cmd{ color:#FF8A65; font-weight:800; } #P41 .cmd-term .flag{ color:#FFD166; font-weight:700; }
+      
+            /* 좌하단: Sprint 컨테이너+자리비움 crop */
+            #P41 .dg-container{ position:absolute; left:120px; top:457px; width:788px; height:auto; }
+      
+            /* 우: prd 단계에서 bkit sprint-master-planner가 생성한 814줄 마스터플랜 */
+            #P41 .plan-doc{ position:absolute; left:1000px; top:242px; width:797px; height:582px; box-sizing:border-box;
+              background:#fff; border:1px solid var(--rule); border-radius:16px; overflow:hidden; box-shadow:0 12px 32px rgba(0,0,0,.12); }
+            #P41 .plan-doc .pd-bar{ display:flex; align-items:center; gap:10px; padding:13px 20px; background:#F4F4F1; border-bottom:1px solid var(--rule); }
+            #P41 .plan-doc .pd-bar .pd-tag{ background:var(--c1); color:#fff; font-size:16px; font-weight:800; padding:5px 11px; border-radius:8px; letter-spacing:-0.01em; }
+            #P41 .plan-doc .pd-bar .fn{ font-family:ui-monospace,'SF Mono',Menlo,monospace; font-size:19px; font-weight:700; color:var(--text); }
+            #P41 .plan-doc .pd-bar .meta{ margin-left:auto; font-size:20px; font-weight:800; color:var(--c1); }
+            #P41 .plan-doc .pd-body{ padding:16px 24px; font-size:20.5px; line-height:1.46; color:#3A3A3A; }
+            #P41 .plan-doc .pd-body .q{ color:var(--secondary); }
+            #P41 .plan-doc .pd-body .h{ font-weight:800; color:var(--text); margin-top:8px; }
+            #P41 .plan-doc .pd-body .k{ display:inline-block; width:62px; font-weight:800; color:var(--c1); }
+            #P41 .plan-doc .pd-body .ref{ font-family:ui-monospace,monospace; color:var(--c2); }
+            #P41 .plan-doc .pd-fade{ position:absolute; left:0; right:0; bottom:0; height:120px;
+              background:linear-gradient(to bottom, rgba(255,255,255,0), #fff 78%);
+              display:flex; align-items:flex-end; justify-content:center; padding-bottom:14px; }
+            #P41 .plan-doc .pd-fade .more{ font-size:20px; font-weight:800; color:var(--muted); }
+      
             /* 하단 MESSAGE 띠 — 위치는 마스터 .keymsg(하단 밴드 통일) */
             #P41 .keymsg .msg{ font-size:32px; font-weight:600; color:var(--text); line-height:1.3; }
             #P41 .keymsg .msg .acc{ color:var(--c1); }
           </style>
       
-          <h1 class="s-title">Sprint 실제 사례 — bkit이 자기 문서를 자율주행으로 만들다 (dogfooding)</h1>
+          <h1 class="s-title">Sprint 실제 사례 — bkit이 자기 문서를 자율주행으로 만들다</h1>
       
-          <img class="s-illust" src="assets/P41-diagram.png" alt="/sprint init v2113-docs-sync --features f0…f9 --trust L4 명령으로 시작 → bkit이 자기 자신(v2.1.13 문서 동기화)을 dogfooding(self-validation)으로 수행. Sprint 컨테이너(f0…f9)가 prd→plan→design→do→iterate→qa→report→archived 수명주기를 사람 개입 없이(자리 비움·무인) 완주하고 archived 산출물(master-plan·PRD·plan·design·최종 리포트)을 남긴다.">
+          <div class="cmd-term">
+            <div class="cbar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="tt">① Kay가 친 명령 — 짧은 한 줄</span></div>
+            <div class="cbody"><span class="cmd">/sprint init</span> v2113-docs-sync&nbsp;&nbsp;<span class="flag">--features</span> f0…f9&nbsp;&nbsp;<span class="flag">--trust</span> L4</div>
+          </div>
+      
+          <img class="dg-container" src="assets/P41-container.png" alt="Sprint 컨테이너 f0…f9 — prd→plan→design→do→iterate→qa→report→archived 수명주기를 자리 비움(무인)으로 완주">
+      
+          <div class="plan-doc">
+            <div class="pd-bar"><span class="pd-tag">② prd 단계 · bkit 생성</span><span class="fn">master-plan.md</span><span class="meta">814줄</span></div>
+            <div class="pd-body">
+              <div class="q">&gt; Sprint: v2113-docs-sync · Owner: kay kim</div>
+              <div class="q">&gt; 사람이 준 결정: Q1 9 features · Q2 Trust L4 · Q3 CC 버전 · Q4 archive 자동</div>
+              <div class="h"><br>## Context Anchor</div>
+              <div><span class="k">WHY</span> v2.1.13 코드는 완료됐으나 README·CHANGELOG·매니페스트가 v2.1.12 잔재…</div>
+              <div><span class="k">WHO</span> 신규 사용자 · maintainer kay · marketplace · CI gate…</div>
+              <div><span class="k">WHAT</span> 문서 surface 11개 + BKIT_VERSION 5-loc invariant + 89 legacy archive…</div>
+              <div><span class="k">RISK</span> component count drift · Sprint 회귀 · CHANGELOG 누락…</div>
+              <div class="h"><br>## F1 version-bump</div>
+              <div><span class="k">Scope</span> config.json · marketplace.json · hooks.json · session-start.js…</div>
+              <div><span class="k">Tasks</span> T1.1 BKIT_VERSION 5-loc bump · T1.2 docs-code-sync 0 drift 검증…</div>
+              <div><span class="k">Ref</span> <span class="ref">CUSTOMIZATION-GUIDE.md:196</span> · 파일:줄까지 명시…</div>
+            </div>
+            <div class="pd-fade"><span class="more">+ 780줄 더 — F2…F9 Scope·Tasks·Risk</span></div>
+          </div>
       
           <div class="keymsg">
             <span class="tag">MESSAGE</span>
@@ -1864,71 +2027,14 @@
       
           <div class="s-footer">
             <span>주식회사 덥덥덥 · ww-w.ai</span>
-            <span class="s-pagenum">41</span>
-          </div>
-        </section>
-
-      <!-- P42.html -->
-      <section class="slide light" id="P42">
-          <style>
-            #P42 .s-title{ font-size:64px; line-height:1.15; }
-            /* 중앙 도식 이미지 (2행) — 제목~키밴드 사이 세로 중앙 */
-            #P42 .s-illust{ left:210px; top:325px; width:1500px; height:auto; }
-            /* 하단 MESSAGE 띠 — 위치는 마스터 .keymsg(하단 밴드 통일) */
-            #P42 .keymsg .msg{ font-size:32px; font-weight:600; color:var(--text); line-height:1.3; }
-            #P42 .keymsg .msg .acc{ color:var(--c1); }
-          </style>
-      
-          <h1 class="s-title">코딩 전에 '기획서'부터 — 혼자가 아니라 팀이</h1>
-      
-          <img class="s-illust" src="assets/P42-diagram.png" alt="기능 1개는 PM 팀(pm-discovery·pm-strategy·pm-research·pm-prd)이 PRD를 만들고(/pdca pm), 기능 N개는 /sprint init으로 sprint-master-planner가 5단계 타임라인에 기능 A~H를 배치해 마스터플랜을 만든다(/sprint start)">
-      
-          <div class="keymsg">
-            <span class="tag">MESSAGE</span>
-            <span class="msg">감으로 시작하지 않는다 — 팀이 만든 <span class="acc">기획서가 자율주행의 출발점</span>.</span>
-          </div>
-      
-          <div class="s-footer">
-            <span>주식회사 덥덥덥 · ww-w.ai</span>
-            <span class="s-pagenum">42</span>
-          </div>
-        </section>
-
-      <!-- P43.html -->
-      <section class="slide light" id="P43">
-          <style>
-            #P43 .col-h{ position:absolute; font-weight:700; font-size:44px; line-height:1.1; letter-spacing:-0.01em; }
-            #P43 .col-sub{ position:absolute; color:var(--secondary); font-weight:500; font-size:29px; line-height:1.4; }
-            /* 좌: 레벨 선택 (파랑) */
-            #P43 .h-left{ left:120px; top:296px; color:var(--c2); }
-            #P43 .sub-left{ left:120px; top:364px; width:790px; }
-            #P43 .img-left{ position:absolute; left:130px; top:540px; width:790px; height:auto; }
-            /* 우: 모델 라우팅 (빨강) */
-            #P43 .h-right{ left:980px; top:296px; color:var(--c1); }
-            #P43 .sub-right{ left:980px; top:364px; width:800px; }
-            #P43 .img-right{ position:absolute; left:1068px; top:438px; width:645px; height:auto; }
-          </style>
-      
-          <h1 class="s-title">오버엔지니어링 피하기 — 레벨 + 모델 라우팅</h1>
-      
-          <div class="col-h h-left">1. 레벨 선택</div>
-          <div class="col-sub sub-left">프로젝트 규모와 목표에 맞는 적절한 레벨을 선택하세요.</div>
-          <img class="img-left" src="assets/P43-left.png" alt="레벨: starter(정적 HTML/CSS/JS) → dynamic(풀스택·BaaS·백엔드/DB) → enterprise(MSA·K8s·마이크로서비스)">
-      
-          <div class="col-h h-right">2. 모델 라우팅</div>
-          <div class="col-sub sub-right">업무의 성격에 맞게 적절한 모델을 배치하세요.</div>
-          <img class="img-right" src="assets/P43-right.png" alt="모델 라우팅: Opus(설계·복잡추론) / Sonnet(구현·반복) / Haiku(잡일), 비용 높음 ↔ 속도 빠름 게이지">
-      
-          <div class="s-footer">
-            <span>주식회사 덥덥덥 · ww-w.ai</span>
-            <span class="s-pagenum">43</span>
+            <span class="s-pagenum">49</span>
           </div>
         </section>
 
       <!-- P44.html -->
-      <section class="slide light" id="P44">
+      <section data-idx="49" class="slide light" id="P44">
           <style>
-            #P44 .s-title{ font-size:66px; }
+            #P44 .s-title{ font-size:64px; line-height:1.18; }
       
             /* ── 2-컬럼 비교 카드 (grid로 두 컬럼 행 높이 정렬) ── */
             #P44 .p40-card{ position:absolute; left:120px; top:236px; width:1680px;
@@ -1959,8 +2065,8 @@
             #P44 .badge2 .t{ font-size:31px; font-weight:800; color:var(--text); }
             #P44 .badge2 .s{ font-size:27px; color:var(--muted); margin-top:4px; }
       
-            /* ── 환경설정 → PDCA 진입 행 ── */
-            #P44 .p40-flow{ position:absolute; left:120px; top:692px; width:1680px;
+            /* ── 환경설정 → PDCA 진입 행 (height 키워 하단 배치) ── */
+            #P44 .p40-flow{ position:absolute; left:120px; top:724px; width:1680px; height:184px;
               display:flex; align-items:stretch; }
             #P44 .p40-pill{ border:2px solid var(--c1); border-radius:20px; background:#fff;
               display:flex; align-items:center; gap:26px; padding:0 38px; }
@@ -1982,7 +2088,7 @@
             #P44 .p40-band .acc{ color:var(--c1); font-weight:800; }
           </style>
       
-          <h1 class="s-title">본격 개발 전, 최적의 프레임워크를 설정한다</h1>
+          <h1 class="s-title">웹 뿐 아니라 모바일, 데스크톱 개발도 가능</h1>
       
           <div class="p40-card">
             <!-- 헤더 -->
@@ -1995,12 +2101,12 @@
               desktop-app
             </div>
       
-            <!-- 좌1: Expo (Tier1) -->
+            <!-- 좌1: Flutter (Tier1) -->
             <div class="p40-row">
-              <img class="p40-logo" src="assets/P44-expo.png" alt="Expo 로고">
+              <img class="p40-logo" src="assets/P44-flutter.png" alt="Flutter 로고">
               <div class="p40-txt">
-                <div class="p40-name">Expo</div>
-                <div class="p40-desc">크로스 플랫폼, 빠른 개발</div>
+                <div class="p40-name">Flutter</div>
+                <div class="p40-desc">성능 우수, 유연한 UI</div>
               </div>
               <div class="badge badge1">
                 <div class="t"><span>★</span>Tier 1</div>
@@ -2017,12 +2123,12 @@
               </div>
             </div>
       
-            <!-- 좌2: Flutter (Tier2) -->
+            <!-- 좌2: Expo (Tier2) -->
             <div class="p40-row">
-              <img class="p40-logo" src="assets/P44-flutter.png" alt="Flutter 로고">
+              <img class="p40-logo" src="assets/P44-expo.png" alt="Expo 로고">
               <div class="p40-txt">
-                <div class="p40-name">Flutter</div>
-                <div class="p40-desc">성능 우수, 유연한 UI</div>
+                <div class="p40-name">Expo</div>
+                <div class="p40-desc">크로스 플랫폼, 빠른 개발</div>
               </div>
               <div class="badge badge2">
                 <div class="t">Tier 2</div>
@@ -2057,40 +2163,52 @@
             </div>
           </div>
       
-          <div class="p40-band">
-            <svg class="s-ic" viewBox="0 0 24 24"><path d="M12 13v8"/><path d="m8 17 4-4 4 4"/><path d="M20 16.58A5 5 0 0 0 18 7h-1.26A8 8 0 1 0 4 15.25"/></svg>
-            <span class="txt"><span class="acc">dynamic = bkend.ai</span> — BaaS 5종으로 로그인 · DB · 스토리지 즉시</span>
+          <div class="s-footer">
+            <span>주식회사 덥덥덥 · ww-w.ai</span>
+            <span class="s-pagenum">50</span>
+          </div>
+        </section>
+
+      <!-- P53.html -->
+      <section data-idx="50" class="slide light" id="P53">
+          <style>
+            #P53 .s-title{ font-size:64px; line-height:1.233; }
+            #P53 .s-body{ width:760px; top:340px; gap:36px; }
+            #P53 .shot{ position:absolute; right:120px; top:330px; width:840px; height:560px;
+              border-radius:12px; border:1px solid var(--rule); box-shadow:0 14px 44px rgba(0,0,0,.13);
+              object-fit:cover; object-position:top center; background:#fff; }
+            #P53 .linkbox{ display:inline-flex; align-items:center; gap:12px; }
+            #P53 .keymsg{ position:static; width:760px; }   /* 인라인(body flow) — 마스터의 하단 밴드 위치 해제 */
+            #P53 .keymsg .msg{ font-size:34px; font-weight:600; color:var(--text); line-height:1.32; }
+          </style>
+      
+          <h1 class="s-title">직접 데모 대신: 코드깎는노인의 bkit 리뷰</h1>
+      
+          <img class="shot" src="../generated/_screenshots/P53-codenoin-youtube.png" alt="코드깎는노인 bkit 리뷰 유튜브">
+      
+          <div class="s-body">
+            <div class="s-bullet">
+              <span class="dot"></span>
+              <span class="btxt">개발 유튜버 <span class="acc">'코드깎는노인'</span>의 bkit 리뷰 — 직접 써보고 평가한 <span class="hl">외부 검증</span></span>
+            </div>
+            <div class="s-bullet">
+              <span class="dot"></span>
+              <span class="btxt"><span class="linkbox"><code style="font-size:27px;background:#F2F1EE;padding:4px 12px;border-radius:6px;color:var(--c2);">youtube.com/watch?v=EZwffHVx05U</code></span></span>
+            </div>
+            <div class="keymsg">
+              <span class="tag">KEY</span>
+              <span class="msg">내 말 말고, <span class="acc">직접 써본 개발자</span>의 평가를 보세요.</span>
+            </div>
           </div>
       
           <div class="s-footer">
             <span>주식회사 덥덥덥 · ww-w.ai</span>
-            <span class="s-pagenum">44</span>
+            <span class="s-pagenum">51</span>
           </div>
         </section>
 
-      <!-- 이미지 ../generated/P45.png -->
-      <section class="slide"><img class="s-bg" src="../generated/P45.png" alt=""></section>
-
-      <!-- 이미지 ../generated/P46.png -->
-      <section class="slide"><img class="s-bg" src="../generated/P46.png" alt=""></section>
-
-      <!-- 이미지 ../generated/P47.png -->
-      <section class="slide"><img class="s-bg" src="../generated/P47.png" alt=""></section>
-
-      <!-- 이미지 ../generated/P48.png -->
-      <section class="slide"><img class="s-bg" src="../generated/P48.png" alt=""></section>
-
-      <!-- 이미지 ../generated/P49.png -->
-      <section class="slide"><img class="s-bg" src="../generated/P49.png" alt=""></section>
-
-      <!-- 이미지 ../generated/P50.png -->
-      <section class="slide"><img class="s-bg" src="../generated/P50.png" alt=""></section>
-
-      <!-- 이미지 ../generated/P51.png -->
-      <section class="slide"><img class="s-bg" src="../generated/P51.png" alt=""></section>
-
       <!-- P52.html -->
-      <section class="slide light" id="P52">
+      <section data-idx="51" class="slide light" id="P52">
           <style>
             /* ── 페이지 고유 (마스터 표준 override) ── */
             #P52 .badge{ position:absolute; left:120px; top:96px;
@@ -2157,55 +2275,17 @@
           </div>
         </section>
 
-      <!-- P53.html -->
-      <section class="slide light" id="P53">
-          <style>
-            #P53 .s-title{ font-size:64px; line-height:1.233; }
-            #P53 .s-body{ width:760px; top:340px; gap:36px; }
-            #P53 .shot{ position:absolute; right:120px; top:330px; width:840px; height:560px;
-              border-radius:12px; border:1px solid var(--rule); box-shadow:0 14px 44px rgba(0,0,0,.13);
-              object-fit:cover; object-position:top center; background:#fff; }
-            #P53 .linkbox{ display:inline-flex; align-items:center; gap:12px; }
-            #P53 .keymsg{ position:static; width:760px; }   /* 인라인(body flow) — 마스터의 하단 밴드 위치 해제 */
-            #P53 .keymsg .msg{ font-size:34px; font-weight:600; color:var(--text); line-height:1.32; }
-          </style>
-      
-          <h1 class="s-title">직접 데모 대신: 코드깎는노인의 bkit 리뷰</h1>
-      
-          <img class="shot" src="../generated/_screenshots/P53-codenoin-youtube.png" alt="코드깎는노인 bkit 리뷰 유튜브">
-      
-          <div class="s-body">
-            <div class="s-bullet">
-              <span class="dot"></span>
-              <span class="btxt">개발 유튜버 <span class="acc">'코드깎는노인'</span>의 bkit 리뷰 — 직접 써보고 평가한 <span class="hl">외부 검증</span></span>
-            </div>
-            <div class="s-bullet">
-              <span class="dot"></span>
-              <span class="btxt"><span class="linkbox"><code style="font-size:27px;background:#F2F1EE;padding:4px 12px;border-radius:6px;color:var(--c2);">youtube.com/watch?v=EZwffHVx05U</code></span></span>
-            </div>
-            <div class="keymsg">
-              <span class="tag">KEY</span>
-              <span class="msg">내 말 말고, <span class="acc">직접 써본 개발자</span>의 평가를 보세요.</span>
-            </div>
-          </div>
-      
-          <div class="s-footer">
-            <span>주식회사 덥덥덥 · ww-w.ai</span>
-            <span class="s-pagenum">53</span>
-          </div>
-        </section>
-
       <!-- 이미지 ../generated/P54.png -->
-      <section class="slide"><img class="s-bg" src="../generated/P54.png" alt=""></section>
+      <section data-idx="52" class="slide"><img class="s-bg" src="../generated/P54.png" alt=""></section>
 
       <!-- 이미지 ../generated/P55.png -->
-      <section class="slide"><img class="s-bg" src="../generated/P55.png" alt=""></section>
+      <section data-idx="53" class="slide"><img class="s-bg" src="../generated/P55.png" alt=""></section>
 
       <!-- 이미지 ../generated/P56.png -->
-      <section class="slide"><img class="s-bg" src="../generated/P56.png" alt=""></section>
+      <section data-idx="54" class="slide"><img class="s-bg" src="../generated/P56.png" alt=""></section>
 
       <!-- P57.html -->
-      <section class="slide light" id="P57">
+      <section data-idx="55" class="slide light" id="P57">
           <style>
             #P57 .s-title{ font-size:54px; line-height:1.259; }
             #P57 .s-body{ width:740px; top:330px; gap:40px; }
@@ -2234,12 +2314,12 @@
       
           <div class="s-footer">
             <span>주식회사 덥덥덥 · ww-w.ai</span>
-            <span class="s-pagenum">57</span>
+            <span class="s-pagenum">56</span>
           </div>
         </section>
 
       <!-- P58.html -->
-      <section class="slide light" id="P58">
+      <section data-idx="56" class="slide light" id="P58">
           <style>
             #P58 .s-title{ font-size:64px; line-height:1.233; }
             #P58 .grid{ position:absolute; left:120px; top:286px; width:1680px;
@@ -2292,12 +2372,12 @@
       
           <div class="s-footer">
             <span>주식회사 덥덥덥 · ww-w.ai</span>
-            <span class="s-pagenum">58</span>
+            <span class="s-pagenum">57</span>
           </div>
         </section>
 
       <!-- P59.html -->
-      <section class="slide light" id="P59">
+      <section data-idx="57" class="slide light" id="P59">
           <style>
             #P59 .s-title{ font-size:54px; line-height:1.259; }
             #P59 .s-body{ width:760px; top:318px; gap:28px; }
@@ -2336,66 +2416,66 @@
       
           <div class="s-footer">
             <span>주식회사 덥덥덥 · ww-w.ai</span>
-            <span class="s-pagenum">59</span>
+            <span class="s-pagenum">58</span>
           </div>
         </section>
 
       <!-- 이미지 ../generated/P60-placeholder.png -->
-      <section class="slide"><img class="s-bg" src="../generated/P60-placeholder.png" alt=""></section>
+      <section data-idx="58" class="slide"><img class="s-bg" src="../generated/P60-placeholder.png" alt=""></section>
 
       <!-- 이미지 ../generated/P61.png -->
-      <section class="slide"><img class="s-bg" src="../generated/P61.png" alt=""></section>
+      <section data-idx="59" class="slide"><img class="s-bg" src="../generated/P61.png" alt=""></section>
 
       <!-- 이미지 ../generated/P62.png -->
-      <section class="slide"><img class="s-bg" src="../generated/P62.png" alt=""></section>
+      <section data-idx="60" class="slide"><img class="s-bg" src="../generated/P62.png" alt=""></section>
 
       <!-- 이미지 ../generated/P63.png -->
-      <section class="slide"><img class="s-bg" src="../generated/P63.png" alt=""></section>
+      <section data-idx="61" class="slide"><img class="s-bg" src="../generated/P63.png" alt=""></section>
 
       <!-- 이미지 ../generated/P64.png -->
-      <section class="slide"><img class="s-bg" src="../generated/P64.png" alt=""></section>
+      <section data-idx="62" class="slide"><img class="s-bg" src="../generated/P64.png" alt=""></section>
 
       <!-- 이미지 ../generated/P65.png -->
-      <section class="slide"><img class="s-bg" src="../generated/P65.png" alt=""></section>
+      <section data-idx="63" class="slide"><img class="s-bg" src="../generated/P65.png" alt=""></section>
 
       <!-- 이미지 ../generated/P66.png -->
-      <section class="slide"><img class="s-bg" src="../generated/P66.png" alt=""></section>
+      <section data-idx="64" class="slide"><img class="s-bg" src="../generated/P66.png" alt=""></section>
 
       <!-- 이미지 ../generated/P67.png -->
-      <section class="slide"><img class="s-bg" src="../generated/P67.png" alt=""></section>
+      <section data-idx="65" class="slide"><img class="s-bg" src="../generated/P67.png" alt=""></section>
 
       <!-- 이미지 ../generated/P68.png -->
-      <section class="slide"><img class="s-bg" src="../generated/P68.png" alt=""></section>
+      <section data-idx="66" class="slide"><img class="s-bg" src="../generated/P68.png" alt=""></section>
 
       <!-- 이미지 ../generated/P69.png -->
-      <section class="slide"><img class="s-bg" src="../generated/P69.png" alt=""></section>
+      <section data-idx="67" class="slide"><img class="s-bg" src="../generated/P69.png" alt=""></section>
 
       <!-- 이미지 ../generated/P70.png -->
-      <section class="slide"><img class="s-bg" src="../generated/P70.png" alt=""></section>
+      <section data-idx="68" class="slide"><img class="s-bg" src="../generated/P70.png" alt=""></section>
 
       <!-- 이미지 ../generated/P71.png -->
-      <section class="slide"><img class="s-bg" src="../generated/P71.png" alt=""></section>
+      <section data-idx="69" class="slide"><img class="s-bg" src="../generated/P71.png" alt=""></section>
 
       <!-- 이미지 ../generated/P72.png -->
-      <section class="slide"><img class="s-bg" src="../generated/P72.png" alt=""></section>
+      <section data-idx="70" class="slide"><img class="s-bg" src="../generated/P72.png" alt=""></section>
 
       <!-- 이미지 ../generated/P73.png -->
-      <section class="slide"><img class="s-bg" src="../generated/P73.png" alt=""></section>
+      <section data-idx="71" class="slide"><img class="s-bg" src="../generated/P73.png" alt=""></section>
 
       <!-- 이미지 ../generated/P74.png -->
-      <section class="slide"><img class="s-bg" src="../generated/P74.png" alt=""></section>
+      <section data-idx="72" class="slide"><img class="s-bg" src="../generated/P74.png" alt=""></section>
 
       <!-- 이미지 ../generated/P75.png -->
-      <section class="slide"><img class="s-bg" src="../generated/P75.png" alt=""></section>
+      <section data-idx="73" class="slide"><img class="s-bg" src="../generated/P75.png" alt=""></section>
 
       <!-- 이미지 ../generated/P76-placeholder.png -->
-      <section class="slide"><img class="s-bg" src="../generated/P76-placeholder.png" alt=""></section>
+      <section data-idx="74" class="slide"><img class="s-bg" src="../generated/P76-placeholder.png" alt=""></section>
 
       <!-- 이미지 ../generated/P77-placeholder.png -->
-      <section class="slide"><img class="s-bg" src="../generated/P77-placeholder.png" alt=""></section>
+      <section data-idx="75" class="slide"><img class="s-bg" src="../generated/P77-placeholder.png" alt=""></section>
 
       <!-- 이미지 ../generated/P78.png -->
-      <section class="slide"><img class="s-bg" src="../generated/P78.png" alt=""></section>
+      <section data-idx="76" class="slide"><img class="s-bg" src="../generated/P78.png" alt=""></section>
 
     </div>
     <div id="guide">
@@ -2428,8 +2508,10 @@
   const frags = slides.map(s => [...s.querySelectorAll('.frag')]);
   let i = 0, step = 0;
 
+  const MOVE_ZOOM = 0.46; // 이동 모드: 축소해 앞/뒷장이 함께 보이게 (필름스트립)
   function fit(){
-    const s = Math.min(innerWidth / 1920, innerHeight / 1080);
+    let s = Math.min(innerWidth / 1920, innerHeight / 1080);
+    if (document.body.classList.contains('moving')) s *= MOVE_ZOOM;
     viewport.style.transform = 'translate(-50%, -50%) scale(' + s + ')';
   }
   function render(){
@@ -2472,6 +2554,7 @@
     + hkRow('F', '전체화면')
     + hkRow('G', '정렬 가이드 토글')
     + hkRow('E', '편집 모드 (Esc = 종료)')
+    + hkRow('M', '페이지 이동 모드 (← → 재배치 · Enter/M 적용 · Esc 취소 · “저장”이라 말하면 소스 확정)')
     + hkRow('편집 중: 드래그·모서리·방향키', '이동 / 크기 / 미세조정 · Del 삭제 · ⌘Z 되돌리기')
     + hkRow('텍스트 더블클릭', '글자 편집 (Esc = 완료)')
     + hkRow('?', '이 도움말 열기/닫기')
@@ -2482,7 +2565,15 @@
   addEventListener('resize', fit);
   addEventListener('keydown', e => {
     if (document.activeElement && document.activeElement.isContentEditable) return; // 텍스트 편집 중엔 타이핑
-    const navLock = editMode || vbActive(); // 편집/ VisBug 중엔 페이지 이동 금지
+    // ── 페이지 이동 모드: 화살표=슬라이드 재배치, Enter/Esc/M=내려놓기 ──
+    if (moveMode) {
+      if (e.key === 'ArrowLeft')  { e.preventDefault(); moveCur(-1); return; }
+      if (e.key === 'ArrowRight') { e.preventDefault(); moveCur(+1); return; }
+      if (e.key === 'Escape')     { e.preventDefault(); cancelMove(); return; }   // 취소 → 진입 시점 복원
+      if (e.key === 'Enter' || e.key === 'm' || e.key === 'M') { e.preventDefault(); setMove(false); return; } // 적용(유지)
+      e.preventDefault(); return; // 이동 중엔 그 외 키 무시
+    }
+    const navLock = editMode || vbActive() || moveMode; // 편집/VisBug/이동 중엔 페이지 이동 금지
     if (!navLock && /^[0-9]$/.test(e.key)) { e.preventDefault(); jumpBuf = (jumpBuf + e.key).slice(0, 3); showJump(); return; }
     if (!navLock && e.key === 'Enter' && jumpBuf) { e.preventDefault(); goTo(parseInt(jumpBuf, 10)); jumpBuf = ''; showJump(); return; }
     if (!navLock && e.key === 'Escape' && jumpBuf) { e.preventDefault(); jumpBuf = ''; showJump(); return; }
@@ -2490,6 +2581,7 @@
     else if (!navLock && (e.key === 'ArrowLeft' || e.key === 'PageUp')) { e.preventDefault(); prev(); }
     else if (!navLock && e.key === 'Home') { i = 0; step = 0; render(); }
     else if (!navLock && e.key === 'End') { i = N - 1; step = frags[i].length; render(); }
+    else if ((e.key === 'm' || e.key === 'M') && !navLock) { e.preventDefault(); setMove(true); }
     else if (e.key === 'f' || e.key === 'F') { e.preventDefault(); toggleFull(); }
     else if (e.key === 'g' || e.key === 'G') { document.body.classList.toggle('show-guide'); }
     else if (e.key === '?') { e.preventDefault(); toggleHelp(); }
@@ -2498,6 +2590,68 @@
   });
   document.querySelector('.nav.prev').onclick = prev;
   document.querySelector('.nav.next').onclick = next;
+
+  // ===== 페이지 이동 모드 (M) — 현재 슬라이드를 앞/뒤로 재배치 (in-memory · 저장 전까지 tentative) =====
+  // 저장은 유저가 "저장"이라고 말할 때만: 나(assistant)가 window.deckOrder()로 순열을 읽어 build-deck.js의
+  // SLIDES 배열을 재작성 → 재빌드하면 footer 번호는 위치기반 자동주입이라 자동 정정됨. 리로드하면 미저장 이동은 소실.
+  let moveMode = false, moveSnapshot = null, moveStartI = 0;
+  const moveBar = document.createElement('div'); moveBar.id = 'move-bar';
+  moveBar.style.cssText = 'position:fixed;top:16px;left:50%;transform:translateX(-50%);z-index:76;'
+    + 'background:#0B5FD9;color:#fff;padding:12px 26px;border-radius:12px;font-size:23px;font-weight:800;'
+    + 'display:none;box-shadow:0 10px 34px rgba(0,0,0,.45);white-space:nowrap;pointer-events:none;';
+  document.body.appendChild(moveBar);
+  const trackSlides = () => [...track.querySelectorAll(':scope > .slide')];
+  function moveBarText(){
+    const c = trackSlides()[i];
+    const t = c && c.querySelector('.s-title');
+    const label = t ? t.textContent.trim().slice(0, 24) : ((c && c.id) || ('#' + (i + 1)));
+    moveBar.textContent = '📦 이동 중: “' + label + '”  → 위치 ' + (i + 1) + ' / ' + N
+      + '    (← → 이동 · Enter/M 적용 · Esc 취소 · “저장”해야 소스 확정)';
+  }
+  function setMove(on){
+    if (on) { moveSnapshot = trackSlides(); moveStartI = i; } // 진입 시점 순서 스냅샷(Esc 취소용)
+    moveMode = on;
+    document.body.classList.toggle('moving', on);
+    moveBar.style.display = on ? 'block' : 'none';
+    fit(); // 이동모드 진입=축소 / 종료=현재 페이지로 복귀 확대
+    if (on) moveBarText();
+  }
+  function moveCur(dir){ // dir: -1=앞으로 / +1=뒤로
+    const j = i + dir;
+    if (j < 0 || j >= N) return;
+    const list = trackSlides();
+    const a = list[i], b = list[j];
+    if (dir < 0) track.insertBefore(a, b); else track.insertBefore(b, a);
+    // slides·frags 배열을 새 DOM 순서로 재동기화 (render가 이 배열을 참조)
+    const nl = trackSlides();
+    slides.length = 0; slides.push(...nl);
+    frags.length = 0; nl.forEach(s => frags.push([...s.querySelectorAll('.frag')]));
+    i = j; step = 0;
+    render();
+    renumber();      // 이동 즉시 footer 번호를 새 위치로 라이브 재계산 (보이는 것과 싱크)
+    moveBarText();
+  }
+  function cancelMove(){ // Esc = 이번 이동 세션 취소 → 진입 시점 순서로 복원
+    if (moveSnapshot){
+      moveSnapshot.forEach(el => track.appendChild(el)); // 스냅샷 순서대로 재배치
+      const nl = trackSlides();
+      slides.length = 0; slides.push(...nl);
+      frags.length = 0; nl.forEach(s => frags.push([...s.querySelectorAll('.frag')]));
+      i = moveStartI; step = 0; renumber();
+    }
+    setMove(false);
+    render();
+  }
+  // 저장 시 assistant가 CDP로 읽는 접근자: 현재 DOM 순서의 원래 인덱스 나열 = SLIDES 재정렬 순열
+  window.deckOrder = () => trackSlides().map(s => +s.dataset.idx);
+  window.deckMoveMode = () => moveMode;
+  // ===== 페이지 번호 = 현재 위치로 동적 계산 (이동하면 즉시 싱크 · 소스 확정은 "저장" 시) =====
+  // build가 빌드시점 위치로 넣어두지만, 라이브 이동 후엔 stale → 매 이동마다 + 초기 1회 재계산해 통일.
+  // .s-pagenum 없는 이미지 슬라이드는 baked라 건드리지 않음.
+  function renumber(){
+    trackSlides().forEach((s, si) => { const pn = s.querySelector('.s-pagenum'); if (pn) pn.textContent = si + 1; });
+  }
+  renumber();
 
   // ===== 편집 모드 (E 토글) — 드래그 이동 / 모서리 크기 / 방향키 미세조정 =====
   function getScale(){ return Math.min(innerWidth / 1920, innerHeight / 1080); }

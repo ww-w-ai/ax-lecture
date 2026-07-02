@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>P33 — bkit 시스템 아키텍쳐</title>
+<link rel="stylesheet" href="slides.css">
+</head>
+<body>
+<div class="fit">
+  <!-- P33 [설명] bkit 시스템 아키텍쳐(원 P50 '박제한 개발론') — 좌: 4개 축 HTML / 우: METHODOLOGY 일러스트(crop) / 하단: 표준 keymsg -->
+  <section class="slide light" id="P33A">
+    <style>
+      #P33A .s-title{ font-size:64px; line-height:1.18; }
+      #P33A .s-subtitle{ top:216px; font-size:40px; color:var(--muted); font-weight:600; }
+
+      /* 좌: 4개 축 (HTML crisp) */
+      #P33A .axes{ position:absolute; left:118px; top:358px; width:933px;
+        display:flex; flex-direction:column; gap:28px; }
+      #P33A .ax{ position:relative; padding-left:34px; }
+      #P33A .ax::before{ content:""; position:absolute; left:0; top:15px; width:16px; height:16px;
+        border-radius:50%; background:var(--c1); }
+      #P33A .ax .nm{ font-size:37px; font-weight:800; color:var(--c1); letter-spacing:-0.01em; line-height:1.15; }
+      #P33A .ax .ds{ font-size:31px; font-weight:500; color:var(--text); margin-top:7px; line-height:1.34; }
+      #P33A .ax .ds code{ font-family:ui-monospace,'SF Mono',monospace; font-weight:700; color:var(--c2); }
+
+      /* 우: METHODOLOGY 일러스트 (기어+도장+4 위성카드) */
+      #P33A .methodology{ position:absolute; left:1146px; top:300px; width:653px; height:auto; }
+
+      /* 하단 MESSAGE — 표준 keymsg (타 페이지 동일) */
+      #P33A .keymsg .msg{ font-size:32px; font-weight:600; color:var(--text); line-height:1.3; }
+      #P33A .keymsg .msg .acc{ color:var(--c1); }
+    </style>
+
+    <h1 class="s-title">bkit 시스템 아키텍쳐</h1>
+    <div class="s-subtitle">좋은 개발론을 AI의 성능이 아니라 — 시스템 층위에서 강제한다</div>
+
+    <div class="axes">
+      <div class="ax">
+        <div class="nm">Context Engineering</div>
+        <div class="ds">SW 개발에 최적화된 스킬·에이전트 + rule로서 제어하는 <b>21종 훅 시스템</b>.</div>
+      </div>
+      <div class="ax">
+        <div class="nm">Docs = Code (설계 우선)</div>
+        <div class="ds">PRD·설계는 장식이 아니라 구속력 있는 계약. <code>gap-detector</code>가 matchRate ≥90%로 강제.</div>
+      </div>
+      <div class="ax">
+        <div class="nm">Convention-first</div>
+        <div class="ds">구현 전에 코딩 규칙부터 못박는다.</div>
+      </div>
+    </div>
+
+    <img class="methodology" src="assets/P33-methodology.png" alt="METHODOLOGY 도장·기어 — 시스템이 강제한다. 4개 축: Context Engineering(훅·스킬·에이전트) / Docs=Code(gap-detector matchRate≥90%) / Convention-first / 품질 게이트 M1~M10(+Sprint S1~S4)+Trust 다이얼">
+
+    <div class="keymsg">
+      <span class="tag">MESSAGE</span>
+      <span class="msg">검증된 개발 방법론을 AI의 성능이 아니라 <span class="acc">시스템이 강제</span>한다 — 그래서 자율주행이 안전하다.</span>
+    </div>
+
+    <div class="s-footer">
+      <span>주식회사 덥덥덥 · ww-w.ai</span>
+      <span class="s-pagenum">33</span>
+    </div>
+  </section>
+</div>
+</body>
+</html>

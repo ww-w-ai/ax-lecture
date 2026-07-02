@@ -10,17 +10,69 @@
   <!-- P41 [사례] 중앙 대형 도식 = generated/P41.png 중앙부 crop(제목·KEY MESSAGE 밴드 제외) 1장 유지 / 하단 KEY MESSAGE = HTML 텍스트 -->
   <section class="slide light" id="P41">
     <style>
-      #P41 .s-title{ font-size:50px; line-height:1.18; }
-      /* 중앙 도식 (한 장, 제목~키메시지 밴드 사이 존에 가로 중앙) */
-      #P41 .s-illust{ left:270px; top:240px; width:1380px; height:auto; }
+      #P41 .s-title{ font-size:64px; line-height:1.18; }
+
+      /* 좌상단: 요약 명령 터미널 (긴 원문은 우측) */
+      #P41 .cmd-term{ position:absolute; left:129px; top:290px; width:779px; box-sizing:border-box;
+        border-radius:14px; overflow:hidden; background:#23252B; box-shadow:0 8px 22px rgba(0,0,0,.15); }
+      #P41 .cmd-term .cbar{ display:flex; align-items:center; gap:8px; padding:11px 16px; background:#2E3038; }
+      #P41 .cmd-term .cbar .dot{ width:11px; height:11px; border-radius:50%; }
+      #P41 .cmd-term .cbar .r{ background:#FF5F57; } #P41 .cmd-term .cbar .y{ background:#FEBC2E; } #P41 .cmd-term .cbar .g{ background:#28C840; }
+      #P41 .cmd-term .cbar .tt{ margin-left:6px; color:#9BA0A8; font-size:17px; font-weight:600; }
+      #P41 .cmd-term .cbody{ padding:16px 20px; font-family:ui-monospace,'SF Mono',Menlo,monospace; font-size:23px; line-height:1.5; color:#E6E7EA; }
+      #P41 .cmd-term .cmd{ color:#FF8A65; font-weight:800; } #P41 .cmd-term .flag{ color:#FFD166; font-weight:700; }
+
+      /* 좌하단: Sprint 컨테이너+자리비움 crop */
+      #P41 .dg-container{ position:absolute; left:120px; top:457px; width:788px; height:auto; }
+
+      /* 우: prd 단계에서 bkit sprint-master-planner가 생성한 814줄 마스터플랜 */
+      #P41 .plan-doc{ position:absolute; left:1000px; top:242px; width:797px; height:582px; box-sizing:border-box;
+        background:#fff; border:1px solid var(--rule); border-radius:16px; overflow:hidden; box-shadow:0 12px 32px rgba(0,0,0,.12); }
+      #P41 .plan-doc .pd-bar{ display:flex; align-items:center; gap:10px; padding:13px 20px; background:#F4F4F1; border-bottom:1px solid var(--rule); }
+      #P41 .plan-doc .pd-bar .pd-tag{ background:var(--c1); color:#fff; font-size:16px; font-weight:800; padding:5px 11px; border-radius:8px; letter-spacing:-0.01em; }
+      #P41 .plan-doc .pd-bar .fn{ font-family:ui-monospace,'SF Mono',Menlo,monospace; font-size:19px; font-weight:700; color:var(--text); }
+      #P41 .plan-doc .pd-bar .meta{ margin-left:auto; font-size:20px; font-weight:800; color:var(--c1); }
+      #P41 .plan-doc .pd-body{ padding:16px 24px; font-size:20.5px; line-height:1.46; color:#3A3A3A; }
+      #P41 .plan-doc .pd-body .q{ color:var(--secondary); }
+      #P41 .plan-doc .pd-body .h{ font-weight:800; color:var(--text); margin-top:8px; }
+      #P41 .plan-doc .pd-body .k{ display:inline-block; width:62px; font-weight:800; color:var(--c1); }
+      #P41 .plan-doc .pd-body .ref{ font-family:ui-monospace,monospace; color:var(--c2); }
+      #P41 .plan-doc .pd-fade{ position:absolute; left:0; right:0; bottom:0; height:120px;
+        background:linear-gradient(to bottom, rgba(255,255,255,0), #fff 78%);
+        display:flex; align-items:flex-end; justify-content:center; padding-bottom:14px; }
+      #P41 .plan-doc .pd-fade .more{ font-size:20px; font-weight:800; color:var(--muted); }
+
       /* 하단 MESSAGE 띠 — 위치는 마스터 .keymsg(하단 밴드 통일) */
       #P41 .keymsg .msg{ font-size:32px; font-weight:600; color:var(--text); line-height:1.3; }
       #P41 .keymsg .msg .acc{ color:var(--c1); }
     </style>
 
-    <h1 class="s-title">Sprint 실제 사례 — bkit이 자기 문서를 자율주행으로 만들다 (dogfooding)</h1>
+    <h1 class="s-title">Sprint 실제 사례 — bkit이 자기 문서를 자율주행으로 만들다</h1>
 
-    <img class="s-illust" src="assets/P41-diagram.png" alt="/sprint init v2113-docs-sync --features f0…f9 --trust L4 명령으로 시작 → bkit이 자기 자신(v2.1.13 문서 동기화)을 dogfooding(self-validation)으로 수행. Sprint 컨테이너(f0…f9)가 prd→plan→design→do→iterate→qa→report→archived 수명주기를 사람 개입 없이(자리 비움·무인) 완주하고 archived 산출물(master-plan·PRD·plan·design·최종 리포트)을 남긴다.">
+    <div class="cmd-term">
+      <div class="cbar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="tt">① Kay가 친 명령 — 짧은 한 줄</span></div>
+      <div class="cbody"><span class="cmd">/sprint init</span> v2113-docs-sync&nbsp;&nbsp;<span class="flag">--features</span> f0…f9&nbsp;&nbsp;<span class="flag">--trust</span> L4</div>
+    </div>
+
+    <img class="dg-container" src="assets/P41-container.png" alt="Sprint 컨테이너 f0…f9 — prd→plan→design→do→iterate→qa→report→archived 수명주기를 자리 비움(무인)으로 완주">
+
+    <div class="plan-doc">
+      <div class="pd-bar"><span class="pd-tag">② prd 단계 · bkit 생성</span><span class="fn">master-plan.md</span><span class="meta">814줄</span></div>
+      <div class="pd-body">
+        <div class="q">&gt; Sprint: v2113-docs-sync · Owner: kay kim</div>
+        <div class="q">&gt; 사람이 준 결정: Q1 9 features · Q2 Trust L4 · Q3 CC 버전 · Q4 archive 자동</div>
+        <div class="h"><br>## Context Anchor</div>
+        <div><span class="k">WHY</span> v2.1.13 코드는 완료됐으나 README·CHANGELOG·매니페스트가 v2.1.12 잔재…</div>
+        <div><span class="k">WHO</span> 신규 사용자 · maintainer kay · marketplace · CI gate…</div>
+        <div><span class="k">WHAT</span> 문서 surface 11개 + BKIT_VERSION 5-loc invariant + 89 legacy archive…</div>
+        <div><span class="k">RISK</span> component count drift · Sprint 회귀 · CHANGELOG 누락…</div>
+        <div class="h"><br>## F1 version-bump</div>
+        <div><span class="k">Scope</span> config.json · marketplace.json · hooks.json · session-start.js…</div>
+        <div><span class="k">Tasks</span> T1.1 BKIT_VERSION 5-loc bump · T1.2 docs-code-sync 0 drift 검증…</div>
+        <div><span class="k">Ref</span> <span class="ref">CUSTOMIZATION-GUIDE.md:196</span> · 파일:줄까지 명시…</div>
+      </div>
+      <div class="pd-fade"><span class="more">+ 780줄 더 — F2…F9 Scope·Tasks·Risk</span></div>
+    </div>
 
     <div class="keymsg">
       <span class="tag">MESSAGE</span>
@@ -29,7 +81,7 @@
 
     <div class="s-footer">
       <span>주식회사 덥덥덥 · ww-w.ai</span>
-      <span class="s-pagenum">41</span>
+      <span class="s-pagenum">42</span>
     </div>
   </section>
 </div>

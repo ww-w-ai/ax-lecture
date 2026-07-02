@@ -9,7 +9,7 @@
 <div class="fit">
   <section class="slide light" id="P44">
     <style>
-      #P44 .s-title{ font-size:66px; }
+      #P44 .s-title{ font-size:64px; line-height:1.18; }
 
       /* ── 2-컬럼 비교 카드 (grid로 두 컬럼 행 높이 정렬) ── */
       #P44 .p40-card{ position:absolute; left:120px; top:236px; width:1680px;
@@ -40,8 +40,8 @@
       #P44 .badge2 .t{ font-size:31px; font-weight:800; color:var(--text); }
       #P44 .badge2 .s{ font-size:27px; color:var(--muted); margin-top:4px; }
 
-      /* ── 환경설정 → PDCA 진입 행 ── */
-      #P44 .p40-flow{ position:absolute; left:120px; top:692px; width:1680px;
+      /* ── 환경설정 → PDCA 진입 행 (height 키워 하단 배치) ── */
+      #P44 .p40-flow{ position:absolute; left:120px; top:724px; width:1680px; height:184px;
         display:flex; align-items:stretch; }
       #P44 .p40-pill{ border:2px solid var(--c1); border-radius:20px; background:#fff;
         display:flex; align-items:center; gap:26px; padding:0 38px; }
@@ -63,7 +63,7 @@
       #P44 .p40-band .acc{ color:var(--c1); font-weight:800; }
     </style>
 
-    <h1 class="s-title">본격 개발 전, 최적의 프레임워크를 설정한다</h1>
+    <h1 class="s-title">웹 뿐 아니라 모바일, 데스크톱 개발도 가능</h1>
 
     <div class="p40-card">
       <!-- 헤더 -->
@@ -76,12 +76,12 @@
         desktop-app
       </div>
 
-      <!-- 좌1: Expo (Tier1) -->
+      <!-- 좌1: Flutter (Tier1) -->
       <div class="p40-row">
-        <img class="p40-logo" src="assets/P44-expo.png" alt="Expo 로고">
+        <img class="p40-logo" src="assets/P44-flutter.png" alt="Flutter 로고">
         <div class="p40-txt">
-          <div class="p40-name">Expo</div>
-          <div class="p40-desc">크로스 플랫폼, 빠른 개발</div>
+          <div class="p40-name">Flutter</div>
+          <div class="p40-desc">성능 우수, 유연한 UI</div>
         </div>
         <div class="badge badge1">
           <div class="t"><span>★</span>Tier 1</div>
@@ -98,12 +98,12 @@
         </div>
       </div>
 
-      <!-- 좌2: Flutter (Tier2) -->
+      <!-- 좌2: Expo (Tier2) -->
       <div class="p40-row">
-        <img class="p40-logo" src="assets/P44-flutter.png" alt="Flutter 로고">
+        <img class="p40-logo" src="assets/P44-expo.png" alt="Expo 로고">
         <div class="p40-txt">
-          <div class="p40-name">Flutter</div>
-          <div class="p40-desc">성능 우수, 유연한 UI</div>
+          <div class="p40-name">Expo</div>
+          <div class="p40-desc">크로스 플랫폼, 빠른 개발</div>
         </div>
         <div class="badge badge2">
           <div class="t">Tier 2</div>
@@ -136,11 +136,6 @@
         <svg class="s-ic" viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></svg>
         <span class="p40-rlabel">PDCA 사이클 진입</span>
       </div>
-    </div>
-
-    <div class="p40-band">
-      <svg class="s-ic" viewBox="0 0 24 24"><path d="M12 13v8"/><path d="m8 17 4-4 4 4"/><path d="M20 16.58A5 5 0 0 0 18 7h-1.26A8 8 0 1 0 4 15.25"/></svg>
-      <span class="txt"><span class="acc">dynamic = bkend.ai</span> — BaaS 5종으로 로그인 · DB · 스토리지 즉시</span>
     </div>
 
     <div class="s-footer">

@@ -42,27 +42,26 @@ const SLIDES = [
   { file: 'P31.html' },                               // P31 4분할 풀블리드 타임라인(하네스 진화)
   // ── 2부 챕터3 (만들기 자율주행 — bkit) P32~P60 ──
   { file: 'P32.html' },                               // P32 소개 스크린샷(bkit GitHub) ✓html
-  { file: 'P33.html' },                               // P33 도식(PDCA) — 하이브리드(텍스트 HTML + 링 이미지 crop) ✓
+  { file: 'P33-arch.html' },                          // P33 bkit 시스템 아키텍쳐(원 P50 '박제 개발론' 이동) — 좌 4축 HTML + 우 METHODOLOGY 일러스트 crop ✓
+  { file: 'P43.html' },                               // P43 설명(오버엔지니어링) — 하이브리드(제목·헤더 HTML + 좌우 이미지 crop) ✓
+  { img: '../generated/P49.png' },                    // P49 도식(아키텍처)
+  { img: '../generated/P51.png' },                    // P51 도식(pipeline)
+  { file: 'P33.html' },                               // P34(위치) PDCA — 하이브리드(텍스트 HTML + 링 이미지 crop) ✓
   { file: 'P34.html' },                               // P34 신규(도식) — matchRate 7축 가중 채점 · 순수 HTML ✓
+  { img: '../generated/P48.png' },                    // P48 도식(전문가 군단)
+  { img: '../generated/P45.png' },                    // P45 도식(오케스트레이션)
+  { img: '../generated/P46.png' },                    // P46 도식(3중 검증)
   { file: 'P35.html' },                               // P35 도식(PDCA 사례) — 하이브리드(제목·결론 HTML + 4카드 이미지 crop) ✓
+  { img: '../generated/P47.png' },                    // P47 설명(무인 검증)
   { file: 'P36.html' },                               // P36 도식(Sprint ①) — 하이브리드(텍스트 HTML + Sprint 컨테이너 이미지 crop) ✓
   { file: 'P37.html' },                               // P37 개념② — PRD 5부 구조 · 순수 HTML ✓
   { file: 'P38.html' },                               // P38 개념③ — 7-Layer dataFlow QA · 하이브리드(아이콘 crop + HTML) ✓
   { file: 'P39.html' },                               // P39 개념④ — Sprint 단계 × Trust · 무인범위 다이얼 · 완전 HTML(CSS 바/점/점선) ✓
   { file: 'P40.html' },                               // P40 개념⑤ — 측정 & 안전벨트 · 하이브리드(게이지/iterate/칩 crop + HTML 제목·헤더·resume·메시지) ✓
-  { file: 'P41.html', img: '../generated/P41.png' },  // P41 도식(Sprint 사례) — 하이브리드(제목·키메시지 HTML + 도식 crop) ✓
-  { file: 'P42.html', img: '../generated/P42.png' },  // P42 도식(기획서) — 하이브리드(제목·키메시지 HTML + 도식 crop, 둘다공통 제거) ✓
-  { file: 'P43.html', img: '../generated/P43.png' },  // P43 설명(오버엔지니어링) — 하이브리드(제목·헤더 HTML + 좌우 이미지 crop) ✓
+  { file: 'P41.html' },                               // P41 사례 — 자체 HTML(요약명령+컨테이너 crop + 마스터플랜 문서) ✓
   { file: 'P44.html', img: '../generated/P44.png' },  // P44 도식(프레임워크) — HTML 재현(로고만 이미지) ✓
-  { img: '../generated/P45.png' },                    // P45 도식(오케스트레이션)
-  { img: '../generated/P46.png' },                    // P46 도식(3중 검증)
-  { img: '../generated/P47.png' },                    // P47 설명(무인 검증)
-  { img: '../generated/P48.png' },                    // P48 도식(전문가 군단)
-  { img: '../generated/P49.png' },                    // P49 도식(아키텍처)
-  { img: '../generated/P50.png' },                    // P50 설명(박제 개발론)
-  { img: '../generated/P51.png' },                    // P51 도식(pipeline)
-  { file: 'P52.html' },                               // P52 🔧실습 — bkit Quick Start (README) ✓html
   { file: 'P53.html' },                               // P53 소개 스크린샷(코깎노) ✓html
+  { file: 'P52.html' },                               // P52 🔧실습 — bkit Quick Start (README) ✓html
   { img: '../generated/P54.png' },                    // P54 설명(커스텀 가이드)
   { img: '../generated/P55.png' },                    // P55 설명(ai-native-cowork ①)
   { img: '../generated/P56.png' },                    // P56 설명(ai-native-cowork ②)
@@ -100,24 +99,32 @@ function extractSection(file) {
   return m[0];
 }
 
-function slideMarkup(s) {
+function slideMarkup(s, idx) {
+  // footer 페이지 번호 = 덱 위치(1-based)로 자동 주입. 개별 Pxx.html의 하드코딩 s-pagenum은 무시하고 덮어씀.
+  // (이미지 슬라이드는 baked 번호라 대상 아님 — 무시.)
+  const pageNo = idx + 1;
   if (s.p05) {
     return `      <!-- P05 (애니메이션: 전부 컬러 → [→] 좌측 흑백 + 라벨 크로스페이드) -->
-      <section class="slide">
+      <section data-idx="${idx}" class="slide">
         <img class="s-bg" src="../final/P05.png" alt="">
         <img class="s-bg frag" src="../final/P5_5.png" alt="">
       </section>`;
   }
   if (s.file) {
-    const sec = extractSection(s.file);
-    if (sec) return '      <!-- ' + s.file + ' -->\n      ' + sec.replace(/\n/g, '\n      ');
+    let sec = extractSection(s.file);
+    if (sec) {
+      // 위치 기반 자동 번호 (하드코딩 값 덮어씀)
+      sec = sec.replace(/(<span class="s-pagenum">)[^<]*(<\/span>)/, '$1' + pageNo + '$2');
+      sec = sec.replace(/<section class="slide/, '<section data-idx="' + idx + '" class="slide');
+      return '      <!-- ' + s.file + ' -->\n      ' + sec.replace(/\n/g, '\n      ');
+    }
     // 폴백
   }
   const src = s.img;
-  return `      <!-- 이미지 ${src} -->\n      <section class="slide"><img class="s-bg" src="${src}" alt=""></section>`;
+  return `      <!-- 이미지 ${src} -->\n      <section data-idx="${idx}" class="slide"><img class="s-bg" src="${src}" alt=""></section>`;
 }
 
-const sectionsHtml = SLIDES.map(slideMarkup).join('\n\n');
+const sectionsHtml = SLIDES.map((s, idx) => slideMarkup(s, idx)).join('\n\n');
 
 const deck = `<!doctype html>
 <html lang="ko">
@@ -170,6 +177,12 @@ const deck = `<!doctype html>
   /* 텍스트 직접 편집(더블클릭) */
   .slide > *[contenteditable="true"]{outline:2px solid #0B5FD9!important;cursor:text!important;}
   body.text-editing .slide > *{cursor:default;}
+  /* 페이지 이동 모드 — 축소 필름스트립(앞/뒷장 노출) + 옮기는 슬라이드 강조 */
+  #viewport{transition:transform .3s cubic-bezier(.45,0,.2,1);}
+  body.moving #viewport{overflow:visible;}
+  body.moving #track{transition:transform .28s cubic-bezier(.45,0,.2,1);}
+  body.moving #track>.slide{opacity:.5;outline:2px solid rgba(0,0,0,.14);outline-offset:-2px;}
+  body.moving #track>.slide.cur{opacity:1;outline:6px solid #0B5FD9;outline-offset:-6px;box-shadow:0 24px 80px rgba(0,0,0,.55);}
   #edit-hud{position:fixed;top:10px;left:50%;transform:translateX(-50%);display:none;
     background:rgba(0,0,0,.82);color:#fff;padding:8px 16px;border-radius:8px;font-size:14px;z-index:50;white-space:nowrap;}
   #rz-handle{position:fixed;width:16px;height:16px;background:#E60012;border:2px solid #fff;border-radius:50%;
@@ -253,8 +266,10 @@ ${sectionsHtml}
   const frags = slides.map(s => [...s.querySelectorAll('.frag')]);
   let i = 0, step = 0;
 
+  const MOVE_ZOOM = 0.46; // 이동 모드: 축소해 앞/뒷장이 함께 보이게 (필름스트립)
   function fit(){
-    const s = Math.min(innerWidth / 1920, innerHeight / 1080);
+    let s = Math.min(innerWidth / 1920, innerHeight / 1080);
+    if (document.body.classList.contains('moving')) s *= MOVE_ZOOM;
     viewport.style.transform = 'translate(-50%, -50%) scale(' + s + ')';
   }
   function render(){
@@ -297,6 +312,7 @@ ${sectionsHtml}
     + hkRow('F', '전체화면')
     + hkRow('G', '정렬 가이드 토글')
     + hkRow('E', '편집 모드 (Esc = 종료)')
+    + hkRow('M', '페이지 이동 모드 (← → 재배치 · Enter/M 적용 · Esc 취소 · “저장”이라 말하면 소스 확정)')
     + hkRow('편집 중: 드래그·모서리·방향키', '이동 / 크기 / 미세조정 · Del 삭제 · ⌘Z 되돌리기')
     + hkRow('텍스트 더블클릭', '글자 편집 (Esc = 완료)')
     + hkRow('?', '이 도움말 열기/닫기')
@@ -307,7 +323,15 @@ ${sectionsHtml}
   addEventListener('resize', fit);
   addEventListener('keydown', e => {
     if (document.activeElement && document.activeElement.isContentEditable) return; // 텍스트 편집 중엔 타이핑
-    const navLock = editMode || vbActive(); // 편집/ VisBug 중엔 페이지 이동 금지
+    // ── 페이지 이동 모드: 화살표=슬라이드 재배치, Enter/Esc/M=내려놓기 ──
+    if (moveMode) {
+      if (e.key === 'ArrowLeft')  { e.preventDefault(); moveCur(-1); return; }
+      if (e.key === 'ArrowRight') { e.preventDefault(); moveCur(+1); return; }
+      if (e.key === 'Escape')     { e.preventDefault(); cancelMove(); return; }   // 취소 → 진입 시점 복원
+      if (e.key === 'Enter' || e.key === 'm' || e.key === 'M') { e.preventDefault(); setMove(false); return; } // 적용(유지)
+      e.preventDefault(); return; // 이동 중엔 그 외 키 무시
+    }
+    const navLock = editMode || vbActive() || moveMode; // 편집/VisBug/이동 중엔 페이지 이동 금지
     if (!navLock && /^[0-9]$/.test(e.key)) { e.preventDefault(); jumpBuf = (jumpBuf + e.key).slice(0, 3); showJump(); return; }
     if (!navLock && e.key === 'Enter' && jumpBuf) { e.preventDefault(); goTo(parseInt(jumpBuf, 10)); jumpBuf = ''; showJump(); return; }
     if (!navLock && e.key === 'Escape' && jumpBuf) { e.preventDefault(); jumpBuf = ''; showJump(); return; }
@@ -315,6 +339,7 @@ ${sectionsHtml}
     else if (!navLock && (e.key === 'ArrowLeft' || e.key === 'PageUp')) { e.preventDefault(); prev(); }
     else if (!navLock && e.key === 'Home') { i = 0; step = 0; render(); }
     else if (!navLock && e.key === 'End') { i = N - 1; step = frags[i].length; render(); }
+    else if ((e.key === 'm' || e.key === 'M') && !navLock) { e.preventDefault(); setMove(true); }
     else if (e.key === 'f' || e.key === 'F') { e.preventDefault(); toggleFull(); }
     else if (e.key === 'g' || e.key === 'G') { document.body.classList.toggle('show-guide'); }
     else if (e.key === '?') { e.preventDefault(); toggleHelp(); }
@@ -323,6 +348,68 @@ ${sectionsHtml}
   });
   document.querySelector('.nav.prev').onclick = prev;
   document.querySelector('.nav.next').onclick = next;
+
+  // ===== 페이지 이동 모드 (M) — 현재 슬라이드를 앞/뒤로 재배치 (in-memory · 저장 전까지 tentative) =====
+  // 저장은 유저가 "저장"이라고 말할 때만: 나(assistant)가 window.deckOrder()로 순열을 읽어 build-deck.js의
+  // SLIDES 배열을 재작성 → 재빌드하면 footer 번호는 위치기반 자동주입이라 자동 정정됨. 리로드하면 미저장 이동은 소실.
+  let moveMode = false, moveSnapshot = null, moveStartI = 0;
+  const moveBar = document.createElement('div'); moveBar.id = 'move-bar';
+  moveBar.style.cssText = 'position:fixed;top:16px;left:50%;transform:translateX(-50%);z-index:76;'
+    + 'background:#0B5FD9;color:#fff;padding:12px 26px;border-radius:12px;font-size:23px;font-weight:800;'
+    + 'display:none;box-shadow:0 10px 34px rgba(0,0,0,.45);white-space:nowrap;pointer-events:none;';
+  document.body.appendChild(moveBar);
+  const trackSlides = () => [...track.querySelectorAll(':scope > .slide')];
+  function moveBarText(){
+    const c = trackSlides()[i];
+    const t = c && c.querySelector('.s-title');
+    const label = t ? t.textContent.trim().slice(0, 24) : ((c && c.id) || ('#' + (i + 1)));
+    moveBar.textContent = '📦 이동 중: “' + label + '”  → 위치 ' + (i + 1) + ' / ' + N
+      + '    (← → 이동 · Enter/M 적용 · Esc 취소 · “저장”해야 소스 확정)';
+  }
+  function setMove(on){
+    if (on) { moveSnapshot = trackSlides(); moveStartI = i; } // 진입 시점 순서 스냅샷(Esc 취소용)
+    moveMode = on;
+    document.body.classList.toggle('moving', on);
+    moveBar.style.display = on ? 'block' : 'none';
+    fit(); // 이동모드 진입=축소 / 종료=현재 페이지로 복귀 확대
+    if (on) moveBarText();
+  }
+  function moveCur(dir){ // dir: -1=앞으로 / +1=뒤로
+    const j = i + dir;
+    if (j < 0 || j >= N) return;
+    const list = trackSlides();
+    const a = list[i], b = list[j];
+    if (dir < 0) track.insertBefore(a, b); else track.insertBefore(b, a);
+    // slides·frags 배열을 새 DOM 순서로 재동기화 (render가 이 배열을 참조)
+    const nl = trackSlides();
+    slides.length = 0; slides.push(...nl);
+    frags.length = 0; nl.forEach(s => frags.push([...s.querySelectorAll('.frag')]));
+    i = j; step = 0;
+    render();
+    renumber();      // 이동 즉시 footer 번호를 새 위치로 라이브 재계산 (보이는 것과 싱크)
+    moveBarText();
+  }
+  function cancelMove(){ // Esc = 이번 이동 세션 취소 → 진입 시점 순서로 복원
+    if (moveSnapshot){
+      moveSnapshot.forEach(el => track.appendChild(el)); // 스냅샷 순서대로 재배치
+      const nl = trackSlides();
+      slides.length = 0; slides.push(...nl);
+      frags.length = 0; nl.forEach(s => frags.push([...s.querySelectorAll('.frag')]));
+      i = moveStartI; step = 0; renumber();
+    }
+    setMove(false);
+    render();
+  }
+  // 저장 시 assistant가 CDP로 읽는 접근자: 현재 DOM 순서의 원래 인덱스 나열 = SLIDES 재정렬 순열
+  window.deckOrder = () => trackSlides().map(s => +s.dataset.idx);
+  window.deckMoveMode = () => moveMode;
+  // ===== 페이지 번호 = 현재 위치로 동적 계산 (이동하면 즉시 싱크 · 소스 확정은 "저장" 시) =====
+  // build가 빌드시점 위치로 넣어두지만, 라이브 이동 후엔 stale → 매 이동마다 + 초기 1회 재계산해 통일.
+  // .s-pagenum 없는 이미지 슬라이드는 baked라 건드리지 않음.
+  function renumber(){
+    trackSlides().forEach((s, si) => { const pn = s.querySelector('.s-pagenum'); if (pn) pn.textContent = si + 1; });
+  }
+  renumber();
 
   // ===== 편집 모드 (E 토글) — 드래그 이동 / 모서리 크기 / 방향키 미세조정 =====
   function getScale(){ return Math.min(innerWidth / 1920, innerHeight / 1080); }
