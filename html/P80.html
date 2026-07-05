@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>P80 — 실습: 수지 연결하고 첫 운영 1건 위임</title>
+<link rel="stylesheet" href="slides.css">
+</head>
+<body>
+<div class="fit">
+  <section class="slide light" id="P80">
+    <style>
+      #P80 .badge{ position:absolute; left:120px; top:96px;
+        display:inline-flex; align-items:center; gap:12px;
+        background:var(--c1); color:#fff; font-weight:800; font-size:30px;
+        padding:12px 28px; border-radius:999px; letter-spacing:.01em; }
+      #P80 .s-title{ top:168px; font-size:64px; }
+
+      #P80 .steps{ position:absolute; left:120px; top:300px; width:940px;
+        display:flex; flex-direction:column; gap:30px; }
+      #P80 .step{ display:flex; gap:22px; align-items:flex-start; }
+      #P80 .step .num{ width:56px; height:56px; border-radius:50%; flex:none;
+        background:var(--c1); color:#fff; font-weight:800; font-size:28px;
+        display:flex; align-items:center; justify-content:center; margin-top:2px; }
+      #P80 .step .txt{ font-size:36px; font-weight:600; line-height:1.35; color:var(--text); }
+      #P80 .step .txt .sub{ display:block; font-size:26px; font-weight:500; color:var(--muted); margin-top:4px; }
+
+      #P80 .obs-label{ position:absolute; left:120px; top:700px; font-size:24px;
+        font-weight:700; color:var(--muted); letter-spacing:.02em; }
+      #P80 .obs-row{ position:absolute; left:120px; top:744px; width:940px;
+        display:flex; flex-wrap:wrap; gap:16px; }
+
+      #P80 .shots{ position:absolute; left:1140px; top:300px; width:560px;
+        display:flex; flex-direction:column; gap:28px; }
+      #P80 .shotcard{ width:560px; height:230px; border-radius:18px;
+        background:#FBFAF7; border:2px dashed var(--rule);
+        display:flex; align-items:center; justify-content:center; }
+      #P80 .shotcard .lbl{ font-family:'SFMono-Regular',ui-monospace,Menlo,monospace;
+        font-size:28px; font-weight:700; color:var(--muted); letter-spacing:.01em; }
+    </style>
+
+    <div class="badge">🔧 실습</div>
+    <h1 class="s-title">수지 연결하고 첫 운영 1건 위임</h1>
+
+    <div class="steps">
+      <div class="step"><span class="num">①</span><span class="txt">MCP 연결 → <span class="acc">sooji_start</span> 1회</span></div>
+      <div class="step"><span class="num">②</span><span class="txt">get_overview 대시보드 확인</span></div>
+      <div class="step"><span class="num">③</span><span class="txt">운영 1건 위임
+        <span class="sub">미팅 / 견적 검색 / 실세계 앱 / 예약 — 중 택1</span></span></div>
+    </div>
+
+    <div class="obs-label">관찰 포인트</div>
+    <div class="obs-row">
+      <span class="chip chip--sec">가입·키 없이 즉답?</span>
+      <span class="chip chip--sec">뜻으로 검색?</span>
+      <span class="chip chip--sec">닫아도 도는 예약?</span>
+    </div>
+
+    <div class="shots">
+      <div class="shotcard"><span class="lbl">sooji_start</span></div>
+      <div class="shotcard"><span class="lbl">get_overview</span></div>
+    </div>
+
+    <div class="s-footer">
+      <span>에이전트 수지 · sooji.ai</span>
+      <span class="s-pagenum">00</span>
+    </div>
+  </section>
+</div>
+</body>
+</html>

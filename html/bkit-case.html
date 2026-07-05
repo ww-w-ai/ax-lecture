@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>bkit 실전 사례 (/pdca 한 사이클)</title>
+<link rel="stylesheet" href="slides.css">
+</head>
+<body>
+<div class="fit">
+  <!-- bkit 실전: 위 설명(how-to) + 아래 터미널 스크린샷 6단계가 순차 애니메이션(frag)으로 교체. 55~59와 동일 UI -->
+  <section class="slide light" id="bkitCase">
+    <style>
+      #bkitCase{ background:#EFEFEC; }
+      #bkitCase .s-title{ position:absolute; left:120px; top:52px; font-size:56px; font-weight:800; letter-spacing:-.01em; color:var(--text); }
+      #bkitCase .s-title .nm{ color:var(--c1); }
+      /* 스크린샷 무대 — 타이틀 바로 아래. 각 step은 불투명(page bg)으로 이전을 덮음. 하단은 슬라이드 밖으로 살짝 bleed */
+      #bkitCase .stage{ position:absolute; left:0; right:0; top:158px; bottom:0; }
+      #bkitCase .step{ position:absolute; inset:0; background:#EFEFEC; overflow:hidden; }
+      #bkitCase .step img{ position:absolute; top:0; left:0; right:0; margin-left:auto; margin-right:auto;
+        width:1680px; height:auto; display:block; }
+      /* [비활성화 2026-07-05] 애니메이션 페이지는 번호 제거 — 소스 주석 보존
+      #bkitCase .s-pagenum{ position:absolute; right:80px; top:66px; font-size:30px; font-weight:700; color:var(--muted); } */
+    </style>
+
+    <h1 class="s-title"><span class="nm">bkit 실전</span> — 명령 한 줄로 한 사이클</h1>
+
+    <div class="stage">
+      <div class="step"><img src="../generated/_screenshots/bkit-case-1.png" alt="bkit /pdca pm 실행 — 요구사항 분석"></div>
+      <div class="step frag"><img src="../generated/_screenshots/bkit-case-2.png" alt="bkit 단계 2"></div>
+      <div class="step frag"><img src="../generated/_screenshots/bkit-case-3.png" alt="bkit 단계 3"></div>
+      <div class="step frag"><img src="../generated/_screenshots/bkit-case-45.png" alt="bkit 단계 4·5"></div>
+      <div class="step frag"><img src="../generated/_screenshots/bkit-case-6.png" alt="bkit 단계 6"></div>
+      <div class="step frag"><img src="../generated/_screenshots/bkit-case-7.png" alt="bkit 단계 7 — 완료"></div>
+      <div class="step frag"><img src="../generated/_screenshots/bkit-case-8.png" alt="bkit 사례 8 — Track A MVP 완료(최종 게이트 그린)"></div>
+      <div class="step frag"><img src="../generated/_screenshots/bkit-case-9.png" alt="bkit 사례 9 — 실제 완성 앱(Graphing Scientific Calculator)"></div>
+    </div>
+
+    <!-- [비활성화 2026-07-05] 애니메이션 페이지는 번호 제거 — 소스 주석 보존
+    <span class="s-pagenum">51</span> -->
+  </section>
+</div>
+</body>
+</html>

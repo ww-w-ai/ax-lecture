@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>Psafe — 안전한 수지</title>
+<link rel="stylesheet" href="slides.css">
+</head>
+<body>
+<div class="fit">
+  <!-- Psafe [안전한 수지] 안전 보장 6관점 카드 그리드 (위험은 62~66에서 다룸 → 여기선 안전 forward). 재구성 2026-07-06 (수지 소개 재편) -->
+  <section class="slide light" id="Psafe">
+          <style>
+            #Psafe .s-title{ font-size:64px; line-height:1.2; width:1680px; }
+            #Psafe .s-title .acc{ color:var(--c2-deep); }
+            #Psafe .s-eyebrow{ left:122px; top:206px; font-size:35px; font-weight:600; color:var(--muted); }
+      
+            #Psafe .safe-grid{ position:absolute; left:120px; top:276px; width:1680px;
+              display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+            #Psafe .safe-cell{ display:flex; align-items:flex-start; gap:22px; padding:20px 30px;
+              border:1px solid var(--rule); border-radius:18px; background:#fff; min-height:0; }
+            #Psafe .safe-cell .s-ic{ width:46px; height:46px; flex:none; margin-top:3px; color:var(--c2); }
+            #Psafe .safe-cell.gold .s-ic{ color:var(--c3-deep); }
+            #Psafe .safe-label{ font-size:36px; font-weight:800; color:var(--text); letter-spacing:-.005em; line-height:1.2; }
+            #Psafe .safe-label .acc{ color:var(--c1); }
+            #Psafe .safe-desc{ font-size:30px; color:var(--secondary); margin-top:8px; line-height:1.36; }
+            #Psafe .safe-desc b{ color:var(--text); font-weight:700; }
+      
+            #Psafe .keymsg .msg{ font-size:28px; font-weight:600; color:var(--text); }
+            #Psafe .keymsg .msg b{ color:var(--c1); }
+            #Psafe .keymsg .msg .g{ color:var(--c2-deep); font-weight:700; }
+          </style>
+      
+          <h1 class="s-title">안전한 <span class="acc">수지</span></h1>
+          
+      
+          <div class="safe-grid" style="inset: 276px auto auto 120px;">
+            <div class="safe-cell">
+              <svg class="s-ic" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+              <div>
+                <div class="safe-label">전문가가 구축한 서버</div>
+                <div class="safe-desc">오픈클로·헤르메스처럼 <b>유저가 직접 운영</b>하다 문제가 재발하지 않게, 전문가가 구축·운영</div>
+              </div>
+            </div>
+            <div class="safe-cell">
+              <svg class="s-ic" viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="13" rx="2"></rect><path d="M7 8V6a5 5 0 0 1 10 0v2"></path></svg>
+              <div>
+                <div class="safe-label">유저별 <span class="acc">완전 격리</span></div>
+                <div class="safe-desc">DB와 실행 환경이 유저마다 <b>완전히 분리</b>되어 운영됩니다.</div>
+              </div>
+            </div>
+            <div class="safe-cell">
+              <svg class="s-ic" viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"></path><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
+              <div>
+                <div class="safe-label">직접 구축해도 동일 환경</div>
+                <div class="safe-desc">유저가 직접 구축하더라도 <b>똑같은 환경으로 가이드</b>해 안전합니다.</div>
+              </div>
+            </div>
+            <div class="safe-cell gold">
+              <svg class="s-ic" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"></rect><path d="M8 11V7a4 4 0 0 1 8 0v4"></path><circle cx="12" cy="16" r="1.6"></circle></svg>
+              <div>
+                <div class="safe-label">안전한 공유 + <span class="acc">시크릿</span></div>
+                <div class="safe-desc">프라이빗·시크릿 정보는 <b>실수로도, AI를 통해서도 유출되지 않게</b> 보호</div>
+              </div>
+            </div>
+            <div class="safe-cell">
+              <svg class="s-ic" viewBox="0 0 24 24"><rect x="3" y="3" width="8" height="8" rx="1.5"></rect><rect x="13" y="3" width="8" height="8" rx="1.5"></rect><rect x="3" y="13" width="8" height="8" rx="1.5"></rect><rect x="13" y="13" width="8" height="8" rx="1.5"></rect></svg>
+              <div>
+                <div class="safe-label">빌트인 ↔ 앱스토어 구분</div>
+                <div class="safe-desc">신뢰 수준에 따라 앱을 구분해 다룹니다.</div>
+              </div>
+            </div>
+            <div class="safe-cell">
+              <svg class="s-ic" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><path d="M14 2v6h6"></path><path d="M9 15l2 2 4-4"></path></svg>
+              <div>
+                <div class="safe-label">격리 실행 + 매니페스토</div>
+                <div class="safe-desc">앱은 <b>격리 실행</b>, 접근 정보는 <b>사전 권한 승인</b>이 필수.</div>
+              </div>
+            </div>
+          </div>
+      
+          <div class="keymsg" style="inset: 862px auto auto 120px;">
+            <span class="tag">MESSAGE</span>
+            <span class="msg">에이전트이기에 더 중요한 보안 — <span class="g">격리 + 사전 승인</span>으로 <b>안전이 보장</b>된다.</span>
+          </div>
+      
+          <div class="s-footer">
+            <span>에이전트 수지 · sooji.ai</span>
+            <span class="s-pagenum">75</span>
+          </div>
+        </section>
+</div>
+</body>
+</html>

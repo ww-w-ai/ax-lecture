@@ -1,8 +1,10 @@
 # Slide Production Status
 
-Status date: 2026-07-03
+Status date: 2026-07-06
 
-> **진실의 소스 = `scripts/build-deck.js`의 `SLIDES` 배열** (덱 구성·순서·제작방식의 단일 권위). 이 문서를 믿지 말고 `node scripts/build-deck.js`로 재빌드해 `html/deck.html`(현재 **77장**)로 재확인할 것. 라이브 편집은 리로드 전 캡처(라이브 편집 규율).
+> **2026-07-06 변경 요약**: 덱 77→**83장**. 수지 소개 섹션(deck 69~76) **재편** — 기존 "일곱 얼굴"(Ppillars 8기둥·P70 일곱얼굴·Pcombo 무한조합·P71~P75)을 창업자 스토리텔링 **8장**(Pcost·Pdaily·Pdash·Pdata·Papps·Pauto·Psafe·Pworld)으로 대체. 일러 6장 재활용(P68·P69·P72·P73·P74·P75-illust) + 대시보드 실스크린샷(Pdash-screen.png) + generated/P72.png 크롭. 푸터 전체 "주식회사 덥덥덥 · ww-w.ai"→**"에이전트 수지 · sooji.ai"**. 라이브편집 저장 캐노니컬=`scripts/cgpt/save-live-edits.js`(undo 기반), 매직지우개=base64 에셋 추출, imgframe 크롭 규율(상하좌우 +15% 숨김) — 상세 `docs/skill-baseline/pipeline-and-automation.md §4`. 옛 파일(Ppillars·Pcombo·P68~P75)은 SLIDES에서 빠졌으나 디스크에 잔존.
+
+> **진실의 소스 = `scripts/build-deck.js`의 `SLIDES` 배열** (덱 구성·순서·제작방식의 단일 권위). 이 문서를 믿지 말고 `node scripts/build-deck.js`로 재빌드해 `html/deck.html`(현재 **83장**)로 재확인할 것. 라이브 편집은 리로드 전 캡처(라이브 편집 규율).
 >
 > **번호·순서 주의**: (1) 챕터3가 재정렬돼 **파일 P번호(예: P33.html) ≠ 덱 위치**가 됐다 — 순서·표시번호의 권위는 오직 `SLIDES` 배열. (2) footer 페이지 번호는 build가 **덱 위치로 자동 주입**(수동 s-pagenum 유지 불필요, 재정렬해도 재빌드로 자동 정정 · 이미지 baked 번호는 예외).
 
@@ -14,7 +16,7 @@ Status date: 2026-07-03
 - **baked 생성 이미지** — `generated/Pxx.png`를 그대로 풀블리드. **텍스트가 이미지에 구워져 있음**(crisp·디자인가이드 정합이 HTML만 못함 → 하이브리드 변환 후보). `{ img: '../generated/..' }`.
 - **placeholder(MISSING)** — `generated/Pxx-placeholder.png`. 원 자료가 없어 미완.
 
-## Current Matrix (덱 77장 실제 상태)
+## Current Matrix (덱 83장 실제 상태)
 
 > 행 = 파일(제작방식) 기준. 덱 순서·표시번호는 `SLIDES`가 권위(파일 P번호 ≠ 덱 위치).
 

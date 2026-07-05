@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>P41 — 완벽을 향한 3중 검증: 정적 · 동적 · 구조화</title>
+<link rel="stylesheet" href="slides.css">
+</head>
+<body>
+<div class="fit">
+  <!-- 3중 검증(원 generated/P46.png) — 제목(HTML) · 좌 01/02/03 카드(이미지) · 우 QA팀+실드(이미지) 3영역 분리. 하단 flow 바 삭제 -->
+  <section class="slide light" id="P46V">
+    <style>
+      #P46V .s-title{ top:120px; font-size:60px; line-height:1.16; }
+      #P46V .s-title .acc{ color:var(--c1); }
+      /* 좌: 01/02/03 검증 카드 — crop 프레임(원본 P46.png) */
+      #P46V .rows{ position:absolute; left:121px; top:329px; width:1033px; height:590px; }
+      /* 우: QA Team + 실드 — crop 프레임(원본 P46.png 공유) */
+      #P46V .qa{ position:absolute; left:1276px; top:329px; width:524px; height:258px; }
+      /* 우하단: qa-phase L1~L5 상세 표 (텍스트) */
+      #P46V .qtbl{ position:absolute; left:1254px; top:635px; width:541px; padding:8px 0 0 20px; }
+      #P46V .qtbl .cap{ font-size:23px; font-weight:800; color:var(--c1); margin-bottom:12px; letter-spacing:-0.01em; }
+      #P46V .qtbl .cap b{ font-family:ui-monospace,'SF Mono',Menlo,monospace; font-size:21px; }
+      #P46V .qtbl table{ width:100%; border-collapse:collapse; }
+      #P46V .qtbl th, #P46V .qtbl td{ text-align:left; padding:7px 11px; border-bottom:1px solid var(--rule); white-space:nowrap; }
+      #P46V .qtbl th{ font-size:18px; font-weight:700; color:var(--secondary); background:#FBF7F2; }
+      #P46V .qtbl td{ font-size:20px; color:var(--text); }
+      #P46V .qtbl td.lv{ font-weight:800; color:var(--c1); }
+      #P46V .qtbl td.tool{ font-size:18px; color:var(--secondary); }
+      #P46V .qtbl td.o{ font-weight:800; color:var(--c2); text-align:center; }
+      #P46V .qtbl td.x{ font-weight:700; color:var(--muted); text-align:center; }
+      #P46V .qtbl th.c{ text-align:center; }
+      /* 03 피라미드 콜아웃 단어 교정: 배경색 덮개(#FDFCFB) + 올바른 텍스트 재작성 (컨테이너=그룹, 함께 이동) */
+      #P46V .pyfix{ position:absolute; left:858px; top:736px; }
+      #P46V .pyfix .patch{ position:absolute; background:#FDFCFB; }
+      #P46V .pyfix .ovl{ position:absolute; left:8px; font-size:20px; font-weight:500; color:#2B2B2E; line-height:20px; white-space:nowrap; z-index:21; }
+    </style>
+
+    <h1 class="s-title">완벽을 향한 <span class="acc">3중 검증</span>:<br>정적 · 동적 · 구조화</h1>
+
+    <div class="imgframe rows"><img src="../generated/P46.png" style="width:1778px; left:-42px; top:-221px;" alt="01 정적 /code-review · 02 동적 /zero-script-qa · 03 구조화 /qa-phase(L1 단위~L5 데이터플로우)"></div>
+    <div class="imgframe qa"><img src="../generated/P46.png" style="width:1564px; left:-1021px; top:-45px;" alt="QA Team(qa-lead)이 test-planner·test-generator·monitor·debug-analyst와 sprint-qa-flow로 3중 검증을 팀 분업 수행"><div class="patch" data-rl="0.6662404092071611" data-rt="0.05113636363636364" data-rw="0.023017902813299233" data-rh="0.29318181818181815" style="left:21px; top:0px; width:36px; height:258px; background:#fff;"></div><div class="patch" data-rl="0.9514066496163683" data-rt="0.05113636363636364" data-rw="0.023657289002557546" data-rh="0.29318181818181815" style="left:467px; top:0px; width:37px; height:258px; background:#fff;"></div></div>
+    <div class="pyfix">
+      <div class="patch" style="left:4px; top:5px; width:150px; height:30px;"></div>
+      <div class="patch" style="left:4px; top:36px; width:150px; height:30px;"></div>
+      <div class="patch" style="left:4px; top:67px; width:150px; height:30px;"></div>
+      <div class="patch" style="left:4px; top:98px; width:150px; height:30px;"></div>
+      <div class="patch" style="left:4px; top:129px; width:150px; height:30px;"></div>
+      <div class="ovl" style="top:9px;">데이터</div>
+      <div class="ovl" style="top:40px;">UX</div>
+      <div class="ovl" style="top:71px;">E2E</div>
+      <div class="ovl" style="top:102px;">API</div>
+      <div class="ovl" style="top:133px;">단위</div>
+    </div>
+
+    <div class="qtbl sc">
+      <div class="cap">구조화 <b>/qa-phase</b> — L1~L5</div>
+      <table>
+        <tr><th>레벨</th><th>종류</th><th>도구</th><th class="c">브라우저</th></tr>
+        <tr><td class="lv">L1</td><td>단위(Unit)</td><td class="tool">Jest/Vitest</td><td class="x">X</td></tr>
+        <tr><td class="lv">L2</td><td>API</td><td class="tool">fetch/curl</td><td class="x">X</td></tr>
+        <tr><td class="lv">L3</td><td>E2E</td><td class="tool">Chrome MCP</td><td class="o">O</td></tr>
+        <tr><td class="lv">L4</td><td>UX 플로우</td><td class="tool">Chrome MCP</td><td class="o">O</td></tr>
+        <tr><td class="lv">L5</td><td>데이터 플로우</td><td class="tool">Chrome MCP + Bash</td><td class="o">O</td></tr>
+      </table>
+    </div>
+
+    <div class="s-footer">
+      <span>에이전트 수지 · sooji.ai</span>
+      <span class="s-pagenum">41</span>
+    </div>
+  </section>
+</div>
+</body>
+</html>

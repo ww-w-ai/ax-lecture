@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>P65 — 위험을 피해도, 운영이 어렵다</title>
+<link rel="stylesheet" href="slides.css">
+</head>
+<body>
+<div class="fit">
+  <!-- P65 [챕터4 오프닝·전2] 운영의 어려움 — 다크 + ChatGPT 다크 배경. ②위험 제외 6가지. 다음=그래서 수지 -->
+  <section class="slide dark" id="P65">
+    <style>
+      #P65{ background:var(--bg); }
+      #P65 .s-bg{ position:absolute; inset:0; width:1920px; height:1080px; object-fit:cover; z-index:0; }
+      #P65 .scrim{ position:absolute; inset:0; z-index:1;
+        background:linear-gradient(180deg,rgba(18,18,21,.58),rgba(18,18,21,.38) 42%,rgba(18,18,21,.50)); }
+      #P65 .s-title{ position:absolute; left:120px; top:60px; z-index:3; font-size:56px; font-weight:800; letter-spacing:-.01em; color:var(--text); text-shadow:0 2px 16px rgba(0,0,0,.9); }
+      #P65 .s-title .em{ color:#FFD24A; }
+      #P65 .s-eye{ position:absolute; left:122px; top:140px; z-index:3; font-size:28px; font-weight:600; color:var(--muted); letter-spacing:.01em; text-shadow:0 2px 12px rgba(0,0,0,.9); }
+
+      #P65 .grid{ position:absolute; left:120px; top:256px; width:1680px; z-index:3;
+        display:grid; grid-template-columns:repeat(3,1fr); grid-template-rows:repeat(2,1fr); gap:28px; height:600px; }
+      #P65 .item{ background:rgba(28,28,32,.82); border:1px solid var(--rule); border-radius:18px; padding:32px 34px;
+        display:flex; flex-direction:column; backdrop-filter:blur(2px); }
+      #P65 .item .n{ width:52px; height:52px; border-radius:50%; background:#FFD24A; color:#141417;
+        font-size:28px; font-weight:800; display:flex; align-items:center; justify-content:center; }
+      #P65 .item .t{ margin-top:20px; font-size:36px; font-weight:800; color:var(--text); letter-spacing:-.01em; line-height:1.15; }
+      #P65 .item .d{ margin-top:12px; font-size:27px; font-weight:500; color:var(--secondary); line-height:1.4; }
+
+      #P65 .concl{ position:absolute; left:120px; bottom:70px; width:1680px; z-index:3; display:flex; align-items:center; gap:22px; }
+      #P65 .concl .bar{ width:8px; align-self:stretch; background:var(--c1); border-radius:4px; }
+      #P65 .concl .txt{ font-size:44px; font-weight:800; letter-spacing:-.01em; color:var(--text); text-shadow:0 2px 16px rgba(0,0,0,.9); }
+      #P65 .concl .txt b{ color:#FFD24A; }
+      #P65 .concl .arrow{ margin-left:14px; font-size:34px; font-weight:700; color:var(--muted); }
+    </style>
+
+    <img class="s-bg" src="../generated/P65.png" alt="">
+
+    <h1 class="s-title">위험을 피해도 — <span class="em">운영이 어렵다</span></h1>
+    <div class="s-eye">서비스를 사용하는게 아니라 스스로 설치해서 구축하는 '셀프 운영' 의 관점</div>
+
+    <div class="grid">
+      <div class="item"><div class="n">1</div><div class="t">설치, 설정, 연동</div><div class="d">검은 터미널에서 설치, 각종 API 키 필요, 일일이 연동 — 비개발자는 손도 못 댐</div></div>
+      <div class="item"><div class="n">2</div><div class="t">컴퓨터 구입, 서버 임대</div><div class="d">위험 피하려 격리 환경 구축, 컴퓨터 구입하거나 클라우드 서버 임대 — 맥미니 품절 대란</div></div>
+      <div class="item"><div class="n">3</div><div class="t">확장의 한계</div><div class="d">능력 하나 늘릴 때마다 또 설치·설정·API 키 — 수백개 기능이 있어도 다 쓰진 못해</div></div>
+      <div class="item"><div class="n">4</div><div class="t">자고 나니 요금 폭탄</div><div class="d">LLM이 매 단계·자율 실행마다 자연어를 해석·호출 → 토큰 폭발, 청구서 폭탄</div></div>
+      <div class="item"><div class="n">5</div><div class="t">도구만 똑똑, 나는 안 쌓임</div><div class="d">스킬 중심의 업무 로그만, 취향·관계·일상은 빠짐 — 나의 페르소나를 담을 DB 가 필요</div></div>
+      <div class="item"><div class="n">6</div><div class="t">로컬 환경일 뿐</div><div class="d">인터넷 초창기, 집 PC를 서버로 쓰던 시절 — 딱 그 정도.</div></div>
+    </div>
+
+    <div class="concl">
+      <span class="bar"></span>
+      <span class="txt">그래서 — <b>에이전트 수지</b>를 만들었습니다</span>
+      <span class="arrow">→</span>
+    </div>
+  </section>
+</div>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>P43 — 자율주행 개발 하네스로의 진화: Sprint</title>
+<link rel="stylesheet" href="slides.css">
+</head>
+<body>
+<div class="fit">
+  <!-- Sprint 개념 미리보기(원 generated/P47.png) — 우: 검증·자가수복 루프(이미지) / 좌: HTML. KEY MESSAGE(게이트)는 제거(뒤에서 상세) -->
+  <section class="slide light" id="P47S">
+    <style>
+      #P47S .s-title{ font-size:64px; line-height:1.18; }
+      #P47S .s-title .acc{ color:var(--c1); }
+      #P47S .s-subtitle{ top:220px; font-size:40px; color:var(--muted); font-weight:600; }
+
+      /* 좌: Sprint 미리보기 body */
+      #P47S .body{ position:absolute; left:120px; top:333px; width:880px;
+        display:flex; flex-direction:column; gap:34px; }
+      #P47S .pt{ position:relative; padding-left:36px; }
+      #P47S .pt::before{ content:""; position:absolute; left:0; top:14px; width:17px; height:17px; border-radius:50%; background:var(--c1); }
+      #P47S .pt .h{ font-size:34px; font-weight:800; color:var(--text); letter-spacing:-0.01em; }
+      #P47S .pt .h .k{ font-family:ui-monospace,'SF Mono',monospace; color:var(--c2); }
+      #P47S .pt .d{ font-size:28px; font-weight:500; color:var(--secondary); margin-top:10px; line-height:1.36; }
+      #P47S .pt .d .acc{ color:var(--c1); font-weight:800; }
+
+      /* 우: 검증·자가수복 루프 — crop 프레임(원본 P47.png) */
+      #P47S .loop{ position:absolute; left:1050px; top:333px; width:750px; height:591px; }
+    </style>
+
+    <h1 class="s-title">자율주행 개발 하네스로의 진화 — <span class="acc">Sprint</span></h1>
+    <div class="s-subtitle">개념 미리보기 — 스스로 검증하고 스스로 고치는 무인 개발 엔진</div>
+
+    <div class="body">
+      <div class="pt">
+        <div class="h">다양한 요구사항 설계 <span class="k" style="font-weight:normal;font-size:26px">(PRD)</span></div>
+        <div class="d">한번에 복합적인 설계를 할 수 있도록 프로세스 단계 강화</div>
+      </div>
+      <div class="pt">
+        <div class="h">사람이 못 보는 환경일수록 철저히 검증&nbsp;<span class="k" style="font-family:ui-monospace,'SF Mono',monospace;color:var(--c2);font-weight:normal;font-size:26px;letter-spacing:-.34px">(7-layer dataflow QA)</span></div>
+        <div class="d"><span class="acc">자동 검증 + 자가수복</span>이 무인의 안전벨트</div>
+      </div>
+      <div class="pt">
+        <div class="h">한 줄 명령 → 전 과정 무인</div>
+        <div class="d"><span class="k" style="font-family:ui-monospace,'SF Mono',monospace;color:var(--c2)">/sprint init</span> 하나로 prd→plan→design→do→qa→report 완주</div>
+      </div>
+      <div class="pt">
+        <div class="h">Trust 다이얼로 자율 범위 조절</div>
+        <div class="d">L0(수동) ~ <span class="acc">L4(완전 자동)</span> — 자리를 비워도 되는 만큼만</div>
+      </div>
+    </div>
+
+    <div class="imgframe loop"><img src="../generated/P47.png" style="width:1575px; left:-745px; top:-62px;" alt="검증·자가수복 루프: 설계 먼저(Docs=Code) → gap-detector가 matchRate로 갭 측정 → 90%↑ 통과, 미만이면 pdca-iterator가 자동 수복(최대 5회) 후 재측정하는 순환"></div>
+
+    <div class="s-footer">
+      <span>에이전트 수지 · sooji.ai</span>
+      <span class="s-pagenum">43</span>
+    </div>
+  </section>
+</div>
+</body>
+</html>

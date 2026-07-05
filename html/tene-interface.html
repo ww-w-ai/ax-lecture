@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>tene — Interface</title>
+<link rel="stylesheet" href="slides.css">
+</head>
+<body>
+<div class="fit">
+  <!-- tene 쇼케이스: 위 설명(3줄) + 아래 브라우저 스크린샷(하단 살짝 bleed) -->
+  <section class="slide light" id="teneInterface">
+    <style>
+      #teneInterface{ background:#EFEFEC; }
+      #teneInterface .s-title{ position:absolute; left:120px; top:52px; font-size:56px; font-weight:800; letter-spacing:-.01em; color:var(--text); }
+      #teneInterface .s-title .nm{ color:var(--c2); }
+      #teneInterface .s-body{ position:absolute; left:120px; top:170px; width:1680px; display:flex; flex-direction:column; gap:16px; }
+      #teneInterface .s-bullet{ font-size:33px; line-height:1.34; color:var(--secondary); display:flex; gap:18px; align-items:flex-start; }
+      #teneInterface .s-bullet .dot{ width:12px; height:12px; border-radius:50%; background:var(--c2); flex:none; margin-top:13px; }
+      #teneInterface .s-bullet b{ color:var(--text); font-weight:800; }
+      #teneInterface .s-bullet .hi{ color:var(--c2); font-weight:800; }
+      #teneInterface .shot{ position:absolute; top:372px; left:0; right:0; margin-left:auto; margin-right:auto;
+        width:1400px; height:auto; display:block; }
+    </style>
+
+    <h1 class="s-title"><span class="nm">Interface</span> — 화면 구조를 트리로</h1>
+
+    <div class="s-body">
+      <div class="s-bullet"><span class="dot"></span><span>앱에 <b>어떤 화면들</b>이 있고 서로 <b>어떻게 넘어가는지</b>를 <span class="hi">트리</span>로 보여줌</span></div>
+      <div class="s-bullet"><span class="dot"></span><span>화면을 고르면 <b>“이 화면 → 이 기능 → 이 데이터”</b> 경로를 <b>양방향</b>으로 추적</span></div>
+      <div class="s-bullet"><span class="dot"></span><span>기획서·IA 문서를 <b>코드에서 자동으로</b></span></div>
+    </div>
+
+    <img class="shot" src="../generated/_screenshots/tene-003.png" alt="tene Interface — 화면 구조를 트리로">
+  </section>
+</div>
+</body>
+</html>

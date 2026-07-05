@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>P56 — ai-native-cowork ② (스프린트·문서 정합)</title>
+<link rel="stylesheet" href="slides.css">
+</head>
+<body>
+<div class="fit">
+  <!-- P56 [설명] ai-native-cowork ② — 좌: 제목·불릿·인용(HTML) / 우: 일러스트 crop(assets/P56-illust.png) -->
+  <section class="slide light" id="P56">
+    <style>
+      #P56 .s-title{ font-size:64px; line-height:1.2; }
+      #P56 .s-title .acc{ color:var(--text); }
+      #P56 .s-title .rest{ font-weight:400; font-size:60px; }
+      #P56 .s-body{ top:308px; width:1090px; gap:26px; }
+      #P56 .s-bullet{ font-size:37px; }
+      #P56 .s-bullet .btxt{ line-height:1.38; }
+      #P56 .s-bullet .acc{ color:var(--c1); font-weight:800; }
+      #P56 .s-bullet .head{ font-weight:800; color:var(--text); }
+      #P56 .s-bullet .note{ display:block; margin-top:3px; font-size:27px; color:var(--muted); font-weight:600; }
+      #P56 .s-bullet code{ font-family:ui-monospace,'SF Mono',monospace; font-size:31px; color:var(--c2); }
+      #P56 .s-bullet .desc{ display:block; font-size:33px; margin-top:2px; }
+      /* 크롭 프레임: 하단 divider를 imgframe(overflow:hidden)로 잘라냄 — 내부 img를 7px 내려 하단 클립 */
+      #P56 .illust{ right:121px; top:300px; width:565px; height:491px; box-shadow:none; border-radius:0; }
+      #P56 .keymsg .msg{ font-size:32px; font-weight:600; color:var(--text); line-height:1.32; }
+      #P56 .keymsg .msg .acc{ color:var(--c1); }
+    </style>
+
+    <h1 class="s-title"><span class="acc">ai-native-cowork ②</span><span class="rest"> — 스프린트·문서 정합</span></h1>
+
+    <div class="imgframe illust"><img src="assets/P56-illust.png" style="width:565px; left:12px; top:7px;" alt="흩어진 문서를 프로젝트 개요→요구사항→설계→구현→테스트→운영 체계로 정리하고, 스프린트 보드로 무인 실행하며 코드와 문서를 자동 정합하는 다이어그램"></div>
+
+    <div class="s-body">
+      <div class="s-bullet">
+        <span class="dot"></span>
+        <span class="btxt"><span class="hl">/pdca-wf</span><span class="desc">bkit의 PDCA(설계→구현→검증 100%)를 Claude Code 내장<span class="head"> workflows</span>로</span></span>
+      </div>
+      <div class="s-bullet">
+        <span class="dot"></span>
+        <span class="btxt"><span class="hl">/cowork-sprint</span><span class="desc">큰 일을 스프린트로 쪼개 Claude와 함께 계획 → 전문가 에이전트가 무인 실행<span class="note">(bkit의 sprint 구조 참고하여 개발이 아닌 경우에도 활용할 수 있게 일반화)</span></span></span>
+      </div>
+      <div class="s-bullet">
+        <span class="dot"></span>
+        <span class="btxt"><span class="head">커스터마이징</span><span class="desc"><code>CLAUDE.md</code>에 6가지 항목 작성 <br><span style="font-size:27px;color:var(--muted);">(폴더/문서 규칙, 배포 시 지켜야 할 것들, 상태 라벨·검증 방법, 소스→빌드→산출 체인 등)</span></span></span>
+      </div>
+    </div>
+
+    <div class="keymsg">
+      <span class="tag">MESSAGE</span>
+      <span class="msg">개인의 작업을 넘어 <span class="acc">팀의 작업</span>으로 업그레이드 하고 개발이 아닌 <span class="acc">일반 업무</span>에도 활용하세요.</span>
+    </div>
+
+    <div class="s-footer">
+      <span>에이전트 수지 · sooji.ai</span>
+      <span class="s-pagenum">56</span>
+    </div>
+  </section>
+</div>
+</body>
+</html>

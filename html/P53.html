@@ -10,36 +10,42 @@
   <section class="slide light" id="P53">
     <style>
       #P53 .s-title{ font-size:64px; line-height:1.233; }
-      #P53 .s-body{ width:760px; top:340px; gap:36px; }
-      #P53 .shot{ position:absolute; right:120px; top:330px; width:840px; height:560px;
-        border-radius:12px; border:1px solid var(--rule); box-shadow:0 14px 44px rgba(0,0,0,.13);
-        object-fit:cover; object-position:top center; background:#fff; }
-      #P53 .linkbox{ display:inline-flex; align-items:center; gap:12px; }
-      #P53 .keymsg{ position:static; width:760px; }   /* 인라인(body flow) — 마스터의 하단 밴드 위치 해제 */
+      #P53 .s-subtitle{ top:212px; font-size:36px; color:var(--muted); font-weight:600; }
+      #P53 .s-subtitle .acc{ color:var(--c1); }
+      /* 두 리뷰 영상 og:image 카드 — 나란히 */
+      #P53 .vids{ position:absolute; left:120px; top:308px; width:1680px; display:flex; gap:40px; }
+      #P53 .vid{ width:820px; }
+      #P53 .vid img{ width:820px; height:461px; object-fit:cover; border-radius:14px;
+        box-shadow:0 8px 30px rgba(0,0,0,.12); display:block; }
+      #P53 .vid figcaption{ margin-top:20px; display:flex; align-items:center; gap:14px; }
+      #P53 .vid .ch{ font-size:32px; font-weight:800; color:var(--text); }
+      #P53 .vid code{ font-size:24px; background:#F2F1EE; padding:4px 12px; border-radius:6px; color:var(--c2); }
       #P53 .keymsg .msg{ font-size:34px; font-weight:600; color:var(--text); line-height:1.32; }
+      #P53 .keymsg .msg .acc{ color:var(--c1); }
     </style>
 
-    <h1 class="s-title">직접 데모 대신: 코드깎는노인의 bkit 리뷰</h1>
+    <h1 class="s-title">개발 유튜버들의 bkit 리뷰</h1>
+    <div class="s-subtitle">직접 써보고 평가한 <span class="acc">외부 검증</span></div>
 
-    <img class="shot" src="../generated/_screenshots/P53-codenoin-youtube.png" alt="코드깎는노인 bkit 리뷰 유튜브">
+    <div class="vids">
+      <figure class="vid">
+        <img src="assets/P53-codenoin-og.jpg" alt="코드깎는노인 bkit 리뷰">
+        <figcaption><span class="ch">코드깎는노인</span><code>youtu.be/EZwffHVx05U</code></figcaption>
+      </figure>
+      <figure class="vid">
+        <img src="assets/P53-nuna-og.jpg" alt="코딩알려주는누나 bkit 리뷰">
+        <figcaption><span class="ch">코딩알려주는누나</span><code>youtu.be/2eqPBLgVH0U</code></figcaption>
+      </figure>
+    </div>
 
-    <div class="s-body">
-      <div class="s-bullet">
-        <span class="dot"></span>
-        <span class="btxt">개발 유튜버 <span class="acc">'코드깎는노인'</span>의 bkit 리뷰 — 직접 써보고 평가한 <span class="hl">외부 검증</span></span>
-      </div>
-      <div class="s-bullet">
-        <span class="dot"></span>
-        <span class="btxt"><span class="linkbox"><code style="font-size:27px;background:#F2F1EE;padding:4px 12px;border-radius:6px;color:var(--c2);">youtube.com/watch?v=EZwffHVx05U</code></span></span>
-      </div>
-      <div class="keymsg">
-        <span class="tag">KEY</span>
-        <span class="msg">내 말 말고, <span class="acc">직접 써본 개발자</span>의 평가를 보세요.</span>
-      </div>
+    <!-- MESSAGE 띠 — 마스터 .keymsg (하단 full-width 밴드) -->
+    <div class="keymsg">
+      <span class="tag">MESSAGE</span>
+      <span class="msg">설명은 역시 유튜버가 전문가.. <span class="acc">유튜브 리뷰 영상을 추천</span>&nbsp;드립니다!</span>
     </div>
 
     <div class="s-footer">
-      <span>주식회사 덥덥덥 · ww-w.ai</span>
+      <span>에이전트 수지 · sooji.ai</span>
       <span class="s-pagenum">53</span>
     </div>
   </section>

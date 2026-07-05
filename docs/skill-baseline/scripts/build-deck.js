@@ -98,8 +98,8 @@ const deck = `<!doctype html>
   .nav.prev{left:0;justify-content:flex-start;padding-left:22px;}
   .nav.next{right:0;justify-content:flex-end;padding-right:22px;}
   .nav span{font-size:46px;line-height:1;text-shadow:0 1px 6px rgba(0,0,0,.5);}
-  /* 편집(E)·VisBug 활성 중엔 좌우 네비 영역 숨김 (페이지 이동 잠금은 JS에서) */
-  body.editing .nav, body.visbug .nav{display:none!important;}
+  /* 편집(E) 활성 중엔 좌우 네비 영역 숨김 (페이지 이동 잠금은 JS에서) */
+  body.editing .nav{display:none!important;}
   /* 선택 영역 포맷 툴바 */
   #fmtbar{position:fixed;z-index:60;display:none;gap:2px;align-items:center;
     background:#1c1c1f;border:1px solid #3a3a3e;border-radius:10px;padding:5px 7px;
@@ -160,7 +160,7 @@ const deck = `<!doctype html>
     .frag { opacity:1 !important; }
     /* 편집/네비 UI는 인쇄에서 제외 */
     .nav, #counter, #fmtbar, #edit-hud, #rz-handle, #guide,
-    body.editing .nav, body.visbug .nav { display:none !important; }
+    body.editing .nav { display:none !important; }
     /* 배경색·일러스트 색을 그대로 인쇄(브라우저 기본은 배경 생략) */
     * { -webkit-print-color-adjust:exact !important; print-color-adjust:exact !important; }
   }
@@ -224,7 +224,7 @@ ${sectionsHtml}
   addEventListener('resize', fit);
   addEventListener('keydown', e => {
     if (document.activeElement && document.activeElement.isContentEditable) return; // 텍스트 편집 중엔 타이핑
-    const navLock = editMode || vbActive(); // 편집/ VisBug 중엔 페이지 이동 금지
+    const navLock = editMode; // 편집 중엔 페이지 이동 금지
     if (!navLock && (e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' ')) { e.preventDefault(); next(); }
     else if (!navLock && (e.key === 'ArrowLeft' || e.key === 'PageUp')) { e.preventDefault(); prev(); }
     else if (!navLock && e.key === 'Home') { i = 0; step = 0; render(); }
@@ -491,11 +491,6 @@ ${sectionsHtml}
     const ns = window.getSelection(); if(ns.rangeCount && !ns.isCollapsed) savedRange = ns.getRangeAt(0).cloneRange();
     showFmt();
   });
-
-  // ===== VisBug 활성 감지 → 페이지 이동 잠금 + 좌우 네비 숨김 =====
-  function vbActive(){ return [...document.body.children].some(el => /vis-?bug/i.test(el.tagName)); }
-  const vbObserver = new MutationObserver(() => { document.body.classList.toggle('visbug', vbActive()); });
-  vbObserver.observe(document.body, { childList: true });
 
   // ===== 텍스트 직접 편집 (편집모드에서 요소 더블클릭) =====
   function startTextEdit(el){

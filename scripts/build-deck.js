@@ -44,16 +44,14 @@ const SLIDES = [
   { file: 'P32.html' },                               // P32 소개 스크린샷(bkit GitHub) ✓html
   { file: 'P33-arch.html' },                          // P33 bkit 시스템 아키텍쳐(원 P50 '박제 개발론' 이동) — 좌 4축 HTML + 우 METHODOLOGY 일러스트 crop ✓
   { file: 'P43.html' },                               // P43 설명(오버엔지니어링) — 하이브리드(제목·헤더 HTML + 좌우 이미지 crop) ✓
-  { img: '../generated/P49.png' },                    // P49 도식(아키텍처)
-  { img: '../generated/P51.png' },                    // P51 도식(pipeline)
+  { file: 'P51-pipeline.html' },                      // 개발 파이프라인 9단계(원 P51.png HTML화) — 사람 일러스트 crop + 실제 단계명 ✓
   { file: 'P33.html' },                               // P34(위치) PDCA — 하이브리드(텍스트 HTML + 링 이미지 crop) ✓
   { file: 'P34.html' },                               // P34 신규(도식) — matchRate 7축 가중 채점 · 순수 HTML ✓
-  { img: '../generated/P48.png' },                    // P48 도식(전문가 군단)
-  { img: '../generated/P45.png' },                    // P45 도식(오케스트레이션)
-  { img: '../generated/P46.png' },                    // P46 도식(3중 검증)
+  { file: 'P48-agents.html' },                        // 전문가 에이전트 군단(원 P48.png HTML화) — 좌 2그룹 + 우 원형 다이어그램 crop ✓
+  { file: 'P45-orchestration.html' },                 // 오케스트레이션(원 P45.png HTML화) — 우 CTO/PM/QA/Do Swarm + 좌하단 단계별패턴 이미지 유지 ✓
+  { file: 'P46-verify.html' },                        // 3중 검증(원 P46.png) — 타이틀·푸터 HTML + 본문 이미지 중앙(flow 바 삭제) ✓
   { file: 'P35.html' },                               // P35 도식(PDCA 사례) — 하이브리드(제목·결론 HTML + 4카드 이미지 crop) ✓
-  { img: '../generated/P47.png' },                    // P47 설명(무인 검증)
-  { file: 'P36.html' },                               // P36 도식(Sprint ①) — 하이브리드(텍스트 HTML + Sprint 컨테이너 이미지 crop) ✓
+  { file: 'P36.html' },                               // P36+P47S 통합 — 자율주행 하네스 진화 Sprint(타이틀·서브=P47S / 내용·일러스트=P36 + /sprint init 항목 추가). 원 P47-sprint-preview 중복 제거 ✓
   { file: 'P37.html' },                               // P37 개념② — PRD 5부 구조 · 순수 HTML ✓
   { file: 'P38.html' },                               // P38 개념③ — 7-Layer dataFlow QA · 하이브리드(아이콘 crop + HTML) ✓
   { file: 'P39.html' },                               // P39 개념④ — Sprint 단계 × Trust · 무인범위 다이얼 · 완전 HTML(CSS 바/점/점선) ✓
@@ -62,32 +60,42 @@ const SLIDES = [
   { file: 'P44.html', img: '../generated/P44.png' },  // P44 도식(프레임워크) — HTML 재현(로고만 이미지) ✓
   { file: 'P53.html' },                               // P53 소개 스크린샷(코깎노) ✓html
   { file: 'P52.html' },                               // P52 🔧실습 — bkit Quick Start (README) ✓html
-  { img: '../generated/P54.png' },                    // P54 설명(커스텀 가이드)
-  { img: '../generated/P55.png' },                    // P55 설명(ai-native-cowork ①)
-  { img: '../generated/P56.png' },                    // P56 설명(ai-native-cowork ②)
-  { file: 'P57.html' },                               // P57 소개 스크린샷(tene ①) ✓html
-  { file: 'P58.html' },                               // P58 소개 스크린샷(tene ②) ✓html
-  { file: 'P59.html' },                               // P59 소개 스크린샷(tene ③) ✓html
-  { img: '../generated/P60-placeholder.png' },        // P60 설명 마무리 [MISSING 자료]
-  // ── 2부 챕터4 (운영 자율주행 — 수지) P61~P78 ──
+  { file: 'bkit-case.html' },                         // bkit 실전 사례(/pdca 6단계) — 스크린샷 순차 애니메이션(frag) · 55~59와 동일 UI
+  { file: 'P54.html', img: '../generated/P54.png' },  // P54 설명(bkit 커스텀) — 하이브리드(제목·불릿·인용 HTML + 일러스트 crop) ✓
+  { file: 'P55.html', img: '../generated/P55.png' },  // P55 설명(ai-native-cowork ①) — 하이브리드(제목·불릿·인용 HTML + 다이어그램 crop) ✓
+  { file: 'P56.html', img: '../generated/P56.png' },  // P56 설명(ai-native-cowork ②) — 하이브리드(제목·불릿·인용 HTML + 다이어그램 crop) ✓
+  { file: 'P57.html' },                               // tene ① 인트로(눈으로 본다·개요) — 텍스트 템플릿 + tene-001 스크린샷 ✓html
+  { file: 'tene-codemap.html' },                      // tene 스크린샷 full-bleed — CodeMap(tene-002) ✓
+  { file: 'tene-interface.html' },                    // tene 스크린샷 full-bleed — Interface(tene-003) ✓
+  { file: 'tene-api.html' },                          // tene 스크린샷 full-bleed — API(tene-004) ✓
+  { file: 'tene-data.html' },                         // tene 스크린샷 full-bleed — Data(tene-005) ✓
+  { file: 'tene-ai.html' },                           // tene 스크린샷 full-bleed — AI 에이전트(tene-006) ✓
+  // ── 2부 챕터4 (운영 자율주행 — 수지) P61~P82 ── (2026-07-05 오프닝 4장: 인기·수치·위험·운영어려움 + 재번호)
   { img: '../generated/P61.png' },                    // P61 챕터4 divider(다크)
-  { img: '../generated/P62.png' },                    // P62 설명(隨智)
-  { img: '../generated/P63.png' },                    // P63 설명(나만의 자비스)
-  { img: '../generated/P64.png' },                    // P64 설명(데이터 주권)
-  { img: '../generated/P65.png' },                    // P65 도식(5모드)
-  { img: '../generated/P66.png' },                    // P66 도식(3층 세계관)
-  { img: '../generated/P67.png' },                    // P67 도식(지식 사서)
-  { img: '../generated/P68.png' },                    // P68 도식(앱스토어)
-  { img: '../generated/P69.png' },                    // P69 도식(시간 비서)
-  { img: '../generated/P70.png' },                    // P70 도식(편재성)
-  { img: '../generated/P71.png' },                    // P71 도식(페르소나 진화)
-  { img: '../generated/P72.png' },                    // P72 설명(위임)
-  { img: '../generated/P73.png' },                    // P73 도식(하루 사례)
-  { img: '../generated/P74.png' },                    // P74 도식(리서치 위임)
-  { img: '../generated/P75.png' },                    // P75 설명(예약 운영)
-  { img: '../generated/P76-placeholder.png' },        // P76 🔧실습 [MISSING 자료]
-  { img: '../generated/P77-placeholder.png' },        // P77 소개(결: tene) [MISSING 자료]
-  { img: '../generated/P78.png' },                    // P78 설명(마무리)
+  { file: 'P62.html' },                               // P62 오프닝 [기] 인기 — 사진 풀블리드
+  { file: 'P63.html' },                               // P63 오프닝 [승] 수치 — 다크(OpenClaw vs Hermes)
+  { file: 'Pcases.html' },                            // 오프닝 [이래서 좋다] 실사용=매일 능동 비서(일상) (신설 2026-07-05)
+  { file: 'P64.html' },                               // P64 오프닝 [전] 위험 — 3단 표+비율 영역
+  { file: 'P65.html' },                               // P65 오프닝 [전2] 운영 어려움 — 다크(6가지 벽) → 그래서 수지
+  // ── 2026-07-05: P66~P82 HTML 컴포넌트화 (구운 이미지 → 네이티브 HTML 재현, 현행 3원색) ──
+  { file: 'P66.html' },                               // P66 隨智 — 지혜를 따라간다(이름·계보)
+  { file: 'P67.html' },                               // P67 나만의 자비스(1인 사업자 1:1)
+  // ── 수지 소개 섹션 재편 2026-07-06 (기존 69~79 '일곱 얼굴' 11장 → 창업자 스토리텔링 8장. 일러 6장 재활용 + 대시보드 실스크린샷) ──
+  { file: 'Pcost.html' },                             // 69 비용 제로·어떤 AI에든(MCP) — 원 P74-illust 재활용
+  { file: 'Pdaily.html' },                            // 70 일상의 슈퍼 에이전트·자가진화 — 원 P75-illust 재활용
+  { file: 'Pdash.html' },                             // 71 대시보드(눈으로 본다) — 실제 수지 대시보드 스크린샷
+  { file: 'Pdata.html' },                             // 72 데이터 주권(전용DB·5모드·시크릿·자체서버) — 원 P69-illust 재활용
+  { file: 'Papps.html' },                             // 73 거대한 앱 실행 서버(앱스토어·find/run_app) — 원 P72-illust 재활용
+  { file: 'Pauto.html' },                             // 74 자유도 높은 자동화(5트리거·격리·매니페스토) — 원 P73-illust 재활용
+  { file: 'Psafe.html' },                             // 75 안전한 수지(안전 6관점 카드) — 재구성
+  { file: 'Pworld.html' },                            // 76 세계관의 변화(데이터/실행 반전) — 원 P68-illust 재활용
+  { file: 'P76.html' },                               // P76 하루를 수지에게(위임 도입)
+  { file: 'P77.html' },                               // P77 사례① 어느 하루(타임라인)
+  { file: 'P78.html' },                               // P78 사례② 시장·경쟁사 모니터링
+  { file: 'P79.html' },                               // P79 사례③ 반복 운영·예약(토큰 0)
+  { file: 'P80.html' },                               // P80 🔧실습 — 연결+첫 위임(스크린샷 자리)
+  { file: 'P81.html' },                               // P81 눈으로 본다 + 안전하게(스크린샷 자리)
+  { file: 'P82.html' },                               // P82 마무리 hero(그리고 그 너머) — 푸터 없음
 ];
 
 function extractSection(file) {
@@ -108,6 +116,8 @@ function slideMarkup(s, idx) {
       <section data-idx="${idx}" class="slide">
         <img class="s-bg" src="../final/P05.png" alt="">
         <img class="s-bg frag" src="../final/P5_5.png" alt="">
+        <!-- [비활성화 2026-07-05] 애니메이션 페이지 번호 제거 결정 → 소스 주석 보존
+        <span class="s-pagenum" style="position:absolute;right:44px;bottom:34px;font-size:26px;font-weight:700;color:rgba(255,255,255,.9);text-shadow:0 1px 5px rgba(0,0,0,.55);z-index:5;">${pageNo}</span> -->
       </section>`;
   }
   if (s.file) {
@@ -124,7 +134,16 @@ function slideMarkup(s, idx) {
   return `      <!-- 이미지 ${src} -->\n      <section data-idx="${idx}" class="slide"><img class="s-bg" src="${src}" alt=""></section>`;
 }
 
-const sectionsHtml = SLIDES.map((s, idx) => slideMarkup(s, idx)).join('\n\n');
+const sectionsHtml = SLIDES.map((s, idx) => slideMarkup(s, idx)).join('\n\n')
+  // 캐시버스트(항상): 이미지 URL에 파일 mtime을 ?v=로 붙인다. 파일 내용이 바뀌면(재생성·재번호로 같은 파일명에
+  // 다른 내용이 들어가도) mtime이 달라 브라우저가 새로 받고, 안 바뀐 건 캐시 유지(정밀 무효화).
+  .replace(/\bsrc="(\.\.\/(?:final|generated)\/[^"?]+)"/g, (m, url) => {
+    try { const v = Math.floor(fs.statSync(path.join(HTML, url)).mtimeMs); return `src="${url}?v=${v}"`; }
+    catch { return m; }
+  })
+  // 성능: 슬라이드 이미지를 data-src로 (HTML 파싱 즉시 70MB eager 로드되는 걸 원천 차단).
+  // 런타임 윈도우 매니저(setWindow)가 현재±2 슬라이드만 src 부여, 나머지는 해제해 메모리 회수.
+  .replace(/<img\b([^>]*?)\ssrc=/g, '<img$1 data-src=');
 
 const deck = `<!doctype html>
 <html lang="ko">
@@ -146,6 +165,9 @@ const deck = `<!doctype html>
   /* 슬라이드 내 단계 노출(fragment) */
   .frag{opacity:0;transition:opacity .55s ease;}
   .frag.shown{opacity:1;}
+  #print-pages{display:none;}   /* 인쇄 확장 클론 컨테이너 — 화면에선 숨김, @media print(pp-on)에서만 노출 */
+  /* 윈도우 밖(미로드) 이미지 = broken-icon 대신 숨김(로드되면 다시 보임) */
+  img[data-src]:not([src]){visibility:hidden;}
   /* 좌우 네비 영역 */
   .nav{position:fixed;top:0;bottom:0;width:11%;border:0;background:transparent;cursor:pointer;z-index:10;
        display:flex;align-items:center;justify-content:center;color:#fff;opacity:0;transition:opacity .2s;}
@@ -154,8 +176,8 @@ const deck = `<!doctype html>
   .nav.prev{left:0;justify-content:flex-start;padding-left:22px;}
   .nav.next{right:0;justify-content:flex-end;padding-right:22px;}
   .nav span{font-size:46px;line-height:1;text-shadow:0 1px 6px rgba(0,0,0,.5);}
-  /* 편집(E)·VisBug 활성 중엔 좌우 네비 영역 숨김 (페이지 이동 잠금은 JS에서) */
-  body.editing .nav, body.visbug .nav{display:none!important;}
+  /* 편집(E) 활성 중엔 좌우 네비 영역 숨김 (페이지 이동 잠금은 JS에서) */
+  body.editing .nav{display:none!important;}
   /* 선택 영역 포맷 툴바 */
   #fmtbar{position:fixed;z-index:60;display:none;gap:2px;align-items:center;
     background:#1c1c1f;border:1px solid #3a3a3e;border-radius:10px;padding:5px 7px;
@@ -177,6 +199,32 @@ const deck = `<!doctype html>
   /* 텍스트 직접 편집(더블클릭) */
   .slide > *[contenteditable="true"]{outline:2px solid #0B5FD9!important;cursor:text!important;}
   body.text-editing .slide > *{cursor:default;}
+  /* 이미지 crop 프레임 — 원본을 클립 창에 넣어 라이브 crop (round + 외곽선). 편집: Shift+드래그=이미지 이동 / 휠=확대·축소 / 모서리=창 크기 */
+  .imgframe{ position:absolute; overflow:hidden; border-radius:18px;
+    box-shadow:0 0 0 1.5px rgba(0,0,0,.09), 0 16px 44px rgba(0,0,0,.12); }
+  .imgframe > img{ position:absolute; display:block; max-width:none; user-select:none; -webkit-user-drag:none; }
+  body.editing .imgframe{ cursor:move; }
+  body.editing .imgframe.sel{ outline:2px solid #E60012; outline-offset:-2px; }
+  body.editing .imgframe.sel::after{ content:"모서리● 비율크기(콘텐츠 함께) · 우/하○ 창 크기만(크롭) · Shift+드래그 이동 · 휠 확대 · X 덮개"; position:absolute; left:0; top:0;
+    background:#0B5FD9; color:#fff; font-size:15px; font-weight:700; padding:3px 8px; border-radius:0 0 8px 0; pointer-events:none; z-index:5; }
+  /* 덮개(패치) 툴 — 슬라이드 어디든 덮는 사각형(기본 흰색, 색상 피커로 변경). 프레임 밖도 덮음. X 끄면 일반 편집으로 이동/크기/삭제 */
+  .patch{ position:absolute; z-index:20; background:#fff; background-size:100% 100%; background-position:center; background-repeat:no-repeat; }
+  body.erasing{ cursor:crosshair; }
+  body.erasing #track, body.erasing #track *{ cursor:crosshair !important; } /* 덮개 모드: 이미지 위/밖 무관하게 커서 통일 */
+  body.erasing .patch{ pointer-events:auto; outline:1px dashed rgba(11,95,217,.6); outline-offset:-1px; }
+  body.editing:not(.erasing) .patch{ cursor:move; }
+  body.erasing #edit-hud::after{ content:" · 덮개 ON (드래그=그리기 · Alt+클릭=삭제 · X 종료 → 이동/크기)"; color:#7FE0FF; }
+  /* 덮개 툴바 (덮개 모드에서 노출) */
+  #cover-bar{position:fixed;top:52px;left:50%;transform:translateX(-50%);display:none;z-index:52;
+    align-items:center;gap:8px;background:rgba(0,0,0,.86);color:#fff;padding:6px 10px;border-radius:10px;
+    font-size:13px;box-shadow:0 6px 24px rgba(0,0,0,.4);}
+  body.erasing #cover-bar{display:flex;}
+  #cover-bar .cb-lb{font-weight:700;opacity:.85;}
+  #cover-bar input[type=color]{width:26px;height:22px;padding:0;border:1px solid rgba(255,255,255,.4);border-radius:5px;background:none;cursor:pointer;}
+  #cover-bar .cb-btn{font:inherit;color:#fff;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);border-radius:6px;padding:3px 9px;cursor:pointer;}
+  #cover-bar .cb-btn.on{background:#0B5FD9;border-color:#0B5FD9;}
+  #cover-bar .cb-hint{opacity:.6;font-size:12px;}
+
   /* 페이지 이동 모드 — 축소 필름스트립(앞/뒷장 노출) + 옮기는 슬라이드 강조 */
   #viewport{transition:transform .3s cubic-bezier(.45,0,.2,1);}
   body.moving #viewport{overflow:visible;}
@@ -186,7 +234,19 @@ const deck = `<!doctype html>
   #edit-hud{position:fixed;top:10px;left:50%;transform:translateX(-50%);display:none;
     background:rgba(0,0,0,.82);color:#fff;padding:8px 16px;border-radius:8px;font-size:14px;z-index:50;white-space:nowrap;}
   #rz-handle{position:fixed;width:16px;height:16px;background:#E60012;border:2px solid #fff;border-radius:50%;
-    cursor:nwse-resize;z-index:51;display:none;box-shadow:0 1px 4px rgba(0,0,0,.4);}
+    cursor:nwse-resize;z-index:51;display:none;box-shadow:0 1px 4px rgba(0,0,0,.4);} /* 채운 점 = 비율 스케일(콘텐츠 함께) */
+  /* 속 빈 점 = 크롭 전용(창 크기만, 콘텐츠 고정). 좌=width · 하=height */
+  .rz-crop{position:fixed;width:15px;height:15px;background:#fff;border:2px solid #E60012;border-radius:50%;
+    z-index:51;display:none;box-shadow:0 1px 4px rgba(0,0,0,.4);}
+  #rz-w{cursor:ew-resize;} #rz-h{cursor:ns-resize;}
+  /* 폰트·크기 동시 스케일 텍스트 블록(.sc, 표 등) — 선택 시 파란 가이드 + 좌상단 라벨(별도 요소라 스케일 영향 없음) */
+  body.editing .sc.sel{ outline:2px dashed #0B5FD9; outline-offset:4px; }
+  #sc-guide{position:fixed;display:none;background:#0B5FD9;color:#fff;font-size:14px;font-weight:700;
+    padding:3px 9px;border-radius:8px;z-index:52;white-space:nowrap;pointer-events:none;box-shadow:0 1px 4px rgba(0,0,0,.4);}
+  /* 일반/멀티 선택 아웃라인 (imgframe·sc는 자체 아웃라인이 우선) · 그룹은 파선 */
+  body.editing .sel{ outline:2px solid rgba(230,0,18,.65); outline-offset:2px; }
+  body.editing .grp{ cursor:move; }
+  body.editing .grp.sel{ outline:2px dashed #E60012; outline-offset:3px; }
   /* ===== 마스터 가이드 보조선 (G 토글) — 디자인시스템 §1 그리드/마진 ===== */
   #guide{position:absolute;inset:0;pointer-events:none;z-index:40;display:none;}
   body.show-guide #guide{display:block;}
@@ -218,11 +278,20 @@ const deck = `<!doctype html>
       position:relative !important; overflow:hidden; box-shadow:none !important;
       break-after:page; page-break-after:always; }
     body.print-all #track > .slide:last-child { break-after:auto; page-break-after:auto; }
-    /* fragment(애니메이션) 슬라이드는 최종 상태로 인쇄 */
-    .frag { opacity:1 !important; }
+    /* fragment: 인쇄에서도 .shown 프레임만 보이게 (Cmd+P=현재 step / PDF=프레임별 페이지) */
+    .frag { opacity:0 !important; }
+    .frag.shown { opacity:1 !important; }
+    /* 애니메이션 확장 인쇄(pp-on): 원본 track 숨기고 프레임 클론을 페이지당 1장 */
+    body.pp-on #track { display:none !important; }
+    body.pp-on #print-pages { display:block !important; }
+    body.pp-on #print-pages > .slide.pp { display:block !important; width:1920px !important; height:1080px !important;
+      position:relative !important; overflow:hidden; box-shadow:none !important; break-after:page; page-break-after:always; }
+    body.pp-on #print-pages > .slide.pp:last-child { break-after:auto; page-break-after:auto; }
     /* 편집/네비 UI는 인쇄에서 제외 */
-    .nav, #counter, #fmtbar, #edit-hud, #rz-handle, #guide,
-    body.editing .nav, body.visbug .nav { display:none !important; }
+    .nav, #counter, #fmtbar, #edit-hud, #rz-handle, .rz-crop, #sc-guide, #guide, #cover-bar,
+    body.editing .nav { display:none !important; }
+    /* 덮개 패치는 인쇄에도 남기되 편집 점선 테두리는 제거 */
+    .patch { outline:none !important; }
     /* 배경색·일러스트 색을 그대로 인쇄(브라우저 기본은 배경 생략) */
     * { -webkit-print-color-adjust:exact !important; print-color-adjust:exact !important; }
   }
@@ -278,10 +347,70 @@ ${sectionsHtml}
       f.classList.toggle('shown', si < i || (si === i && fi < step));
     }));
     counter.textContent = (i + 1) + ' / ' + N;
+    /* [비활성화 2026-07-05] 애니메이션 슬라이드 서브번호(base-step, 예 51-1~51-6). 애니메이션 페이지는 번호 제거로 결정 → 소스는 주석 보존.
+    const curPn = slides[i].querySelector('.s-pagenum');
+    if (curPn) curPn.textContent = frags[i].length ? ((i + 1) + '-' + (step + 1)) : ('' + (i + 1));
+    */
     slides.forEach((s, si) => s.classList.toggle('cur', si === i)); // 인쇄(Cmd+P) = 현재 1장만
     typingBurst = false; // 페이지 전환 시 타이핑 버스트가 다음 페이지로 새지 않게
     try { localStorage.setItem('deckSlide', i); } catch(_){}  // 현재 페이지 기억
+    setWindow();  // 현재±N 슬라이드 이미지만 로드, 나머지 해제
   }
+  // ===== 이미지 윈도우 로딩 — 현재±2(이동모드 ±3)만 src, 나머지 해제(메모리 회수) =====
+  // 마크업은 data-src만 있어 파싱 시 로드 0. 여기서 창 안 슬라이드에만 src를 부여하고 창 밖은 removeAttribute('src').
+  function setWindow(){
+    const r = document.body.classList.contains('moving') ? 3 : 2;   // m 모드=양옆 필름스트립 커버
+    const lo = Math.max(0, i - r), hi = Math.min(N - 1, i + r);
+    slides.forEach((s, si) => {
+      const on = si >= lo && si <= hi;
+      s.querySelectorAll('img[data-src]').forEach(img => {
+        if (on){ if (!img.getAttribute('src')) img.src = img.getAttribute('data-src'); }   // 로드
+        else if (img.getAttribute('src')){ img.removeAttribute('src'); }                    // 해제(디코드 메모리 회수)
+      });
+    });
+  }
+  function loadAll(){ document.querySelectorAll('img[data-src]').forEach(img => { if (!img.getAttribute('src')) img.src = img.getAttribute('data-src'); }); }
+  window.__loadAllImages = loadAll;                 // 외부 PDF 익스포트 도구용(print-all 전 호출)
+  // ===== PDF(전체) 인쇄용 프레임 확장 =====
+  // 애니메이션(frag) 슬라이드를 "프레임별 1페이지"로 클론 → 인쇄에 모든 단계가 각각 나옴.
+  //  - 접기 여부는 CLI 플래그가 아니라 페이지 자체가 선언: 슬라이드 <section>에 data-print-collapse 속성이 있으면
+  //    그 애니메이션은 인쇄에서 최종 1장으로 접힘(인쇄할 때마다 동일·결정론적). 없으면 프레임 전부 펼침.
+  //  - 프레임 생략: data-print-skip="1,3"(1-based 프레임)로 특정 프레임만 제외.
+  //  - 애니메이션 페이지 번호는 제거(요소 없음) → 번호 라벨링 안 함. 비-애니메이션은 baked base 유지.
+  //  - Cmd+P(현재 1장, print-all 아님)에는 관여 안 함 → 속도 유지.
+  let __ppEl = null;
+  function buildPrintPages(){
+    clearPrintPages(); loadAll();
+    const wrap = document.createElement('div'); wrap.id = 'print-pages';
+    slides.forEach((s, si) => {
+      const nf = frags[si].length;
+      const collapse = s.hasAttribute('data-print-collapse');  // 페이지 자체가 인쇄 접기 여부 선언(결정론적)
+      let uptos;   // 인쇄 페이지별로 보여줄 frag 개수
+      if (nf === 0 || collapse){ uptos = [nf]; }               // 1페이지: 최종 상태(모든 frag)
+      else {
+        const skip = String(s.dataset.printSkip || '').split(',').map(x => parseInt(x, 10)).filter(Boolean);
+        const keep = []; for (let f = 1; f <= nf + 1; f++){ if (!skip.includes(f)) keep.push(f); }  // f = 프레임(1..nf+1)
+        uptos = (keep.length ? keep : [1]).map(f => f - 1);
+      }
+      // 번호: 애니메이션 페이지는 번호 제거(요소 없음) → 라벨링 안 함. 비-애니메이션은 빌드시 baked base 유지.
+      uptos.forEach(upto => {
+        const c = s.cloneNode(true);
+        c.classList.remove('cur', 'sel'); c.classList.add('pp'); c.removeAttribute('data-idx');
+        [...c.querySelectorAll('.frag')].forEach((f, fi) => f.classList.toggle('shown', fi < upto));
+        c.querySelectorAll('img[data-src]').forEach(img => { if (!img.getAttribute('src')) img.src = img.getAttribute('data-src'); });
+        wrap.appendChild(c);
+      });
+    });
+    track.parentNode.appendChild(wrap); __ppEl = wrap;
+    document.body.classList.add('pp-on');
+    return wrap.children.length;
+  }
+  function clearPrintPages(){ if (__ppEl){ __ppEl.remove(); __ppEl = null; } document.body.classList.remove('pp-on'); }
+  window.__buildPrintPages = buildPrintPages;   // deck-pdf.js가 page.pdf() 전에 호출(beforeprint 미발화 대비)
+  window.__clearPrintPages = clearPrintPages;
+  // 브라우저 Cmd+P: print-all일 때만 확장(전체 PDF). 아니면 현재 1장 그대로(loadAll 안 함 → 속도 유지).
+  addEventListener('beforeprint', () => { if (document.body.classList.contains('print-all')) buildPrintPages(); });
+  addEventListener('afterprint', clearPrintPages);
   function next(){ if (step < frags[i].length) step++; else if (i < N-1){ i++; step = 0; } else return; render(); }
   function prev(){ if (step > 0) step--; else if (i > 0){ i--; step = frags[i].length; } else return; render(); }
   function toggleFull(){ if (!document.fullscreenElement) document.documentElement.requestFullscreen(); else document.exitFullscreen(); }
@@ -310,10 +439,12 @@ ${sectionsHtml}
     + hkRow('숫자 입력 → Enter', '해당 페이지로 바로 이동')
     + hkRow('Home / End', '처음 / 마지막 페이지')
     + hkRow('F', '전체화면')
-    + hkRow('G', '정렬 가이드 토글')
+    + hkRow('L', '정렬 가이드(라인) 토글')
     + hkRow('E', '편집 모드 (Esc = 종료)')
     + hkRow('M', '페이지 이동 모드 (← → 재배치 · Enter/M 적용 · Esc 취소 · “저장”이라 말하면 소스 확정)')
-    + hkRow('편집 중: 드래그·모서리·방향키', '이동 / 크기 / 미세조정 · Del 삭제 · ⌘Z 되돌리기')
+    + hkRow('편집 중: 드래그·모서리·방향키', '이동 / 크기 / 미세조정 · D 복제 · Del 삭제 · ⌘Z 되돌리기')
+    + hkRow('이미지 크롭(모든 이미지)', 'Shift+드래그 이동 · 휠 확대(Alt 미세) · 모서리 창크기 — 프레임 없는 이미지도 제스처 시 자동 크롭')
+    + hkRow('X (편집 중) = 덮개 툴', '드래그로 사각형을 그려 가림. 툴바: <b>단색</b>=색상 피커로 채움 / <b>주변복제</b>=배경이 단색이 아닐 때(그라데이션·무늬) 바로 옆 영역을 복사해 자연스럽게 덮음. Alt+클릭=삭제 · X 끄면 클릭해 이동/크기')
     + hkRow('텍스트 더블클릭', '글자 편집 (Esc = 완료)')
     + hkRow('?', '이 도움말 열기/닫기')
     + '</table><div style="font-size:18px;color:#6E6D72;margin-top:18px;">아무 곳이나 클릭 · Esc 로 닫기</div></div>';
@@ -321,6 +452,8 @@ ${sectionsHtml}
   function toggleHelp(){ helpEl.style.display = (helpEl.style.display === 'flex') ? 'none' : 'flex'; }
   helpEl.addEventListener('click', () => { helpEl.style.display = 'none'; });
   addEventListener('resize', fit);
+  if (window.visualViewport) visualViewport.addEventListener('resize', fit); // 브라우저 줌/핀치 변화에도 재적합
+  addEventListener('pageshow', fit);                                          // bfcache 복원 시 재적합
   addEventListener('keydown', e => {
     if (document.activeElement && document.activeElement.isContentEditable) return; // 텍스트 편집 중엔 타이핑
     // ── 페이지 이동 모드: 화살표=슬라이드 재배치, Enter/Esc/M=내려놓기 ──
@@ -331,7 +464,7 @@ ${sectionsHtml}
       if (e.key === 'Enter' || e.key === 'm' || e.key === 'M') { e.preventDefault(); setMove(false); return; } // 적용(유지)
       e.preventDefault(); return; // 이동 중엔 그 외 키 무시
     }
-    const navLock = editMode || vbActive() || moveMode; // 편집/VisBug/이동 중엔 페이지 이동 금지
+    const navLock = editMode || moveMode; // 편집/이동 중엔 페이지 이동 금지
     if (!navLock && /^[0-9]$/.test(e.key)) { e.preventDefault(); jumpBuf = (jumpBuf + e.key).slice(0, 3); showJump(); return; }
     if (!navLock && e.key === 'Enter' && jumpBuf) { e.preventDefault(); goTo(parseInt(jumpBuf, 10)); jumpBuf = ''; showJump(); return; }
     if (!navLock && e.key === 'Escape' && jumpBuf) { e.preventDefault(); jumpBuf = ''; showJump(); return; }
@@ -341,7 +474,7 @@ ${sectionsHtml}
     else if (!navLock && e.key === 'End') { i = N - 1; step = frags[i].length; render(); }
     else if ((e.key === 'm' || e.key === 'M') && !navLock) { e.preventDefault(); setMove(true); }
     else if (e.key === 'f' || e.key === 'F') { e.preventDefault(); toggleFull(); }
-    else if (e.key === 'g' || e.key === 'G') { document.body.classList.toggle('show-guide'); }
+    else if (e.key === 'l' || e.key === 'L') { document.body.classList.toggle('show-guide'); } // 가이드라인(라인의 L) — g는 그룹과 충돌해 이동
     else if (e.key === '?') { e.preventDefault(); toggleHelp(); }
     else if (e.key === 'Escape' && helpEl.style.display === 'flex') { helpEl.style.display = 'none'; }
     else if (e.key === 'Escape' && document.fullscreenElement) document.exitFullscreen();
@@ -371,6 +504,7 @@ ${sectionsHtml}
     moveMode = on;
     document.body.classList.toggle('moving', on);
     moveBar.style.display = on ? 'block' : 'none';
+    setWindow(); // 이동모드=±3(양옆 필름스트립 로드) / 종료=±2 복귀
     fit(); // 이동모드 진입=축소 / 종료=현재 페이지로 복귀 확대
     if (on) moveBarText();
   }
@@ -415,23 +549,225 @@ ${sectionsHtml}
   function getScale(){ return Math.min(innerWidth / 1920, innerHeight / 1080); }
   const hud = document.createElement('div'); hud.id = 'edit-hud'; document.body.appendChild(hud);
   const rz = document.createElement('div'); rz.id = 'rz-handle'; document.body.appendChild(rz);
+  const rzW = document.createElement('div'); rzW.id = 'rz-w'; rzW.className = 'rz-crop'; document.body.appendChild(rzW); // 좌측=width만(크롭, 콘텐츠 고정)
+  const rzH = document.createElement('div'); rzH.id = 'rz-h'; rzH.className = 'rz-crop'; document.body.appendChild(rzH); // 하단=height만(크롭, 콘텐츠 고정)
+  const scGuide = document.createElement('div'); scGuide.id = 'sc-guide'; scGuide.textContent = '＋ / － 폰트·표 크기 · 방향키 이동 · D 복제'; document.body.appendChild(scGuide); // .sc 선택 시 좌상단 가이드
   let editMode = false, sel = null, drag = null, textEditing = null;
+  let selSet = new Set(); // 멀티 선택 집합 (sel = 그 중 primary/마지막)
   const cur = () => slides[i];
   const selName = el => el.id || (el.className && String(el.className).trim().split(' ')[0]) || el.tagName.toLowerCase();
   function toLeftTop(el){ el.style.left = el.offsetLeft + 'px'; el.style.top = el.offsetTop + 'px'; el.style.right = 'auto'; el.style.bottom = 'auto'; }
+  // 일반 <img>(프레임 없이 자기 크기로 딱 맞는 이미지)를 크롭 프레임으로 감싸 pan/zoom 가능하게 —
+  // 이미 .imgframe 안이면 그대로 반환. 초기엔 프레임=이미지 크기라 외형 동일(그림자·라운딩은 원본 유지, 크롭 데코 미추가).
+  function ensureCropFrame(img){
+    const par = img.parentElement;
+    if (par && par.classList.contains('imgframe')) return par;
+    if (!par || !cur().contains(img)) return null;
+    const cs = getComputedStyle(img);
+    if (cs.position !== 'absolute' && cs.position !== 'fixed') return null; // 흐름(flex/inline) 이미지는 감싸면 레이아웃 깨짐 → 제외
+    const L = img.offsetLeft, T = img.offsetTop, W = img.offsetWidth, H = img.offsetHeight; // 감싸기 전 표시 박스
+    const frame = document.createElement('div');
+    frame.className = 'imgframe';
+    frame.style.left = L + 'px'; frame.style.top = T + 'px'; frame.style.width = W + 'px'; frame.style.height = H + 'px';
+    frame.style.boxShadow = 'none';                                                   // 원본 이미지엔 그림자 없었으니 추가 안 함
+    frame.style.borderRadius = (cs.borderRadius && cs.borderRadius !== '0px') ? cs.borderRadius : '0px';
+    par.insertBefore(frame, img); frame.appendChild(img);
+    img.style.left = '0px'; img.style.top = '0px'; img.style.width = W + 'px'; img.style.height = 'auto';
+    img.style.right = 'auto'; img.style.bottom = 'auto';
+    return frame;
+  }
   function placeHandle(){
-    if (editMode && sel){ const r = sel.getBoundingClientRect(); rz.style.display = 'block'; rz.style.left = (r.right - 8) + 'px'; rz.style.top = (r.bottom - 8) + 'px'; }
-    else rz.style.display = 'none';
+    if (editMode && selSet.size > 1){ rz.style.display='none'; rzW.style.display='none'; rzH.style.display='none'; scGuide.style.display='none'; return; } // 멀티 선택 = 이동만(핸들 없음)
+    if (editMode && sel){ const r = sel.getBoundingClientRect(); rz.style.display = 'block'; rz.style.left = (r.right - 8) + 'px'; rz.style.top = (r.bottom - 8) + 'px';
+      if (sel.classList.contains('imgframe')){ // 크롭 전용 핸들: 좌측 중앙=width, 하단 중앙=height
+        rzW.style.display = 'block'; rzW.style.left = (r.right - 7) + 'px';              rzW.style.top = (r.top + r.height/2 - 7) + 'px';
+        rzH.style.display = 'block'; rzH.style.left = (r.left + r.width/2 - 7) + 'px';    rzH.style.top = (r.bottom - 7) + 'px';
+      } else { rzW.style.display = 'none'; rzH.style.display = 'none'; }
+      if (sel.classList.contains('sc')){ scGuide.style.display = 'block'; scGuide.style.left = r.left + 'px'; scGuide.style.top = (r.top - 26) + 'px'; }
+      else scGuide.style.display = 'none';
+    }
+    else { rz.style.display = 'none'; rzW.style.display = 'none'; rzH.style.display = 'none'; scGuide.style.display = 'none'; }
   }
   function hudText(){
     if (!editMode){ hud.style.display = 'none'; return; }
     hud.style.display = 'block';
+    if (selSet.size > 1){ hud.textContent = selSet.size + '개 선택 · 드래그=함께 이동 · G=그룹 묶기 · Shift/Cmd+클릭=추가·해제 · Del=모두 삭제 · Esc=선택 해제'; return; }
+    if (sel && sel.classList.contains('grp')){ hud.textContent = '그룹 · 드래그=이동 · G=그룹 해제 · D 복제 · Del 삭제 · 방향키=미세'; return; }
     hud.textContent = sel
-      ? selName(sel) + '  x:' + Math.round(sel.offsetLeft) + '  y:' + Math.round(sel.offsetTop) + '  w:' + Math.round(sel.offsetWidth) + '   (방향키 1px·Shift 12px / 모서리=크기 / E 종료)'
-      : '편집 모드: 요소 클릭→드래그 이동, 모서리 핸들=크기, 방향키=미세. 다 되면 “저장”이라고 말하세요. E·Esc=종료 · ?=단축키';
+      ? selName(sel) + '  x:' + Math.round(sel.offsetLeft) + '  y:' + Math.round(sel.offsetTop) + '  w:' + Math.round(sel.offsetWidth) + '   (방향키 ⅓px·Shift 12px / 모서리=크기 / D 복제 / Del 삭제 / Cmd+클릭=멀티 / E 종료)'
+      : '편집 모드: 요소 클릭→드래그 이동 · Shift/Cmd+클릭=멀티 선택 · 모서리=크기 · G=그룹 · L=가이드 · E·Esc=종료 · ?=단축키';
   }
-  function select(el){ if (sel) sel.classList.remove('sel'); sel = el; if (el) el.classList.add('sel'); placeHandle(); hudText(); }
-  function setEdit(on){ editMode = on; document.body.classList.toggle('editing', on); if (!on) select(null); placeHandle(); hudText(); }
+  function select(el){ selSet.forEach(x => x.classList.remove('sel')); selSet.clear();
+    if (sel) sel.classList.remove('sel'); sel = el; if (el){ el.classList.add('sel'); selSet.add(el); } placeHandle(); hudText(); }
+  // 멀티 선택 토글 (Cmd/Ctrl+클릭)
+  function toggleSel(el){ if (!el) return;
+    if (selSet.has(el)){ selSet.delete(el); el.classList.remove('sel'); sel = selSet.size ? [...selSet][selSet.size-1] : null; }
+    else { selSet.add(el); el.classList.add('sel'); sel = el; }
+    placeHandle(); hudText();
+  }
+  // 선택 요소들을 그룹(.grp) 컨테이너로 묶기 — 바운딩 박스 계산 후 자식 재배치
+  function groupSel(){
+    const els = [...selSet].filter(el => el.parentElement && cur().contains(el) && el.classList.contains('slide') === false);
+    if (els.length < 2) return;
+    snapshot(); els.forEach(toLeftTop);
+    let minL=Infinity, minT=Infinity, maxR=-Infinity, maxB=-Infinity;
+    els.forEach(el => { minL=Math.min(minL,el.offsetLeft); minT=Math.min(minT,el.offsetTop);
+      maxR=Math.max(maxR,el.offsetLeft+el.offsetWidth); maxB=Math.max(maxB,el.offsetTop+el.offsetHeight); });
+    const grp = document.createElement('div'); grp.className='grp';
+    grp.style.position='absolute'; grp.style.left=minL+'px'; grp.style.top=minT+'px';
+    grp.style.width=(maxR-minL)+'px'; grp.style.height=(maxB-minT)+'px';
+    cur().appendChild(grp);
+    els.forEach(el => { const l=el.offsetLeft-minL, t=el.offsetTop-minT; grp.appendChild(el);
+      el.style.left=l+'px'; el.style.top=t+'px'; el.style.right='auto'; el.style.bottom='auto'; });
+    select(grp);
+  }
+  // 그룹 해제 — 자식을 부모로 되돌리고 절대좌표 복원
+  function ungroupSel(g){
+    snapshot(); const gl=g.offsetLeft, gt=g.offsetTop, parent=g.parentNode;
+    [...g.children].forEach(el => { const l=el.offsetLeft+gl, t=el.offsetTop+gt; parent.insertBefore(el, g);
+      el.style.left=l+'px'; el.style.top=t+'px'; });
+    g.remove(); select(null);
+  }
+  function setEdit(on){ editMode = on; document.body.classList.toggle('editing', on); if (!on){ select(null); setErase(false); } placeHandle(); hudText(); }
+  // 덮개(패치) 모드 — 슬라이드 아무 데나 사각형으로 덮기(기본 흰색, 색상 피커로 변경)
+  let eraseMode = false;
+  function setErase(on){ eraseMode = !!on && editMode; document.body.classList.toggle('erasing', eraseMode); }
+  // 덮개 툴바 (색상 피커) — 덮개 모드에서 자동 노출(body.erasing CSS)
+  let coverColor = '#ffffff', coverMode = 'solid';
+  const coverBar = document.createElement('div'); coverBar.id = 'cover-bar';
+  coverBar.innerHTML = '<span class="cb-lb">덮개</span>'
+    + '<button class="cb-btn on" data-mode="solid">단색</button>'
+    + '<button class="cb-btn" data-mode="ai">AI 지우개</button>'
+    + '<input type="color" id="cb-color" value="#ffffff" title="단색 채움 색 (기본 흰색)">'
+    + '<span id="cb-ai" style="display:none;align-items:center;gap:8px;">'
+    +   '<button id="cb-brush-dn" class="cb-btn" title="브러시 작게">−</button>'
+    +   '<span id="cb-brush" style="opacity:.75;">브러시 24</span>'
+    +   '<button id="cb-brush-up" class="cb-btn" title="브러시 크게">＋</button>'
+    +   '<button id="cb-apply" class="cb-btn" style="background:#E60012;border-color:#E60012;">적용</button>'
+    +   '<button id="cb-cancel" class="cb-btn">취소</button>'
+    +   '<span id="cb-status" style="opacity:.75;"></span>'
+    + '</span>'
+    + '<span class="cb-hint">단색: 드래그로 덮기 · AI 지우개: 지울 곳을 칠하고 적용 · Alt+클릭=덮개 삭제 · X 끄면 이동/크기</span>';
+  document.body.appendChild(coverBar);
+  const aiCtl = coverBar.querySelector('#cb-ai');
+  coverBar.querySelectorAll('.cb-btn[data-mode]').forEach(b => b.addEventListener('click', () => {
+    coverMode = b.dataset.mode;
+    coverBar.querySelectorAll('.cb-btn[data-mode]').forEach(x => x.classList.toggle('on', x === b));
+    aiCtl.style.display = (coverMode === 'ai') ? 'inline-flex' : 'none';
+    if (coverMode !== 'ai') aiCancel();
+  }));
+  coverBar.querySelector('#cb-color').addEventListener('input', ev => {
+    coverColor = ev.target.value;
+    if (sel && sel.classList.contains('patch')){ snapshot(); sel.style.background = coverColor; } // 선택된 덮개 → 단색 재색(이미지 지움)
+  });
+  // ===== AI 지우개 (MI-GAN inpaint · onnxruntime-web WASM, 로컬 vendored, 오프라인) =====
+  // 지울 곳을 브러시로 칠하면(마스크) 모델이 주변 맥락으로 합성해 지운다. 폰 매직 이레이저와 동일 방식.
+  // 모델·런타임은 최초 사용 시에만 lazy 로드(덱 초기 로딩 영향 0). 마스크 극성: 지울곳=0, 유지=255(MI-GAN 규약).
+  let aiBrush = 24, aiSession = null, aiLoading = null, aiMask = null;
+  const aiStatus = m => { const s = coverBar.querySelector('#cb-status'); if (s) s.textContent = m || ''; };
+  function loadScript(src){ return new Promise((res, rej) => { const s = document.createElement('script'); s.src = src; s.onload = res; s.onerror = () => rej(new Error('script load ' + src)); document.head.appendChild(s); }); }
+  function ensureAI(){
+    if (aiSession) return Promise.resolve(aiSession);
+    if (aiLoading) return aiLoading;
+    aiLoading = (async () => {
+      aiStatus('모델 로딩…(최초 1회, ~28MB)');
+      if (!window.ort) await loadScript('/html/vendor/ort/ort.wasm.min.js');
+      ort.env.wasm.wasmPaths = '/html/vendor/ort/'; ort.env.wasm.numThreads = 1;
+      aiSession = await ort.InferenceSession.create('/html/vendor/migan_pipeline_v2.onnx', { executionProviders: ['wasm'] });
+      aiStatus(''); return aiSession;
+    })();
+    return aiLoading;
+  }
+  function aiCancel(){ if (aiMask){ aiMask.canvas.remove(); aiMask = null; } aiStatus(''); }
+  function aiBegin(img){
+    aiCancel();
+    const c = document.createElement('canvas');
+    c.width = img.naturalWidth; c.height = img.naturalHeight;                 // 내부 해상도 = 원본(마스크 정밀도)
+    c.style.cssText = 'position:absolute;z-index:26;pointer-events:none;left:' + img.offsetLeft + 'px;top:' + img.offsetTop + 'px;width:' + img.offsetWidth + 'px;height:' + img.offsetHeight + 'px;';
+    img.parentElement.appendChild(c);                                        // 이미지와 같은 부모·같은 박스에 겹침
+    aiMask = { img, canvas: c, ctx: c.getContext('2d'), painted: false };
+  }
+  function aiPaintAt(clientX, clientY){
+    if (!aiMask) return;
+    const r = aiMask.canvas.getBoundingClientRect();
+    const nx = (clientX - r.left) / r.width * aiMask.canvas.width;
+    const ny = (clientY - r.top) / r.height * aiMask.canvas.height;
+    const nr = aiBrush / r.width * aiMask.canvas.width;                       // 브러시 반경(화면px) → 원본px
+    const g = aiMask.ctx; g.fillStyle = 'rgba(230,0,18,.5)';
+    g.beginPath(); g.arc(nx, ny, nr, 0, Math.PI * 2); g.fill();
+    aiMask.painted = true;
+  }
+  async function aiApply(){
+    if (!aiMask || !aiMask.painted){ aiStatus('먼저 지울 곳을 칠하세요'); return; }
+    const img = aiMask.img, nW = img.naturalWidth, nH = img.naturalHeight, plane = nW * nH;
+    try {
+      const sess = await ensureAI();
+      aiStatus('지우는 중…');
+      await new Promise(r => setTimeout(r, 20));                             // 상태 렌더 양보
+      const ic = document.createElement('canvas'); ic.width = nW; ic.height = nH;
+      const ig = ic.getContext('2d'); ig.drawImage(img, 0, 0, nW, nH);
+      const id = ig.getImageData(0, 0, nW, nH).data;
+      const rgb = new Uint8Array(3 * plane);                                 // 이미지 → uint8 CHW RGB
+      for (let p = 0; p < plane; p++){ rgb[p] = id[p*4]; rgb[plane+p] = id[p*4+1]; rgb[2*plane+p] = id[p*4+2]; }
+      const md = aiMask.ctx.getImageData(0, 0, nW, nH).data;
+      const mask = new Uint8Array(plane);                                    // 칠한 곳(alpha>20)=hole=0, 나머지=keep=255
+      for (let p = 0; p < plane; p++){ mask[p] = md[p*4+3] > 20 ? 0 : 255; }
+      const feed = {};
+      feed[sess.inputNames[0]] = new ort.Tensor('uint8', rgb, [1, 3, nH, nW]);
+      feed[sess.inputNames[1]] = new ort.Tensor('uint8', mask, [1, 1, nH, nW]);
+      const out = await sess.run(feed);
+      const rd = out[sess.outputNames[0]].data;                             // [1,3,nH,nW] uint8 CHW (전체 블렌드 완료)
+      const oc = document.createElement('canvas'); oc.width = nW; oc.height = nH;
+      const og = oc.getContext('2d'); const oi = og.createImageData(nW, nH);
+      for (let p = 0; p < plane; p++){ oi.data[p*4] = rd[p]; oi.data[p*4+1] = rd[plane+p]; oi.data[p*4+2] = rd[2*plane+p]; oi.data[p*4+3] = 255; }
+      og.putImageData(oi, 0, 0);
+      const url = oc.toDataURL('image/png');
+      snapshot();
+      img.src = url; img.setAttribute('data-src', url);                     // 윈도우 로딩이 원본으로 되돌리지 않게 data-src도 갱신
+      aiCancel();
+    } catch(err){ aiStatus('실패: ' + (err && err.message || err)); }
+  }
+  coverBar.querySelector('#cb-apply').addEventListener('click', aiApply);
+  coverBar.querySelector('#cb-cancel').addEventListener('click', aiCancel);
+  const aiBrushLbl = () => { const b = coverBar.querySelector('#cb-brush'); if (b) b.textContent = '브러시 ' + aiBrush; };
+  coverBar.querySelector('#cb-brush-dn').addEventListener('click', () => { aiBrush = Math.max(6, aiBrush - 6); aiBrushLbl(); });
+  coverBar.querySelector('#cb-brush-up').addEventListener('click', () => { aiBrush = Math.min(80, aiBrush + 6); aiBrushLbl(); });
+  // 덮개 대상 이미지 = 선택된 이미지(frame/img) 우선, 없으면 포인터 아래 이미지. (덮개는 "그 이미지를 수정"하는 용)
+  function coverTargetImg(clientX, clientY){
+    let el = null;
+    if (sel && sel.classList.contains('imgframe')) el = sel;
+    else if (sel && sel.tagName === 'IMG') el = sel.parentElement.classList.contains('imgframe') ? sel.parentElement : sel;
+    if (!el){ const t = document.elementFromPoint(clientX, clientY); const im = t && t.closest && t.closest('.slide img'); if (im && cur().contains(im)) el = im.parentElement.classList.contains('imgframe') ? im.parentElement : im; }
+    return (el && cur().contains(el)) ? el : null;
+  }
+  // 덮개 박스를 대상 이미지 영역으로 클립(박스는 밖까지 그려도 실제 덮이는 건 이미지 안쪽만). 겹침 없으면 제거.
+  function clampPatchToImage(pt, el, sl){
+    const er = el.getBoundingClientRect(), sr = sl.getBoundingClientRect(), s = sr.width / sl.offsetWidth; // 대상 slide-space rect
+    const L = (er.left - sr.left)/s, T = (er.top - sr.top)/s, R = (er.right - sr.left)/s, B = (er.bottom - sr.top)/s;
+    const nl = Math.max(pt.offsetLeft, L), nt = Math.max(pt.offsetTop, T);
+    const nr = Math.min(pt.offsetLeft + pt.offsetWidth, R), nb = Math.min(pt.offsetTop + pt.offsetHeight, B);
+    if (nr - nl < 3 || nb - nt < 3){ pt.remove(); return; }             // 이미지와 안 겹치면 덮개 취소
+    pt.style.left = Math.round(nl)+'px'; pt.style.top = Math.round(nt)+'px';
+    pt.style.width = Math.round(nr - nl)+'px'; pt.style.height = Math.round(nb - nt)+'px';
+  }
+  // ===== 덮개(patch)를 이미지 콘텐츠에 고정 — 프레임 자식으로 두고 이미지 대비 비율(ratio) 저장 =====
+  // 이미지가 이동/확대/축소/pan/휠 되면 그 비율로 덮개를 재계산 → 사실상 이미지의 일부처럼 함께 움직인다.
+  function frameImg(fr){ return fr && fr.querySelector(':scope > img'); }
+  function setPatchRatios(pt, fr){ const im = frameImg(fr); if(!im) return;
+    const w = im.offsetWidth||1, h = im.offsetHeight||1;
+    pt.dataset.rl = (pt.offsetLeft - im.offsetLeft)/w; pt.dataset.rt = (pt.offsetTop - im.offsetTop)/h;
+    pt.dataset.rw = pt.offsetWidth/w; pt.dataset.rh = pt.offsetHeight/h;
+  }
+  function syncFramePatches(fr){ const im = frameImg(fr); if(!im) return;
+    const w = im.offsetWidth, h = im.offsetHeight, il = im.offsetLeft, it = im.offsetTop;
+    fr.querySelectorAll(':scope > .patch').forEach(pt => {
+      if (pt.dataset.rw == null) return;
+      pt.style.left  = Math.round(il + parseFloat(pt.dataset.rl)*w)+'px';
+      pt.style.top   = Math.round(it + parseFloat(pt.dataset.rt)*h)+'px';
+      pt.style.width = Math.round(parseFloat(pt.dataset.rw)*w)+'px';
+      pt.style.height= Math.round(parseFloat(pt.dataset.rh)*h)+'px';
+    });
+  }
 
   // ===== 통합 Undo/Redo 히스토리 — 페이지별 독립 스택 =====
   // 네이티브 contenteditable undo는 execCommand·타이핑만 잡고, style/DOM 직접조작(크기·줄간격·정렬·형광·드래그)은
@@ -451,7 +787,7 @@ ${sectionsHtml}
     const sl = cur();
     sl.querySelectorAll('[contenteditable="true"]').forEach(n => n.removeAttribute('contenteditable'));
     sl.querySelectorAll('.sel').forEach(n => n.classList.remove('sel'));
-    textEditing = null; sel = null; savedRange = null; drag = null; typingBurst = false;
+    textEditing = null; sel = null; selSet.clear(); savedRange = null; drag = null; typingBurst = false;
     document.body.classList.remove('text-editing');
     rz.style.display = 'none'; fmtbar.classList.remove('on');
     placeHandle(); hudText();
@@ -459,6 +795,12 @@ ${sectionsHtml}
   function undo(){ const sl = cur(); const h = sl && hist.get(sl); if(!h || !h.u.length) return; h.r.push(sl.innerHTML); sl.innerHTML = h.u.pop(); afterRestore(); }
   function redo(){ const sl = cur(); const h = sl && hist.get(sl); if(!h || !h.r.length) return; h.u.push(sl.innerHTML); sl.innerHTML = h.r.pop(); afterRestore(); }
   function hasHist(){ const h = hist.get(cur()); return !!h && (h.u.length || h.r.length); }
+  // 편집된 페이지 파악(저장 누락 방지) — undo 스택이 비지 않은 슬라이드 = 이 세션에 편집됨.
+  //   상세 히스토리 불필요: "편집됨" 여부만. 저장 도구(save-live-edits.js)가 각 페이지 최종 상태로 소스를 덮는다.
+  //   경량 리스트만 반환(html 미포함) → 토큰 절약. 최종 outerHTML 은 도구가 페이지별로 따로 읽음.
+  window.__deckEdits = () => [...hist.entries()]
+    .filter(([sl, h]) => h && h.u.length)
+    .map(([sl, h]) => ({ id: sl.id, idx: +sl.dataset.idx, edits: h.u.length }));
   addEventListener('keydown', e => {
     if(!(e.metaKey || e.ctrlKey)) return;
     const z = (e.key === 'z' || e.key === 'Z'), y = (e.key === 'y' || e.key === 'Y');
@@ -479,9 +821,63 @@ ${sectionsHtml}
     if (!editMode) return;
     if (e.target.closest && e.target.closest('#fmtbar')) return; // 포맷 툴바 클릭은 편집 유지
     if (textEditing){ if (textEditing.contains(e.target)) return; else endTextEdit(); } // 편집 영역 밖 클릭=편집 종료
-    if (e.target === rz){ if (!sel) return; snapshot(); drag = { mode:'rz', el:sel, sx:e.clientX, bw:sel.offsetWidth, s:getScale() }; e.preventDefault(); return; }
+    // 덮개: 빈 곳 드래그=슬라이드에 사각형 덮기 / Alt+클릭=기존 덮개 삭제
+    if (eraseMode){
+      const sl = cur(); if (!sl){ e.preventDefault(); return; }
+      const p = e.target.closest('.patch');
+      if (p && sl.contains(p) && e.altKey){ snapshot(); if (p === sel) select(null); p.remove(); e.preventDefault(); return; }
+      if (coverMode === 'ai'){                                   // AI 지우개: 이미지 위에 지울 마스크 칠하기
+        const im = e.target.closest('img');
+        if (im && sl.contains(im) && im.naturalWidth){
+          if (!aiMask || aiMask.img !== im) aiBegin(im);
+          aiPaintAt(e.clientX, e.clientY);
+          drag = { mode:'aimask' };
+        }
+        e.preventDefault(); return;
+      }
+      snapshot();
+      const sr = sl.getBoundingClientRect(), s = sr.width / sl.offsetWidth; // 슬라이드 실측 스케일 = 커서 정확
+      const px = (e.clientX - sr.left)/s, py = (e.clientY - sr.top)/s;
+      const pt = document.createElement('div'); pt.className = 'patch';
+      pt.style.left = Math.round(px)+'px'; pt.style.top = Math.round(py)+'px'; pt.style.width = '0px'; pt.style.height = '0px';
+      pt.style.background = coverColor;
+      sl.appendChild(pt); // 슬라이드 직속(드래그 중엔 밖까지 그려짐) — 실제 덮이는 영역은 pointerup에서 대상 이미지로 클립
+      drag = { mode:'cover', el:pt, ox:px, oy:py, sr, s, sl, tf: coverTargetImg(e.clientX, e.clientY) };
+      e.preventDefault(); return;
+    }
+    if (e.target === rz){ if (!sel) return; snapshot(); drag = { mode:'rz', el:sel, sx:e.clientX, sy:e.clientY, bw:sel.offsetWidth, bh:sel.offsetHeight, s:getScale() };
+      if (sel.classList.contains('imgframe')){ const im = sel.querySelector('img'); if (im){ drag.im = im; drag.iw = im.offsetWidth; drag.il = im.offsetLeft; drag.it = im.offsetTop; } } // 프레임 리사이즈 = 내부 이미지도 같은 배율로 스케일하기 위해 기준값 저장
+      e.preventDefault(); return; }
+    if (e.target === rzW){ if (!sel) return; snapshot(); drag = { mode:'rzw', el:sel, sx:e.clientX, bw:sel.offsetWidth, s:getScale() }; e.preventDefault(); return; } // 우측 핸들: width만(크롭, 왼쪽 가장자리 고정, 콘텐츠 고정)
+    if (e.target === rzH){ if (!sel) return; snapshot(); drag = { mode:'rzh', el:sel, sy:e.clientY, bh:sel.offsetHeight, s:getScale() }; e.preventDefault(); return; } // 하단 핸들: height만(크롭)
+    // Shift+드래그 = 내부 이미지 pan(이동). 프레임 없는 일반 이미지면 즉석에서 프레임을 씌워 동일 적용
+    if (e.shiftKey){
+      const frameEl0 = e.target.closest('.imgframe');
+      const plainImg = frameEl0 ? null : e.target.closest('.slide img');
+      const anchor = frameEl0 || plainImg;
+      if (anchor && cur().contains(anchor)){
+        snapshot();
+        const frameEl = frameEl0 || ensureCropFrame(plainImg);
+        const img = frameEl && frameEl.querySelector('img');
+        if (img){
+          select(frameEl);
+          img.style.left = img.offsetLeft + 'px'; img.style.top = img.offsetTop + 'px';
+          drag = { mode:'pan', img, sx:e.clientX, sy:e.clientY, bl:img.offsetLeft, bt:img.offsetTop, s:getScale() };
+          e.preventDefault(); return;
+        }
+      }
+    }
+    // 이미지 클릭 = 크롭 프레임으로 감싸 선택(100% fit 이미지도 가이드 표시·크롭·덮개 대상화). 흐름(flex) 이미지는 ensureCropFrame이 제외.
+    const cim = e.target.closest('.slide img');
+    if (cim && cur().contains(cim) && !cim.parentElement.classList.contains('imgframe')) ensureCropFrame(cim);
     const el = e.target.closest('.slide > *');
     if (!el || !cur().contains(el)) return;
+    if (e.metaKey || e.ctrlKey || e.shiftKey){ toggleSel(el); e.preventDefault(); return; } // Shift/Cmd/Ctrl+클릭 = 멀티 선택 토글
+    if (selSet.has(el) && selSet.size > 1){ // 멀티 선택된 요소 클릭 = 전체 함께 이동
+      snapshot(); [...selSet].forEach(toLeftTop);
+      drag = { mode:'mv', el, sx:e.clientX, sy:e.clientY, s:getScale(), multi:[...selSet].map(x=>({el:x, bl:x.offsetLeft, bt:x.offsetTop})) };
+      e.preventDefault(); return;
+    }
     snapshot();
     select(el); toLeftTop(el);
     drag = { mode:'mv', el, sx:e.clientX, sy:e.clientY, bl:el.offsetLeft, bt:el.offsetTop, s:getScale() };
@@ -510,38 +906,158 @@ ${sectionsHtml}
   }
   addEventListener('pointermove', e => {
     if (!drag) return;
-    if (drag.mode === 'mv'){
-      let nl = Math.round(drag.bl + (e.clientX - drag.sx) / drag.s);
-      let nt = Math.round(drag.bt + (e.clientY - drag.sy) / drag.s);
-      const T = e.altKey ? 0 : 8;  // Alt 누르면 스냅 끔
-      if (T) { nl = snap1(nl, drag.el.offsetWidth, drag.xs, T); nt = snap1(nt, drag.el.offsetHeight, drag.ys, T); }
-      drag.el.style.left = nl + 'px';
-      drag.el.style.top  = nt + 'px';
+    if (drag.mode === 'aimask'){ aiPaintAt(e.clientX, e.clientY); return; } // AI 지우개 마스크 칠하기
+    if (drag.mode === 'cover'){ // 덮개 사각형 크기 조절(슬라이드 로컬 좌표)
+      const px = (e.clientX - drag.sr.left)/drag.s, py = (e.clientY - drag.sr.top)/drag.s;
+      drag.el.style.left = Math.round(Math.min(px, drag.ox))+'px'; drag.el.style.top = Math.round(Math.min(py, drag.oy))+'px';
+      drag.el.style.width = Math.round(Math.abs(px - drag.ox))+'px'; drag.el.style.height = Math.round(Math.abs(py - drag.oy))+'px';
+      return;
+    }
+    if (drag.mode === 'rzw'){ // 우측 핸들: 창 width만 변경(왼쪽 가장자리 고정), 콘텐츠 고정 → 크롭
+      drag.el.style.width = Math.max(60, Math.round(drag.bw + (e.clientX - drag.sx) / drag.s)) + 'px';
+      placeHandle(); hudText(); return;
+    }
+    if (drag.mode === 'rzh'){ // 하단 핸들: 창 height만 변경(위 가장자리 고정), 콘텐츠 고정 → 크롭
+      drag.el.style.height = Math.max(60, Math.round(drag.bh + (e.clientY - drag.sy) / drag.s)) + 'px';
+      placeHandle(); hudText(); return;
+    }
+    if (drag.mode === 'pan'){ // crop 프레임 내부 이미지 이동
+      drag.img.style.left = Math.round(drag.bl + (e.clientX - drag.sx) / drag.s) + 'px';
+      drag.img.style.top  = Math.round(drag.bt + (e.clientY - drag.sy) / drag.s) + 'px';
+      syncFramePatches(drag.img.parentElement); // 덮개도 이미지 따라 이동
+    } else if (drag.mode === 'mv'){
+      if (drag.multi){ // 멀티 선택: 전부 같은 델타로 이동 (스냅 없음)
+        const dx = (e.clientX - drag.sx) / drag.s, dy = (e.clientY - drag.sy) / drag.s;
+        drag.multi.forEach(m => { m.el.style.left = Math.round(m.bl + dx) + 'px'; m.el.style.top = Math.round(m.bt + dy) + 'px'; m.el.style.right='auto'; m.el.style.bottom='auto'; });
+      } else {
+        let nl = Math.round(drag.bl + (e.clientX - drag.sx) / drag.s);
+        let nt = Math.round(drag.bt + (e.clientY - drag.sy) / drag.s);
+        const T = e.altKey ? 0 : 8;  // Alt 누르면 스냅 끔
+        if (T) { nl = snap1(nl, drag.el.offsetWidth, drag.xs, T); nt = snap1(nt, drag.el.offsetHeight, drag.ys, T); }
+        drag.el.style.left = nl + 'px';
+        drag.el.style.top  = nt + 'px';
+      }
+    } else if (drag.el.classList.contains('imgframe')){
+      if (drag.im && !e.altKey){ // 기본: 프레임+내부 이미지를 같은 배율로 비율 스케일 (콘텐츠와 함께 커지고 작아짐) — 이후 휠로 미세 조정
+        const nw = Math.max(60, drag.bw + (e.clientX - drag.sx) / drag.s);
+        const k = nw / drag.bw;
+        drag.el.style.width  = Math.round(nw) + 'px';
+        drag.el.style.height = Math.round(drag.bh * k) + 'px';
+        drag.im.style.width  = Math.round(drag.iw * k) + 'px';
+        drag.im.style.left   = Math.round(drag.il * k) + 'px';
+        drag.im.style.top    = Math.round(drag.it * k) + 'px';
+        syncFramePatches(drag.el); // 덮개도 같은 배율로 스케일
+      } else { // Alt: 프레임(크롭 창)만 양방향 자유 크기 (콘텐츠 고정)
+        drag.el.style.width  = Math.max(60, Math.round(drag.bw + (e.clientX - drag.sx) / drag.s)) + 'px';
+        drag.el.style.height = Math.max(60, Math.round(drag.bh + (e.clientY - drag.sy) / drag.s)) + 'px';
+      }
+    } else if (drag.el.classList.contains('patch')){ // 덮개 사각형 자유 크기(양방향, 작게도)
+      drag.el.style.width  = Math.max(6, Math.round(drag.bw + (e.clientX - drag.sx) / drag.s)) + 'px';
+      drag.el.style.height = Math.max(6, Math.round(drag.bh + (e.clientY - drag.sy) / drag.s)) + 'px';
     } else {
       drag.el.style.width = Math.max(40, Math.round(drag.bw + (e.clientX - drag.sx) / drag.s)) + 'px';
       if (drag.el.tagName === 'IMG') drag.el.style.height = 'auto';
     }
     placeHandle(); hudText();
   });
-  addEventListener('pointerup', () => { if (drag && drag.autoGuide) document.body.classList.remove('show-guide'); drag = null; });
+  addEventListener('pointerup', () => {
+    if (drag && drag.mode === 'cover'){ // 덮개(단색) 그리기 종료
+      if (drag.el.offsetWidth < 4 || drag.el.offsetHeight < 4) drag.el.remove();       // 클릭 수준=제거
+      else if (drag.tf){ clampPatchToImage(drag.el, drag.tf, cur());                   // 대상 이미지 안쪽으로 클립
+        const pt = drag.el;
+        if (pt.isConnected && drag.tf.classList.contains('imgframe') && pt.parentElement !== drag.tf){ // 프레임 자식으로 이동 → 이미지에 고정
+          const nl = pt.offsetLeft - drag.tf.offsetLeft, nt = pt.offsetTop - drag.tf.offsetTop;
+          drag.tf.appendChild(pt); pt.style.left = Math.round(nl)+'px'; pt.style.top = Math.round(nt)+'px';
+          setPatchRatios(pt, drag.tf);
+        }
+      }
+    }
+    if (drag && drag.autoGuide) document.body.classList.remove('show-guide');
+    drag = null;
+  });
+
+  // ===== crop 프레임: 휠 = 내부 이미지 확대/축소 (커서 지점 고정) =====
+  let wheelBurst = false, wheelT = null;
+  addEventListener('wheel', e => {
+    if (!editMode) return;
+    let frame = e.target.closest && e.target.closest('.imgframe');
+    let plainImg = null;
+    if (frame){ if (!cur().contains(frame)) return; }
+    else { plainImg = e.target.closest && e.target.closest('.slide img'); if (!(plainImg && cur().contains(plainImg))) return; }
+    e.preventDefault();
+    if (!wheelBurst){ snapshot(); wheelBurst = true; } // 휠 연속 = 스냅샷 1회 (프레임 씌우기 전에 스냅샷)
+    clearTimeout(wheelT); wheelT = setTimeout(() => { wheelBurst = false; }, 500);
+    if (!frame) frame = ensureCropFrame(plainImg);          // 프레임 없는 일반 이미지 → 즉석 프레임
+    if (!frame) return;
+    const img = frame.querySelector('img'); if (!img) return;
+    select(frame);
+    const s = getScale(), fr = frame.getBoundingClientRect();
+    const cx = (e.clientX - fr.left) / s, cy = (e.clientY - fr.top) / s; // 프레임 로컬 좌표(1x)
+    const oldW = img.offsetWidth, il = img.offsetLeft, it = img.offsetTop;
+    const step = e.altKey ? 1.012 : 1.045;              // Alt = 미세(느린) 줌
+    const factor = e.deltaY < 0 ? step : 1/step;
+    const newW = Math.max(80, Math.round(oldW * factor)), ratio = newW / oldW;
+    img.style.width = newW + 'px';
+    img.style.left = Math.round(cx - (cx - il) * ratio) + 'px'; // 커서 아래 지점 고정
+    img.style.top  = Math.round(cy - (cy - it) * ratio) + 'px';
+    syncFramePatches(frame); // 덮개도 이미지와 함께 확대/축소
+    placeHandle();
+  }, { passive:false });
   addEventListener('keydown', e => {
     if (textEditing) return; // 텍스트 편집 중엔 방향키/단축키 대신 타이핑
     if (e.key === 'e' || e.key === 'E'){ setEdit(!editMode); e.preventDefault(); e.stopPropagation(); return; }
-    if (e.key === 'Escape' && editMode){ setEdit(false); e.preventDefault(); e.stopPropagation(); return; }
+    if ((e.key === 'x' || e.key === 'X') && editMode){ setErase(!eraseMode); e.preventDefault(); e.stopPropagation(); return; }
+    if (e.key === 'Escape' && eraseMode){ setErase(false); e.preventDefault(); e.stopPropagation(); return; }
+    if (e.key === 'Escape' && editMode){ if (selSet.size){ select(null); } else setEdit(false); e.preventDefault(); e.stopPropagation(); return; }
     if (!editMode || !sel) return;
-    // 선택 컴포넌트 삭제 (Delete/Backspace) — snapshot으로 Cmd+Z 복원 가능
+    // 그룹 묶기/해제 (G) — 멀티 선택이면 그룹으로 묶고, 그룹 선택이면 해제
+    if (e.key === 'g' || e.key === 'G'){
+      if (sel.classList.contains('grp')) ungroupSel(sel);
+      else if (selSet.size >= 2) groupSel();
+      e.preventDefault(); e.stopPropagation(); return;
+    }
+    // 선택 컴포넌트 삭제 (Delete/Backspace) — 멀티면 전부. snapshot으로 Cmd+Z 복원 가능
     if (e.key === 'Delete' || e.key === 'Backspace'){
-      snapshot(); const victim = sel; select(null); victim.remove();
+      snapshot(); const victims = selSet.size ? [...selSet] : [sel]; select(null); victims.forEach(v => v && v.remove());
+      placeHandle(); hudText(); e.preventDefault(); e.stopPropagation(); return;
+    }
+    // 선택 컴포넌트 복제 (D 또는 ⌘/Ctrl+D) — 같은 슬라이드에 +24px 오프셋, 복제본 선택
+    if (e.key === 'd' || e.key === 'D'){
+      snapshot();
+      toLeftTop(sel);                          // 원본을 인라인 left/top으로 확정(복제본이 좌표를 가짐)
+      const clone = sel.cloneNode(true);
+      clone.classList.remove('sel');
+      if (clone.id) clone.removeAttribute('id');
+      clone.style.left = (sel.offsetLeft + 24) + 'px';
+      clone.style.top  = (sel.offsetTop + 24) + 'px';
+      sel.parentNode.insertBefore(clone, sel.nextSibling);
+      select(clone);
+      placeHandle(); hudText(); e.preventDefault(); e.stopPropagation(); return;
+    }
+    // .sc 텍스트 블록(표 등): +/- 로 폰트·표 전체를 동시에 비율 스케일 (transform-origin 좌상단 → 위치 고정)
+    if (sel.classList.contains('sc') && (e.key==='+'||e.key==='='||e.key==='-'||e.key==='_')){
+      snapshot();
+      let k = parseFloat(sel.dataset.scale)||1;
+      k = (e.key==='-'||e.key==='_') ? Math.max(0.4, k/1.08) : Math.min(3, k*1.08);
+      sel.dataset.scale = k; sel.style.transformOrigin = 'top left'; sel.style.transform = 'scale('+k.toFixed(3)+')';
       placeHandle(); hudText(); e.preventDefault(); e.stopPropagation(); return;
     }
     const isArrow = e.key==='ArrowLeft'||e.key==='ArrowRight'||e.key==='ArrowUp'||e.key==='ArrowDown';
     if (isArrow && !e.repeat) snapshot();
-    const st = e.shiftKey ? 12 : 1; let u = true;
-    if (e.key === 'ArrowLeft'){ toLeftTop(sel); sel.style.left = (sel.offsetLeft - st) + 'px'; }
-    else if (e.key === 'ArrowRight'){ toLeftTop(sel); sel.style.left = (sel.offsetLeft + st) + 'px'; }
-    else if (e.key === 'ArrowUp'){ toLeftTop(sel); sel.style.top = (sel.offsetTop - st) + 'px'; }
-    else if (e.key === 'ArrowDown'){ toLeftTop(sel); sel.style.top = (sel.offsetTop + st) + 'px'; }
-    else u = false;
+    const st = e.shiftKey ? 12 : (1/3); let u = true;   // 미세이동 3배 더 미세(1px→⅓px), Shift=12px 보통
+    if (isArrow){
+      const r2 = v => Math.round(v * 100) / 100;
+      let dx=0, dy=0;
+      if (e.key === 'ArrowLeft') dx=-st; else if (e.key === 'ArrowRight') dx=st;
+      else if (e.key === 'ArrowUp') dy=-st; else if (e.key === 'ArrowDown') dy=st;
+      (selSet.size ? [...selSet] : [sel]).forEach(el => { // 멀티 선택이면 전부 함께
+        if (!el.style.left) el.style.left = el.offsetLeft + 'px';  // 소수 누적 유지(offset 재반올림 방지)
+        if (!el.style.top)  el.style.top  = el.offsetTop + 'px';
+        el.style.right = 'auto'; el.style.bottom = 'auto';
+        el.style.left = r2((parseFloat(el.style.left) || 0) + dx) + 'px';
+        el.style.top  = r2((parseFloat(el.style.top)  || 0) + dy) + 'px';
+      });
+    } else u = false;
     if (u){ e.preventDefault(); e.stopPropagation(); placeHandle(); hudText(); }
   }, true);
   addEventListener('resize', placeHandle);
@@ -685,11 +1201,6 @@ ${sectionsHtml}
     const ns = window.getSelection(); if(ns.rangeCount && !ns.isCollapsed) savedRange = ns.getRangeAt(0).cloneRange();
     showFmt();
   });
-
-  // ===== VisBug 활성 감지 → 페이지 이동 잠금 + 좌우 네비 숨김 =====
-  function vbActive(){ return [...document.body.children].some(el => /vis-?bug/i.test(el.tagName)); }
-  const vbObserver = new MutationObserver(() => { document.body.classList.toggle('visbug', vbActive()); });
-  vbObserver.observe(document.body, { childList: true });
 
   // ===== 텍스트 직접 편집 (편집모드에서 요소 더블클릭) =====
   function startTextEdit(el){

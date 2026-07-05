@@ -21,3 +21,8 @@ body{background:#2A2A2E;}
   background:var(--bg);color:var(--text);font-family:var(--sans);
   box-shadow:0 8px 40px rgba(0,0,0,.4);
 }
+
+/* ── 이미지 crop 프레임 (원본을 클립 창에 넣어 crop; round + 외곽선) ── */
+.imgframe{position:absolute;overflow:hidden;border-radius:18px;box-shadow:0 0 0 1.5px rgba(0,0,0,.09), 0 16px 44px rgba(0,0,0,.12);}
+.imgframe>img{position:absolute;display:block;max-width:none;user-select:none;-webkit-user-drag:none;}
+.imgframe .patch{position:absolute;background:#fff;}

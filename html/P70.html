@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>P70 — 수지란: 나를 아는 한 존재의 일곱 얼굴</title>
+<link rel="stylesheet" href="slides.css">
+</head>
+<body>
+<div class="fit">
+  <!-- P70 [수지란·일곱 얼굴+3층 세계관] 하이브리드 — 좌: 7얼굴 리스트+토대 콜아웃(HTML) / 우: 일러스트 crop(../assets/P70-illust.png: 3층 세계관 나→정보→앱 + 인용) -->
+  <section class="slide light" id="P70">
+    <style>
+      #P70 .s-title{ position:absolute; left:120px; top:104px; font-size:52px; width:1020px; line-height:1.22; }
+      #P70 .s-title .acc{ color:var(--c1); }
+      #P70 .s-subtitle{ position:absolute; left:120px; top:180px; font-size:24px; width:1000px; color:var(--muted); font-weight:600; }
+      #P70 .p70-list{ position:absolute; left:120px; top:244px; width:1000px;
+        display:flex; flex-direction:column; gap:13px; }
+      #P70 .p70-item{ display:flex; gap:18px; align-items:center; }
+      #P70 .p70-num{ width:42px; height:42px; border-radius:50%; border:3px solid var(--c1);
+        color:var(--c1); font-weight:800; font-size:21px; flex:none;
+        display:flex; align-items:center; justify-content:center; }
+      #P70 .p70-item.new .p70-num{ background:var(--c1); color:#fff; }
+      #P70 .p70-titles{ display:flex; align-items:baseline; gap:14px; }
+      #P70 .p70-item-title{ font-size:29px; font-weight:700; color:var(--text); }
+      #P70 .p70-item.new .p70-item-title{ color:var(--c1); }
+      #P70 .p70-item-sub{ font-size:21px; font-weight:500; color:var(--muted); }
+      #P70 .p70-item .tag{ font-size:16px; font-weight:800; color:#fff; background:var(--c1);
+        padding:3px 9px; border-radius:6px; letter-spacing:.02em; }
+
+      /* 토대 콜아웃 — 얼굴(경험)을 받치는 3토대(구조) */
+      #P70 .p70-base{ position:absolute; left:120px; top:820px; width:1000px;
+        background:#F4F4F1; border:1px solid var(--rule); border-radius:14px; padding:18px 24px; }
+      #P70 .p70-base .lead{ font-size:22px; font-weight:700; color:var(--secondary); margin-bottom:9px; }
+      #P70 .p70-base .lead b{ color:var(--c2); }
+      #P70 .p70-base .cols{ display:flex; gap:14px; }
+      #P70 .p70-base .b{ flex:1; text-align:center; background:#fff; border:1px solid var(--rule);
+        border-radius:10px; padding:11px 6px; font-size:21px; font-weight:700; color:var(--text); }
+      #P70 .p70-base .b span{ display:block; font-size:15px; font-weight:600; color:var(--muted); margin-top:3px; }
+
+      #P70 .illust{ position:absolute; left:1160px; top:150px; width:740px; height:auto; }
+    </style>
+
+    <h1 class="s-title">수지란 — <span class="acc">나를 아는 한 존재의 일곱 얼굴</span></h1>
+    <div class="s-subtitle">일상에서 입는 일곱 얼굴 — 그리고 그 아래 세 토대가 받친다</div>
+
+    <div class="p70-list">
+      <div class="p70-item"><div class="p70-num">1</div><div class="p70-titles"><span class="p70-item-title">지식 사서</span><span class="p70-item-sub">나를 아는 평생 서재</span></div></div>
+      <div class="p70-item"><div class="p70-num">2</div><div class="p70-titles"><span class="p70-item-title">실세계 앱스토어</span><span class="p70-item-sub">설치·키 0, 생각났을 때 바로</span></div></div>
+      <div class="p70-item new"><div class="p70-num">3</div><div class="p70-titles"><span class="p70-item-title">무한 조합</span><span class="p70-item-sub">정보가 곱해지면, 설명 안 해도</span></div></div>
+      <div class="p70-item"><div class="p70-num">4</div><div class="p70-titles"><span class="p70-item-title">시간 비서</span><span class="p70-item-sub">닫아도 도는 운영</span></div></div>
+      <div class="p70-item"><div class="p70-num">5</div><div class="p70-titles"><span class="p70-item-title">어디서나 같은 수지</span><span class="p70-item-sub">내 곁의 자비스</span></div></div>
+      <div class="p70-item new"><div class="p70-num">6</div><div class="p70-titles"><span class="p70-item-title">안전한 자비스</span><span class="p70-item-sub">격리·5층 금고·데이터 주권</span></div></div>
+      <div class="p70-item"><div class="p70-num">7</div><div class="p70-titles"><span class="p70-item-title">페르소나 진화</span><span class="p70-item-sub">당신을 개선</span></div></div>
+    </div>
+
+    <div class="p70-base">
+      <div class="lead">이 일곱 얼굴은 <b>세 토대</b> 위에 선다 — 빠진 게 아니라 배경층</div>
+      <div class="cols">
+        <div class="b">거버넌스<span>격리·5층 권한</span></div>
+        <div class="b">서버리스<span>상시 인스턴스 0</span></div>
+        <div class="b">표준 데이터 기판<span>메일·일정·가계부…</span></div>
+      </div>
+    </div>
+
+    <img class="illust" src="../assets/P70-illust.png" alt="3층 세계관 다이어그램 — 나(에이전트, 1:1) → 정보(데이터·내가 소유·영속) → 앱(실행·빌려 씀), '앱이 정보를 빌려 쓴다'">
+
+    <div class="s-footer">
+      <span>에이전트 수지 · sooji.ai</span>
+      <span class="s-pagenum">00</span>
+    </div>
+  </section>
+</div>
+</body>
+</html>

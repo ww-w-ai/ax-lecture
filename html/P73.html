@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>P73 — ③ 시간 비서 — 닫아도 도는 운영</title>
+<link rel="stylesheet" href="slides.css">
+</head>
+<body>
+<div class="fit">
+  <!-- P73 [시간 비서·자율 운영] 하이브리드 — 좌: 텍스트(HTML) / 우: 일러스트 crop(../assets/P73-illust.png: 일정→예약자동화→닫힌노트북 무인실행→푸시알림→기록 유지 순환 다이어그램) -->
+  <section class="slide light" id="P73">
+    <style>
+      #P73 .s-title{ font-size:60px; line-height:1.18; }
+      #P73 .s-title .acc{ color:var(--c1); }
+
+      #P73 .s-body{ top:290px; width:820px; gap:30px; }
+      #P73 .s-subs1{ margin-top:-16px; }
+
+      /* ── 남들 vs 수지 대비 박스 ── */
+      #P73 .p73-cmp{ position:absolute; left:120px; top:534px; width:820px;
+        border-radius:20px; overflow:hidden; border:1px solid var(--rule); }
+      #P73 .p73-row{ display:flex; align-items:center; gap:26px; padding:28px 34px; }
+      #P73 .p73-row--muted{ background:#F6F6F4; }
+      #P73 .p73-row--key{ background:var(--c1); color:#fff; }
+      #P73 .p73-icon{ width:58px; height:58px; border-radius:50%; flex:none;
+        display:flex; align-items:center; justify-content:center; }
+      #P73 .p73-row--muted .p73-icon{ background:#fff; border:2px solid var(--rule); color:var(--muted); }
+      #P73 .p73-row--key .p73-icon{ background:rgba(255,255,255,.2); color:#fff; }
+      #P73 .p73-label{ width:100px; font-size:32px; font-weight:700; flex:none; }
+      #P73 .p73-row--muted .p73-label{ color:var(--secondary); }
+      #P73 .p73-text{ font-size:29px; font-weight:600; line-height:1.5; }
+      #P73 .p73-text b{ font-weight:800; }
+      #P73 .p73-token{ display:inline-block; background:#fff; color:var(--c1);
+        font-weight:800; padding:3px 14px; border-radius:8px; }
+
+      /* 우측 일러스트 crop (ChatGPT 시안 = 디자이너 배치 유지) */
+      #P73 .illust{ position:absolute; left:896px; top:212px; width:1024px; height:auto; }
+    </style>
+
+    <h1 class="s-title"><span class="acc">④</span> 시간 비서 — 닫아도 도는 운영</h1>
+
+    <div class="s-body">
+      <div class="s-bullet"><span class="dot"></span><span class="btxt"><b>자리에 없을 때도</b></span></div>
+      <div class="s-subs s-subs1"><div class="s-sub"><span class="dash">—</span>자기 권한으로 혼자 일한다</div></div>
+      <div class="s-bullet"><span class="dot"></span><span class="btxt"><b>알림이 조용히</b></span></div>
+      <div class="s-subs s-subs1"><div class="s-sub"><span class="dash">—</span>사라지지 않는다</div></div>
+    </div>
+
+    <div class="p73-cmp">
+      <div class="p73-row p73-row--muted">
+        <div class="p73-icon">
+          <svg class="s-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </div>
+        <div class="p73-label">남들</div>
+        <div class="p73-text">자율 = LLM-per-step<br>토큰폭발 → <b>24/7 캡</b></div>
+      </div>
+      <div class="p73-row p73-row--key">
+        <div class="p73-icon">
+          <svg class="s-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></svg>
+        </div>
+        <div class="p73-label">수지</div>
+        <div class="p73-text">L1 = LLM0<br>백 번 돌아도 <span class="p73-token">토큰 0</span>, 캡 없이 자율.</div>
+      </div>
+    </div>
+
+    <img class="illust" src="../assets/P73-illust.png" alt="일정·D-day·할일 리마인더·캘린더 → 예약 자동화 실행(헤드리스) → 자고 있어도 무인 실행 → 푸시 알림(토큰 0) → 이번 주 새 동향 없음(보낼 게 없어도 기록·알림 유지) 순환 다이어그램">
+
+    <div class="s-footer">
+      <span>에이전트 수지 · sooji.ai</span>
+      <span class="s-pagenum">00</span>
+    </div>
+  </section>
+</div>
+</body>
+</html>

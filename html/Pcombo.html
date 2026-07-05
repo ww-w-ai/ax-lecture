@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>Pcombo — ③ 무한 조합 — 설명 안 해도, 알아서</title>
+<link rel="stylesheet" href="slides.css">
+</head>
+<body>
+<div class="fit">
+  <!-- Pcombo [무한 조합·데이터×앱 곱셈] 네이티브 HTML 도식 (일러스트 없음) — 상단: 핵심 명제 / 중앙: "점심 예약해줘" 트리거가 4개 데이터원과 곱해져 하나의 답으로 창발하는 도식 / 하단: 오픈클로·헤르메스 vs 수지 대비 + KEY 띠 -->
+  <section class="slide light" id="Pcombo">
+    <style>
+      #Pcombo .s-title{ font-size:60px; line-height:1.2; }
+      #Pcombo .s-title .acc{ color:var(--c1); }
+
+      /* 핵심 명제 */
+      #Pcombo .pc-premise{ position:absolute; left:120px; top:224px; width:1680px;
+        display:flex; flex-direction:column; gap:10px; }
+      #Pcombo .pc-p1{ font-size:34px; font-weight:800; color:var(--c1); line-height:1.3; }
+      #Pcombo .pc-p2{ font-size:27px; font-weight:500; color:var(--secondary); line-height:1.3; }
+
+      /* 곱셈 도식 카드 */
+      #Pcombo .pc-diagram{ position:absolute; left:120px; top:322px; width:1680px; height:296px;
+        background:#fff; border:1px solid var(--rule); border-radius:22px;
+        display:flex; align-items:center; justify-content:center; gap:22px; padding:0 44px; }
+
+      #Pcombo .pc-trigger{ flex:none; width:236px; background:#F6F6F4; border-radius:18px;
+        padding:22px 20px; display:flex; flex-direction:column; align-items:center; gap:10px; text-align:center; }
+      #Pcombo .pc-trigger .s-ic{ width:34px; height:34px; color:var(--text); }
+      #Pcombo .pc-trigger .txt{ font-size:25px; font-weight:800; color:var(--text); line-height:1.3; }
+      #Pcombo .pc-trigger .sub{ font-size:18px; color:var(--muted); font-weight:600; }
+
+      #Pcombo .pc-arrow{ flex:none; font-size:44px; font-weight:700; color:var(--muted); }
+
+      #Pcombo .pc-factors{ flex:none; display:flex; align-items:center; gap:16px; }
+      #Pcombo .pc-factor{ width:148px; height:172px; border-radius:16px; border:2px solid;
+        display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px; text-align:center; padding:0 10px; }
+      #Pcombo .pc-factor .s-ic{ width:38px; height:38px; }
+      #Pcombo .pc-factor .txt{ font-size:20px; font-weight:700; color:var(--text); line-height:1.28; }
+      #Pcombo .pc-factor.cat2{ background:var(--c2-soft); border-color:var(--c2); }
+      #Pcombo .pc-factor.cat2 .s-ic{ color:var(--c2); }
+      #Pcombo .pc-factor.cat3{ background:var(--c3-soft); border-color:var(--c3); }
+      #Pcombo .pc-factor.cat3 .s-ic{ color:var(--c3-deep); }
+      #Pcombo .pc-factor.cat1{ background:var(--c1-soft); border-color:var(--c1); }
+      #Pcombo .pc-factor.cat1 .s-ic{ color:var(--c1); }
+      #Pcombo .pc-times{ flex:none; font-size:36px; font-weight:800; color:var(--muted); }
+
+      #Pcombo .pc-output{ flex:none; width:260px; background:var(--c1); color:#fff; border-radius:18px;
+        padding:24px 22px; display:flex; flex-direction:column; align-items:center; gap:10px; text-align:center; }
+      #Pcombo .pc-output .s-ic{ width:38px; height:38px; color:#fff; }
+      #Pcombo .pc-output .txt{ font-size:23px; font-weight:800; line-height:1.32; }
+
+      /* 대비 스트립 (오픈클로/헤르메스 vs 수지) */
+      #Pcombo .pc-cmp{ position:absolute; left:120px; top:654px; width:1680px; height:128px;
+        border-radius:20px; overflow:hidden; border:1px solid var(--rule);
+        display:flex; align-items:stretch; }
+      #Pcombo .pc-col{ flex:1 1 0; display:flex; align-items:center; gap:24px; padding:0 40px; }
+      #Pcombo .pc-col--muted{ background:#F6F6F4; }
+      #Pcombo .pc-col--muted + .pc-col{ border-left:1px solid var(--rule); }
+      #Pcombo .pc-col--key{ background:var(--c1); color:#fff; }
+      #Pcombo .pc-icn{ width:56px; height:56px; border-radius:50%; flex:none;
+        display:flex; align-items:center; justify-content:center; }
+      #Pcombo .pc-col--muted .pc-icn{ background:#fff; border:2px solid var(--rule); color:var(--muted); }
+      #Pcombo .pc-col--key .pc-icn{ background:rgba(255,255,255,.2); color:#fff; }
+      #Pcombo .pc-lbl{ font-size:28px; font-weight:800; flex:none; width:220px; }
+      #Pcombo .pc-col--muted .pc-lbl{ color:var(--secondary); }
+      #Pcombo .pc-txt{ font-size:26px; font-weight:600; line-height:1.4; }
+
+      /* KEY 띠 텍스트 */
+      #Pcombo .keymsg .ktxt{ font-size:32px; font-weight:700; color:var(--text); }
+      #Pcombo .keymsg .ktxt b{ color:var(--c1); font-weight:800; }
+    </style>
+
+    <h1 class="s-title"><span class="acc">③</span> 무한 조합 — 설명 안 해도, 알아서</h1>
+
+    <div class="pc-premise">
+      <div class="pc-p1">데이터 ⊥ 앱 — 곱셈 : 앱 하나 늘면 모든 데이터에 곱해져 천장이 없다</div>
+      <div class="pc-p2">정보가 합쳐지면, 내가 시키지 않은 것까지 가능해진다.</div>
+    </div>
+
+    <div class="pc-diagram">
+      <div class="pc-trigger">
+        <svg class="s-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        <div class="txt">"점심<br>예약해줘"</div>
+        <div class="sub">한마디</div>
+      </div>
+
+      <div class="pc-arrow">→</div>
+
+      <div class="pc-factors">
+        <div class="pc-factor cat2">
+          <svg class="s-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+          <div class="txt">지도<br>동선</div>
+        </div>
+        <div class="pc-times">×</div>
+        <div class="pc-factor cat3">
+          <svg class="s-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19H9a5 5 0 1 1 .65-9.96 5.5 5.5 0 0 1 10.57 1.83A4.5 4.5 0 0 1 19.5 19h-2"/></svg>
+          <div class="txt">날씨<br>미세먼지</div>
+        </div>
+        <div class="pc-times">×</div>
+        <div class="pc-factor cat1">
+          <svg class="s-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <div class="txt">블로그<br>리뷰</div>
+        </div>
+        <div class="pc-times">×</div>
+        <div class="pc-factor cat2">
+          <svg class="s-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12V7H5a2 2 0 0 1 0-4h14v4"/><path d="M3 5v14a2 2 0 0 0 2 2h16v-5"/><path d="M18 12a2 2 0 0 0 0 4h4v-4Z"/></svg>
+          <div class="txt">가계부<br>예산</div>
+        </div>
+      </div>
+
+      <div class="pc-arrow">→</div>
+
+      <div class="pc-output">
+        <svg class="s-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></svg>
+        <div class="txt">시키지 않은<br>디테일까지, 하나의 답</div>
+      </div>
+    </div>
+
+    <div class="pc-cmp">
+      <div class="pc-col pc-col--muted">
+        <div class="pc-icn">
+          <svg class="s-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+        </div>
+        <div class="pc-lbl">오픈클로 · 헤르메스</div>
+        <div class="pc-txt">정해진 툴 · 능력마다 <b>일일이 재설정</b></div>
+      </div>
+      <div class="pc-col pc-col--key">
+        <div class="pc-icn">
+          <svg class="s-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        </div>
+        <div class="pc-lbl">수지</div>
+        <div class="pc-txt">조합은 <b>공짜</b> — 곱셈으로 <b>폭발</b></div>
+      </div>
+    </div>
+
+    <div class="keymsg">
+      <span class="tag">KEY</span>
+      <span class="ktxt">경쟁사는 앱을 <b>더한다</b>. 수지는 <b>곱한다</b>.</span>
+    </div>
+
+    <div class="s-footer">
+      <span>에이전트 수지 · sooji.ai</span>
+      <span class="s-pagenum">00</span>
+    </div>
+  </section>
+</div>
+</body>
+</html>

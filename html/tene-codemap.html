@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>tene — CodeMap</title>
+<link rel="stylesheet" href="slides.css">
+</head>
+<body>
+<div class="fit">
+  <!-- tene 쇼케이스: 위 설명(3줄) + 아래 브라우저 스크린샷(하단 살짝 bleed) — 공통 템플릿 -->
+  <section class="slide light" id="teneCodeMap">
+    <style>
+      #teneCodeMap{ background:#EFEFEC; }
+      #teneCodeMap .s-title{ position:absolute; left:120px; top:52px; font-size:56px; font-weight:800; letter-spacing:-.01em; color:var(--text); }
+      #teneCodeMap .s-title .nm{ color:var(--c1); }
+      #teneCodeMap .s-body{ position:absolute; left:120px; top:170px; width:1680px; display:flex; flex-direction:column; gap:16px; }
+      #teneCodeMap .s-bullet{ font-size:33px; line-height:1.34; color:var(--secondary); display:flex; gap:18px; align-items:flex-start; }
+      #teneCodeMap .s-bullet .dot{ width:12px; height:12px; border-radius:50%; background:var(--c1); flex:none; margin-top:13px; }
+      #teneCodeMap .s-bullet b{ color:var(--text); font-weight:800; }
+      #teneCodeMap .s-bullet .hi{ color:var(--c1); font-weight:800; }
+      /* 브라우저 스크린샷 — 자체 창 chrome 그대로, 하단이 슬라이드 밖으로 살짝 잘리게 */
+      #teneCodeMap .shot{ position:absolute; top:372px; left:0; right:0; margin-left:auto; margin-right:auto;
+        width:1400px; height:auto; display:block; }
+    </style>
+
+    <h1 class="s-title"><span class="nm">CodeMap</span> — 흐름을 한 장의 지도로</h1>
+
+    <div class="s-body">
+      <div class="s-bullet"><span class="dot"></span><span>앱의 전체 <b>화면 → 기능 → 데이터</b>로 이어지는 흐름을 보여주는 <span class="hi">마인드맵</span></span></div>
+      <div class="s-bullet"><span class="dot"></span><span>점 하나(예: ‘주문 화면’)를 누르면 <b>연결된 길이 빛나며</b> 따라감</span></div>
+      <div class="s-bullet"><span class="dot"></span><span>코드 한 줄 안 읽고도 <b>“이게 다 어떻게 엮여 있는지”</b> 알 수 있다!</span></div>
+    </div>
+
+    <img class="shot" src="../generated/_screenshots/tene-002.png" alt="tene CodeMap — 화면·기능·데이터 흐름 마인드맵">
+  </section>
+</div>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>P63 — 지금, 이만큼 쓰인다</title>
+<link rel="stylesheet" href="slides.css">
+</head>
+<body>
+<div class="fit">
+  <!-- P63 [챕터4 오프닝·승] 수치 — 다크 데이터 슬라이드 + ChatGPT 다크 배경. OpenClaw vs Hermes 실사용 지표 -->
+  <section class="slide dark" id="P63">
+    <style>
+      #P63{ background:var(--bg); }
+      #P63 .s-bg{ position:absolute; inset:0; width:1920px; height:1080px; object-fit:cover; z-index:0; }
+      #P63 .scrim{ position:absolute; inset:0; z-index:1;
+        background:linear-gradient(180deg,rgba(18,18,21,.66),rgba(18,18,21,.42) 42%,rgba(18,18,21,.48)); }
+      #P63 .s-title{ position:absolute; left:120px; top:60px; z-index:3; font-size:56px; font-weight:800; letter-spacing:-.01em; color:var(--text); }
+      #P63 .s-title .nm{ color:#FFD24A; }
+      #P63 .s-eye{ position:absolute; left:122px; top:140px; z-index:3; font-size:28px; font-weight:600; color:var(--muted); letter-spacing:.01em; }
+
+      /* 비교 그리드 — 지표 라벨 | OpenClaw | Hermes */
+      #P63 .grid{ position:absolute; left:122px; top:271px; width:955px; z-index:3;
+        display:grid; grid-template-columns:288px 1fr 1fr; }
+      #P63 .grid > div{ padding:26px 30px; border-bottom:1px solid var(--rule); display:flex; flex-direction:column; justify-content:center; }
+      #P63 .ghead{ padding-bottom:14px; }
+      #P63 .ghead .brand{ font-size:40px; font-weight:800; letter-spacing:-.01em; }
+      #P63 .ghead .oc{ color:#F4F4F1; }
+      #P63 .ghead .hm{ color:#7FB2FF; }
+      #P63 .ghead .sub{ font-size:24px; font-weight:600; color:var(--muted); margin-top:4px; }
+      #P63 .rlabel{ font-size:30px; font-weight:700; color:var(--secondary); }
+      #P63 .rlabel .u{ display:block; font-size:22px; font-weight:500; color:var(--muted); margin-top:3px; }
+      #P63 .val{ font-size:74px; font-weight:800; letter-spacing:-.02em; color:var(--text); line-height:1; }
+      #P63 .val .un{ font-size:34px; font-weight:700; color:var(--secondary); margin-left:6px; }
+      #P63 .val.lead{ color:#FFD24A; }
+      #P63 .sub2{ font-size:27px; font-weight:600; color:var(--muted); margin-top:8px; }
+      #P63 .sub2.up{ color:#7FB2FF; }
+      #P63 .sub2.down{ color:var(--muted); }
+      #P63 .col-oc{ border-left:1px solid var(--rule); background:rgba(20,20,23,.55); }
+      #P63 .col-hm{ border-left:1px solid var(--rule); background:rgba(127,178,255,.08); }
+
+      /* 결론 배너 */
+      #P63 .concl{ position:absolute; left:120px; top:955px; width:1680px; z-index:3;
+        display:flex; align-items:center; gap:22px; }
+      #P63 .concl .bar{ width:8px; align-self:stretch; background:#FFD24A; border-radius:4px; }
+      #P63 .concl .txt{ font-size:40px; font-weight:800; letter-spacing:-.01em; color:var(--text); }
+      #P63 .concl .txt b{ color:#7FB2FF; }
+    </style>
+
+    <img class="s-bg" src="../generated/P63.png" alt="">
+
+    <h1 class="s-title">지금, <span class="nm">이만큼</span> 쓰인다</h1>
+    <div class="s-eye">오픈클로 vs 헤르메스 · 깃헙 · OpenRouter 기준</div>
+
+    <div class="grid">
+      <!-- 헤더 행 -->
+      <div class="ghead"></div>
+      <div class="ghead col-oc"><span class="brand oc">OpenClaw</span><span class="sub">먼저 터진 쪽</span></div>
+      <div class="ghead col-hm"><span class="brand hm">Hermes Agent</span><span class="sub">뒤이어 역전</span></div>
+
+      <!-- 깃헙 스타 -->
+      <div class="rlabel">깃헙 스타<span class="u">누적</span></div>
+      <div class="col-oc"><div class="val lead">38만<span class="un">+</span></div></div>
+      <div class="col-hm"><div class="val">20만<span class="un">+</span></div></div>
+
+      <!-- 월 토큰 -->
+      <div class="rlabel">월 토큰<span class="u">OpenRouter</span></div>
+      <div class="col-oc"><div class="val">5<span class="un">조</span></div></div>
+      <div class="col-hm"><div class="val lead">26<span class="un">조</span></div></div>
+
+      <!-- 성장 모멘텀 = 토큰 소비 격차 (Hermes ×5) → 하단 결론과 연결 -->
+      <div class="rlabel">성장 모멘텀<span class="u">토큰 소비 = 수요</span></div>
+      <div class="col-oc"><div class="val" style="color:var(--muted)">×1<span class="un">기준</span></div><div class="sub2 down">먼저 폭발 → 둔화</div></div>
+      <div class="col-hm"><div class="val lead">×5<span class="un">배</span></div><div class="sub2 up">후발 → 역전·가속</div></div>
+    </div>
+
+    <div class="concl">
+      <span class="bar"></span>
+      <span class="txt">먼저 터진 건 오픈클로 — 지금 더 빨리 크는 건 <b>헤르메스</b></span>
+    </div>
+  </section>
+</div>
+</body>
+</html>

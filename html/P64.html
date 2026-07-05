@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>P64 — 무인증으로 열린 순간, 이렇게 뚫린다</title>
+<link rel="stylesheet" href="slides.css">
+</head>
+<body>
+<div class="fit">
+  <!-- P64 [챕터4 오프닝·전] 위험 — 좌: 3단 위험 표(정보열람→대리행위→원격장악) / 우: 비율 영역(무인증 93%→취약 63%→RCE 32%, 점점 빨강) -->
+  <section class="slide photo" id="P64">
+    <style>
+      #P64 .s-bg{position:absolute;inset:0;width:1920px;height:1080px;object-fit:cover;}
+      #P64 .scrim{position:absolute;inset:0;z-index:1;
+        background:linear-gradient(180deg,rgba(10,10,12,.9),rgba(10,10,12,.78) 42%,rgba(10,10,12,.92));}
+      #P64 .title{position:absolute;left:96px;top:70px;z-index:4;color:#fff;font-family:var(--sans);
+        font-weight:800;font-size:56px;line-height:1.1;letter-spacing:-.02em;text-shadow:0 3px 18px rgba(0,0,0,.7);}
+      #P64 .title b{color:#FF6B6B;}
+
+      /* ── 좌: 3단 위험 표 ── */
+      #P64 .tbl{position:absolute;left:96px;top:270px;width:900px;z-index:4;
+        display:flex;flex-direction:column;gap:16px;}
+      #P64 .thead{color:#EDEDEA;font-weight:800;font-size:28px;letter-spacing:-.01em;
+        padding-left:4px;text-shadow:0 2px 10px rgba(0,0,0,.8);}
+      #P64 .trow{display:grid;grid-template-columns:250px 1fr;background:rgba(22,22,26,.86);
+        border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,.08);min-height:158px;}
+      #P64 .tstage{display:flex;flex-direction:column;justify-content:center;gap:6px;padding:20px 24px;}
+      #P64 .tstage .sn{font-size:30px;font-weight:800;color:#fff;letter-spacing:-.01em;line-height:1.05;}
+      #P64 .tstage .se{font-size:20px;font-weight:600;}
+      #P64 .tdesc{padding:20px 28px;border-left:1px solid rgba(255,255,255,.08);align-self:center;
+        font-size:25px;font-weight:500;color:#D2D2CF;line-height:1.44;}
+      #P64 .tdesc b{color:#fff;font-weight:700;}
+      #P64 .r1 .tstage{border-left:8px solid #FFC24A;} #P64 .r1 .se{color:#FFC24A;}
+      #P64 .r2 .tstage{border-left:8px solid #FF7A3D;} #P64 .r2 .se{color:#FF7A3D;}
+      #P64 .r3 .tstage{border-left:8px solid #FF4141;} #P64 .r3 .se{color:#FF6B6B;}
+
+      /* ── 우: 비율 영역 (전체 노출 中 — 점점 좁아지고 점점 빨강) ── */
+      #P64 .prop{position:absolute;left:1046px;top:242px;width:778px;z-index:4;
+        background:rgba(16,16,20,.74);border:1px solid rgba(255,255,255,.09);border-radius:18px;
+        padding:28px 32px;box-shadow:0 8px 26px rgba(0,0,0,.42);backdrop-filter:blur(2px);}
+      #P64 .prop .ph{color:#EDEDEA;font-weight:800;font-size:28px;letter-spacing:-.01em;margin-bottom:6px;
+        text-shadow:0 2px 10px rgba(0,0,0,.8);}
+      #P64 .prop .phs{color:#9A9A97;font-weight:600;font-size:20px;margin-bottom:20px;}
+      #P64 .bar{margin-bottom:20px;}
+      #P64 .bar .top{display:flex;align-items:baseline;gap:14px;margin-bottom:8px;}
+      #P64 .bar .pct{font-size:60px;font-weight:800;line-height:1;letter-spacing:-.02em;}
+      #P64 .bar .lab{font-size:26px;font-weight:700;color:#fff;}
+      #P64 .bar .lab span{font-weight:500;color:#B7B7B4;font-size:22px;}
+      #P64 .bar .track{height:38px;border-radius:9px;background:rgba(255,255,255,.09);overflow:hidden;}
+      #P64 .bar .fill{height:100%;border-radius:9px;}
+      #P64 .bar .src{font-size:18px;color:#8C8C89;margin-top:7px;}
+      /* 점점 진한 빨강 */
+      #P64 .b1 .pct{color:#FF9E5B;} #P64 .b1 .fill{width:93%;background:linear-gradient(90deg,#FFB06A,#FF7A3D);}
+      #P64 .b2 .pct{color:#FF5B5B;} #P64 .b2 .fill{width:63%;background:linear-gradient(90deg,#FF6B4A,#FF3D3D);}
+      #P64 .b3 .pct{color:#E11020;} #P64 .b3 .fill{width:32%;background:linear-gradient(90deg,#FF3838,#B00010);}
+
+      #P64 .kmline{position:absolute;left:96px;top:955px;z-index:4;color:#fff;font-family:var(--sans);
+        font-weight:800;font-size:36px;letter-spacing:-.01em;text-shadow:0 2px 14px rgba(0,0,0,.9);padding-left:26px;}
+      #P64 .kmline b{color:#FF6B6B;}
+      #P64 .kmline::before{content:'';position:absolute;left:0;top:5px;bottom:5px;width:8px;background:#FF6B6B;border-radius:4px;}
+    </style>
+
+    <img class="s-bg" src="../generated/P64.png" alt="">
+
+    <div class="title">하지만... 이렇게 <b>위험하게 운영</b>되고 있는 걸 알았나요?</div>
+
+    <!-- 좌: 3단 위험 표 -->
+    <div class="tbl">
+      <div class="thead">무인증으로 열리면 — 어떤 위험</div>
+      <div class="trow r1">
+        <div class="tstage"><span class="sn">① 정보 유출</span><span class="se">read · 그냥 읽힘</span></div>
+        <div class="tdesc"><b>정보 유출 · 평문 암호·키 탈취</b><br>기밀 정보 유출 · 암호와 키로 과금·데이터 접근</div>
+      </div>
+      <div class="trow r2">
+        <div class="tstage"><span class="sn">② 대리 행위</span><span class="se">act · 내 권한으로</span></div>
+        <div class="tdesc"><b>나로 위장해 활동 (사칭·피싱)</b><br>메일·메시지 발송 · 도구 실행·결제·토큰 소비 · 파일 조작</div>
+      </div>
+      <div class="trow r3">
+        <div class="tstage"><span class="sn">③ 원격 장악</span><span class="se">RCE · 기기 접수</span></div>
+        <div class="tdesc"><b>랜섬웨어·백도어 설치</b><br>사내망 다른 시스템으로 침투(래터럴) · 봇넷·채굴 편입</div>
+      </div>
+    </div>
+
+    <!-- 우: 비율 영역 -->
+    <div class="prop">
+      <div class="ph">전체 노출 中 (20만~50만)</div>
+      <div class="phs">— 인터넷에 무방비로 열린 서버 · Censys·Penligent 2026-03</div>
+
+      <div class="bar b1">
+        <div class="top"><span class="pct">93%</span><span class="lab">무인증 <span>— 인증 개념 자체가 없음</span></span></div>
+        <div class="track"><div class="fill"></div></div>
+        <div class="src">디일렉·연구자 Maor Dayan, 2026-02</div>
+      </div>
+      <div class="bar b2">
+        <div class="top"><span class="pct">63%</span><span class="lab">취약 <span>— 악용 가능한 구멍 보유</span></span></div>
+        <div class="track"><div class="fill"></div></div>
+        <div class="src">Infosecurity·SecurityScorecard, 2026-02</div>
+      </div>
+      <div class="bar b3">
+        <div class="top"><span class="pct">32%</span><span class="lab">원격 장악 <span>— 코드 실행·기기 접수</span></span></div>
+        <div class="track"><div class="fill"></div></div>
+        <div class="src">Infosecurity, 40,214 중 12,812건</div>
+      </div>
+    </div>
+
+    <div class="kmline">네이버·카카오·당근·배민 등 — 주요 기업은 <b>사내 사용을 금지</b>했습니다.</div>
+  </section>
+</div>
+</body>
+</html>

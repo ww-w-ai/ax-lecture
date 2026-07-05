@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>P62</title>
+<link rel="stylesheet" href="slides.css">
+</head>
+<body>
+<div class="fit">
+  <!-- P62 [챕터4 오프닝·기] 광풍 — 풀블리드 사진 + HTML 오버레이 -->
+  <section class="slide photo" id="P62">
+    <style>
+      #P62 .s-bg{position:absolute;inset:0;width:1920px;height:1080px;object-fit:cover;}
+      #P62 .topgrad{position:absolute;left:0;top:0;width:1920px;height:420px;
+        background:linear-gradient(to bottom,rgba(0,0,0,.66),rgba(0,0,0,0));z-index:2;}
+      #P62 .botgrad{position:absolute;left:0;bottom:0;width:1920px;height:440px;
+        background:linear-gradient(to top,rgba(0,0,0,.86),rgba(0,0,0,.4) 55%,rgba(0,0,0,0));z-index:2;}
+      #P62 .eyebrow{position:absolute;left:96px;top:70px;z-index:4;color:#fff;font-family:var(--sans);
+        font-weight:700;font-size:28px;letter-spacing:.02em;opacity:.92;text-shadow:0 2px 10px rgba(0,0,0,.6);}
+      #P62 .title{position:absolute;left:96px;top:80px;z-index:4;color:#fff;font-family:var(--sans);
+        font-weight:800;font-size:80px;line-height:1.12;letter-spacing:-.02em;text-shadow:0 3px 20px rgba(0,0,0,.65);}
+      #P62 .title b{color:var(--c1);}
+      #P62 .chips{position:absolute;left:96px;bottom:156px;z-index:4;display:flex;gap:22px;}
+      #P62 .chip{background:rgba(255,255,255,.13);border:1.5px solid rgba(255,255,255,.55);
+        color:#fff;font-family:var(--sans);font-weight:700;font-size:31px;padding:13px 28px;border-radius:999px;
+        text-shadow:0 2px 8px rgba(0,0,0,.55);}
+      #P62 .chip b{color:#FFD24A;}
+      #P62 .kmline{position:absolute;left:96px;bottom:78px;z-index:4;color:#fff;font-family:var(--sans);
+        font-weight:800;font-size:38px;letter-spacing:-.01em;text-shadow:0 2px 12px rgba(0,0,0,.7);padding-left:26px;}
+      #P62 .kmline::before{content:'';position:absolute;left:0;top:6px;bottom:6px;width:8px;
+        background:var(--c1);border-radius:4px;}
+    </style>
+
+    <img class="s-bg" src="../generated/P62.png" alt="">
+    <div class="topgrad"></div>
+    <div class="botgrad"></div>
+
+    <div class="title">세계가 <b>‘개인 자비스’</b>에 빠졌다</div>
+
+    <div class="chips">
+      <span class="chip">깃헙 <b>&nbsp;58만+&nbsp;</b> 스타</span>
+      <span class="chip">월&nbsp;<b>31조+&nbsp;</b> 토큰</span>
+      <span class="chip">첫 주 방문&nbsp;<b>200만</b></span>
+      <span class="chip">텐센트 앞 <b>&nbsp;1,000명</b>&nbsp;줄</span>
+    </div>
+    <div class="kmline">매일 1조 토큰 → <span style="color:#E8920A">매일 100만 토큰</span> 사용자가 <span style="color:#0B5FD9">100만명</span></div>
+  </section>
+</div>
+</body>
+</html>

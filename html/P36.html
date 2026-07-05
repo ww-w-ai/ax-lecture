@@ -11,20 +11,23 @@
   <section class="slide light" id="P36">
                 <style>
                   #P36 .s-title{ font-size:64px; line-height:1.18; }
-                  #P36 .s-body{ top:300px; width:760px; gap:44px; }
-                  #P36 .s-bullet{ font-size:37px; }
+                  #P36 .s-title .acc{ color:var(--c1); }
+                  #P36 .s-subtitle{ top:212px; font-size:36px; color:var(--muted); font-weight:600; }
+                  #P36 .s-body{ top:300px; width:760px; gap:24px; }
+                  #P36 .s-bullet{ font-size:33px; }
+                  #P36 .s-bullet .btxt{ line-height:1.44; }
                   #P36 .s-bullet .lead{ color:var(--c1); font-weight:800; }
+                  #P36 .s-bullet .k{ font-family:ui-monospace,'SF Mono',monospace; color:var(--c2); }
                   /* 우측 Sprint 컨테이너 이미지 */
                   #P36 .sprint{ position:absolute; right:56px; top:250px; width:940px; height:auto; }
-                  #P36 .sprint-cap{ position:absolute; right:56px; top:236px; width:940px; text-align:center;
-                    color:var(--muted); font-size:24px; font-weight:600; letter-spacing:.01em; }
                 </style>
             
-                <h1 class="s-title">Sprint 개념 ① — PDCA → Sprint 진화</h1>
+                <h1 class="s-title">자율주행 개발 하네스로의 진화 — <span class="acc">Sprint</span></h1>
+                <div class="s-subtitle">개념 미리보기 — 스스로 검증하고 스스로 고치는 무인 개발 엔진</div>
             
-                <img class="sprint" src="assets/P36-sprint.png" alt="Sprint 컨테이너: 여러 기능(auth·billing·onboarding)이 각자 내부 PDCA로 돌고, PRD→Plan→Design→Do→Iterate→QA→Report→Archived 수명주기와 공유 범위·예산·일정으로 묶임" style="inset: 262px auto auto 1006px; width: 798px; height: auto;">
+                <img class="sprint" src="assets/P36-sprint.png" alt="Sprint 컨테이너: 여러 기능(auth·billing·onboarding)이 각자 내부 PDCA로 돌고, PRD→Plan→Design→Do→Iterate→QA→Report→Archived 수명주기와 공유 범위·예산·일정으로 묶임" style="inset: 353px auto auto 1138px; width: 687px; height: auto;">
             
-                <div class="s-body" style="inset: 300px auto auto 120px; width: 838px;">
+                <div class="s-body" style="inset: 357px auto auto 124px; width: 875px;">
                   <div class="s-bullet">
                     <span class="dot"></span>
                     <span class="btxt"><span class="lead">PDCA가 Sprint 스킬로 진화</span> — 여러 기능을&nbsp;<span class="hl">하나의 컨테이너로 묶어 함께 관리</span>. 각 기능은 그 안에서 그대로 PDCA로 돈다.</span>
@@ -35,12 +38,16 @@
                   </div>
                   <div class="s-bullet">
                     <span class="dot"></span>
+                    <span class="btxt"><span class="lead">한 줄 명령 → 전 과정 무인</span> — <span class="k">/sprint init</span> 하나로 prd→plan→design→do→qa→report 완주</span>
+                  </div>
+                  <div class="s-bullet">
+                    <span class="dot"></span>
                     <span class="btxt"><span class="lead">Trust L0~L4</span> — ‘어디까지 사람 없이 갈지’ 정하는 <br>다이얼 <span style="color:var(--muted);">(L0 수동 → L4 완전자율)</span>.</span>
                   </div>
                 </div>
             
                 <div class="s-footer">
-                  <span>주식회사 덥덥덥 · ww-w.ai</span>
+                  <span>에이전트 수지 · sooji.ai</span>
                   <span class="s-pagenum">37</span>
                 </div>
               </section>

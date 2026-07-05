@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>Ppillars — 기존의 벽, 8기둥으로 푼다</title>
+<link rel="stylesheet" href="slides.css">
+</head>
+<body>
+<div class="fit">
+  <!-- Ppillars [수지란·해결 프레임] 8기둥 = ①~⑦ 문제→구조적 해결 + ⑧ forward proposition(영혼). 앞의 7문제(P64②·P65①③④⑤⑥⑦)를 받아, 뒤 P70 '일곱 얼굴'로 연결하는 브릿지. -->
+  <section class="slide light" id="Ppillars">
+    <style>
+      #Ppillars .s-title{ position:absolute; left:120px; top:96px; font-size:52px; font-weight:800; letter-spacing:-.02em; }
+      #Ppillars .s-title .acc{ color:var(--c1); }
+      #Ppillars .s-subtitle{ position:absolute; left:122px; top:172px; font-size:24px; font-weight:600; color:var(--muted); }
+      #Ppillars .s-subtitle b{ color:var(--c3-deep); }
+
+      #Ppillars .pgrid{ position:absolute; left:120px; top:246px; width:1720px;
+        display:grid; grid-template-columns:1fr 1fr; gap:18px 40px; }
+      #Ppillars .pil{ display:flex; gap:20px; align-items:flex-start;
+        background:#fff; border:1px solid var(--rule); border-radius:16px; padding:20px 26px;
+        box-shadow:0 4px 16px rgba(0,0,0,.05); }
+      #Ppillars .pnum{ width:46px; height:46px; border-radius:50%; border:3px solid var(--c1);
+        color:var(--c1); font-weight:800; font-size:24px; flex:none;
+        display:flex; align-items:center; justify-content:center; }
+      #Ppillars .pbody{ display:flex; flex-direction:column; gap:5px; }
+      #Ppillars .prob{ font-size:23px; font-weight:600; color:var(--secondary); }
+      #Ppillars .prob b{ color:var(--text); font-weight:800; }
+      #Ppillars .prob .d{ color:var(--muted); font-weight:500; font-size:20px; }
+      #Ppillars .sol{ font-size:24px; font-weight:800; color:var(--c1); letter-spacing:-.01em; }
+      #Ppillars .sol .d{ color:var(--secondary); font-weight:600; font-size:20px; }
+
+      /* ⑧ = 우리의 제시(영혼) — 문제 아님, c2로 구분 */
+      #Ppillars .pil.soul{ background:var(--c2-soft); border-color:var(--c2); }
+      #Ppillars .pil.soul .pnum{ border-color:var(--c2); color:#fff; background:var(--c2); }
+      #Ppillars .pil.soul .sol{ color:var(--c2); }
+      #Ppillars .pil.soul .badge{ display:inline-block; font-size:15px; font-weight:800; color:#fff;
+        background:var(--c2); padding:3px 10px; border-radius:6px; margin-bottom:2px; letter-spacing:.02em; }
+
+      #Ppillars .bridge{ position:absolute; left:120px; bottom:52px; width:1720px;
+        display:flex; align-items:center; gap:20px; background:var(--c1-soft);
+        border-radius:14px; padding:20px 30px; }
+      #Ppillars .bridge .tag{ background:var(--c1); color:#fff; font-weight:800; font-size:19px;
+        padding:7px 14px; border-radius:8px; flex:none; letter-spacing:.02em; }
+      #Ppillars .bridge .txt{ font-size:30px; font-weight:700; color:var(--text); letter-spacing:-.01em; }
+      #Ppillars .bridge .txt b{ color:var(--c1); }
+    </style>
+
+    <h1 class="s-title">기존의 벽 — <span class="acc">8기둥으로 푼다</span></h1>
+    <div class="s-subtitle">①~⑦ 일곱 문제를 '기능'이 아니라 <b>구조로 해결</b> — 그리고 ⑧, 그 위에 얹는 영혼</div>
+
+    <div class="pgrid">
+      <div class="pil">
+        <div class="pnum">①</div>
+        <div class="pbody">
+          <div class="prob"><b>어렵다</b> <span class="d">설치·연동·API 키 3단 마찰</span></div>
+          <div class="sol">→ 제로설정 <span class="d">MCP 30초 · 가입0·키0</span></div>
+        </div>
+      </div>
+      <div class="pil">
+        <div class="pnum">②</div>
+        <div class="pbody">
+          <div class="prob"><b>위험하다</b> <span class="d">보안·파일·조직 노출</span></div>
+          <div class="sol">→ 클라우드 격리 <span class="d">+ 5층 도서관 거버넌스</span></div>
+        </div>
+      </div>
+      <div class="pil">
+        <div class="pnum">③</div>
+        <div class="pbody">
+          <div class="prob"><b>비싸다</b> <span class="d">24시간 별도 컴퓨터</span></div>
+          <div class="sol">→ 서버리스 <span class="d">살 기계·임대비 0</span></div>
+        </div>
+      </div>
+      <div class="pil">
+        <div class="pnum">④</div>
+        <div class="pbody">
+          <div class="prob"><b>자유도 낮음</b> <span class="d">장벽 넘어도 갇힘 · 새 기능=①사슬 재발동</span></div>
+          <div class="sol">→ find→run <span class="d">데이터⊥앱 무한조합</span></div>
+        </div>
+      </div>
+      <div class="pil">
+        <div class="pnum">⑤</div>
+        <div class="pbody">
+          <div class="prob"><b>토큰 폭발</b> <span class="d">매 단계 LLM → 청구서 폭주·저가 도피</span></div>
+          <div class="sol">→ L1=LLM0 <span class="d">실행·재실행은 코드</span></div>
+        </div>
+      </div>
+      <div class="pil">
+        <div class="pnum">⑥</div>
+        <div class="pbody">
+          <div class="prob"><b>나를 못 담음</b> <span class="d">업무 로그만, 취향·관계·일상은 빠짐</span></div>
+          <div class="sol">→ 표준 일상 데이터 기판 <span class="d">페르소나 토대</span></div>
+        </div>
+      </div>
+      <div class="pil">
+        <div class="pnum">⑦</div>
+        <div class="pbody">
+          <div class="prob"><b>한 기계에 묶임</b> <span class="d">꺼지면 없고 상태가 나를 못 따라옴</span></div>
+          <div class="sol">→ 항상켜짐·편재성 <span class="d">MCP · 어디서나</span></div>
+        </div>
+      </div>
+      <div class="pil soul">
+        <div class="pnum">⑧</div>
+        <div class="pbody">
+          <span class="badge">우리의 제시</span>
+          <div class="sol">페르소나의 진화 <span class="d">스킬이 아니라 '당신'을 개선 = 해자</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bridge">
+      <span class="tag">그래서</span>
+      <span class="txt">①~⑦을 구조로 풀고 ⑧을 얹는다 — <b>그게 수지의 '일곱 얼굴'로 나타난다</b></span>
+    </div>
+  </section>
+</div>
+</body>
+</html>

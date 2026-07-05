@@ -7,36 +7,50 @@
 </head>
 <body>
 <div class="fit">
+  <!-- P57 [설명] tene ① 인트로 — 좌: 제목·서브·불릿(HTML) / 우: 개요 스크린샷 / 하단: MESSAGE 밴드 (51~53 템플릿 통일) -->
   <section class="slide light" id="P57">
     <style>
-      #P57 .s-title{ font-size:54px; line-height:1.259; }
-      #P57 .s-body{ width:740px; top:330px; gap:40px; }
-      #P57 .s-bullet{ font-size:34px; }
-      #P57 .eyebrow{ display:inline-block; color:var(--c2); font-weight:700; font-size:24px;
-        letter-spacing:.02em; margin-bottom:8px; }
-      #P57 .shot{ position:absolute; right:120px; top:330px; width:900px; height:572px;
-        border-radius:12px; border:1px solid var(--rule); box-shadow:0 14px 44px rgba(0,0,0,.13);
-        object-fit:cover; object-position:top center; background:#fff; }
+      #P57 .s-title{ font-size:64px; line-height:1.2; }
+      #P57 .s-title .rest{ font-weight:400; font-size:60px; letter-spacing:-.01em; }
+      #P57 .s-subtitle{ top:216px; font-size:36px; color:var(--muted); font-weight:600; }
+      #P57 .s-subtitle .c2{ color:var(--c2); }
+      #P57 .s-body{ top:320px; width:1000px; gap:34px; }
+      #P57 .s-bullet{ font-size:37px; }
+      #P57 .s-bullet .btxt{ line-height:1.38; }
+      #P57 .s-bullet .head{ font-weight:800; color:var(--text); }
+      #P57 .s-bullet .acc{ color:var(--c1); font-weight:800; }
+      #P57 .s-bullet .desc{ display:block; font-size:33px; margin-top:3px; color:var(--secondary); }
+      /* 우측 스크린샷 — 자체 창 chrome 그대로, 덧프레임(라운드·그림자) 없이 깔끔히 */
+      #P57 .illust{ position:absolute; right:120px; top:326px; width:640px; height:auto; }
+      #P57 .keymsg .msg{ font-size:32px; font-weight:600; color:var(--text); line-height:1.32; }
+      #P57 .keymsg .msg .acc{ color:var(--c1); }
     </style>
 
-    <h1 class="s-title">bkit 차기 버전 'tene' ①: 자율주행을 '눈으로' 본다</h1>
+    <h1 class="s-title">tene studio<span class="rest"> — UI 가 통합된 bkit 차기 버전</span></h1>
+    <div class="s-subtitle">에이전트가 만든 것을 <span class="c2">보고, 분석하고, 통제한다</span></div>
 
-    <img class="shot" src="../generated/_screenshots/tene-001.png" alt="tene studio 개요 대시보드">
+    <img class="illust" src="../generated/_screenshots/tene-001.png" alt="tene studio 개요 대시보드">
 
     <div class="s-body">
       <div class="s-bullet">
         <span class="dot"></span>
-        <span class="btxt"><span class="eyebrow">핵심 의식</span><br>에이전트가 <span class="acc">무엇을 만들었고 어떻게 도는지</span>를 눈으로 모니터링·분석. 안 보이는 자율주행은 통제 불가.</span>
+        <span class="btxt"><span class="head">눈으로 모니터링·분석</span><span class="desc">에이전트가 <span class="acc">무엇을 만들었고 어떻게 도는지</span>를 화면으로 확인</span></span>
       </div>
       <div class="s-bullet">
         <span class="dot"></span>
-        <span class="btxt"><span class="eyebrow">개요 = 내 프로젝트 건강검진표</span><br>폴더를 고르면 자동 전체 스캔 → <span class="hl">언어·프레임워크 · 위험 핫스팟</span>을 한눈에.</span>
+        <span class="btxt"><span class="head">만드는 것 뿐 아니라 <span class="c2" style="color:var(--c2);">자동 진단</span>까지!</span><span class="desc">폴더를 고르면 자동 전체 스캔 → <span class="acc">언어·프레임워크·위험 핫스팟</span>을 한눈에</span></span>
       </div>
     </div>
 
+    <!-- 하단 MESSAGE 띠 (표준 .keymsg — 51~53과 통일) -->
+    <div class="keymsg">
+      <span class="tag">MESSAGE</span>
+      <span class="msg">안 보이는 자율주행은 <span class="acc">통제 불가</span> — 만든 것을 눈으로 봐야 맡길 수 있다</span>
+    </div>
+
     <div class="s-footer">
-      <span>주식회사 덥덥덥 · ww-w.ai</span>
-      <span class="s-pagenum">57</span>
+      <span>에이전트 수지 · sooji.ai</span>
+      <span class="s-pagenum">54</span>
     </div>
   </section>
 </div>

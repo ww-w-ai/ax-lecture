@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>P68 — 새로운 세계관 — 데이터는 내가, 앱은 서버가</title>
+<link rel="stylesheet" href="slides.css">
+</head>
+<body>
+<div class="fit">
+  <!-- P68 [새로운 세계관] 하이브리드 — 좌: 텍스트(HTML, 파운더 레터 원문 전사) / 우: 일러스트 crop(../assets/P68-illust.png: 예전→반전→수지 박스 다이어그램) + 하단 2개 노트 칩(HTML) -->
+  <section class="slide light" id="P68">
+    <style>
+      #P68 .s-title{ top:96px; font-size:56px; line-height:1.2; width:700px; }
+      #P68 .s-title .acc2{ color:var(--c2); }
+
+      #P68 .s-body{ top:262px; width:700px; gap:22px; }
+      #P68 .s-bullet{ font-size:26px; gap:16px; }
+      #P68 .s-bullet .s-ic{ width:28px; height:28px; color:var(--c1); flex:none; margin-top:3px; }
+      #P68 .s-bullet .btxt{ line-height:1.38; }
+      #P68 .s-bullet .label{ font-weight:800; color:var(--text); }
+      #P68 .s-subs{ padding-left:44px; }
+      #P68 .s-sub{ font-size:22px; }
+      #P68 .p68-tags{ display:flex; gap:12px; margin-top:2px; flex-wrap:wrap; }
+      #P68 .p68-tags .chip{ font-size:20px; padding:6px 16px; }
+
+      /* 우측 일러스트 crop (ChatGPT 시안 = 예전/반전/수지 박스) */
+      #P68 .illust{ position:absolute; left:873px; top:55px; width:1047px; height:auto; }
+
+      /* 일러스트 하단 — 원본의 두 note 칩(작은 라벨, 편집 가능하게 HTML로) */
+      #P68 .p68-taglist{ position:absolute; left:873px; top:868px; width:1047px;
+        display:flex; gap:22px; }
+      #P68 .p68-taglist .t{ flex:1; display:flex; align-items:center; gap:14px; font-size:23px;
+        color:var(--secondary); border:1px solid var(--rule); border-radius:12px; padding:16px 22px; background:#fff; }
+      #P68 .p68-taglist .s-ic{ width:26px; height:26px; flex:none; color:var(--c3-deep); }
+    </style>
+
+    <h1 class="s-title">새로운 세계관 —<br><span class="acc2">데이터는 내가, 앱은 서버가</span></h1>
+
+    <div class="s-body">
+      <div class="s-bullet">
+        <svg class="s-ic" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+        <span class="btxt"><span class="label">출발점 (백서)</span> — "AI의 기억은 대화가 끝나면 <span class="strike">흩어지도록</span> 만들어져 있다." ChatGPT에 적은 걸 Claude는 모른다<br>→ 수지 = 그 사이에 놓인 <span class="acc">영속(永續) 도서관</span></span>
+      </div>
+      <div class="s-subs s-subs1">
+        <div class="s-sub"><span class="dash">—</span>"하나의 도서관을 모든 AI가 공유한다 — 도구를 바꿔도 지식은 사라지지 않는다."</div>
+      </div>
+
+      <div class="s-bullet">
+        <svg class="s-ic" viewBox="0 0 24 24"><path d="M17 1l4 4-4 4"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><path d="M7 23l-4-4 4-4"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>
+        <span class="btxt"><span class="label">세계관의 핵심 뒤집기</span> (파운더 레터 원문)<br>"예전엔 데이터가 서버에 있고, 앱이 내 PC·모바일에서 돌았다. 수지는 완전히 반대다 — <span class="acc">데이터는 내가 관리</span>하고, <span class="acc">앱이 오히려 서버에서 돈다</span>."</span>
+      </div>
+
+      <div class="s-bullet">
+        <svg class="s-ic" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h1v1H9zM14 9h1v1h-1zM9 14h1v1H9zM14 14h1v1h-1z"/></svg>
+        <span class="btxt"><span class="label">코드로 실현</span> (데이터주권 로드맵) — <span class="acc2">컴퓨트는 우리, 데이터는 유저</span>. 이래야 데이터 주권을 지키면서도 24시간 깨어 있는 에이전트가 가능.</span>
+      </div>
+      <div class="s-subs s-subs1">
+        <div class="p68-tags">
+          <span class="chip chip--key">설치 0</span>
+          <span class="chip chip--sec">노트북을 닫아도 깨어 있음</span>
+        </div>
+      </div>
+
+      <div class="s-bullet">
+        <svg class="s-ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        <span class="btxt"><span class="label">한 줄</span> (파운더 레터) — "이것이 바로 <span class="acc">AI 시대의 새로운 세계관</span>이라고 생각합니다."</span>
+      </div>
+    </div>
+
+    <img class="illust" src="../assets/P68-illust.png" alt="예전(데이터=서버, 앱=내 PC·모바일) → 반전 화살표 → 수지(데이터=나: 내가 관리·소유·영속 / 앱=서버에서 돈다: 컴퓨트=우리) 박스 다이어그램">
+
+    <div class="p68-taglist">
+      <div class="t"><svg class="s-ic" viewBox="0 0 24 24"><path d="M20 21v-8a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8"/><path d="M9 21V13h6v8"/><path d="M2 10L12 3l10 7"/></svg>노트북을 닫아도 깨어 있음</div>
+      <div class="t"><svg class="s-ic" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>AI의 기억은 흩어진다 → 영속 도서관</div>
+    </div>
+
+    <div class="s-footer">
+      <span>에이전트 수지 · sooji.ai</span>
+      <span class="s-pagenum">00</span>
+    </div>
+  </section>
+</div>
+</body>
+</html>

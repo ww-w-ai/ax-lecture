@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>P39 — 34종의 전문가 에이전트 군단</title>
+<link rel="stylesheet" href="slides.css">
+</head>
+<body>
+<div class="fit">
+  <!-- 전문가 에이전트 군단(원 generated/P48.png) — 우: 원형 다이어그램 crop / 좌: 2그룹 HTML -->
+  <section class="slide light" id="P48A">
+    <style>
+      #P48A .s-title{ font-size:64px; line-height:1.18; }
+      #P48A .s-title .acc{ color:var(--c1); }
+      #P48A .s-subtitle{ top:216px; font-size:40px; color:var(--muted); font-weight:600; }
+
+      /* 좌: 2그룹 (텍스트 크게) */
+      #P48A .groups{ position:absolute; left:120px; top:330px; width:900px;
+        display:flex; flex-direction:column; gap:38px; }
+      #P48A .grp .gh{ font-size:36px; font-weight:800; color:var(--c1); letter-spacing:-0.01em; margin-bottom:18px; }
+      #P48A .grp .row{ display:flex; align-items:baseline; gap:15px; padding-left:6px; margin-bottom:13px; }
+      #P48A .grp .row::before{ content:""; width:13px; height:13px; border-radius:50%; background:var(--c1); flex:none; transform:translateY(-3px); }
+      #P48A .grp .nm{ font-family:ui-monospace,'SF Mono',Menlo,monospace; font-size:33px; font-weight:800; color:var(--text); letter-spacing:-0.01em; }
+      #P48A .grp .ds{ font-size:29px; font-weight:500; color:var(--secondary); }
+
+      /* 우: 원형 다이어그램 — crop 프레임(원본 P48.png 클립). 편집: Shift+드래그 이동·휠 확대·모서리 창크기 */
+      #P48A .agents{ position:absolute; left:1025px; top:217px; width:775px; height:711px; }
+    </style>
+
+    <h1 class="s-title"><span class="acc">34종</span>의 전문가 에이전트 군단</h1>
+    <div class="s-subtitle">알맞는 개발 전문가가 자동 투입</div>
+
+    <div class="groups">
+      <div class="grp">
+        <div class="gh">아키텍처 · 구현</div>
+        <div class="row"><span class="nm">enterprise-expert</span><span class="ds">아키텍처 · MSA</span></div>
+        <div class="row"><span class="nm">infra-architect</span><span class="ds">AWS · K8s · Terraform</span></div>
+        <div class="row"><span class="nm">frontend-architect</span><span class="ds">UI · React · 디자인시스템</span></div>
+        <div class="row"><span class="nm">bkend-expert</span><span class="ds">인증 · DB · API · bkend.ai</span></div>
+      </div>
+      <div class="grp">
+        <div class="gh">보안 · 품질</div>
+        <div class="row"><span class="nm">security-architect</span><span class="ds">OWASP · 취약점</span></div>
+        <div class="row"><span class="nm">code-analyzer</span><span class="ds">품질 · 보안 · 성능</span></div>
+        <div class="row"><span class="nm">design-validator</span><span class="ds">설계 완전성 검증</span></div>
+      </div>
+    </div>
+
+    <div class="imgframe agents"><img src="../generated/P48.png" style="width:1406px; left:-594px; top:-24px;" alt="자연어 요청을 중심으로 8종 전문가 에이전트가 원형으로 자동 배치되는 다이어그램"></div>
+    <!-- 크롭 좌측 가장자리 가리개(편집기 덮개) -->
+    <div style="position:absolute; left:1024px; top:244px; width:21px; height:122px; background:#fff; z-index:20;"></div>
+
+    <div class="s-footer">
+      <span>에이전트 수지 · sooji.ai</span>
+      <span class="s-pagenum">39</span>
+    </div>
+  </section>
+</div>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>P54 — bkit 커스텀 (직접 써봤으니 이제 내 것으로)</title>
+<link rel="stylesheet" href="slides.css">
+</head>
+<body>
+<div class="fit">
+  <!-- P54 [설명] bkit 커스텀 — 좌: 제목·불릿·인용(HTML) / 우: 일러스트 crop(assets/P54-illust.png) -->
+  <section class="slide light" id="P54">
+    <style>
+      #P54 .s-title{ font-size:64px; }
+      #P54 .s-title .acc{ color:var(--text); }
+      #P54 .s-subtitle{ top:216px; font-size:36px; color:var(--muted); font-weight:600; }
+      #P54 .s-subtitle .m{ font-family:ui-monospace,'SF Mono',monospace; font-size:31px; color:var(--c2); }
+      #P54 .s-body{ top:320px; width:1080px; gap:30px; }
+      #P54 .s-bullet{ font-size:37px; }
+      #P54 .s-bullet .btxt{ line-height:1.36; }
+      #P54 .s-bullet .acc{ color:var(--c1); font-weight:800; }
+      #P54 .s-bullet code{ font-family:ui-monospace,'SF Mono',monospace; font-size:30px; color:var(--c2); }
+      #P54 .s-bullet .guide{ display:block; margin-top:12px; font-size:31px; font-weight:500;
+        color:var(--secondary); line-height:1.42; }
+      #P54 .s-bullet .guide code{ font-size:26px; }
+      #P54 .s-bullet .guide .k{ color:var(--c1); font-weight:700; }
+      /* 우측 일러스트 crop (유지) — 라이브 편집 위치 반영 */
+      #P54 .illust{ position:absolute; right:120px; top:300px; width:555px; height:auto; }
+      #P54 .keymsg .msg{ font-size:32px; font-weight:600; color:var(--text); line-height:1.32; }
+      #P54 .keymsg .msg .acc{ color:var(--c1); }
+    </style>
+
+    <h1 class="s-title">이제 내 것으로 — <span class="acc">bkit 커스텀 가이드</span></h1>
+    <div class="s-subtitle"><span class="m">CUSTOMIZATION-GUIDE.md</span> — 포크해 내 조직에 맞추는 종합 문서</div>
+
+    <img class="illust" src="assets/P54-illust.png" alt="bkit 상자에서 Custom 퍼즐 조각을 꺼내 내 프로젝트에 맞추고 /btw로 아이디어를 기록해 스킬 후보로 추출하는 일러스트">
+
+    <div class="s-body">
+      <div class="s-bullet">
+        <span class="dot"></span>
+        <span class="btxt"><span class="acc">유지할 것 vs 커스텀할 것</span> — 검증된 뼈대(PDCA·게이트·훅)는 그대로,<br>트리거·에이전트 톤·템플릿·도메인 지식은 내 것으로</span>
+      </div>
+      <div class="s-bullet">
+        <span class="dot"></span>
+        <span class="btxt"><span class="acc">6대 컴포넌트 커스터마이즈</span> — 에이전트·스킬·커맨드·훅·템플릿·조직특화<span class="guide">예) 사내 코딩표준을 <code>company-standards</code> 스킬로 → <span class="k">모든 코드 작성·리뷰에 자동 적용</span><br>예) 신입 온보딩 에이전트 → “우린 이렇게 해요” 물으면 사내 컨벤션·내부 API 안내<br>방법 = 원본 컴포넌트 복사 → <span class="k">이름·트리거·도메인 값만 우리 것으로 치환</span></span></span>
+      </div>
+    </div>
+
+    <!-- 하단 MESSAGE 띠 (표준 .keymsg) -->
+    <div class="keymsg">
+      <span class="tag">MESSAGE</span>
+      <span class="msg">bkit은 <span class="acc">100% 오픈소스</span> — 포크해 내 것으로 쓰고, 좋아지면 PR로 공유</span>
+    </div>
+
+    <div class="s-footer">
+      <span>에이전트 수지 · sooji.ai</span>
+      <span class="s-pagenum">54</span>
+    </div>
+  </section>
+</div>
+</body>
+</html>

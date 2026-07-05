@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>P82 — 1인 창업가의 자비스, 그리고 그 너머</title>
+<link rel="stylesheet" href="slides.css">
+</head>
+<body>
+<div class="fit">
+  <!-- P82 [마무리 hero — 정리+CTA] 하이브리드 — 좌: 텍스트(HTML, 체인칩/타이틀/3레버/CTA 2박스) / 우: 일러스트 crop(../assets/P82-illust.png: 헤드셋 낀 수지가 야간 데스크에서 메일·일정·문서·경보 아이콘에 둘러싸여 노트북·달·화분과 순환 화살표로 연결) — [★ NO FOOTER, closing hero] -->
+  <section class="slide light" id="P82">
+    <style>
+      #P82 .chainrow{ position:absolute; left:120px; top:70px; width:1680px;
+        display:flex; align-items:center; gap:14px; }
+      #P82 .chainrow .chip{ background:#F6F6F4; border:1px solid var(--rule); color:var(--text);
+        font-weight:700; font-size:24px; line-height:1.28; padding:14px 24px; white-space:nowrap;
+        display:inline-flex; align-items:center; gap:14px; }
+      #P82 .chainrow .chip.last{ background:var(--c1); color:#fff; border:none; }
+      #P82 .chainrow .chip .s-ic{ width:34px; height:34px; flex:none; }
+      #P82 .chainrow .chip:nth-child(1) .s-ic{ color:var(--c1); }
+      #P82 .chainrow .chip:nth-child(3) .s-ic{ color:var(--c2); }
+      #P82 .chainrow .chip:nth-child(5) .s-ic{ color:var(--c1); }
+      #P82 .chainrow .chip.last .s-ic{ color:#fff; }
+      #P82 .chainrow .arrow{ flex:none; color:var(--muted); }
+      #P82 .chainrow .arrow svg{ width:34px; height:20px; }
+
+      #P82 .s-title{ top:230px; font-size:74px; width:1300px; }
+
+      #P82 .levers{ position:absolute; left:120px; top:530px; width:850px;
+        display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+      #P82 .lever{ border-radius:16px; border:2px solid var(--rule); background:#fff;
+        padding:20px 14px; display:flex; flex-direction:column; align-items:center; gap:10px; text-align:center; }
+      #P82 .lever.emph{ border-color:var(--c1); background:var(--c1-soft); }
+      #P82 .lever .n{ width:44px; height:44px; border-radius:50%; color:#fff; font-weight:800;
+        font-size:24px; display:flex; align-items:center; justify-content:center; margin-bottom:-6px; }
+      #P82 .lever:nth-child(1) .n{ background:var(--c2); }
+      #P82 .lever:nth-child(2) .n{ background:var(--c1); }
+      #P82 .lever:nth-child(3) .n{ background:var(--c3-deep); }
+      #P82 .lever .ic{ width:64px; height:64px; border-radius:14px; background:var(--c2-soft); color:var(--c2);
+        display:flex; align-items:center; justify-content:center; }
+      #P82 .lever.emph .ic{ background:var(--c1); color:#fff; border-radius:50%; }
+      #P82 .lever:nth-child(3) .ic{ background:var(--c3-soft); color:var(--c3-deep); }
+      #P82 .lever .ic .s-ic{ width:32px; height:32px; }
+      #P82 .lever .t{ font-size:30px; font-weight:700; color:var(--text); }
+      #P82 .lever .s{ font-size:18px; font-weight:500; color:var(--muted); line-height:1.3; }
+      #P82 .lever.emph .t{ color:var(--c1); }
+
+      #P82 .ctarow{ position:absolute; left:120px; top:826px; width:1680px; height:132px;
+        display:flex; align-items:stretch; gap:10px; }
+      #P82 .cta-rocket{ flex:0 0 34%; background:var(--c1-soft); border-radius:16px 26px 16px 16px;
+        display:flex; align-items:center; gap:18px; padding:0 30px; }
+      #P82 .cta-rocket .s-ic{ width:44px; height:44px; color:var(--c1); flex:none; }
+      #P82 .cta-rocket .txt{ font-size:32px; font-weight:800; color:var(--text); line-height:1.3; }
+      #P82 .cta-rocket .txt .em{ color:var(--c1); }
+      #P82 .cta-rocket .sub{ display:block; font-size:20px; font-weight:500; color:var(--muted); margin-top:2px; }
+      #P82 .cta-arrow{ flex:none; width:60px; display:flex; align-items:center; justify-content:center; color:var(--muted); }
+      #P82 .cta-link{ flex:1 1 auto; border:2px solid var(--c1); border-radius:16px; background:#fff;
+        display:flex; align-items:center; gap:22px; padding:0 34px; }
+      #P82 .cta-link .icwrap{ width:66px; height:66px; border-radius:50%; border:2px solid var(--c1); color:var(--c1);
+        display:flex; align-items:center; justify-content:center; flex:none; }
+      #P82 .cta-link .icwrap .s-ic{ width:32px; height:32px; }
+      #P82 .cta-link .txt{ font-size:30px; font-weight:700; color:var(--text); line-height:1.32; }
+      #P82 .cta-link .acc{ color:var(--c1); }
+
+      /* 우측 일러스트 crop (ChatGPT 시안 = 디자이너 배치 유지) — 수지가 야간 데스크에서 업무 아이콘에 둘러싸임 */
+      #P82 .illust{ position:absolute; left:999px; top:207px; width:921px; height:auto; }
+    </style>
+
+    <div class="chainrow">
+      <span class="chip"><svg class="s-ic" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5"/><path d="M3 12a9 3 0 0 0 18 0"/></svg>데이터는<br>내가</span>
+      <span class="arrow"><svg viewBox="0 0 52 32"><path fill="currentColor" d="M2 11h26V3l22 13-22 13v-8H2z"/></svg></span>
+      <span class="chip"><svg class="s-ic" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>앱은<br>서버가</span>
+      <span class="arrow"><svg viewBox="0 0 52 32"><path fill="currentColor" d="M2 11h26V3l22 13-22 13v-8H2z"/></svg></span>
+      <span class="chip"><svg class="s-ic" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>어디서나<br>같은 수지</span>
+      <span class="arrow"><svg viewBox="0 0 52 32"><path fill="currentColor" d="M2 11h26V3l22 13-22 13v-8H2z"/></svg></span>
+      <span class="chip last"><svg class="s-ic" viewBox="0 0 24 24"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>물어보지<br>않아도 일한다</span>
+    </div>
+
+    <h1 class="s-title">1인 창업가의 자비스,<br>그리고 그 너머</h1>
+
+    <div class="levers">
+      <div class="lever">
+        <span class="n">①</span>
+        <div class="ic"><svg class="s-ic" viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+        <span class="t">만들기</span>
+        <span class="s">(bkit)</span>
+      </div>
+      <div class="lever emph">
+        <span class="n">②</span>
+        <div class="ic"><svg class="s-ic" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+        <span class="t">자동화</span>
+        <span class="s">(수지=1인 창업가의 자비스)</span>
+      </div>
+      <div class="lever">
+        <span class="n">③</span>
+        <div class="ic"><svg class="s-ic" viewBox="0 0 24 24"><path d="M12 2v4"/><path d="m6.34 6.34 2.83 2.83"/><path d="M2 12h4"/><path d="m6.34 17.66 2.83-2.83"/><path d="M12 22v-2"/><path d="m17.66 17.66-2.83-2.83"/><path d="M22 12h-4"/><path d="m17.66 6.34-2.83 2.83"/><circle cx="12" cy="12" r="3"/></svg></div>
+        <span class="t">자율주행</span>
+        <span class="s">(Sprint)</span>
+      </div>
+    </div>
+
+    <img class="illust" src="../assets/P82-illust.png" alt="헤드셋 낀 수지가 야간 창가 책상에서 메일·일정 완료·문서 완료·경보 아이콘과 점선으로 연결되어 있고, 커피·화분·책과 함께 앉아 있으며 노트북·달 사이를 순환 화살표가 잇는다">
+
+    <div class="ctarow">
+      <div class="cta-rocket">
+        <svg class="s-ic" viewBox="0 0 24 24"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg>
+        <span class="txt">다음 → <span class="em">Sprint</span><span class="sub">(수 시간 무인 바이브코딩)</span></span>
+      </div>
+      <div class="cta-arrow"><svg viewBox="0 0 52 32" width="40" height="24"><path fill="currentColor" d="M2 11h26V3l22 13-22 13v-8H2z" opacity=".4"/></svg></div>
+      <div class="cta-link">
+        <div class="icwrap"><svg class="s-ic" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></div>
+        <span class="txt">수지를 MCP로 연결하고,<br>오늘 <span class="acc">첫 운영 한 건을 위임</span>해보세요</span>
+      </div>
+    </div>
+  </section>
+</div>
+</body>
+</html>

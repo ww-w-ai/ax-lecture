@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>P36 — 대화만으로 완성되는 9단계 개발 파이프라인</title>
+<link rel="stylesheet" href="slides.css">
+</head>
+<body>
+<div class="fit">
+  <!-- 개발 파이프라인(원 generated/P51.png) — 우: 사람 일러스트 crop / 나머지 HTML. 9단계 = /development-pipeline 실제 명칭 -->
+  <section class="slide light" id="P51P">
+    <style>
+      #P51P .s-title{ font-size:64px; line-height:1.18; width:1000px; }
+      #P51P .s-title .acc{ color:var(--c1); }
+      #P51P .s-subtitle{ top:300px; font-size:40px; color:var(--muted); font-weight:600; }
+
+      /* 우: 사람 일러스트 (유일 이미지) */
+      #P51P .person{ position:absolute; left:1242px; top:120px; width:606px; height:auto; }
+
+      /* 명령 pill */
+      #P51P .cmd-pill{ position:absolute; left:379px; top:506px; transform:translateX(-50%);
+        background:#23252B; color:#E6E7EA; font-family:ui-monospace,'SF Mono',Menlo,monospace;
+        font-size:32px; font-weight:800; padding:15px 38px; border-radius:14px; box-shadow:0 10px 30px rgba(0,0,0,.18); }
+      #P51P .cmd-pill .sl{ color:#FF8A65; }
+
+      /* 9단계 타임라인 (HTML) */
+      #P51P .pipe{ position:absolute; left:120px; top:621px; width:1680px; }
+      #P51P .pipe .line{ position:absolute; left:16px; right:16px; top:26px; height:4px; background:var(--c1); opacity:.32; border-radius:2px; }
+      #P51P .pipe .nodes{ position:relative; display:flex; justify-content:space-between; }
+      #P51P .pipe .node{ display:flex; flex-direction:column; align-items:center; width:168px; }
+      #P51P .pipe .dot{ width:54px; height:54px; border-radius:50%; background:var(--c1); color:#fff;
+        display:flex; align-items:center; justify-content:center; font-weight:800; font-size:26px;
+        box-shadow:0 0 0 7px #fff; }
+      #P51P .pipe .nm{ margin-top:16px; font-size:24px; font-weight:700; color:var(--text);
+        text-align:center; line-height:1.22; letter-spacing:-0.01em; }
+      #P51P .pipe .kr{ display:block; font-size:19px; font-weight:600; color:var(--secondary); margin-top:3px; }
+
+      /* 하단 MESSAGE(=TIP) — 표준 keymsg (타 페이지 동일) */
+      #P51P .keymsg .msg{ font-size:32px; font-weight:600; color:var(--text); line-height:1.3; }
+      #P51P .keymsg .msg .acc{ color:var(--c1); }
+    </style>
+
+    <h1 class="s-title">대화만으로 완성되는<br><span class="acc">9단계</span> 개발 파이프라인</h1>
+    <div class="s-subtitle">막막할 때 명령 한 번으로 — 비개발자도 체계적 가이드를 즉시 확보</div>
+
+    <img class="person" src="assets/P51-person.png" alt="비개발자가 컴퓨터 앞에서 대화만으로 체계적 개발 가이드(체크리스트·코드·차트)를 받는 모습">
+
+    <div class="cmd-pill"><span class="sl">/</span>development-pipeline</div>
+
+    <div class="pipe">
+      <div class="line"></div>
+      <div class="nodes">
+        <div class="node"><div class="dot">1</div><div class="nm">Schema<br>/ Terms</div></div>
+        <div class="node"><div class="dot">2</div><div class="nm">Convention</div></div>
+        <div class="node"><div class="dot">3</div><div class="nm">Mockup</div></div>
+        <div class="node"><div class="dot">4</div><div class="nm">API</div></div>
+        <div class="node"><div class="dot">5</div><div class="nm">Design<br>System</div></div>
+        <div class="node"><div class="dot">6</div><div class="nm">UI + API</div></div>
+        <div class="node"><div class="dot">7</div><div class="nm">SEO<br>/ Security</div></div>
+        <div class="node"><div class="dot">8</div><div class="nm">Review</div></div>
+        <div class="node"><div class="dot">9</div><div class="nm">Deployment</div></div>
+      </div>
+    </div>
+
+    <div class="keymsg">
+      <span class="tag">TIP</span>
+      <span class="msg">무조건 다 따르는 게 아니라 — <span class="acc">“bkit 9단계 개발론을 참고해 현재 프로젝트에 맞춰 진행”</span> 하라고 하면 됩니다.</span>
+    </div>
+
+    <div class="s-footer">
+      <span>에이전트 수지 · sooji.ai</span>
+      <span class="s-pagenum">36</span>
+    </div>
+  </section>
+</div>
+</body>
+</html>

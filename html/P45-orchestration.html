@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>P40 — 에이전트를 완벽하게 지휘하는 오케스트레이션</title>
+<link rel="stylesheet" href="slides.css">
+</head>
+<body>
+<div class="fit">
+  <!-- 오케스트레이션(원 generated/P45.png) — 우: CTO/PM/QA/Do Swarm 다이어그램(그대로) / 좌하단: 단계별 패턴 카드(그대로) / 나머지 HTML -->
+  <section class="slide light" id="P45O">
+    <style>
+      #P45O .s-title{ font-size:64px; line-height:1.18; }
+      #P45O .s-subtitle{ top:300px; font-size:40px; color:var(--muted); font-weight:600; }
+
+      /* /pdca team 명령 pill */
+      #P45O .cmd-pill{ position:absolute; left:120px; top:392px; display:inline-flex; align-items:center; gap:16px;
+        background:#fff; border:2px solid var(--c1); border-radius:16px; padding:16px 30px; }
+      #P45O .cmd-pill .gt{ color:var(--c1); font-weight:800; font-size:30px; }
+      #P45O .cmd-pill .t{ font-family:ui-monospace,'SF Mono',Menlo,monospace; font-size:32px; font-weight:800; color:var(--text); }
+      #P45O .cmd-pill .t .c{ color:var(--c1); }
+
+      /* subagents 라인 */
+      #P45O .note{ position:absolute; left:122px; top:492px; width:838px;
+        font-size:33px; font-weight:600; color:var(--text); line-height:1.4; }
+      #P45O .note .code{ color:var(--c2); font-family:ui-monospace,'SF Mono',monospace; font-weight:800; }
+
+      /* 좌하단: 단계별 패턴 카드(이미지) */
+      #P45O .pattern{ position:absolute; left:96px; top:587px; width:638px; height:auto; }
+
+      /* 우: CTO/PM/QA/Do Swarm 다이어그램(이미지) */
+      #P45O .diagram{ position:absolute; left:1027px; top:266px; width:847px; height:auto; }
+    </style>
+
+    <h1 class="s-title">에이전트를 완벽하게<br>지휘하는 오케스트레이션</h1>
+    <div class="s-subtitle">단일 기능 내에서 에이전트들이 동시 다발로 작성·검증</div>
+
+    <div class="cmd-pill"><span class="gt">&gt;</span><span class="t"><span class="c">/pdca team</span> my-feature</span></div>
+
+    <div class="note">CC의 <span class="code">subagents</span> + <span class="code">/workflows</span></div>
+
+    <img class="pattern" src="assets/P40-pattern.png" alt="단계별 패턴: Plan = Leader · Do = Swarm · Check = Council">
+    <img class="diagram" src="assets/P40-diagram.png" alt="CTO Lead(Opus)가 방향 설정하는 PM Team(5 Agents)·교차 검증하는 QA Team(Council)과, 역할 분담·동시 코드 작성하는 Do Swarm(Sonnet/Haiku)으로 구성된 오케스트레이션 다이어그램">
+
+    <div class="s-footer">
+      <span>에이전트 수지 · sooji.ai</span>
+      <span class="s-pagenum">40</span>
+    </div>
+  </section>
+</div>
+</body>
+</html>
