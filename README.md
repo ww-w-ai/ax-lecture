@@ -7,6 +7,13 @@
 
 이 자료는 **DubDubDub Corp.가 KAIST에 외부 강연자로 초청받아, 1인 창업가를 위해 진행하는 강연을 위해 만든 자료**입니다. 다만 주제 자체는 청중을 가리지 않으므로, 누구나 보고 활용할 수 있도록 일반화해 공개합니다.
 
+## 슬라이드 바로 보기 (라이브 덱)
+
+**▶ https://ww-w-ai.github.io/ax-lecture/html/deck.html** — 설치 없이 브라우저에서 바로 열리는 인터랙티브 강연 덱(83장, 1920×1080). 방향키로 넘기고, 전체화면으로 발표.
+
+- **로컬 편집·자율 활용**: 이 저장소를 pull 받아 `html/deck.html`을 브라우저에서 열면, 내장 E모드(드래그·텍스트·이미지 크롭·AI 매직지우개)로 직접 고칠 수 있다. git 원본은 **읽기 전용 출발점** — 각자 로컬에서 편집·저장한다.
+- **덱 재빌드**: 슬라이드 소스는 `html/Pxx.html` 조각들 + `scripts/build-deck.js`의 `SLIDES` 배열(구성·순서의 단일 권위). `node scripts/build-deck.js`로 `html/deck.html` 재생성. 상태 = [SLIDE_PRODUCTION_STATUS.md](./SLIDE_PRODUCTION_STATUS.md).
+
 ## 무엇이 들어 있나
 
 | 파일 | 내용 |

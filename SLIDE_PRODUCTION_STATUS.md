@@ -2,6 +2,8 @@
 
 Status date: 2026-07-06
 
+> **배포: LIVE** — GitHub Pages(main root/legacy 빌드)로 공개. **https://ww-w-ai.github.io/ax-lecture/html/deck.html** (매직지우개 클라이언트 로드 검증됨). 배포·경로 함정 상세 = `docs/skill-baseline/pipeline-and-automation.md §4.1`.
+
 > **2026-07-06 변경 요약**: 덱 77→**83장**. 수지 소개 섹션(deck 69~76) **재편** — 기존 "일곱 얼굴"(Ppillars 8기둥·P70 일곱얼굴·Pcombo 무한조합·P71~P75)을 창업자 스토리텔링 **8장**(Pcost·Pdaily·Pdash·Pdata·Papps·Pauto·Psafe·Pworld)으로 대체. 일러 6장 재활용(P68·P69·P72·P73·P74·P75-illust) + 대시보드 실스크린샷(Pdash-screen.png) + generated/P72.png 크롭. 푸터 전체 "주식회사 덥덥덥 · ww-w.ai"→**"에이전트 수지 · sooji.ai"**. 라이브편집 저장 캐노니컬=`scripts/cgpt/save-live-edits.js`(undo 기반), 매직지우개=base64 에셋 추출, imgframe 크롭 규율(상하좌우 +15% 숨김) — 상세 `docs/skill-baseline/pipeline-and-automation.md §4`. 옛 파일(Ppillars·Pcombo·P68~P75)은 SLIDES에서 빠졌으나 디스크에 잔존.
 
 > **진실의 소스 = `scripts/build-deck.js`의 `SLIDES` 배열** (덱 구성·순서·제작방식의 단일 권위). 이 문서를 믿지 말고 `node scripts/build-deck.js`로 재빌드해 `html/deck.html`(현재 **83장**)로 재확인할 것. 라이브 편집은 리로드 전 캡처(라이브 편집 규율).
