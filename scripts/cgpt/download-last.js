@@ -1,7 +1,8 @@
 // Download the most recent generated image to OUT.
 const { chromium } = require('./_pw');
 const fs = require('fs');
-const OUT = process.env.OUT || '/Users/taehyoungkim/Documents/덥덥덥/강연/ax-lecture/generated/P30.png';
+const path = require('path');
+const OUT = process.env.OUT || path.resolve(__dirname, '../../generated/P30.png');
 (async () => {
   const browser = await chromium.connectOverCDP('http://localhost:9333');
   const ctx = browser.contexts()[0];

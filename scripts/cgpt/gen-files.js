@@ -6,7 +6,8 @@
 //  - 로그 = gen-files.<pid>.log (병렬 프로세스별 분리)
 const { chromium } = require('./_pw');
 const fs = require('fs');
-const PROJ = '/Users/taehyoungkim/Documents/덥덥덥/강연/ax-lecture';
+const path = require('path');
+const PROJ = path.resolve(__dirname, '../..');
 const ATTACH=[`${PROJ}/슬라이드-디자이너-페르소나.md`,`${PROJ}/슬라이드-디자인-시스템.md`,`${PROJ}/AX 발표 - 라이트모드 디자인 시스템 가이드.png`,`${PROJ}/AX 발표 - 다크모드 디자인 시스템 가이드.png`,`${PROJ}/강연-슬라이드-구성안.md`,`${PROJ}/이미지-제작-가이드.md`];
 const args = process.argv.slice(2);
 const NO_ATTACH = args.includes('--no-attach');

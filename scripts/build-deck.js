@@ -4,6 +4,8 @@
 const fs = require('fs');
 const path = require('path');
 const HTML = path.join(__dirname, '..', 'html');
+const CFG = require('./deck.config.json');   // 프로젝트별 커스터마이징 단일 소스 — 타이틀·export명·푸터·캔버스 (루트 CUSTOMIZE.md 참고)
+const applyBrand = html => html.replace(/에이전트 수지 · sooji\.ai/g, CFG.footerBrand); // 빌드 시 푸터 브랜드 주입 (76개 슬라이드 하드코딩 중앙화)
 
 // 슬라이드 순서. file이 있으면 그 <section> 추출, 없으면 img 폴백. p05=애니메이션, img=완성본 이미지.
 // file이 있으면 그 <section> 추출(HTML 재구성), 없으면 img 폴백(완성본 이미지).
@@ -150,7 +152,7 @@ const deck = `<!doctype html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>AX 강연 — 슬라이드</title>
+<title>${CFG.deckTitle}</title>
 <link rel="stylesheet" href="slides.css">
 <style>
   *{margin:0;padding:0;box-sizing:border-box;}
@@ -493,7 +495,7 @@ ${sectionsHtml}
       // 5) 다운로드
       const html = '<!doctype html>\\n' + root.outerHTML;
       const blob = new Blob([html], { type: 'text/html' });
-      const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'ax-lecture-deck.html'; a.click();
+      const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = '${CFG.exportFilename}'; a.click();
       setTimeout(() => URL.revokeObjectURL(a.href), 8000);
       toast.textContent = '다운로드 완료 · ' + Math.max(1, Math.round(html.length / 1048576)) + 'MB';
     } catch (err) { toast.textContent = '실패: ' + (err && err.message || err); }
@@ -1297,13 +1299,13 @@ ${sectionsHtml}
 </html>
 `;
 
-fs.writeFileSync(path.join(HTML, 'deck.html'), deck);
+fs.writeFileSync(path.join(HTML, 'deck.html'), applyBrand(deck));
 
 // ===== 2번 deck — 같은 소스(Pxx.html) 공유, 병렬 세션용 별도 인스턴스 =====
 // 내용은 deck.html과 동일하되 (1) URL이 달라 세션별 탭 구분 가능 (2) localStorage 키가 달라 페이지 기억이 안 섞임.
 // 저장(deck-save-all)은 공유 소스로 가므로, 두 deck에서 "서로 다른 페이지"를 나눠 편집해야 충돌이 없다(같은 페이지 동시편집 X).
-const deck2 = deck
+const deck2 = applyBrand(deck)
   .replace(/deckSlide/g, 'deckSlide2')
-  .replace('<title>AX 강연 — 슬라이드</title>', '<title>AX 강연 — 슬라이드 (2번 · 병렬)</title>');
+  .replace('<title>' + CFG.deckTitle + '</title>', '<title>' + CFG.deckTitle + ' (2번 · 병렬)</title>');
 fs.writeFileSync(path.join(HTML, 'deck-2.html'), deck2);
 console.log('built deck.html —', SLIDES.length, 'slides');

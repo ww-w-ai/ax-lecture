@@ -1,7 +1,8 @@
 // Single consolidated, race-free generator for the 4-panel timeline (P31, P05-style photo).
 const { chromium } = require('./_pw');
 const fs = require('fs');
-const PROJ = '/Users/taehyoungkim/Documents/덥덥덥/강연/ax-lecture';
+const path = require('path');
+const PROJ = path.resolve(__dirname, '../..');
 const OUT = `${PROJ}/generated/P_timeline.png`;
 const log = m => { const s=`[${new Date().toISOString()}] ${m}`; console.log(s); fs.appendFileSync(`${__dirname}/timeline.log`, s+'\n'); };
 const sleep = ms => new Promise(r=>setTimeout(r,ms));

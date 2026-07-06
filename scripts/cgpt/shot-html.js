@@ -4,7 +4,8 @@
 // viewport 제어 불가) 대신, 시스템 Chrome을 headless로 직접 띄워 viewport 1920×1080·DPR 1을 강제한다.
 // (channel:'chrome' = 바이너리 다운로드 없이 설치된 Chrome 사용. ChatGPT 생성용 CDP와 별개 프로세스라 충돌 없음.)
 const { chromium } = require('./_pw');
-const ROOT = '/Users/taehyoungkim/Documents/덥덥덥/강연/ax-lecture/html';
+const path = require('path');
+const ROOT = path.resolve(__dirname, '../../html');
 const page = process.argv[2] || 'P04';
 const fp = `${ROOT}/${page}.html`;
 const out = `${ROOT}/${page}-render.png`;

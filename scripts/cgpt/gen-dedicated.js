@@ -2,7 +2,8 @@
 // rate limit이면 즉시 재시도 대신 대기. 끝나면 전용 탭만 닫음.
 const { chromium } = require('./_pw');
 const fs = require('fs');
-const PROJ = '/Users/taehyoungkim/Documents/덥덥덥/강연/ax-lecture';
+const path = require('path');
+const PROJ = path.resolve(__dirname, '../..');
 const PERSONA=`${PROJ}/슬라이드-디자이너-페르소나.md`, DSYS=`${PROJ}/슬라이드-디자인-시스템.md`;
 const LIGHT=`${PROJ}/AX 발표 - 라이트모드 디자인 시스템 가이드.png`, DARK=`${PROJ}/AX 발표 - 다크모드 디자인 시스템 가이드.png`;
 const GUSUNGAN=`${PROJ}/강연-슬라이드-구성안.md`, GUIDE=`${PROJ}/이미지-제작-가이드.md`;

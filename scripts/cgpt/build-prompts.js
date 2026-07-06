@@ -1,6 +1,7 @@
 // Build generated/prompts/P{n}.md for P30..P74 by merging 구성안 + 가이드 sections.
 const fs = require('fs');
-const PROJ = '/Users/taehyoungkim/Documents/덥덥덥/강연/ax-lecture';
+const path = require('path');
+const PROJ = path.resolve(__dirname, '../..');
 const gusungAn = fs.readFileSync(`${PROJ}/강연-슬라이드-구성안.md`, 'utf8');
 const guide = fs.readFileSync(`${PROJ}/이미지-제작-가이드.md`, 'utf8');
 

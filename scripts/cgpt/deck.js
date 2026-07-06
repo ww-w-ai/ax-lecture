@@ -1,7 +1,8 @@
 // Interactive deck bridge over the CDP Chrome (port 9333).
 // usage: node deck.js open | state | goto P31 | shot
 const { chromium } = require('./_pw');
-const HTML = '/Users/taehyoungkim/Documents/덥덥덥/강연/ax-lecture/html';
+const path = require('path');
+const HTML = path.resolve(__dirname, '../../html');
 const DECK = 'file://' + encodeURI(HTML + '/deck.html');
 const cmd = process.argv[2] || 'state';
 const arg = process.argv[3];

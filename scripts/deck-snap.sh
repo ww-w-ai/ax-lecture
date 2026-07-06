@@ -1,6 +1,6 @@
 #!/bin/bash
 # deck 소스 백업-diff (git 추적 불필요). 사용: deck-snap.sh snap | diff
-ROOT="/Users/taehyoungkim/Documents/덥덥덥/강연/ax-lecture"
+ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 B="$ROOT/html/.baseline"
 case "$1" in
   snap)

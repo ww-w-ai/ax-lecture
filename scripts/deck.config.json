@@ -1,0 +1,16 @@
+{
+  "_readme": "이 덱 템플릿을 다른 프로젝트로 복사했을 때 바꿔야 하는 프로젝트별 값의 단일 소스. build-deck.js와 render_slides.py가 빌드 시 여기서 읽어 주입한다. 디자인 색·컴포넌트는 여기가 아니라 html/components.css의 :root, 이미지 생성 프롬프트 브랜드어는 docs/skill-baseline/design-system-SSOT.md에 있다 — 자세한 커스터마이징 체크리스트는 루트 CUSTOMIZE.md 참고.",
+
+  "deckTitle": "AX 강연 — 슬라이드",
+  "exportFilename": "ax-lecture-deck.html",
+
+  "canvas": { "w": 1920, "h": 1080 },
+
+  "footerBrand": "에이전트 수지 · sooji.ai",
+
+  "renderSlides": {
+    "footer": "주식회사 덥덥덥 · ww-w.ai",
+    "eventName": "KAIST OverEdge",
+    "eventDateLine": "2026.07.07 · 덥덥덥 대표이사 김태형"
+  }
+}

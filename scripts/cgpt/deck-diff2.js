@@ -1,6 +1,7 @@
 // Clean diff: live deck tab (user edits) vs a freshly-loaded disk baseline tab. innerText both sides.
 const { chromium } = require('./_pw');
-const HTML = '/Users/taehyoungkim/Documents/덥덥덥/강연/ax-lecture/html';
+const path = require('path');
+const HTML = path.resolve(__dirname, '../../html');
 const DECK = 'file://' + encodeURI(HTML + '/deck.html');
 const sleep = ms => new Promise(r=>setTimeout(r,ms));
 const perSlide = () => {

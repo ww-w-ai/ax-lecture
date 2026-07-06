@@ -4,7 +4,8 @@
 // deck-2.html 인자를 주면 2번 deck 탭을 대상으로 저장(미지정 시 1번 deck.html).
 const { chromium } = require('./_pw');
 const fs = require('fs');
-const PROJ = '/Users/taehyoungkim/Documents/덥덥덥/강연/ax-lecture';
+const path = require('path');
+const PROJ = path.resolve(__dirname, '../..');
 const HTML = PROJ + '/html';
 const args = process.argv.slice(2);
 const DECK = args.find(a=>/^deck.*\.html$/.test(a)) || 'deck.html'; // 'deck.html'(1번) | 'deck-2.html'(2번)

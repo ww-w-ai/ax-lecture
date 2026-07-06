@@ -12,11 +12,13 @@
 실행:  python3 scripts/render_slides.py
 """
 import os
+import json
 from PIL import Image, ImageDraw, ImageFont, ImageOps, ImageEnhance
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BG_DIR = os.path.join(ROOT, "backgrounds")
 OUT_DIR = os.path.join(ROOT, "out")
+CFG = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "deck.config.json"), encoding="utf-8"))
 FONTS = os.path.expanduser("~/Library/Fonts")
 os.makedirs(OUT_DIR, exist_ok=True)
 os.makedirs(BG_DIR, exist_ok=True)
@@ -68,7 +70,7 @@ C = {
     # PHOTO overlay — 화이트 톤
     "photo.text": "#FFFFFF", "photo.footer": "#FFFFFF",
 }
-FOOTER_TEXT = "주식회사 덥덥덥 · ww-w.ai"
+FOOTER_TEXT = CFG["renderSlides"]["footer"]
 
 # 모드별 푸터 색
 FOOTER_COLOR = {"dark": "#8C8C89", "light": "#8B8A8E", "photo": "#FFFFFF"}
@@ -359,7 +361,7 @@ RENDER = {"cover": r_cover, "divider": r_divider, "light": r_light,
 SLIDES = [
     {"id": "P1", "mode": "photo", "layout": "cover",
      "title": "1인 창업자 분들을 위한\n바이브코딩과 에이전트 활용법",
-     "meta": ["KAIST OverEdge", "2026.07.07 · 덥덥덥 대표이사 김태형"]},
+     "meta": [CFG["renderSlides"]["eventName"], CFG["renderSlides"]["eventDateLine"]]},
     {"id": "P2", "mode": "dark", "layout": "divider", "page": 2,
      "num": "1", "title": "AI 시대, 관점의 전환",
      "subtitle": "AI를 쓰는 시대에서, AI 위에 사업을 올리는 시대로."},

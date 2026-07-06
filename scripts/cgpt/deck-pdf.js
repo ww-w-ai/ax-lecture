@@ -7,7 +7,7 @@
 const { chromium } = require('./_pw');
 const fs = require('fs');
 const path = require('path');
-const PROJ = '/Users/taehyoungkim/Documents/덥덥덥/강연/ax-lecture';
+const PROJ = path.resolve(__dirname, '../..');
 const HTML = PROJ + '/html';
 
 const deckFile = process.argv.find(a => /^deck.*\.html$/.test(a)) || 'deck.html';

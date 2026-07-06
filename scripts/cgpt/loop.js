@@ -2,8 +2,9 @@
 // Attach policy: fresh chat = 4 files; continuation = design-system.md only (slides 1-3 every time, then every 5th).
 const { chromium } = require('./_pw');
 const fs = require('fs');
+const path = require('path');
 const DIR = __dirname;
-const PROJ = '/Users/taehyoungkim/Documents/덥덥덥/강연/ax-lecture';
+const PROJ = path.resolve(__dirname, '../..');
 const PERSONA = `${PROJ}/슬라이드-디자이너-페르소나.md`;
 const DSYS = `${PROJ}/슬라이드-디자인-시스템.md`;
 const LIGHT = `${PROJ}/AX 발표 - 라이트모드 디자인 시스템 가이드.png`;

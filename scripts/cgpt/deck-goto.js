@@ -1,7 +1,8 @@
 // reload deck tab, navigate to a 1-based slide page, screenshot the live view.
 // usage: node deck-goto.js 4 [reload]
 const { chromium } = require('./_pw');
-const HTML = '/Users/taehyoungkim/Documents/덥덥덥/강연/ax-lecture/html';
+const path = require('path');
+const HTML = path.resolve(__dirname, '../../html');
 const target = parseInt(process.argv[2]||'1',10);
 const doReload = process.argv[3] !== 'noreload';
 const DECK = process.argv.find(a=>/^deck.*\.html$/.test(a)) || 'deck.html'; // 'deck.html'(1번) | 'deck-2.html'(2번)
