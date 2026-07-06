@@ -141,9 +141,11 @@ UI 원색과 **1:1 역할 대응**(코랄↔빨강, 틸↔파랑, 앰버↔골�
 
 **파스텔 단일 톤만 지시**(원색/파스텔 분기 지시 금지). 자기완결(매 페이지 인라인).
 
-- **라이트**: `Flat 2.5D editorial illustration (Anthropic/Claude aesthetic), warm ivory base + coral #D97757 accent, soft simple shapes, generous whitespace, premium and restrained. NOT photorealistic, NO 3D render, NO isometric, NO glassmorphism, NO neon. no watermark, no garbled extra text, no fake logos. Strict 16:9 aspect ratio, 1920×1080 landscape — NOT 4:3, NOT square.`
+- **라이트**: `Flat 2.5D editorial illustration (Anthropic/Claude aesthetic), PURE WHITE #FFFFFF backdrop (NOT ivory, NOT off-white, NO card/panel behind the content), coral #D97757 accent, soft simple shapes, generous whitespace, premium and restrained. NOT photorealistic, NO 3D render, NO isometric, NO glassmorphism, NO neon. no watermark, no garbled extra text, no fake logos. Strict 16:9 aspect ratio, 1920×1080 landscape — NOT 4:3, NOT square.`
 - **다크(divider)**: `... near-black #141417~#0E0E11 background + warm coral #D97757 accent glints, cinematic, restrained ...` (나머지 동일)
 - **포토**: `Natural photorealistic photograph, realistic lighting and true-to-life colors (no color grading, no warm tone overlay, no filter), 16:9 1920×1080 full bleed, no watermark, no garbled text, no fake logos.`
+
+**★ 순수 흰 배경 강제 (MUST — 라이트 슬라이드에 얹는 일러스트/다이어그램 crop)**: 콘텐츠 뒤 **배경(백드롭)은 정확히 `#FFFFFF` 순수 흰색**(또는 투명)이어야 한다. `warm ivory`·`off-white`·근흰색(예: 249,247,244 / 254,254,254) **카드/패널 금지**. **이유**: 근흰색은 화면(흰 슬라이드)에선 안 보이지만 **Chrome 인쇄(PDF)가 회색 카드로 렌더**한다(실사례: bkit 다이어그램 P40-diagram 등 7장 회색 카드). 프롬프트에 `PURE WHITE #FFFFFF backdrop, no card panel` 명시. 콘텐츠 도형·아이콘은 코랄/따뜻해도 되나 **최외곽 배경만은 순수 흰**. (사후 보정: `min(RGB)≥243`&저채도 픽셀 → 255 흰색화, 인쇄 CSS `box-shadow:none` — 하지만 생성 단계 강제가 근본.)
 
 **절제 규칙(§182)**: 액센트 기본=코랄. 틸·앰버는 색이 의미를 나를 때만(카테고리·비교·구분, 예: 캐싱=틸 "안정", P21 토큰=다색). 장식적 다색 남발·무지개·광택·네온 금지. 매트(무광). 조각 구분은 코랄 농담+아이보리 뉴트럴 우선.
 
