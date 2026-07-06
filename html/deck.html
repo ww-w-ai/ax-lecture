@@ -4446,7 +4446,9 @@
     aiLoading = (async () => {
       aiStatus('모델 로딩…(최초 1회, ~28MB)');
       if (!window.ort) await loadScript('./vendor/ort/ort.wasm.min.js');
-      ort.env.wasm.wasmPaths = './vendor/ort/'; ort.env.wasm.numThreads = 1;
+      /* wasmPaths 미설정: ORT가 자기 스크립트(vendor/ort/ort.wasm.min.js) 위치에서
+         형제 wasm/mjs를 자동 탐색 — 절대/상대 이중경로 문제 회피(Pages·localhost 공통) */
+      ort.env.wasm.numThreads = 1;
       aiSession = await ort.InferenceSession.create('./vendor/migan_pipeline_v2.onnx', { executionProviders: ['wasm'] });
       aiStatus(''); return aiSession;
     })();
