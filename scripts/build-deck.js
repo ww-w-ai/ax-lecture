@@ -89,12 +89,12 @@ const SLIDES = [
   { file: 'Pauto.html' },                             // 74 자유도 높은 자동화(5트리거·격리·매니페스토) — 원 P73-illust 재활용
   { file: 'Psafe.html' },                             // 75 안전한 수지(안전 6관점 카드) — 재구성
   { file: 'Pworld.html' },                            // 76 세계관의 변화(데이터/실행 반전) — 원 P68-illust 재활용
-  { file: 'P76.html' },                               // P76 하루를 수지에게(위임 도입)
-  { file: 'P77.html' },                               // P77 사례① 어느 하루(타임라인)
-  { file: 'P78.html' },                               // P78 사례② 시장·경쟁사 모니터링
-  { file: 'P79.html' },                               // P79 사례③ 반복 운영·예약(토큰 0)
-  { file: 'P80.html' },                               // P80 🔧실습 — 연결+첫 위임(스크린샷 자리)
-  { file: 'P81.html' },                               // P81 눈으로 본다 + 안전하게(스크린샷 자리)
+  // (구 위임도입 'P76.html 하루를 수지에게' = 사례 섹션 번호정렬 위해 덱에서 제외 — 파일은 보존)
+  { file: 'P77.html' },                               // P77 사례① 하루 4번 먼저 말 거는 브리핑(지우) ④선제 · 덱위치 77
+  { file: 'P78.html' },                               // P78 사례② 한 요청→4블록 통합(지훈) ③실행형
+  { file: 'P79.html' },                               // P79 사례③ D-day+일상(민호) ⑥관계
+  { file: 'P80.html' },                               // P80 사례④ 복합 앱 조합·반려견(예린) ③⑤
+  { file: 'P81.html' },                               // P81 🔧실습 — 연결+첫 위임(옛 P80·안전recap 드롭)
   { file: 'P82.html' },                               // P82 마무리 hero(그리고 그 너머) — 푸터 없음
 ];
 
@@ -456,7 +456,52 @@ ${sectionsHtml}
   addEventListener('resize', fit);
   if (window.visualViewport) visualViewport.addEventListener('resize', fit); // 브라우저 줌/핀치 변화에도 재적합
   addEventListener('pageshow', fit);                                          // bfcache 복원 시 재적합
+  // ── Cmd/Ctrl+S = 편집본을 자체완결 .html 1파일로 다운로드 (Pages에서 수정→바로 저장) ──
+  // 라이브 DOM(텍스트 편집·매직지우개 base64 포함)을 직렬화 + slides.css/components.css 인라인 + 모든 이미지 base64.
+  // 주의: 지우개는 외부 vendor(ONNX)가 필요해 다운로드본에선 '새로 지우기' 불가(이미 지운 건 base64로 유지). 기본편집은 됨.
+  async function exportSelfContained(){
+    const toast = document.createElement('div');
+    toast.className = 'export-toast';
+    toast.style.cssText = 'position:fixed;left:50%;top:50%;transform:translate(-50%,-50%);z-index:99999;background:#141417;color:#fff;padding:22px 34px;border-radius:14px;font:600 20px/1.4 sans-serif;box-shadow:0 12px 40px rgba(0,0,0,.4)';
+    toast.textContent = '다운로드 준비 중… 이미지 인라인';
+    document.body.appendChild(toast);
+    try {
+      // 1) 모든 슬라이드 이미지 강제 로드 + 대기
+      document.querySelectorAll('img[data-src]').forEach(im => { if (!im.getAttribute('src')) im.src = im.getAttribute('data-src'); });
+      const imgs = [...document.querySelectorAll('img')];
+      await Promise.all(imgs.map(im => (im.complete && im.naturalWidth) ? 0 : new Promise(r => { im.onload = im.onerror = r; })));
+      // 2) 외부 이미지 → base64 (data:면 그대로 = 지우개 결과 보존)
+      const cache = new Map();
+      const toDataURL = async (u) => { if (cache.has(u)) return cache.get(u); const r = await fetch(u); const b = await r.blob(); const d = await new Promise(rs => { const f = new FileReader(); f.onload = () => rs(f.result); f.readAsDataURL(b); }); cache.set(u, d); return d; };
+      // 3) CSS 인라인 (slides.css + @import components.css)
+      let cssText = '';
+      try { const link = document.querySelector('link[rel="stylesheet"]'); if (link) { const base = new URL(link.getAttribute('href'), location.href); const scss = await (await fetch(base)).text(); const comp = await (await fetch(new URL('components.css', base))).text(); cssText = comp + '\\n' + scss.replace(/@import[^;]+;/g, ''); } } catch (err) {}
+      // 4) clone + 치환
+      const root = document.documentElement.cloneNode(true);
+      const link2 = root.querySelector('link[rel="stylesheet"]');
+      if (link2 && cssText) { const st = document.createElement('style'); st.textContent = cssText; link2.replaceWith(st); }
+      for (const im of [...root.querySelectorAll('img')]) {
+        let s = im.getAttribute('src') || im.getAttribute('data-src'); if (!s) continue;
+        if (s.startsWith('data:')) { im.setAttribute('src', s); im.removeAttribute('data-src'); continue; }
+        try { im.setAttribute('src', await toDataURL(new URL(s, location.href).href)); im.removeAttribute('data-src'); } catch (err) {}
+      }
+      // E모드 잔재 정리(.cur는 유지 — 초기 표시)
+      root.querySelectorAll('[contenteditable]').forEach(el => el.removeAttribute('contenteditable'));
+      root.querySelectorAll('.sel').forEach(el => el.classList.remove('sel'));
+      const bd = root.querySelector('body'); if (bd) bd.classList.remove('editing', 'erasing', 'show-guide');
+      root.querySelectorAll('.export-toast').forEach(el => el.remove()); // 다운로드 토스트가 clone에 섞이지 않게
+      // 5) 다운로드
+      const html = '<!doctype html>\\n' + root.outerHTML;
+      const blob = new Blob([html], { type: 'text/html' });
+      const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'ax-lecture-deck.html'; a.click();
+      setTimeout(() => URL.revokeObjectURL(a.href), 8000);
+      toast.textContent = '다운로드 완료 · ' + Math.max(1, Math.round(html.length / 1048576)) + 'MB';
+    } catch (err) { toast.textContent = '실패: ' + (err && err.message || err); }
+    setTimeout(() => toast.remove(), 2600);
+  }
+
   addEventListener('keydown', e => {
+    if ((e.metaKey || e.ctrlKey) && (e.key === 's' || e.key === 'S')) { e.preventDefault(); exportSelfContained(); return; } // Cmd/Ctrl+S = 자체완결 다운로드
     if (document.activeElement && document.activeElement.isContentEditable) return; // 텍스트 편집 중엔 타이핑
     // ── 페이지 이동 모드: 화살표=슬라이드 재배치, Enter/Esc/M=내려놓기 ──
     if (moveMode) {

@@ -3668,47 +3668,96 @@
                 </div>
               </section>
 
-      <!-- P76.html -->
-      <section data-idx="76" class="slide light" id="P76">
+      <!-- P77.html -->
+      <section data-idx="76" class="slide light" id="P77">
           <style>
-            #P76 .s-title{ font-size:66px; }
+            #P77 .s-eyebrow{ left:120px; top:118px; }
+            #P77 .s-title{ top:158px; font-size:66px; }
+            #P77 .demo{ position:absolute; left:120px; top:396px; width:1680px; }
       
-            #P76 .p76-box{ position:absolute; left:120px; width:1680px; height:290px;
-              border:2px solid var(--c1); border-radius:26px; background:#fff; }
-            #P76 .p76-box.b1{ top:242px; }
-            #P76 .p76-box.b2{ top:552px; }
+            /* 해→달 아크 */
+            #P77 .arc{ position:absolute; left:0; top:-46px; width:1680px; height:40px; }
+            #P77 .arc .dash{ position:absolute; left:60px; right:60px; top:20px; border-top:2px dashed var(--rule); }
+            #P77 .arc svg{ position:absolute; top:0; width:40px; height:40px; }
+            #P77 .arc .sun{ left:0; color:var(--c3); }
+            #P77 .arc .moon{ right:0; color:var(--c2); }
       
-            #P76 .p76-quote{ position:absolute; left:150px; width:860px; z-index:2; }
-            #P76 .p76-quote .qmark{ font-size:64px; font-weight:900; color:var(--c1); line-height:1; margin:0 0 6px; }
-            #P76 .p76-quote .qtext{ font-size:36px; font-weight:700; color:var(--text); line-height:1.42; }
+            /* 4개 브리핑 카드 */
+            #P77 .cards{ display:grid; grid-template-columns:repeat(4,1fr); gap:36px; }
+            #P77 .bcard{ background:#fff; border:1px solid var(--rule); border-radius:20px; overflow:hidden;
+              box-shadow:0 10px 30px rgba(0,0,0,.06); }
+            #P77 .bcard .hd{ background:var(--c2-soft); padding:20px 24px 16px; }
+            #P77 .bcard .when{ font-size:26px; font-weight:800; color:var(--c2-deep); }
+            #P77 .bcard .clock{ font-size:20px; color:var(--muted); font-weight:600; margin-left:8px; }
+            #P77 .bcard .kakao{ display:block; font-size:17px; color:var(--muted); font-weight:600; margin-top:4px; }
+            #P77 .bcard .bd{ padding:22px 24px 24px; }
+            #P77 .bcard .line{ display:flex; gap:10px; font-size:23px; line-height:1.34; color:var(--text); margin-bottom:12px; }
+            #P77 .bcard .line b{ font-weight:800; }
+            #P77 .bcard .line .mk{ color:var(--c1); font-weight:800; flex:none; }
+            #P77 .bcard .apps{ margin-top:16px; display:flex; flex-wrap:wrap; gap:8px; }
+            #P77 .bcard .a{ font-size:17px; font-weight:700; color:var(--c2); border:1.5px solid var(--c2-soft);
+              background:var(--c2-soft); border-radius:999px; padding:5px 13px; }
       
-            #P76 .p76-illust{ position:absolute; left:1075px; top:236px; height:610px; width:auto; z-index:2; }
+            #P77 .quiet{ position:absolute; left:120px; top:918px; font-size:23px; color:var(--muted); font-weight:600; }
+            #P77 .quiet b{ color:var(--c3-deep); font-weight:800; }
+            #P77 .ex{ position:absolute; right:120px; top:118px; font-size:22px; font-weight:800; color:var(--muted);
+              border:1.5px solid var(--rule); border-radius:999px; padding:7px 18px; }
       
-            #P76 .p76-key{ position:absolute; left:120px; top:872px; width:1680px;
-              display:flex; align-items:center; gap:16px; }
-            #P76 .p76-key .s-ic{ width:44px; height:44px; color:var(--c1); }
-            #P76 .p76-key .txt{ font-size:38px; font-weight:800; color:var(--c1); letter-spacing:-0.01em; }
+            #P77 .keymsg{ bottom:112px; }
+            #P77 .keymsg .body{ font-size:36px; font-weight:700; color:var(--text); }
+            #P77 .keymsg .acc{ color:var(--c1); font-weight:800; }
           </style>
       
-          <h1 class="s-title">1인 사업자의 하루를 수지에게</h1>
+          <div class="s-eyebrow">사례 ① · 직장인 지우(31)</div>
+          <h1 class="s-title">하루 <span class="acc">네 번</span>, 수지가 먼저 말 건다</h1>
+          <div class="ex">예시 시나리오</div>
       
-          <div class="p76-box b1"></div>
-          <div class="p76-box b2"></div>
+          <div class="demo">
+            <div class="arc">
+              <svg class="sun" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+              <div class="dash"></div>
+              <svg class="moon" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            </div>
       
-          <div class="p76-quote" style="top:270px;">
-            <div class="qmark">&ldquo;</div>
-            <div class="qtext">오늘 스케줄 확인하고, 동선에 맞춰 점심 식당 예약한 뒤 지수에게 초대 메일 보내줘.</div>
+            <div class="cards">
+              <div class="bcard">
+                <div class="hd"><span class="when">아침</span><span class="clock">7:30</span><span class="kakao">카카오톡으로 도착</span></div>
+                <div class="bd">
+                  <div class="line"><span class="mk">·</span><span>오늘 일정 <b>3건</b>, 안 읽은 메일 <b>5통</b> 요약</span></div>
+                  <div class="line"><span class="mk">·</span><span>미세먼지 <b>나쁨</b> — 마스크 챙기기</span></div>
+                  <div class="apps"><span class="a">캘린더</span><span class="a">메일</span><span class="a">미세먼지</span></div>
+                </div>
+              </div>
+              <div class="bcard">
+                <div class="hd"><span class="when">점심</span><span class="clock">12:30</span><span class="kakao">카카오톡으로 도착</span></div>
+                <div class="bd">
+                  <div class="line"><span class="mk">·</span><span>오후 할일 <b>4건</b> — 2건은 오늘 마감</span></div>
+                  <div class="line"><span class="mk">·</span><span><b>2시 팀 미팅</b> 30분 전 다시 알림</span></div>
+                  <div class="apps"><span class="a">할일</span><span class="a">캘린더</span></div>
+                </div>
+              </div>
+              <div class="bcard">
+                <div class="hd"><span class="when">저녁</span><span class="clock">7:00</span><span class="kakao">카카오톡으로 도착</span></div>
+                <div class="bd">
+                  <div class="line"><span class="mk">·</span><span>내일 준비물 — <b>발표자료</b> 마감 D-1</span></div>
+                  <div class="line"><span class="mk">·</span><span>퇴근길 <b>지하철 지연</b> · 저녁 약속 1시간 전</span></div>
+                  <div class="apps"><span class="a">D-day</span><span class="a">지하철</span></div>
+                </div>
+              </div>
+              <div class="bcard">
+                <div class="hd"><span class="when">밤</span><span class="clock">10:00</span><span class="kakao">카카오톡으로 도착</span></div>
+                <div class="bd">
+                  <div class="line"><span class="mk">·</span><span>오늘 지출 <b>3.2만</b> — 외식이 좀 많았어요</span></div>
+                  <div class="line"><span class="mk">·</span><span>내일 <b>8시 회의</b> 있어요 · 잘 자요</span></div>
+                  <div class="apps"><span class="a">가계부</span><span class="a">캘린더</span></div>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="p76-quote" style="top:580px;">
-            <div class="qmark">&ldquo;</div>
-            <div class="qtext">안 가본 지역으로 출장/워크숍을, 적당한 예산에 맞춰 색다르게 짜줘.</div>
-          </div>
       
-          <img class="p76-illust" data-src="../assets/P76-illust.png" alt="서재(스케줄 확인/리서치) → 실세계 앱(식당 예약/지역·교통 탐색) → 시간 비서(동선 최적화/예산·일정 최적화) → 페르소나(지수에게 메일/여행·워크숍 설계) 2줄 아이콘 플로우">
-      
-          <div class="p76-key">
-            <svg class="s-ic" viewBox="0 0 24 24" fill="var(--c1)" stroke="none"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a8 8 0 0 1 16 0v1"/></svg>
-            <span class="txt">‘백오피스 직원’ — 그 자리를 수지가</span>
+          <div class="keymsg">
+            <span class="tag">④ 선제</span>
+            <span class="body">사람들이 감동한 지점 = <span class="acc">AI가 먼저 말 거는 것</span> · 수지는 자도 도는 무인 비서</span>
           </div>
       
           <div class="s-footer">
@@ -3717,40 +3766,86 @@
           </div>
         </section>
 
-      <!-- P77.html -->
-      <section data-idx="77" class="slide light" id="P77">
+      <!-- P78.html -->
+      <section data-idx="77" class="slide light" id="P78">
           <style>
-            #P77 .s-title{ font-size:72px; }
+            #P78 .s-eyebrow{ left:120px; top:118px; }
+            #P78 .s-title{ top:158px; font-size:66px; }
+            #P78 .ex{ position:absolute; right:120px; top:118px; font-size:22px; font-weight:800; color:var(--muted);
+              border:1.5px solid var(--rule); border-radius:999px; padding:7px 18px; }
       
-            /* 해→달 아크 */
-            #P77 .p77-arc{ position:absolute; left:120px; top:250px; width:1680px; height:70px; }
-            #P77 .p77-arc .sun, #P77 .p77-arc .moon{ position:absolute; top:8px; width:46px; height:46px;
-              color:var(--c3); }
-            #P77 .p77-arc .moon{ color:var(--c2); left:1634px; }
-            #P77 .p77-arc .sun{ left:0; }
-            #P77 .p77-arc .dash{ position:absolute; left:64px; top:26px; width:1552px; height:1px;
-              border-top:2px dashed var(--rule); }
+            /* 한 줄 요청 → 한 번에 */
+            #P78 .ask{ position:absolute; left:120px; top:322px; display:flex; align-items:center; gap:24px; }
+            #P78 .ask .bubble{ background:var(--c1); color:#fff; font-size:32px; font-weight:800; border-radius:22px 22px 22px 6px;
+              padding:20px 30px; box-shadow:0 8px 24px rgba(230,0,18,.18); }
+            #P78 .ask .arrow{ font-size:30px; font-weight:800; color:var(--muted); }
+            #P78 .ask .one{ font-size:28px; font-weight:800; color:var(--text); }
+            #P78 .ask .one b{ color:var(--c1); }
       
-            #P77 .p77-illust{ position:absolute; left:120px; top:352px; width:1680px; height:auto; }
+            /* 2×2 통합 답 */
+            #P78 .grid{ position:absolute; left:120px; top:452px; width:1680px;
+              display:grid; grid-template-columns:1fr 1fr; gap:32px; }
+            #P78 .blk{ background:#fff; border:1px solid var(--rule); border-radius:20px; padding:28px 34px;
+              box-shadow:0 10px 30px rgba(0,0,0,.06); border-left:8px solid var(--bar); }
+            #P78 .blk .top{ display:flex; align-items:center; gap:14px; margin-bottom:14px; }
+            #P78 .blk .ic{ width:44px; height:44px; color:var(--bar); }
+            #P78 .blk .name{ font-size:27px; font-weight:800; color:var(--bar); }
+            #P78 .blk .txt{ font-size:28px; line-height:1.36; color:var(--text); font-weight:600; }
+            #P78 .blk .txt b{ font-weight:800; }
+            #P78 .blk.mail{ --bar:var(--c2); }
+            #P78 .blk.dday{ --bar:var(--c1); }
+            #P78 .blk.todo{ --bar:var(--c3); }
+            #P78 .blk.news{ --bar:#7A3FD0; }
       
-            #P77 .keymsg{ bottom:120px; }
-            #P77 .keymsg .body{ font-size:38px; font-weight:700; color:var(--text); }
-            #P77 .keymsg .acc{ color:var(--c1); font-weight:800; }
+            #P78 .keymsg{ bottom:112px; }
+            #P78 .keymsg .body{ font-size:36px; font-weight:700; color:var(--text); }
+            #P78 .keymsg .acc{ color:var(--c1); font-weight:800; }
           </style>
       
-          <h1 class="s-title">사례 ① — 1인 사업자의 어느 하루</h1>
+          <div class="s-eyebrow">사례 ② · 취업준비생 지훈(26)</div>
+          <h1 class="s-title">한 번 물으면, <span class="acc">내 앱을 가로질러</span> 답한다</h1>
+          <div class="ex">예시 시나리오</div>
       
-          <div class="p77-arc">
-            <svg class="sun" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-            <div class="dash"></div>
-            <svg class="moon" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <div class="ask">
+            <div class="bubble">“오늘 나 뭐 챙겨야 하지?”</div>
+            <div class="arrow">→</div>
+            <div class="one">수지가 <b>네 앱을 한 번에</b> 훑어서</div>
           </div>
       
-          <img class="p77-illust" data-src="../assets/P77-illust.png" alt="아침7시 거래처메일 3줄요약 → 이동 같은 수지 → 미팅 혼잡도·날씨 즉답 → 오후 사업지출 정리 → 밤 닫아도 깨어있음, 5칸 하루 타임라인">
+          <div class="grid">
+            <div class="blk mail">
+              <div class="top">
+                <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/></svg>
+                <span class="name">메일</span>
+              </div>
+              <div class="txt">지원한 3곳 중 <b>A사 서류 합격</b> 메일 도착</div>
+            </div>
+            <div class="blk dday">
+              <div class="top">
+                <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+                <span class="name">마감 · 캘린더</span>
+              </div>
+              <div class="txt">B사 자소서 <b>D-2</b> · C사 면접 <b>D-5</b></div>
+            </div>
+            <div class="blk todo">
+              <div class="top">
+                <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                <span class="name">오늘 할일</span>
+              </div>
+              <div class="txt">자소서 맞춤법 검사 · 포트폴리오 업데이트</div>
+            </div>
+            <div class="blk news">
+              <div class="top">
+                <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8M15 18h-5M10 6h8v4h-8V6Z"/></svg>
+                <span class="name">채용 뉴스 <span style="font-size:19px;color:var(--muted);font-weight:700;">· 외부앱</span></span>
+              </div>
+              <div class="txt">관심기업 <b>공채 3건</b> 신규 공고</div>
+            </div>
+          </div>
       
           <div class="keymsg">
-            <span class="tag">KEY</span>
-            <span class="body">노트북을 닫아도 <span class="acc">수지</span>는 깨어 있다</span>
+            <span class="tag">③ 실행형</span>
+            <span class="body">Q&amp;A가 아니라 <span class="acc">실제로 손을 움직여</span> — 흩어진 내 앱을 한 답으로 모은다</span>
           </div>
       
           <div class="s-footer">
@@ -3759,46 +3854,82 @@
           </div>
         </section>
 
-      <!-- P78.html -->
-      <section data-idx="78" class="slide light" id="P78">
+      <!-- P79.html -->
+      <section data-idx="78" class="slide light" id="P79">
           <style>
-            #P78 .s-title{ font-size:64px; }
+            #P79 .s-eyebrow{ left:120px; top:118px; }
+            #P79 .s-title{ top:158px; font-size:66px; }
+            #P79 .ex{ position:absolute; right:120px; top:118px; font-size:22px; font-weight:800; color:var(--muted);
+              border:1.5px solid var(--rule); border-radius:999px; padding:7px 18px; }
       
-            #P78 .p78-quote{ position:absolute; left:120px; top:260px; width:760px;
-              border:2px solid var(--c1); border-radius:18px; background:var(--c1-soft);
-              padding:22px 36px; }
-            #P78 .p78-quote .mark{ font-size:40px; font-weight:800; color:var(--c1); font-family:Georgia,serif; }
-            #P78 .p78-quote .txt{ font-size:32px; font-weight:700; color:var(--text); line-height:1.32; margin-top:4px; }
+            /* 3개 D-day 카드 */
+            #P79 .ddays{ position:absolute; left:120px; top:326px; width:1680px;
+              display:grid; grid-template-columns:repeat(3,1fr); gap:36px; }
+            #P79 .dd{ background:#fff; border:1px solid var(--rule); border-radius:22px; padding:34px 40px;
+              box-shadow:0 10px 30px rgba(0,0,0,.06); position:relative; overflow:hidden; }
+            #P79 .dd::before{ content:""; position:absolute; left:0; top:0; bottom:0; width:8px; background:var(--ac); }
+            #P79 .dd .label{ font-size:30px; font-weight:800; color:var(--text); }
+            #P79 .dd .date{ font-size:22px; font-weight:700; color:var(--muted); margin-top:6px; }
+            #P79 .dd .big{ font-size:96px; font-weight:800; color:var(--ac); line-height:1; margin-top:20px; letter-spacing:-0.02em; }
+            #P79 .dd .alarm{ margin-top:18px; font-size:21px; font-weight:700; color:var(--ac); display:inline-flex; gap:8px; align-items:center; }
+            #P79 .dd .alarm svg{ width:22px; height:22px; }
+            #P79 .dd.c1{ --ac:var(--c1); } #P79 .dd.c2{ --ac:var(--c2); } #P79 .dd.c3{ --ac:var(--c3-deep); }
       
-            #P78 .p78-illust{ position:absolute; left:120px; top:410px; width:1680px; height:auto; }
+            /* 곁들임 */
+            #P79 .side{ position:absolute; left:120px; top:646px; width:1680px; display:flex; align-items:stretch; gap:28px; }
+            #P79 .side .lead{ align-self:center; font-size:26px; font-weight:800; color:var(--muted); flex:none; width:150px; line-height:1.3; }
+            #P79 .scard{ flex:1 1 0; background:var(--c2-soft); border-radius:20px; padding:24px 30px; display:flex; gap:18px; align-items:center; }
+            #P79 .scard svg{ width:44px; height:44px; color:var(--c2-deep); flex:none; }
+            #P79 .scard .t{ font-size:24px; font-weight:800; color:var(--c2-deep); }
+            #P79 .scard .d{ font-size:24px; font-weight:600; color:var(--text); margin-top:3px; }
+            #P79 .scard.warm{ background:var(--c3-soft); }
+            #P79 .scard.warm svg,#P79 .scard.warm .t{ color:var(--c3-deep); }
       
-            #P78 .p78-note{ position:absolute; left:120px; top:706px; display:flex; align-items:center; gap:16px;
-              color:var(--secondary); font-size:27px; font-weight:500; }
-            #P78 .p78-note .s-ic{ width:32px; height:32px; color:var(--c3-deep); flex:none; }
-            #P78 .p78-note .hl{ font-weight:700; }
-      
-            #P78 .keymsg{ bottom:120px; }
-            #P78 .keymsg .body{ font-size:38px; font-weight:700; color:var(--text); }
-            #P78 .keymsg .acc{ color:var(--c1); font-weight:800; }
+            #P79 .keymsg{ bottom:112px; }
+            #P79 .keymsg .body{ font-size:36px; font-weight:700; color:var(--text); }
+            #P79 .keymsg .acc{ color:var(--c1); font-weight:800; }
           </style>
       
-          <h1 class="s-title">사례 ② — 시장·경쟁사 모니터링을 위임</h1>
+          <div class="s-eyebrow">사례 ③ · 연애 100일 앞둔 민호(26)</div>
+          <h1 class="s-title">챙길 날을, <span class="acc">수지가 같이 센다</span></h1>
+          <div class="ex">예시 시나리오</div>
       
-          <div class="p78-quote">
-            <div class="mark">&#8220;</div>
-            <div class="txt">경쟁사 뉴스, 매주 월요일 아침에</div>
+          <div class="ddays">
+            <div class="dd c1">
+              <div class="label">💛 100일</div>
+              <div class="date">3월 14일 · 금</div>
+              <div class="big">D-3</div>
+              <div class="alarm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg>7일 전·3일 전·당일 알림</div>
+            </div>
+            <div class="dd c2">
+              <div class="label">200일</div>
+              <div class="date">6월 22일 · 일</div>
+              <div class="big">D-103</div>
+              <div class="alarm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg>미리 알림 예약됨</div>
+            </div>
+            <div class="dd c3">
+              <div class="label">1주년</div>
+              <div class="date">12월 5일 · 토</div>
+              <div class="big">D-268</div>
+              <div class="alarm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg>미리 알림 예약됨</div>
+            </div>
           </div>
       
-          <img class="p78-illust" data-src="../assets/P78-illust.png" alt="뉴스·블로그 리서치 → 공시·주식 확인 → 문서로 저장 → 뜻으로 검색·회수, 4칸 시장 모니터링 플로우">
-      
-          <div class="p78-note">
-            <svg class="s-ic" viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
-            새 소식 없어도 <span class="hl">'이번 주 새 동향 없음'</span>을 남긴다
+          <div class="side">
+            <div class="lead">이 날들에<br>곁들여</div>
+            <div class="scard">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+              <div><div class="t">주말 전시·공연 추천</div><div class="d">100일에 갈 만한 곳, 근처로 3곳</div></div>
+            </div>
+            <div class="scard warm">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 7.4H22l-6 4.5 2.3 7.1-6.3-4.6L5.7 21l2.3-7.1-6-4.5h7.6z"/></svg>
+              <div><div class="t">오늘의 관계 타로</div><div class="d">가볍게 곁들이는 하루의 재미</div></div>
+            </div>
           </div>
       
           <div class="keymsg">
-            <span class="tag">KEY</span>
-            <span class="body">리서치 외주 없이 <span class="acc">'시장 조사 담당자'</span> 한 명</span>
+            <span class="tag">⑥ 관계</span>
+            <span class="body">도구가 아니라 <span class="acc">곁의 존재</span> — 챙길 날을 하나도 안 놓치게 같이 센다</span>
           </div>
       
           <div class="s-footer">
@@ -3807,55 +3938,72 @@
           </div>
         </section>
 
-      <!-- P79.html -->
-      <section data-idx="79" class="slide light" id="P79">
+      <!-- P80.html -->
+      <section data-idx="79" class="slide light" id="P80">
           <style>
-            #P79 .s-title{ font-size:64px; }
+            #P80 .s-eyebrow{ left:120px; top:118px; }
+            #P80 .s-title{ top:158px; font-size:66px; }
+            #P80 .ex{ position:absolute; right:120px; top:118px; font-size:22px; font-weight:800; color:var(--muted);
+              border:1.5px solid var(--rule); border-radius:999px; padding:7px 18px; }
+            #P80 .lead{ position:absolute; left:120px; top:290px; font-size:27px; font-weight:700; color:var(--muted); }
+            #P80 .lead b{ color:var(--c1); font-weight:800; }
       
-            #P79 .p79-cards{ position:absolute; left:120px; top:300px; width:760px;
-              display:flex; flex-direction:column; gap:26px; }
-            #P79 .p79-card{ border:1px solid var(--rule); border-radius:16px; background:#fff;
-              display:flex; align-items:center; gap:22px; padding:22px 28px; }
-            #P79 .p79-ic{ width:64px; height:64px; border-radius:50%; background:var(--c2-soft); color:var(--c2);
-              display:flex; align-items:center; justify-content:center; flex:none; }
-            #P79 .p79-ic .s-ic{ width:32px; height:32px; }
-            #P79 .p79-txt{ flex:1 1 auto; font-size:32px; font-weight:700; color:var(--text); line-height:1.28; }
-            #P79 .p79-tag{ flex:none; }
+            #P80 .grid{ position:absolute; left:120px; top:352px; width:1680px;
+              display:grid; grid-template-columns:repeat(3,1fr); gap:28px; }
+            #P80 .app{ background:#fff; border:1px solid var(--rule); border-radius:20px; padding:26px 30px;
+              box-shadow:0 8px 26px rgba(0,0,0,.06); }
+            #P80 .app .hd{ display:flex; align-items:center; gap:14px; margin-bottom:12px; }
+            #P80 .app .ic{ width:52px; height:52px; border-radius:14px; flex:none; display:flex; align-items:center; justify-content:center;
+              background:var(--ac-soft); color:var(--ac); }
+            #P80 .app .ic svg{ width:30px; height:30px; }
+            #P80 .app .nm{ font-size:23px; font-weight:800; color:var(--ac); }
+            #P80 .app .do{ font-size:26px; font-weight:700; color:var(--text); line-height:1.32; }
+            #P80 .app .do b{ font-weight:800; }
+            #P80 .app.a1{ --ac:var(--c1); --ac-soft:var(--c1-soft); }
+            #P80 .app.a2{ --ac:var(--c2); --ac-soft:var(--c2-soft); }
+            #P80 .app.a3{ --ac:var(--c3-deep); --ac-soft:var(--c3-soft); }
       
-            #P79 .keymsg{ position:absolute; left:120px; top:660px; width:760px; bottom:auto;
-              background:var(--c1-soft); flex-direction:column; align-items:flex-start; gap:8px; padding:28px 32px; }
-            #P79 .keymsg .body{ font-size:34px; font-weight:700; color:var(--text); line-height:1.34; }
-            #P79 .keymsg .acc{ color:var(--c1); font-weight:800; }
-      
-            /* 우측 일러스트 crop (ChatGPT 시안 = 디자이너 배치 유지) — 캘린더/서버/달·노트북/시계 주간루프 */
-            #P79 .illust{ position:absolute; left:1183px; top:172px; width:737px; height:auto; }
+            #P80 .keymsg{ bottom:112px; }
+            #P80 .keymsg .body{ font-size:36px; font-weight:700; color:var(--text); }
+            #P80 .keymsg .acc{ color:var(--c1); font-weight:800; }
           </style>
       
-          <h1 class="s-title">사례 ③ — 반복 운영·돈 관리를 예약으로</h1>
+          <div class="s-eyebrow">사례 ④ · 반려견 보호자 예린(34)</div>
+          <h1 class="s-title">여섯 개 앱이, <span class="acc">하나의 하루로</span></h1>
+          <div class="ex">예시 시나리오</div>
       
-          <div class="p79-cards">
-            <div class="p79-card">
-              <div class="p79-ic"><svg class="s-ic" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg></div>
-              <div class="p79-txt">'계약·입금' 메일 즉시</div>
-              <span class="chip chip--ter p79-tag">토큰 0</span>
+          <div class="lead">말 못 하는 가족 ‘코코’의 챙김을 — <b>여러 앱에 흩지 않고</b> 수지 한 명에게</div>
+      
+          <div class="grid">
+            <div class="app a1">
+              <div class="hd"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></div><span class="nm">D-day</span></div>
+              <div class="do">종합백신 접종 <b>D-5</b> · 회차별 알림</div>
             </div>
-            <div class="p79-card">
-              <div class="p79-ic"><svg class="s-ic" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
-              <div class="p79-txt">인보이스 말일 알림</div>
-              <span class="chip chip--ter p79-tag">토큰 0</span>
+            <div class="app a2">
+              <div class="hd"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/><path d="M17 3l4 4"/></svg></div><span class="nm">반복 알림</span></div>
+              <div class="do">매달 5일 <b>심장사상충약</b> 자동 알림</div>
             </div>
-            <div class="p79-card">
-              <div class="p79-ic"><svg class="s-ic" viewBox="0 0 24 24"><path d="M20 12V8H6a2 2 0 0 1 0-4h12v4"/><path d="M4 6v12a2 2 0 0 0 2 2h14v-4"/><path d="M18 12a2 2 0 0 0 0 4h4v-4z"/></svg></div>
-              <div class="p79-txt">정기 지출 자동 기록</div>
-              <span class="chip chip--ter p79-tag">토큰 0</span>
+            <div class="app a3">
+              <div class="hd"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div><span class="nm">도서관 · 3축</span></div>
+              <div class="do">진료·처방 기록 <b>시간순 저장</b></div>
+            </div>
+            <div class="app a2">
+              <div class="hd"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg></div><span class="nm">지도</span></div>
+              <div class="do">지금 문 연 <b>야간 동물병원</b> 3곳</div>
+            </div>
+            <div class="app a1">
+              <div class="hd"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg></div><span class="nm">가계부</span></div>
+              <div class="do">이번달 <b>반려 지출</b> 병원·사료 분류</div>
+            </div>
+            <div class="app a3">
+              <div class="hd"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M1 12h2M21 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"/></svg></div><span class="nm">아침 브리핑</span></div>
+              <div class="do">오늘 <b>코코 챙길 것</b> 한 줄로</div>
             </div>
           </div>
       
-          <img class="illust" data-src="../assets/P79-illust.png" alt="세 카드에서 화살표로 이어지는 서버 랙, 위로 캘린더(반복), 오른쪽 아래로 이어지는 달+노트북(휴가), 아래 시계, 서버 옆 '토큰 0' 태그 — 주간 자동화 루프">
-      
           <div class="keymsg">
-            <span class="tag">KEY</span>
-            <span class="body">한 번 시켜두면 <span class="acc">휴가 가도 운영이 돈다</span> (토큰 0)</span>
+            <span class="tag">③⑤ 오케스트레이션</span>
+            <span class="body">어려운 걸 대신 조합 — <span class="acc">비개발자도 실세계 앱 다발을</span> 한 번에 부린다</span>
           </div>
       
           <div class="s-footer">
@@ -3864,35 +4012,35 @@
           </div>
         </section>
 
-      <!-- P80.html -->
-      <section data-idx="80" class="slide light" id="P80">
+      <!-- P81.html -->
+      <section data-idx="80" class="slide light" id="P81">
           <style>
-            #P80 .badge{ position:absolute; left:120px; top:96px;
+            #P81 .badge{ position:absolute; left:120px; top:96px;
               display:inline-flex; align-items:center; gap:12px;
               background:var(--c1); color:#fff; font-weight:800; font-size:30px;
               padding:12px 28px; border-radius:999px; letter-spacing:.01em; }
-            #P80 .s-title{ top:168px; font-size:64px; }
+            #P81 .s-title{ top:168px; font-size:64px; }
       
-            #P80 .steps{ position:absolute; left:120px; top:300px; width:940px;
+            #P81 .steps{ position:absolute; left:120px; top:300px; width:940px;
               display:flex; flex-direction:column; gap:30px; }
-            #P80 .step{ display:flex; gap:22px; align-items:flex-start; }
-            #P80 .step .num{ width:56px; height:56px; border-radius:50%; flex:none;
+            #P81 .step{ display:flex; gap:22px; align-items:flex-start; }
+            #P81 .step .num{ width:56px; height:56px; border-radius:50%; flex:none;
               background:var(--c1); color:#fff; font-weight:800; font-size:28px;
               display:flex; align-items:center; justify-content:center; margin-top:2px; }
-            #P80 .step .txt{ font-size:36px; font-weight:600; line-height:1.35; color:var(--text); }
-            #P80 .step .txt .sub{ display:block; font-size:26px; font-weight:500; color:var(--muted); margin-top:4px; }
+            #P81 .step .txt{ font-size:36px; font-weight:600; line-height:1.35; color:var(--text); }
+            #P81 .step .txt .sub{ display:block; font-size:26px; font-weight:500; color:var(--muted); margin-top:4px; }
       
-            #P80 .obs-label{ position:absolute; left:120px; top:700px; font-size:24px;
+            #P81 .obs-label{ position:absolute; left:120px; top:700px; font-size:24px;
               font-weight:700; color:var(--muted); letter-spacing:.02em; }
-            #P80 .obs-row{ position:absolute; left:120px; top:744px; width:940px;
+            #P81 .obs-row{ position:absolute; left:120px; top:744px; width:940px;
               display:flex; flex-wrap:wrap; gap:16px; }
       
-            #P80 .shots{ position:absolute; left:1140px; top:300px; width:560px;
+            #P81 .shots{ position:absolute; left:1140px; top:300px; width:560px;
               display:flex; flex-direction:column; gap:28px; }
-            #P80 .shotcard{ width:560px; height:230px; border-radius:18px;
+            #P81 .shotcard{ width:560px; height:230px; border-radius:18px;
               background:#FBFAF7; border:2px dashed var(--rule);
               display:flex; align-items:center; justify-content:center; }
-            #P80 .shotcard .lbl{ font-family:'SFMono-Regular',ui-monospace,Menlo,monospace;
+            #P81 .shotcard .lbl{ font-family:'SFMono-Regular',ui-monospace,Menlo,monospace;
               font-size:28px; font-weight:700; color:var(--muted); letter-spacing:.01em; }
           </style>
       
@@ -3924,55 +4072,8 @@
           </div>
         </section>
 
-      <!-- P81.html -->
-      <section data-idx="81" class="slide light" id="P81">
-          <style>
-            #P81 .s-body{ width:940px; }
-            #P81 .s-bullet .ic{ width:56px; height:56px; border-radius:50%; flex:none;
-              background:var(--c1-soft); color:var(--c1); display:flex; align-items:center; justify-content:center;
-              margin-top:0; }
-            #P81 .s-bullet .ic svg{ width:30px; height:30px; }
-            #P81 .s-bullet .btxt2{ font-weight:400; line-height:1.444; }
-      
-            #P81 .shot{ position:absolute; left:1140px; top:300px; width:560px; height:540px;
-              border-radius:18px; background:#FBFAF7; border:2px dashed var(--rule);
-              display:flex; align-items:center; justify-content:center; }
-            #P81 .shot .lbl{ font-family:'SFMono-Regular',ui-monospace,Menlo,monospace;
-              font-size:28px; font-weight:700; color:var(--muted); letter-spacing:.01em; text-align:center; }
-          </style>
-      
-          <h1 class="s-title">수지를 '눈으로' 본다 + 안전하게</h1>
-      
-          <div class="s-body">
-            <div class="s-bullet">
-              <span class="ic"><svg viewBox="0 0 24 24" class="s-ic"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></span>
-              <span class="btxt2"><span class="acc">보이게</span> — 서재 · 일정 · 예약 · 활동 대시보드</span>
-            </div>
-            <div class="s-bullet">
-              <span class="ic"><svg viewBox="0 0 24 24" class="s-ic"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg></span>
-              <span class="btxt2"><span class="acc">분석되게</span> — 활동 기록 감사 추적</span>
-            </div>
-            <div class="s-bullet">
-              <span class="ic"><svg viewBox="0 0 24 24" class="s-ic"><path d="M12 2 4 6v6c0 5 3.5 8.5 8 10 4.5-1.5 8-5 8-10V6l-8-4z"/></svg></span>
-              <span class="btxt2"><span class="acc">안전하게</span> — 메일 저장 안 함 · 비밀 금고 · 칸 분리</span>
-            </div>
-          </div>
-      
-          <div class="shot"><span class="lbl">/connected<br>대시보드</span></div>
-      
-          <div class="keymsg">
-            <span class="tag">KEY</span>
-            <span>나만의 자비스를 시키되 — <span class="acc">보이게</span>, <span class="acc">분석되게</span>, <span class="acc">안전하게</span></span>
-          </div>
-      
-          <div class="s-footer">
-            <span>에이전트 수지 · sooji.ai</span>
-            <span class="s-pagenum">82</span>
-          </div>
-        </section>
-
       <!-- P82.html -->
-      <section data-idx="82" class="slide light" id="P82">
+      <section data-idx="81" class="slide light" id="P82">
           <style>
             #P82 .chainrow{ position:absolute; left:120px; top:70px; width:1680px;
               display:flex; align-items:center; gap:14px; }
@@ -4228,7 +4329,52 @@
   addEventListener('resize', fit);
   if (window.visualViewport) visualViewport.addEventListener('resize', fit); // 브라우저 줌/핀치 변화에도 재적합
   addEventListener('pageshow', fit);                                          // bfcache 복원 시 재적합
+  // ── Cmd/Ctrl+S = 편집본을 자체완결 .html 1파일로 다운로드 (Pages에서 수정→바로 저장) ──
+  // 라이브 DOM(텍스트 편집·매직지우개 base64 포함)을 직렬화 + slides.css/components.css 인라인 + 모든 이미지 base64.
+  // 주의: 지우개는 외부 vendor(ONNX)가 필요해 다운로드본에선 '새로 지우기' 불가(이미 지운 건 base64로 유지). 기본편집은 됨.
+  async function exportSelfContained(){
+    const toast = document.createElement('div');
+    toast.className = 'export-toast';
+    toast.style.cssText = 'position:fixed;left:50%;top:50%;transform:translate(-50%,-50%);z-index:99999;background:#141417;color:#fff;padding:22px 34px;border-radius:14px;font:600 20px/1.4 sans-serif;box-shadow:0 12px 40px rgba(0,0,0,.4)';
+    toast.textContent = '다운로드 준비 중… 이미지 인라인';
+    document.body.appendChild(toast);
+    try {
+      // 1) 모든 슬라이드 이미지 강제 로드 + 대기
+      document.querySelectorAll('img[data-src]').forEach(im => { if (!im.getAttribute('src')) im.src = im.getAttribute('data-src'); });
+      const imgs = [...document.querySelectorAll('img')];
+      await Promise.all(imgs.map(im => (im.complete && im.naturalWidth) ? 0 : new Promise(r => { im.onload = im.onerror = r; })));
+      // 2) 외부 이미지 → base64 (data:면 그대로 = 지우개 결과 보존)
+      const cache = new Map();
+      const toDataURL = async (u) => { if (cache.has(u)) return cache.get(u); const r = await fetch(u); const b = await r.blob(); const d = await new Promise(rs => { const f = new FileReader(); f.onload = () => rs(f.result); f.readAsDataURL(b); }); cache.set(u, d); return d; };
+      // 3) CSS 인라인 (slides.css + @import components.css)
+      let cssText = '';
+      try { const link = document.querySelector('link[rel="stylesheet"]'); if (link) { const base = new URL(link.getAttribute('href'), location.href); const scss = await (await fetch(base)).text(); const comp = await (await fetch(new URL('components.css', base))).text(); cssText = comp + '\n' + scss.replace(/@import[^;]+;/g, ''); } } catch (err) {}
+      // 4) clone + 치환
+      const root = document.documentElement.cloneNode(true);
+      const link2 = root.querySelector('link[rel="stylesheet"]');
+      if (link2 && cssText) { const st = document.createElement('style'); st.textContent = cssText; link2.replaceWith(st); }
+      for (const im of [...root.querySelectorAll('img')]) {
+        let s = im.getAttribute('src') || im.getAttribute('data-src'); if (!s) continue;
+        if (s.startsWith('data:')) { im.setAttribute('src', s); im.removeAttribute('data-src'); continue; }
+        try { im.setAttribute('src', await toDataURL(new URL(s, location.href).href)); im.removeAttribute('data-src'); } catch (err) {}
+      }
+      // E모드 잔재 정리(.cur는 유지 — 초기 표시)
+      root.querySelectorAll('[contenteditable]').forEach(el => el.removeAttribute('contenteditable'));
+      root.querySelectorAll('.sel').forEach(el => el.classList.remove('sel'));
+      const bd = root.querySelector('body'); if (bd) bd.classList.remove('editing', 'erasing', 'show-guide');
+      root.querySelectorAll('.export-toast').forEach(el => el.remove()); // 다운로드 토스트가 clone에 섞이지 않게
+      // 5) 다운로드
+      const html = '<!doctype html>\n' + root.outerHTML;
+      const blob = new Blob([html], { type: 'text/html' });
+      const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'ax-lecture-deck.html'; a.click();
+      setTimeout(() => URL.revokeObjectURL(a.href), 8000);
+      toast.textContent = '다운로드 완료 · ' + Math.max(1, Math.round(html.length / 1048576)) + 'MB';
+    } catch (err) { toast.textContent = '실패: ' + (err && err.message || err); }
+    setTimeout(() => toast.remove(), 2600);
+  }
+
   addEventListener('keydown', e => {
+    if ((e.metaKey || e.ctrlKey) && (e.key === 's' || e.key === 'S')) { e.preventDefault(); exportSelfContained(); return; } // Cmd/Ctrl+S = 자체완결 다운로드
     if (document.activeElement && document.activeElement.isContentEditable) return; // 텍스트 편집 중엔 타이핑
     // ── 페이지 이동 모드: 화살표=슬라이드 재배치, Enter/Esc/M=내려놓기 ──
     if (moveMode) {
