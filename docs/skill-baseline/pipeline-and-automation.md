@@ -120,3 +120,14 @@ _pw.js: playwright 바이너리 없이 npx 캐시에서 모듈 경로 해석(vmu
   - 원본 자산은 `generated/<Pxx>.png`(풀 슬라이드), `assets/<Pxx>-illust.png`는 이미 크롭된 파생본일 수 있음 → 안 잘린 원본이 필요하면 `generated/`를 imgframe로 크롭해 쓴다.
 - 출력: `@media print`(Cmd+P=현재 1장) + `deck-pdf.js`(전체 벡터 PDF) + 글로벌 `~/.claude/scripts/html2pdf.cjs`.
 - 편집 규율: 글로벌 룰 `live-edit-persistence-discipline`·`browser-extension-file-vs-http`.
+
+### 4.1 GitHub Pages 배포 (라이브: https://ww-w-ai.github.io/ax-lecture/html/deck.html)
+
+- 소스: `main` 브랜치 root, legacy(Jekyll) 빌드. push하면 자동 재빌드(수분).
+- **`.nojekyll` 필수(루트).** 없으면 `_img-backup/` 등 언더스코어 경로에서 Jekyll 빌드가 `errored`.
+- **정책: git = read-only 스타팅포인트.** pull 받은 사용자가 로컬에서 자기 AI와 save-live-edits로 편집·저장. Pages/git에서 save-back 구현 X.
+- **매직지우개 vendor 경로 = 상대경로 + `wasmPaths` 미설정 (MUST — 두 번 물린 함정, 2026-07-06):**
+  1. **절대경로(`/html/vendor/...`) 금지** — Pages 서브패스(`/ax-lecture/`)에서 깨짐. `./vendor/ort/ort.wasm.min.js`, `./vendor/migan_pipeline_v2.onnx`로 문서 기준 상대.
+  2. **`ort.env.wasm.wasmPaths`는 절대 세팅하지 말 것.** ORT는 wasmPaths를 문서가 아니라 **자기 스크립트(ort.wasm.min.js) 위치 기준**으로 해석 → `./vendor/ort/`를 붙이면 `vendor/ort/vendor/ort/`로 이중화돼 `.mjs` 404. 미설정 시 ORT가 스크립트 형제 파일을 자동 탐색(정상). `numThreads=1`만 유지.
+  3. crossOriginIsolated=false여도 무관(numThreads=1 = 비공유 메모리, SharedArrayBuffer 불필요).
+  - 검증: 헤드리스로 라이브 URL 재현 → `InferenceSession.create` 성공(inputs=image,mask)이면 OK.
