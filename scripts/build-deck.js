@@ -269,6 +269,8 @@ const deck = `<!doctype html>
       box-shadow:none !important; overflow:visible !important; background:#fff !important; }
     #track { position:static !important; display:block !important; width:1920px !important; height:auto !important;
       transform:none !important; transition:none !important; }
+    /* 인쇄에선 모든 그림자 제거 — 드롭섀도(.imgframe 등)가 회색 번짐으로 렌더됨 */
+    #track *, #print-pages * { box-shadow:none !important; }
     /* 기본(Cmd+P): 현재 슬라이드(.cur) 1장만 표시 */
     #track > .slide { display:none !important; }
     #track > .slide.cur { display:block !important; width:1920px !important; height:1080px !important;

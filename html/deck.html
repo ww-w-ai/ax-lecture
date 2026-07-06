@@ -122,6 +122,8 @@
       box-shadow:none !important; overflow:visible !important; background:#fff !important; }
     #track { position:static !important; display:block !important; width:1920px !important; height:auto !important;
       transform:none !important; transition:none !important; }
+    /* 인쇄에선 모든 그림자 제거 — 드롭섀도(.imgframe 등)가 회색 번짐으로 렌더됨 */
+    #track *, #print-pages * { box-shadow:none !important; }
     /* 기본(Cmd+P): 현재 슬라이드(.cur) 1장만 표시 */
     #track > .slide { display:none !important; }
     #track > .slide.cur { display:block !important; width:1920px !important; height:1080px !important;
@@ -1729,7 +1731,7 @@
             </div>
           </div>
       
-          <div class="imgframe agents"><img data-src="../generated/P48.png?v=1783085642950" style="width:1406px; left:-594px; top:-24px;" alt="자연어 요청을 중심으로 8종 전문가 에이전트가 원형으로 자동 배치되는 다이어그램"></div>
+          <div class="imgframe agents"><img data-src="../generated/P48.png?v=1783283748367" style="width:1406px; left:-594px; top:-24px;" alt="자연어 요청을 중심으로 8종 전문가 에이전트가 원형으로 자동 배치되는 다이어그램"></div>
           <!-- 크롭 좌측 가장자리 가리개(편집기 덮개) -->
           <div style="position:absolute; left:1024px; top:244px; width:21px; height:122px; background:#fff; z-index:20;"></div>
       
@@ -1810,8 +1812,8 @@
       
           <h1 class="s-title">완벽을 향한 <span class="acc">3중 검증</span>:<br>정적 · 동적 · 구조화</h1>
       
-          <div class="imgframe rows"><img data-src="../generated/P46.png?v=1783079435598" style="width:1778px; left:-42px; top:-221px;" alt="01 정적 /code-review · 02 동적 /zero-script-qa · 03 구조화 /qa-phase(L1 단위~L5 데이터플로우)"></div>
-          <div class="imgframe qa"><img data-src="../generated/P46.png?v=1783079435598" style="width:1564px; left:-1021px; top:-45px;" alt="QA Team(qa-lead)이 test-planner·test-generator·monitor·debug-analyst와 sprint-qa-flow로 3중 검증을 팀 분업 수행"><div class="patch" data-rl="0.6662404092071611" data-rt="0.05113636363636364" data-rw="0.023017902813299233" data-rh="0.29318181818181815" style="left:21px; top:0px; width:36px; height:258px; background:#fff;"></div><div class="patch" data-rl="0.9514066496163683" data-rt="0.05113636363636364" data-rw="0.023657289002557546" data-rh="0.29318181818181815" style="left:467px; top:0px; width:37px; height:258px; background:#fff;"></div></div>
+          <div class="imgframe rows"><img data-src="../generated/P46.png?v=1783283750112" style="width:1778px; left:-42px; top:-221px;" alt="01 정적 /code-review · 02 동적 /zero-script-qa · 03 구조화 /qa-phase(L1 단위~L5 데이터플로우)"></div>
+          <div class="imgframe qa"><img data-src="../generated/P46.png?v=1783283750112" style="width:1564px; left:-1021px; top:-45px;" alt="QA Team(qa-lead)이 test-planner·test-generator·monitor·debug-analyst와 sprint-qa-flow로 3중 검증을 팀 분업 수행"><div class="patch" data-rl="0.6662404092071611" data-rt="0.05113636363636364" data-rw="0.023017902813299233" data-rh="0.29318181818181815" style="left:21px; top:0px; width:36px; height:258px; background:#fff;"></div><div class="patch" data-rl="0.9514066496163683" data-rt="0.05113636363636364" data-rw="0.023657289002557546" data-rh="0.29318181818181815" style="left:467px; top:0px; width:37px; height:258px; background:#fff;"></div></div>
           <div class="pyfix">
             <div class="patch" style="left:4px; top:5px; width:150px; height:30px;"></div>
             <div class="patch" style="left:4px; top:36px; width:150px; height:30px;"></div>
@@ -2915,7 +2917,7 @@
               background:var(--c1);border-radius:4px;}
           </style>
       
-          <img class="s-bg" data-src="../generated/P62.png?v=1783190936218" alt="">
+          <img class="s-bg" data-src="../generated/P62.png?v=1783283748259" alt="">
           <div class="topgrad"></div>
           <div class="botgrad"></div>
       
@@ -2969,7 +2971,7 @@
             #P63 .concl .txt b{ color:#7FB2FF; }
           </style>
       
-          <img class="s-bg" data-src="../generated/P63.png?v=1783236088472" alt="">
+          <img class="s-bg" data-src="../generated/P63.png?v=1783283747739" alt="">
       
           <h1 class="s-title">지금, <span class="nm">이만큼</span> 쓰인다</h1>
           <div class="s-eye">오픈클로 vs 헤르메스 · 깃헙 · OpenRouter 기준</div>
@@ -3050,7 +3052,7 @@
             #Pcases .bridge .txt b{ color:#FF9E9E; }
           </style>
       
-          <img class="s-bg" data-src="../generated/Pcases.png?v=1783257473406" alt="">
+          <img class="s-bg" data-src="../generated/Pcases.png?v=1783283750003" alt="">
       
           <h1 class="s-title">이래서 쓴다 — <span class="acc">실제로, 이런 일을 해냈다</span></h1>
           <div class="s-sub">막연한 유행이 아니라 — <b>에이전트에게 시켜서 낸 진짜 성과</b></div>
@@ -3152,7 +3154,7 @@
             #P64 .kmline::before{content:'';position:absolute;left:0;top:5px;bottom:5px;width:8px;background:#FF6B6B;border-radius:4px;}
           </style>
       
-          <img class="s-bg" data-src="../generated/P64.png?v=1783191060409" alt="">
+          <img class="s-bg" data-src="../generated/P64.png?v=1783283746854" alt="">
       
           <div class="title">하지만... 이렇게 <b>위험하게 운영</b>되고 있는 걸 알았나요?</div>
       
@@ -3225,7 +3227,7 @@
             #P65 .concl .arrow{ margin-left:14px; font-size:34px; font-weight:700; color:var(--muted); }
           </style>
       
-          <img class="s-bg" data-src="../generated/P65.png?v=1783231327426" alt="">
+          <img class="s-bg" data-src="../generated/P65.png?v=1783283746524" alt="">
       
           <h1 class="s-title">위험을 피해도 — <span class="em">운영이 어렵다</span></h1>
           <div class="s-eye">서비스를 사용하는게 아니라 스스로 설치해서 구축하는 '셀프 운영' 의 관점</div>
