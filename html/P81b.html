@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>P81b — 실습: 챗지피티에 수지 연결</title>
+<link rel="stylesheet" href="slides.css">
+</head>
+<body>
+<div class="fit">
+  <!-- P81b [실습·설치 챗지피티] 스크린샷 크게 + 푸터 복원(이미지 축소). 뱃지='설치', 캡션 26px -->
+  <section class="slide light" id="P81b">
+          <style>
+            #P81b .badge{ position:absolute; left:120px; top:60px;
+              background:var(--c1); color:#fff; font-weight:800; font-size:26px;
+              padding:10px 24px; border-radius:999px; letter-spacing:.01em; }
+            #P81b .s-title{ top:118px; font-size:52px; }
+            #P81b .server{ position:absolute; left:120px; top:200px; display:flex; align-items:center; gap:14px; flex-wrap:wrap; }
+            #P81b .server .k{ font-size:21px; font-weight:700; color:var(--muted); }
+            #P81b .server .url{ font-family:'JetBrains Mono',ui-monospace,Menlo,monospace;
+              font-size:24px; font-weight:700; color:var(--c1); background:var(--c1-soft); padding:5px 15px; border-radius:9px; }
+            #P81b .server .login{ font-size:21px; font-weight:700; color:var(--text); }
+            #P81b .server .login b{ color:var(--c2-deep); }
+      
+            #P81b .shots{ position:absolute; left:120px; top:258px; width:1680px;
+              display:flex; gap:52px; align-items:flex-start; justify-content:center; }
+            #P81b .fig{ display:flex; flex-direction:column; gap:12px; align-items:center; }
+            #P81b .fig img{ height:632px; width:auto; border-radius:16px; border:1px solid var(--rule); box-shadow:0 14px 38px rgba(0,0,0,.13); }
+            #P81b .fig .cap{ font-size:26px; font-weight:800; color:var(--text); }
+            #P81b .fig .cap b{ color:var(--c1); }
+          </style>
+      
+          <div class="badge">설치</div>
+          <h1 class="s-title"><span style="color:var(--c1)">챗지피티</span>에 수지 연결하기</h1>
+      
+          <div class="server" style="inset: 200px auto auto 120px;">
+            <span class="k"><span style="font-size: 25px;">서버 주소</span></span>
+            <span class="url">https://mcp.sooji.ai/mcp</span>
+            <span class="login"><span style="font-size: 25px;">· 로그인 = <b>구글 · 깃헙</b></span><b></b></span>
+          </div>
+      
+          <div class="shots" style="inset: 258px auto auto 120px; font-size: 28px;">
+            <div class="fig">
+              <img alt="설정 앱 화면 — 앱 만들기 버튼" src="../assets/chatgpt-mcp-1.png">
+              <div class="cap"><b></b><span style="font-size: 28px;"><b>①</b> 설정 → 앱 → 고급 설정 -&gt; 개발자 모드 켜기 -&gt; 앱 만들기</span></div>
+            </div>
+            <div class="fig">
+              <img alt="새 앱 모달 — 이름·서버 URL·OAuth" src="../assets/chatgpt-mcp-2.png">
+              <div class="cap"><b></b><span style="font-size: 28px;"><b>②</b> 이름 '수지' · 서버 URL → 동의 &amp; 만들기</span></div>
+            </div>
+          </div>
+      
+          <!-- 덮개(patch) — 오른쪽 스크린샷 좌측 경계/스크롤바 세로선 가림 (이미지 632px 기준 재계산) -->
+          <div class="patch" style="position:absolute;z-index:20;left:1155px;top:332px;width:7px;height:440px;background:#ebebeb;"></div>
+      
+          <div class="s-footer">
+            <span>에이전트 수지 · sooji.ai</span>
+            <span class="s-pagenum">82</span>
+          </div>
+        </section>
+</div>
+</body>
+</html>

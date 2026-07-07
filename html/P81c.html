@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>P81c — 실습: 지금 하나 시켜보기</title>
+<link rel="stylesheet" href="slides.css">
+</head>
+<body>
+<div class="fit">
+  <!-- P81c [실습·예제] P29 템플릿 — 실제 배포본에서 작동 검증된 예시만(카카오맵·네이버블로그·검색·저장·브리핑) -->
+  <section class="slide light" id="P81c">
+    <style>
+      #P81c .badge{ position:absolute; left:120px; top:96px;
+        display:inline-flex; align-items:center; gap:12px;
+        background:var(--c1); color:#fff; font-weight:800; font-size:30px;
+        padding:12px 28px; border-radius:999px; letter-spacing:.01em; }
+      #P81c .s-title{ top:168px; font-size:66px; }
+
+      #P81c .qa{ position:absolute; left:120px; top:300px; width:1680px;
+        display:flex; flex-direction:column; gap:22px; }
+      #P81c .row{ display:grid; grid-template-columns:58px 1fr; column-gap:26px; align-items:center; }
+      #P81c .ord{ width:52px; height:52px; border-radius:50%; background:var(--c1); color:#fff;
+        font-weight:800; font-size:28px; display:flex; align-items:center; justify-content:center; }
+      #P81c .q{ display:flex; align-items:center; gap:20px;
+        background:#FAF8F5; border:2px solid #E7E3DC; border-radius:999px; padding:14px 22px; }
+      #P81c .q .qt{ flex:1; color:var(--text); font-weight:500; font-size:28px; line-height:1.34; }
+      #P81c .q .qt b{ font-weight:800; color:var(--c1); }
+      #P81c .chip{ display:inline-flex; align-items:center; vertical-align:middle;
+        padding:4px 16px; border-radius:999px; font-weight:800; font-size:22px;
+        letter-spacing:.01em; margin-right:14px; position:relative; top:-2px; }
+      #P81c .chip.real{ background:var(--c2-soft); border:2px solid var(--c2); color:var(--c2-deep); }
+      #P81c .chip.auto{ background:var(--c3-soft); border:2px solid var(--c3); color:var(--c3-deep); }
+      #P81c .chip.lib{  background:var(--c1-soft); border:2px solid var(--c1); color:var(--c1-deep); }
+      #P81c .q::before{ content:"+"; flex:none; width:44px; height:44px; border-radius:50%;
+        background:#EDEAE3; color:#666; font-size:30px; font-weight:400;
+        display:flex; align-items:center; justify-content:center; line-height:1; padding-bottom:3px; }
+      #P81c .q::after{ content:"➤"; flex:none; width:48px; height:48px; border-radius:50%;
+        background:#E8845C; color:#fff; font-size:21px;
+        display:flex; align-items:center; justify-content:center; }
+    </style>
+
+    <div class="badge"><svg class="s-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.106-3.105c.32-.322.863-.22.983.218a6 6 0 0 1-8.259 7.057l-7.91 7.91a1 1 0 0 1-2.999-3l7.91-7.91a6 6 0 0 1 7.057-8.259c.438.12.54.662.219.984z"/></svg>실습</div>
+    <h1 class="s-title">지금, 하나 시켜보기</h1>
+
+    <div class="qa">
+      <div class="row">
+        <div class="ord">1</div>
+        <div class="q"><span class="qt">수지야, 내가 너를 잘 쓰게 <b>sooji_start</b> 내용 참고해서 너의 <b>사용법</b>을 에이전트/메모리로 설정해줘.</span></div>
+      </div>
+      <div class="row">
+        <div class="ord">2</div>
+        <div class="q"><span class="qt"><span class="chip real">실세계</span>수지야, 강남역 근처 <b>약국</b> 3곳 찾아줘. (거리·전화까지)</span></div>
+      </div>
+      <div class="row">
+        <div class="ord">3</div>
+        <div class="q"><span class="qt"><span class="chip real">실세계</span>수지야, 강남 <b>데이트 맛집</b> 블로그 후기 찾아줘.</span></div>
+      </div>
+      <div class="row">
+        <div class="ord">4</div>
+        <div class="q"><span class="qt"><span class="chip auto">자동화</span>수지야, 매일 아침 8시에 오늘 일정·할일 <b>브리핑</b> 보내줘.</span></div>
+      </div>
+      <div class="row">
+        <div class="ord">5</div>
+        <div class="q"><span class="qt"><span class="chip lib">서재</span>수지야, 현재까지 <b>월드컵</b> 진행상황 분석하고 우승팀 예상 <b>리포트</b> 써서 도서관에 저장해줘.</span></div>
+      </div>
+    </div>
+
+    <div class="s-footer">
+      <span>에이전트 수지 · sooji.ai</span>
+      <span class="s-pagenum">83</span>
+    </div>
+  </section>
+</div>
+</body>
+</html>
