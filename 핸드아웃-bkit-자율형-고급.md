@@ -1,7 +1,7 @@
 # 핸드아웃 — 자율형 바이브코딩 ③ 고급 (Enterprise) · 종합편
 
 > 3부작 중 3부 · 배포·자습용. **[초급] → [중급] → 고급**. 초·중급 내용을 전제하고, 그 위에 **bkit 소스 딥리서치로 파악한 모든 사실**을 쌓는다.
-> bkit(AI Native Development OS · Apache-2.0 · POPUP STUDIO) v2.1.x 소스 직접 분석 기반.
+> bkit(AI Native Development OS · Apache-2.0 · DubDubDub Corp.) v2.1.x 소스 직접 분석 기반.
 > **이 문서의 한 줄**: *고급의 목표는 "여러 기능을 무인 연쇄로 굴리되, 비가역의 안전을 손에 쥐는 것." 그러려면 내부가 어떻게 도는지 다 알아야 한다.*
 > ※ 이 문서는 **레퍼런스(사전)**다. 처음부터 끝까지 읽기보다, 필요한 절을 찾아 쓴다.
 
@@ -344,4 +344,4 @@ bkit은 `.mcp.json`으로 **읽기 전용 MCP 서버 2개**를 자동 등록. bk
 
 > **요약**: 자율형 바이브코딩의 본질은 "더 많이 자동화"가 아니라 **"박제(기획)를 단단히 하고, 검증을 다중으로 걸고, 비가역만 사람이 쥐는 것."** bkit은 그걸 PDCA 공정·11 게이트·matchRate 자가수복·Sprint 무인 연쇄·Defense-in-Depth로 구현한 Context Engineering OS다.
 
-> 출처 표기 예: *"AX Lecture by DubDubDub Corp. (ww-w.ai), prepared for an invited guest lecture at KAIST — CC BY 4.0."* bkit은 POPUP STUDIO PTE. LTD.의 오픈소스(Apache-2.0).
+> 출처 표기 예: *"AX Lecture by DubDubDub Corp. (ww-w.ai), prepared for an invited guest lecture at KAIST — CC BY 4.0."* bkit은 DubDubDub Corp.의 오픈소스(Apache-2.0).

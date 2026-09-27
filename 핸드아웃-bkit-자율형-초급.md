@@ -1,7 +1,7 @@
 # 핸드아웃 — 자율형 바이브코딩 ① 초급 (Starter)
 
 > 3부작 중 1부 · 배포·자습용. **초급 → [중급] → [고급]** 순으로 내용이 누적·심화됩니다.
-> bkit(AI Native Development OS · Apache-2.0 · POPUP STUDIO) 소스 딥리서치 기반.
+> bkit(AI Native Development OS · Apache-2.0 · DubDubDub Corp.) 소스 딥리서치 기반.
 > **이 문서의 한 줄**: *자율형(autonomous)은 "방치형"이 아니다. 초급의 목표는 "공정의 감각"을 손에 익히는 것.*
 > 명령·임계값은 bkit v2.1.x 기준 — 실행 직전 현행 확인 권장.
 
@@ -150,4 +150,4 @@ claude --permission-mode acceptEdits      # 파일 수정은 자동 허용, Bash
 
 ---
 
-> 출처 표기 예: *"AX Lecture by DubDubDub Corp. (ww-w.ai), prepared for an invited guest lecture at KAIST — CC BY 4.0."* bkit은 POPUP STUDIO PTE. LTD.의 오픈소스(Apache-2.0).
+> 출처 표기 예: *"AX Lecture by DubDubDub Corp. (ww-w.ai), prepared for an invited guest lecture at KAIST — CC BY 4.0."* bkit은 DubDubDub Corp.의 오픈소스(Apache-2.0).

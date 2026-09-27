@@ -32,7 +32,7 @@ Claude Code 위 개발 OS. 44 skills · 34 agents · 100% 오픈소스·무료.
 
 ### 실제 디테일 [코드]
 - 정식 정체 = **"Context Engineering의 코드 구현체"**. 프롬프트 엔지니어링(좋은 프롬프트 쓰기)이 아니라 **프롬프트·도구·상태를 통합해 LLM에 최적 컨텍스트를 주입하는 시스템**. → 강의 서사(2025 프롬프트 → 2026 콘텍스트·멀티턴·state)와 정확히 맞물림.
-- 라이선스 **Apache-2.0**, 저작 **POPUP STUDIO** (README 뱃지). CC 요구 버전 뱃지 = **v2.1.143+**.
+- 라이선스 **Apache-2.0**, 저작 **DubDubDub Corp.** (README 뱃지). CC 요구 버전 뱃지 = **v2.1.143+**.
 - **전체 규모 (v2.1.22, README 실측)** [코드]:
   - **44 skills · 34 agents · 21 hook events / 24 blocks · 2 MCP 서버(19 tools, 전부 읽기전용) · 약 190 lib 모듈(22 서브디렉토리) · 61 scripts · 40 templates · 118+ 테스트파일 / 4,000+ 케이스.**
 - **3대 철학**: **Automation First**(명령 몰라도 AI가 공정 적용) · **No Guessing**(모르면 문서→질문, 추측 금지) · **Docs=Code**(설계 먼저, 기계가 설계-구현 대조).
