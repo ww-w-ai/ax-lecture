@@ -1,7 +1,7 @@
 # 핸드아웃 — 자율형 바이브코딩 ② 중급 (Dynamic)
 
 > 3부작 중 2부 · 배포·자습용. **[초급] → 중급 → [고급]** 순으로 누적·심화. 초급 내용을 안다고 전제하고, 그 위에 쌓는다.
-> bkit(AI Native Development OS · Apache-2.0 · POPUP STUDIO) 소스 딥리서치 기반.
+> bkit(AI Native Development OS · Apache-2.0 · DubDubDub Corp.) 소스 딥리서치 기반.
 > **이 문서의 한 줄**: *자율 폭을 넓힐수록 기획 입력의 질이 결과를 좌우한다(Garbage in, garbage out). 중급의 목표는 "팀을 부리고, 자율을 벌어서 올리는 것."*
 
 ---
@@ -222,4 +222,4 @@ bkit의 QA는 세 갈래다. 무인 비중이 클수록 전부 돌려라.
 
 ---
 
-> 출처 표기 예: *"AX Lecture by DubDubDub Corp. (ww-w.ai), prepared for an invited guest lecture at KAIST — CC BY 4.0."* bkit은 POPUP STUDIO PTE. LTD.의 오픈소스(Apache-2.0).
+> 출처 표기 예: *"AX Lecture by DubDubDub Corp. (ww-w.ai), prepared for an invited guest lecture at KAIST — CC BY 4.0."* bkit은 DubDubDub Corp.의 오픈소스(Apache-2.0).
